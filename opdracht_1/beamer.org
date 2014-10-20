@@ -1,0 +1,13 @@
+#+TITLE:     Internet of Things code deployment metrics
+#+AUTHOR:    Ward Schodts, Xavier Goás Aguililla
+#+EMAIL:     ward.schodts@student.kuleuven.be, xavier.goas@student.kuleuven.be
+#+DATE:      maandag 4 november 2013
+#+LaTeX_CLASS: beamer
+#+OPTIONS:   H:2
+#+BEAMER_THEME: Berlin [height=20pt]
+#+latex_header: \usepackage[style=authoryear,hyperref,backref,square,natbib,ibidtracker=false]{biblatex}
+#+latex_header: \bibliography{bibliography}
+#+latex_header: \usepackage[dutch]{babel}
+#+latex_header: \usepackage{graphicx}
+
+\selectlanguage{dutch}
