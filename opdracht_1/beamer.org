@@ -1,13 +1,32 @@
 #+TITLE:     Internet of Things code deployment metrics
 #+AUTHOR:    Ward Schodts, Xavier Goás Aguililla
 #+EMAIL:     ward.schodts@student.kuleuven.be, xavier.goas@student.kuleuven.be
-#+DATE:      maandag 4 november 2013
+#+DATE:      maandag 10 november 2014
+#+startup: beamer
 #+LaTeX_CLASS: beamer
 #+OPTIONS:   H:2
-#+BEAMER_THEME: Berlin [height=20pt]
+
+#+BEAMER_THEME: kuleuven [height=20pt]
+#+latex_header: \graphicspath{{graphics/}}
 #+latex_header: \usepackage[style=authoryear,hyperref,backref,square,natbib,ibidtracker=false]{biblatex}
 #+latex_header: \bibliography{bibliography}
-#+latex_header: \usepackage[dutch]{babel}
+#+latex_header: \usepackage[english]{babel}
 #+latex_header: \usepackage{graphicx}
 
-\selectlanguage{dutch}
+\selectlanguage{english}
+
+* Introduction
+** wireless sensor networks
+** sample applications
+** store, compute, transmit?
+
+* Middleware for WSNs
+** what is middleware?
+** approaches to middleware
+** LooCi
+
+* Evaluating energy use
+** oscilloscopy
+** accuracy
+
+* Conclusion
