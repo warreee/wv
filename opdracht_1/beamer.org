@@ -13,8 +13,6 @@
 #+latex_header: \usepackage[english]{babel}
 #+latex_header: \usepackage{graphicx}
 
-\selectlanguage{english}
-
 * Introduction
 ** wireless sensor networks
 ** sample applications
@@ -26,7 +24,11 @@
 ** LooCi
 
 * Evaluating energy use
-** oscilloscopy
-** accuracy
+
+** why is it important?
+** how to measure it?
+- oscilloscopy
+- accuracy
+** creating a cost model
 
 * Conclusion
