@@ -4,9 +4,10 @@
 #+DATE:      maandag 10 november 2014
 #+startup: beamer
 #+LaTeX_CLASS: beamer
+#+LaTeX_CLASS_OPTIONS: [presentation, bigger]
 #+OPTIONS:   H:2
 
-#+BEAMER_THEME: kuleuven [height=20pt]
+#+BEAMER_THEME: kuleuven
 #+latex_header: \graphicspath{{graphics/}}
 #+latex_header: \usepackage[style=authoryear,hyperref,backref,square,natbib,ibidtracker=false]{biblatex}
 #+latex_header: \bibliography{bibliography}
@@ -14,21 +15,50 @@
 #+latex_header: \usepackage{graphicx}
 
 * Introduction
-** wireless sensor networks
-** sample applications
-** store, compute, transmit?
+** Wireless sensor networks: what are they?
+- TODO hier een afbeelding zoeken en aan de hand hiervan uitleggen!
+- composed of embedded computers, or ‘motes’
+- low power radios and sensors 
+- detecting phenomena
+** Sample applications
+- military
+- environmental science
+- medicine
+- domotics
+- many more
+** The Great Duck Island experiment
+- TODO beschrijven 
+** Key aspects of good WSN design
+- energy-efficient
+- robust
+- TODO verder bij survey paper
+** Store, compute, transmit?
+- TODO 3 grote factoren in energie verbruik,
+- uitleggen dat transmitting het meeste energie verbruikt
+- Mss een grafiekje dat de verschillen duidt?
 
 * Middleware for WSNs
-** what is middleware?
-** approaches to middleware
+** What is middleware?
+- TODO uitleggen adhv een diagram
+** Approaches to middleware
+- Alternatieven uit papers( energy aware deployment en looci)
+- Types middleware
 ** LooCi
+- Kort historisch
+- Hoe werkt t. (vb vm?)
 
 * Evaluating energy use
 
-** why is it important?
-** how to measure it?
-- oscilloscopy
-- accuracy
-** creating a cost model
+** Why is it important?
+- WSN motes need to be long-lasting
+- energy efficiency is key
+** How to measure?
+- oscilloscopy!
+- use triggers in software
 
 * Conclusion
+** Conclusion
+** Bibliography
+\nocite{*}
+\printbibliography
+
