@@ -67,11 +67,12 @@
   \includegraphics[width=\textwidth,keepaspectration=true]{energy_measurement_diagram}
 ** Plotting voltage
   \includegraphics[width=0.95\textwidth,keepaspectration=true]{energy_measurement_plot}
-** Power statistics
-** How to model?
-- 
+** Power usage
+- can be derived from voltage measurements
+- can be modeled using linear regression
 
 * Conclusion
+** Where do we fit in? 
 ** Conclusion
 ** Bibliography
 \nocite{*}
