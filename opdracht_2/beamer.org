@@ -60,8 +60,16 @@
 - energy efficiency is key
 ** How to measure?
 - oscilloscopy!
+  foto/filmpje
 - use triggers in software
+- derive power usage using Ohm's law
+** Setup
+  \includegraphics[width=\textwidth,keepaspectration=true]{energy_measurement_diagram}
+** Plotting voltage
+  \includegraphics[width=0.95\textwidth,keepaspectration=true]{energy_measurement_plot}
+** Power statistics
 ** How to model?
+- 
 
 * Conclusion
 ** Conclusion
