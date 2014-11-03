@@ -19,6 +19,7 @@
 ** Wireless sensor networks: what are they?
 - TODO hier een afbeelding zoeken en aan de hand hiervan uitleggen!
 - composed of embedded computers, or ‘motes’
+  TODO foto/video van motes
 - low power radios and sensors 
 - detecting phenomena
 ** Sample applications
@@ -28,7 +29,8 @@
 - domotics
 - many more
 ** The Great Duck Island experiment
-- TODO beschrijven 
+- TODO beschrijven
+- 
 ** Key aspects of good WSN design
 - energy-efficient
 - robust
@@ -37,13 +39,16 @@
 - TODO 3 grote factoren in energie verbruik,
 - uitleggen dat transmitting het meeste energie verbruikt
 - Mss een grafiekje dat de verschillen duidt?
+- diagram van Hughes tijdens presentatie gebruiken
 
 * Middleware for WSNs
 ** What is middleware?
-- TODO uitleggen adhv een diagram
+  \includegraphics[width=\textwidth,keepaspectration=true]{middleware}
 ** Approaches to middleware
-- Alternatieven uit papers( energy aware deployment en looci)
-- Types middleware
+- application-based; ex. Contiki, Squawk
+- component-based; ex. OpenCOM, Figaro, LooCi
+  - static
+  - dynamically reconfigurable
 ** LooCi
 - Kort historisch
 - Hoe werkt t. (vb vm?)
@@ -56,6 +61,7 @@
 ** How to measure?
 - oscilloscopy!
 - use triggers in software
+** How to model?
 
 * Conclusion
 ** Conclusion
