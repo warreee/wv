@@ -7,7 +7,8 @@
 #+LaTeX_CLASS_OPTIONS: [presentation, bigger]
 #+OPTIONS:   H:2
 
-#+BEAMER_THEME: kuleuven
+#+latex_header: \usetheme{kuleuven} 
+#+latex_header: \useinnertheme{rectangles} 
 #+latex_header: \graphicspath{{graphics/}}
 #+latex_header: \usepackage[style=authoryear,hyperref,backref,square,natbib,ibidtracker=false]{biblatex}
 #+latex_header: \bibliography{bibliography}
