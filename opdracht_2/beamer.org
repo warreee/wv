@@ -12,69 +12,81 @@
 #+latex_header: \graphicspath{{graphics/}}
 #+latex_header: \usepackage[style=authoryear,hyperref,backref,square,natbib,ibidtracker=false]{biblatex}
 #+latex_header: \bibliography{bibliography}
-#+latex_header: \usepackage[english]{babel}
+#+latex_header: \usepackage[dutch]{babel}
 #+latex_header: \usepackage{graphicx}
 
-* Introduction
-** Wireless sensor networks: what are they?
+* Introductie
+** Wireless sensor networks: wat zijn ze?
 - TODO hier een afbeelding zoeken en aan de hand hiervan uitleggen!
-- composed of embedded computers, or ‘motes’
+- bestaan uit embedded computers, zgn. ‘motes’
   TODO foto/video van motes
-- low power radios and sensors 
-- detecting phenomena
-** Sample applications
-- military
-- environmental science
-- medicine
-- domotics
-- many more
-** The Great Duck Island experiment
+- uitgerust met low-power radioantennes en sensoren
+** Waarom WSNs?
+- dicht bij het te observeren fenomeen
+- makkelijk te plaatsen: simpele topologie
+- lagere kost dan traditionele systemen
+- flexibel inzetbaar
+** Toepassingen
+- militaire context
+- biologie & ecologie
+- geneeskunde
+- domotica
+- ...
+** Het Great Duck Island-experiment
 - TODO beschrijven
 - 
-** Key aspects of good WSN design
-- energy-efficient
-- robust
+** Belangrijke aspecten bij WSN design
+- energie-efficiëntie
+- robuustheid
+- autonomie
 - TODO verder bij survey paper
-** Store, compute, transmit?
-- TODO 3 grote factoren in energie verbruik,
+** Store, compute, transmit? (1)
+- drie grote factoren in energieverbruik
+  - flash-opslag
+  - CPU-operaties
+  - data-overdracht
 - uitleggen dat transmitting het meeste energie verbruikt
+** Store, compute, transmit? (2)
 - Mss een grafiekje dat de verschillen duidt?
 - diagram van Hughes tijdens presentatie gebruiken
 
-* Middleware for WSNs
-** What is middleware?
+* Middleware voor WSNs
+** Wat is middleware?
   \includegraphics[width=\textwidth,keepaspectration=true]{middleware}
-** Approaches to middleware
-- application-based; ex. Contiki, Squawk
-- component-based; ex. OpenCOM, Figaro, LooCi
-  - static
-  - dynamically reconfigurable
+** Mogelijke aanpakken
+- application-based; bv. Contiki, Squawk
+- component-based; bv. OpenCOM, Figaro, LooCi
+  - statisch
+  - dynamisch reconfigureerbaar
 ** LooCi
 - Kort historisch
 - Hoe werkt t. (vb vm?)
 
-* Evaluating energy use
+* Energieverbruik analyseren
 
-** Why is it important?
-- WSN motes need to be long-lasting
-- energy efficiency is key
-** How to measure?
-- oscilloscopy!
+** Waarom is energiegebruik belangrijk?
+- WSN-motes moeten lang meegaan
+- energie-efficiëntie is van groot belang
+** Hoe meten we het?
+- oscilloscoop
   foto/filmpje
-- use triggers in software
-- derive power usage using Ohm's law
+- software-triggers starten metingen
+- stroomverbruik analyseren met de wet van Ohm
 ** Setup
   \includegraphics[width=\textwidth,keepaspectration=true]{energy_measurement_diagram}
-** Plotting voltage
+** Voltageplot
   \includegraphics[width=0.95\textwidth,keepaspectration=true]{energy_measurement_plot}
-** Power usage
-- can be derived from voltage measurements
-- can be modeled using linear regression
+** Analyse energieverbruik
+- kan afgeleid worden met de wet van Ohm
+- kan gemodeleerd worden m.b.v. lineaire regressie
 
-* Conclusion
-** Where do we fit in? 
-** Conclusion
-** Bibliography
+* Conclusie
+** Waar komen wij in het spel? 
+- huidige aanpak in het veld: netwerk-overdracht
+- is dit wel zo?
+- implementeren tool voor simulatie energieverbruik
+** Conclusie
+** Bibliografie
 \nocite{*}
 \printbibliography
 

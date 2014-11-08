@@ -1,4 +1,4 @@
-% Created 2014-11-03 Mon 17:37
+% Created 2014-11-08 Sat 11:30
 \documentclass[presentation, bigger]{beamer}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -21,7 +21,7 @@
 \graphicspath{{graphics/}}
 \usepackage[style=authoryear,hyperref,backref,square,natbib,ibidtracker=false]{biblatex}
 \bibliography{bibliography}
-\usepackage[english]{babel}
+\usepackage[dutch, english]{babel}
 \usepackage{graphicx}
 \usetheme{default}
 \author{Ward Schodts, Xavier Goás Aguililla}
@@ -39,64 +39,83 @@
 \end{frame}
 
 
-\section{Introduction}
+\section{Introductie}
 \label{sec-1}
-\begin{frame}[label=sec-1-1]{Wireless sensor networks: what are they?}
+\begin{frame}[label=sec-1-1]{Wireless sensor networks: wat zijn ze?}
 \begin{itemize}
 \item TODO hier een afbeelding zoeken en aan de hand hiervan uitleggen!
-\item composed of embedded computers, or ‘motes’
+\item bestaan uit embedded computers, zgn. ‘motes’
 TODO foto/video van motes
-\item low power radios and sensors
-\item detecting phenomena
+\item uitgerust met low-power radioantennes en sensoren
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label=sec-1-2]{Sample applications}
+\begin{frame}[label=sec-1-2]{Waarom WSNs?}
 \begin{itemize}
-\item military
-\item environmental science
-\item medicine
-\item domotics
-\item many more
+\item dicht bij het te observeren fenomeen
+\item makkelijk te plaatsen: simpele topologie
+\item lagere kost dan traditionele systemen
+\item flexibel inzetbaar
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label=sec-1-3]{The Great Duck Island experiment}
+\begin{frame}[label=sec-1-3]{Toepassingen}
+\begin{itemize}
+\item militaire context
+\item biologie \& ecologie
+\item geneeskunde
+\item domotica
+\item \ldots{}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label=sec-1-4]{Het Great Duck Island-experiment}
 \begin{itemize}
 \item TODO beschrijven
 \item 
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label=sec-1-4]{Key aspects of good WSN design}
+\begin{frame}[label=sec-1-5]{Belangrijke aspecten bij WSN design}
 \begin{itemize}
-\item energy-efficient
-\item robust
+\item energie-efficiëntie
+\item robuustheid
+\item autonomie
 \item TODO verder bij survey paper
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label=sec-1-5]{Store, compute, transmit?}
+\begin{frame}[label=sec-1-6]{Store, compute, transmit? (1)}
 \begin{itemize}
-\item TODO 3 grote factoren in energie verbruik,
+\item drie grote factoren in energieverbruik
+\begin{itemize}
+\item flash-opslag
+\item CPU-operaties
+\item data-overdracht
+\end{itemize}
 \item uitleggen dat transmitting het meeste energie verbruikt
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label=sec-1-7]{Store, compute, transmit? (2)}
+\begin{itemize}
 \item Mss een grafiekje dat de verschillen duidt?
 \item diagram van Hughes tijdens presentatie gebruiken
 \end{itemize}
 \end{frame}
-\section{Middleware for WSNs}
+\section{Middleware voor WSNs}
 \label{sec-2}
-\begin{frame}[label=sec-2-1]{What is middleware?}
+\begin{frame}[label=sec-2-1]{Wat is middleware?}
 \includegraphics[width=\textwidth,keepaspectration=true]{middleware}
 \end{frame}
 
-\begin{frame}[label=sec-2-2]{Approaches to middleware}
+\begin{frame}[label=sec-2-2]{Mogelijke aanpakken}
 \begin{itemize}
-\item application-based; ex. Contiki, Squawk
-\item component-based; ex. OpenCOM, Figaro, LooCi
+\item application-based; bv. Contiki, Squawk
+\item component-based; bv. OpenCOM, Figaro, LooCi
 \begin{itemize}
-\item static
-\item dynamically reconfigurable
+\item statisch
+\item dynamisch reconfigureerbaar
 \end{itemize}
 \end{itemize}
 \end{frame}
@@ -107,22 +126,22 @@ TODO foto/video van motes
 \item Hoe werkt t. (vb vm?)
 \end{itemize}
 \end{frame}
-\section{Evaluating energy use}
+\section{Energieverbruik analyseren}
 \label{sec-3}
 
-\begin{frame}[label=sec-3-1]{Why is it important?}
+\begin{frame}[label=sec-3-1]{Waarom is energiegebruik belangrijk?}
 \begin{itemize}
-\item WSN motes need to be long-lasting
-\item energy efficiency is key
+\item WSN-motes moeten lang meegaan
+\item energie-efficiëntie is van groot belang
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label=sec-3-2]{How to measure?}
+\begin{frame}[label=sec-3-2]{Hoe meten we het?}
 \begin{itemize}
-\item oscilloscopy!
+\item oscilloscoop
 foto/filmpje
-\item use triggers in software
-\item derive power usage using Ohm's law
+\item software-triggers starten metingen
+\item stroomverbruik analyseren met de wet van Ohm
 \end{itemize}
 \end{frame}
 
@@ -130,23 +149,29 @@ foto/filmpje
 \includegraphics[width=\textwidth,keepaspectration=true]{energy_measurement_diagram}
 \end{frame}
 
-\begin{frame}[label=sec-3-4]{Plotting voltage}
+\begin{frame}[label=sec-3-4]{Voltageplot}
 \includegraphics[width=0.95\textwidth,keepaspectration=true]{energy_measurement_plot}
 \end{frame}
 
-\begin{frame}[label=sec-3-5]{Power usage}
+\begin{frame}[label=sec-3-5]{Analyse energieverbruik}
 \begin{itemize}
-\item can be derived from voltage measurements
-\item can be modeled using linear regression
+\item kan afgeleid worden met de wet van Ohm
+\item kan gemodeleerd worden m.b.v. lineaire regressie
 \end{itemize}
 \end{frame}
-\section{Conclusion}
+\section{Conclusie}
 \label{sec-4}
-\begin{frame}[label=sec-4-1]{Where do we fit in?}
+\begin{frame}[label=sec-4-1]{Waar komen wij in het spel?}
+\begin{itemize}
+\item huidige aanpak in het veld: netwerk-overdracht
+\item is dit wel zo?
+\item implementeren tool voor simulatie energieverbruik
+\end{itemize}
 \end{frame}
-\begin{frame}[label=sec-4-2]{Conclusion}
+
+\begin{frame}[label=sec-4-2]{Conclusie}
 \end{frame}
-\begin{frame}[label=sec-4-3]{Bibliography}
+\begin{frame}[label=sec-4-3]{Bibliografie}
 \nocite{*}
 \printbibliography
 \end{frame}
