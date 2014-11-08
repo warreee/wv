@@ -19,6 +19,48 @@
 
 \refsection{0}
   \sortlist{nyt}{nyt}
+    \entry{wsnintro}{misc}{}
+      \field{sortinit}{0}
+      \field{sortinithash}{a08a9549c5c2429f8cec5d1a581b26ca}
+      \field{labelyear}{nodate}
+      \field{howpublished}{\url{http://www.intechopen.com/source/html/16536/media/image9.png}}
+    \endentry
+    \entry{toep1}{misc}{}
+      \field{sortinit}{0}
+      \field{sortinithash}{a08a9549c5c2429f8cec5d1a581b26ca}
+      \field{labelyear}{nodate}
+      \field{howpublished}{\url{http://rtime.felk.cvut.cz/hw/images/3/31/WSN_Motivation.jpg}}
+    \endentry
+    \entry{toep2}{misc}{}
+      \field{sortinit}{0}
+      \field{sortinithash}{a08a9549c5c2429f8cec5d1a581b26ca}
+      \field{labelyear}{nodate}
+      \field{howpublished}{\url{http://www.lockheedmartin.com/content/lockheed/us/products/span/_jcr_content/product_image.img.jpg/1328558373319.jpg}}
+    \endentry
+    \entry{toep3}{misc}{}
+      \field{sortinit}{0}
+      \field{sortinithash}{a08a9549c5c2429f8cec5d1a581b26ca}
+      \field{labelyear}{nodate}
+      \field{howpublished}{\url{http://www.probesrl.net/eng/wp-content/uploads/2010/06/campo.jpg}}
+    \endentry
+    \entry{toep4}{misc}{}
+      \field{sortinit}{0}
+      \field{sortinithash}{a08a9549c5c2429f8cec5d1a581b26ca}
+      \field{labelyear}{nodate}
+      \field{howpublished}{\url{http://www.designworldonline.com/uploads/Imagegallery/sensors-on-a-patient.jpg}}
+    \endentry
+    \entry{gdi1}{misc}{}
+      \field{sortinit}{0}
+      \field{sortinithash}{a08a9549c5c2429f8cec5d1a581b26ca}
+      \field{labelyear}{nodate}
+      \field{howpublished}{\url{https://colleges.niche.com/images/standard/48528/?v=5ed9c3b}}
+    \endentry
+    \entry{gdi2afb1}{misc}{}
+      \field{sortinit}{0}
+      \field{sortinithash}{a08a9549c5c2429f8cec5d1a581b26ca}
+      \field{labelyear}{nodate}
+      \field{howpublished}{\url{http://archive.wired.com/wired/archive/11.12/images/FF_241_network_1.jpg}}
+    \endentry
     \entry{akyildiz2002wireless}{article}{}
       \name{labelname}{4}{}{%
         {{uniquename=0,hash=f567bce2e52982a6b060d5506dcdf0c1}{Akyildiz}{A\bibinitperiod}{Ian\bibnamedelima F}{I\bibinitperiod\bibinitdelim F\bibinitperiod}{}{}{}{}}%
