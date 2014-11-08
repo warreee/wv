@@ -16,6 +16,9 @@
 \usepackage{amstext}
 \usepackage{hyperref}
 \usepackage[dutch]{babel}
+
+\usepackage{multimedia}	
+
 \tolerance=1000
 \usetheme{kuleuven}
 \useinnertheme{rectangles}
@@ -39,19 +42,30 @@
 \tableofcontents
 \end{frame}
 
+%\begin{itemize}
+%\item TODO hier een afbeelding zoeken en aan de hand hiervan uitleggen!
+%\item bestaan uit embedded computers, zgn. ‘motes’
+%TODO foto/video van motes
+%\item uitgerust met low-power radioantennes en sensoren
+%\end{itemize}
+%\movie[autostart]{}{test.mp3}
+
 
 \section{Introductie}
 \label{sec-1}
-\begin{frame}[label=sec-1-1]{Wireless sensor networks: wat zijn ze?}
-\begin{itemize}
-\item TODO hier een afbeelding zoeken en aan de hand hiervan uitleggen!
-\item bestaan uit embedded computers, zgn. ‘motes’
-TODO foto/video van motes
-\item uitgerust met low-power radioantennes en sensoren
-\end{itemize}
+\begin{frame}[label=sec-1-1]{Wireless sensor networks: wat zijn ze? (1)}
+
+\includegraphics[width=0.9\textwidth,keepaspectration=true]{intro/overview.png}
+
 \end{frame}
 
-\begin{frame}[label=sec-1-2]{Toepassingen van WSN}
+\begin{frame}[label=sec-1-2]{Wireless sensor networks: wat zijn ze? (2)}
+
+\includegraphics[width=\textwidth,keepaspectration=true]{intro/psumote.jpg}
+
+\end{frame}
+
+\begin{frame}[label=sec-1-3]{Toepassingen van WSN}
 
 \begin{columns}[t]
 \column{.5\textwidth}
@@ -67,13 +81,13 @@ TODO foto/video van motes
 
 \end{frame}
 
-\begin{frame}[label=sec-1-3]{Great Duck Island experiment (1)}
+\begin{frame}[label=sec-1-4]{Great Duck Island experiment (1)}
 
 \includegraphics[width=\textwidth,keepaspectration=true]{gdi/gdi.jpg}
 
 \end{frame}
 %TODO Beter woord voor monitoring vinden
-\begin{frame}[label=sec-1-4]{Great Duck Island experiment (2)}
+\begin{frame}[label=sec-1-5]{Great Duck Island experiment (2)}
 \begin{columns}[t]
 \column{.5\textwidth}
 \centering
@@ -91,7 +105,7 @@ TODO foto/video van motes
 \note{In de holen werden de motes gelegd}
 \end{frame}
 
-\begin{frame}[label=sec-1-5]{Belangrijke aspecten bij WSN design}
+\begin{frame}[label=sec-1-6]{Belangrijke aspecten bij WSN design}
 \begin{itemize}
 \item energie-efficiëntie
 \item robuustheid
@@ -100,7 +114,7 @@ TODO foto/video van motes
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label=sec-1-6]{Store, compute, transmit? (1)}
+\begin{frame}[label=sec-1-7]{Store, compute, transmit? (1)}
 \begin{itemize}
 \item drie grote factoren in energieverbruik
 \begin{itemize}
@@ -112,7 +126,7 @@ TODO foto/video van motes
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label=sec-1-7]{Store, compute, transmit? (2)}
+\begin{frame}[label=sec-1-8]{Store, compute, transmit? (2)}
 \begin{itemize}
 \item Mss een grafiekje dat de verschillen duidt?
 \item diagram van Hughes tijdens presentatie gebruiken
