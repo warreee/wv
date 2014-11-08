@@ -1,15 +1,15 @@
 [0] Config.pm:320> INFO - This is Biber 1.9
 [0] Config.pm:323> INFO - Logfile is 'beamer.blg'
-[42] biber:277> INFO - === Mon Nov  3, 2014, 17:37:42
+[42] biber:277> INFO - === Sat Nov  8, 2014, 11:38:51
 [42] Biber.pm:333> INFO - Reading 'beamer.bcf'
 [122] Biber.pm:632> INFO - Using all citekeys in bib section 0
 [148] Biber.pm:3051> INFO - Processing section 0
-[169] Biber.pm:3189> INFO - Looking for bibtex format file 'bibliography.bib' for section 0
+[170] Biber.pm:3189> INFO - Looking for bibtex format file 'bibliography.bib' for section 0
 [171] bibtex.pm:990> INFO - Decoding LaTeX character macros into UTF-8
 [173] bibtex.pm:864> INFO - Found BibTeX data source 'bibliography.bib'
-[291] UCollate.pm:66> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[291] UCollate.pm:66> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[291] Biber.pm:2928> INFO - Sorting list 'nyt' of type 'entry' with scheme 'nyt' and locale 'en-US'
-[291] Biber.pm:2932> INFO - No sort tailoring available for locale 'en-US'
-[303] bbl.pm:517> INFO - Writing 'beamer.bbl' with encoding 'UTF-8'
-[305] bbl.pm:606> INFO - Output to beamer.bbl
+[289] UCollate.pm:66> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[289] UCollate.pm:66> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[289] Biber.pm:2928> INFO - Sorting list 'nyt' of type 'entry' with scheme 'nyt' and locale 'en-US'
+[290] Biber.pm:2932> INFO - No sort tailoring available for locale 'en-US'
+[302] bbl.pm:517> INFO - Writing 'beamer.bbl' with encoding 'UTF-8'
+[304] bbl.pm:606> INFO - Output to beamer.bbl

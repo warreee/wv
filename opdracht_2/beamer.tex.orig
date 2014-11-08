@@ -50,13 +50,42 @@ TODO foto/video van motes
 \end{itemize}
 \end{frame}
 
+<<<<<<< HEAD
+\begin{frame}[label=sec-1-2]{Waarom WSNs?}
+\begin{itemize}
+\item dicht bij het te observeren fenomeen
+\item makkelijk te plaatsen: simpele topologie
+\item lagere kost dan traditionele systemen
+\item flexibel inzetbaar
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label=sec-1-3]{Toepassingen}
+\begin{itemize}
+\item militaire context
+\item biologie \& ecologie
+\item geneeskunde
+\item domotica
+\item \ldots{}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label=sec-1-4]{Het Great Duck Island-experiment}
+\begin{itemize}
+\item TODO beschrijven
+\item 
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label=sec-1-5]{Belangrijke aspecten bij WSN design}
+=======
 \begin{frame}[label=sec-1-2]{Toepassingen van WSN}
 
 \begin{columns}[t]
 \column{.5\textwidth}
 \centering
-\includegraphics[width=5.25cm,height=3.5cm]{graphics/sample_applications/fire.jpg}\\
-\includegraphics[width=5.25cm,height=3.5cm]{graphics/sample_applications/military.jpg}
+\includegraphics[width=5cm,height=3.5cm]{graphics/sample_applications/fire.jpg}\\
+\includegraphics[width=5cm,height=3.5cm]{graphics/sample_applications/military.jpg}
 \column{.5\textwidth}
 \centering
 \includegraphics[width=5cm,height=3.5cm]{graphics/sample_applications/landbouw.jpg}\\
@@ -66,27 +95,18 @@ TODO foto/video van motes
 
 \end{frame}
 
-\begin{frame}[label=sec-1-3]{Great Duck Island experiment (1)}
+\begin{frame}[label=sec-1-3]{Great Duck Island experiment}
 
 \includegraphics[width=\textwidth,keepaspectration=true]{gdi/gdi.jpg}
 
 \end{frame}
 
 \begin{frame}[label=sec-1-4]{Great Duck Island experiment}
-\begin{columns}[t]
-\column{.5\textwidth}
-\centering
-\includegraphics[width=5cm,height=3.5cm]{gdi/gdi_duckmote.jpg}\\
-\includegraphics[width=5cm,height=3.5cm]{gdi/gdi_mote.png}
-\column{.5\textwidth}
-\centering
-\begin{itemize}
-\item enkele sleutelwoorden hier
-\end{itemize}
-\end{columns}
 
 \end{frame}
-\begin{frame}[label=sec-1-5]{Belangrijke aspecten bij WSN design}
+
+\begin{frame}[label=sec-1-5]{Key aspects of good WSN design}
+>>>>>>> 10c66ed6a68ff32159fbc9f8254384c6e1049c60
 \begin{itemize}
 \item energie-efficiëntie
 \item robuustheid
@@ -95,7 +115,11 @@ TODO foto/video van motes
 \end{itemize}
 \end{frame}
 
+<<<<<<< HEAD
 \begin{frame}[label=sec-1-6]{Store, compute, transmit? (1)}
+=======
+\begin{frame}[label=sec-1-6]{Store, compute, transmit?}
+>>>>>>> 10c66ed6a68ff32159fbc9f8254384c6e1049c60
 \begin{itemize}
 \item drie grote factoren in energieverbruik
 \begin{itemize}
