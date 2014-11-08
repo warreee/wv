@@ -269,6 +269,8 @@ INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/babel/babel.sty
 INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/babel-dutch/dutch.ldf
 INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/babel-dutch/dutch.ldf
 INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/babel/babel.def
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/beamer/multimedia/multimedia.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/beamer/multimedia/multimedia.sty
 INPUT beamerthemekuleuven.sty
 INPUT beamerthemekuleuven.sty
 INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/base/fontenc.sty
@@ -279,8 +281,6 @@ INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/base/fix-cm.sty
 INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/base/fix-cm.sty
 INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/base/ts1enc.def
 INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/base/ts1enc.def
-INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/beamer/multimedia/multimedia.sty
-INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/beamer/multimedia/multimedia.sty
 INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
 INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
 INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
@@ -482,6 +482,12 @@ INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/wasy/wasy7.tfm
 INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/latex-fonts/lasy10.tfm
 INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/latex-fonts/lasy10.tfm
 INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/latex-fonts/lasy7.tfm
+INPUT graphics/intro/overview.png
+INPUT ./graphics/intro/overview.png
+INPUT ./graphics/intro/overview.png
+INPUT graphics/intro/psumote.jpg
+INPUT ./graphics/intro/psumote.jpg
+INPUT ./graphics/intro/psumote.jpg
 INPUT graphics/sample_applications/fire.jpg
 INPUT ./graphics/sample_applications/fire.jpg
 INPUT ./graphics/sample_applications/fire.jpg
