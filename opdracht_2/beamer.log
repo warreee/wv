@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.10.27)  8 NOV 2014 10:23
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.10.27)  8 NOV 2014 11:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1754,23 +1754,57 @@ File: uwasy.fd 2003/10/30 v2.0 Wasy-2 symbol font definitions
 
 ] [4
 
-] [5
-
-] [6
-
 ]
-[7
+<graphics/sample_applications/fire.jpg, id=93, 722.7pt x 458.1918pt>
+File: graphics/sample_applications/fire.jpg Graphic file (type jpg)
+
+<use graphics/sample_applications/fire.jpg>
+Package pdftex.def Info: graphics/sample_applications/fire.jpg used on input li
+ne 74.
+(pdftex.def)             Requested size: 142.26576pt x 99.579pt.
+
+<graphics/sample_applications/military.jpg, id=94, 110.814pt x 73.9563pt>
+File: graphics/sample_applications/military.jpg Graphic file (type jpg)
+
+<use graphics/sample_applications/military.jpg>
+Package pdftex.def Info: graphics/sample_applications/military.jpg used on inpu
+t line 74.
+(pdftex.def)             Requested size: 142.26411pt x 99.5884pt.
+
+<graphics/sample_applications/landbouw.jpg, id=95, 424.58624pt x 284.06125pt>
+File: graphics/sample_applications/landbouw.jpg Graphic file (type jpg)
+
+<use graphics/sample_applications/landbouw.jpg>
+Package pdftex.def Info: graphics/sample_applications/landbouw.jpg used on inpu
+t line 74.
+(pdftex.def)             Requested size: 142.2648pt x 99.58328pt.
+
+<graphics/sample_applications/medicine.jpg, id=96, 501.875pt x 465.74pt>
+File: graphics/sample_applications/medicine.jpg Graphic file (type jpg)
+
+<use graphics/sample_applications/medicine.jpg>
+Package pdftex.def Info: graphics/sample_applications/medicine.jpg used on inpu
+t line 74.
+(pdftex.def)             Requested size: 142.26239pt x 99.58493pt.
+ [5
+
+ <./graphics/sample_applications/fire.jpg> <./graphics/sample_applications/mili
+tary.jpg> <./graphics/sample_applications/landbouw.jpg> <./graphics/sample_appl
+ications/medicine.jpg>]
+[6
+
+] [7
 
 ] [8
 
 ] (./beamer.toc) [9
 
 ]
-<graphics/middleware.png, id=130, 606.01407pt x 364.36125pt>
+<graphics/middleware.png, id=134, 606.01407pt x 364.36125pt>
 File: graphics/middleware.png Graphic file (type png)
 
 <use graphics/middleware.png>
-Package pdftex.def Info: graphics/middleware.png used on input line 91.
+Package pdftex.def Info: graphics/middleware.png used on input line 103.
 (pdftex.def)             Requested size: 352.81444pt x 212.13026pt.
  [10
 
@@ -1786,22 +1820,22 @@ Package pdftex.def Info: graphics/middleware.png used on input line 91.
 ] [15
 
 ]
-<graphics/energy_measurement_diagram.png, id=179, 758.835pt x 481.8pt>
+<graphics/energy_measurement_diagram.png, id=183, 758.835pt x 481.8pt>
 File: graphics/energy_measurement_diagram.png Graphic file (type png)
 
 <use graphics/energy_measurement_diagram.png>
 Package pdftex.def Info: graphics/energy_measurement_diagram.png used on input 
-line 131.
+line 143.
 (pdftex.def)             Requested size: 352.81444pt x 224.01262pt.
  [16
 
  <./graphics/energy_measurement_diagram.png>]
-<graphics/energy_measurement_plot.png, id=187, 635.37375pt x 454.69875pt>
+<graphics/energy_measurement_plot.png, id=191, 635.37375pt x 454.69875pt>
 File: graphics/energy_measurement_plot.png Graphic file (type png)
 
 <use graphics/energy_measurement_plot.png>
 Package pdftex.def Info: graphics/energy_measurement_plot.png used on input lin
-e 135.
+e 147.
 (pdftex.def)             Requested size: 335.17264pt x 239.87215pt.
  [17
 
@@ -1815,7 +1849,7 @@ e 135.
 
 ]
 LaTeX Font Info:    Font shape `T1/cmss/m/it' in size <12> not available
-(Font)              Font shape `T1/cmss/m/sl' tried instead on input line 152.
+(Font)              Font shape `T1/cmss/m/sl' tried instead on input line 164.
  [22
 
  </usr/share/texmf/tex/latex/beamer/base/art/beamericonarticle.pdf>]
@@ -1828,23 +1862,23 @@ LaTeX Font Info:    Font shape `T1/cmss/m/it' in size <12> not available
 \tf@snm=\write9
 \openout9 = `beamer.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 154.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 154.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 166.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 166.
  (./beamer.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 154.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 154.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 166.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 166.
 Package rerunfilecheck Info: File `beamer.out' has not changed.
 (rerunfilecheck)             Checksum: 26A3DBCDEB6D09B2EDC75FA42A48C20C;202.
 Package logreq Info: Writing requests to 'beamer.run.xml'.
 \openout1 = `beamer.run.xml'.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 154.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 166.
  ) 
 Here is how much of TeX's memory you used:
- 28103 strings out of 493304
- 540730 string characters out of 6139870
+ 28125 strings out of 493304
+ 541523 string characters out of 6139870
  977660 words of memory out of 5000000
- 30811 multiletter control sequences out of 15000+600000
+ 30827 multiletter control sequences out of 15000+600000
  15598 words of font info for 44 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  52i,11n,79p,939b,1861s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1854,10 +1888,10 @@ m-super/sfss0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss1000.pfb
 ></usr/share/texmf/fonts/type1/public/cm-super/sfss1200.pfb></usr/share/texmf/f
 onts/type1/public/cm-super/sfss1728.pfb></usr/share/texmf/fonts/type1/public/cm
 -super/sfsx1000.pfb>
-Output written on beamer.pdf (22 pages, 501728 bytes).
+Output written on beamer.pdf (22 pages, 932063 bytes).
 PDF statistics:
- 290 PDF objects out of 1000 (max. 8388607)
+ 294 PDF objects out of 1000 (max. 8388607)
  223 compressed objects within 3 object streams
  90 named destinations out of 1000 (max. 500000)
- 205 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 225 words of extra memory for PDF output out of 10000 (max. 10000000)
 
