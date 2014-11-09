@@ -19,7 +19,8 @@
 \usepackage[dutch]{babel}
 \usepackage[font=scriptsize,labelfont=bf]{caption}
 \setbeamertemplate{caption}[numbered]
-
+\usepackage{pgfpages}
+\setbeameroption{show notes on second screen=right}
 
 \tolerance=1000
 \usetheme{kuleuven}
@@ -139,7 +140,7 @@ tot 20 sensor nodes per $m^3$ (geen harde limiet)
 deploy and forget
 \end{block}}%
 \uncover<6->{\begin{block}{adaptief}
-makkelijke aanpasbare topologie, ook bij failure
+makkelijke aanpasbare topologie, bestand tegen falen van motes
 \end{block}}
 \note{Consume extremely low power, operate in high volumetric densities, have low production cost and be dispensable, be autonomous and operate unattended, be adaptive to the environment.}
 \end{frame}
@@ -189,7 +190,7 @@ Filmpje van youtubekanaal
 \section{Energieverbruik}
 \label{sec-3}
 
-\begin{frame}[label=sec-1-7]{Store, compute, transmit? (1)}
+\begin{frame}[label=sec-1-7]{Store, compute, transmit?}
 \begin{itemize}
 \item drie grote factoren in energieverbruik:
 \vfill
@@ -199,20 +200,23 @@ Filmpje van youtubekanaal
 \end{tabular}
 \vfill
 \end{itemize}
-\end{frame}
-
-\begin{frame}[label=sec-1-8]{Store, compute, transmit? (2)}
+\note{
 \begin{itemize}
 \item antennes op en aan zetten kost veel energie
 \item flash en CPU iets minder, maar:
   \begin{itemize}
-  \item{lage kloksnelheid $\Rightarrow$ slechte concurrency, slechte
-performantie in het algemeen}
+    \item lage kloksnelheid 
+    \begin{itemize}
+    \item slechte concurrency, 
+    \item slechte performantie in het algemeen
+    \end{itemize}
   \item beperkte hoeveelheid geheugen
   \end{itemize}
 \item huidige aanpak: veel netwerkoverdracht, weinig CPU- en geheugengebruik
 \end{itemize}
+}
 \end{frame}
+
 
 \begin{frame}[label=sec-3-2]{Hoe meten we het?}
 \begin{minipage}{\textwidth}
