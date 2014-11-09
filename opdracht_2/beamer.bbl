@@ -79,6 +79,21 @@
       \field{labelyear}{nodate}
       \field{howpublished}{\url{https://distrinet.cs.kuleuven.be/images/logo_distrinet_leftmenu.png}}
     \endentry
+    \entry{battery}{misc}{}
+      \field{sortinit}{0}
+      \field{labelyear}{nodate}
+      \field{howpublished}{\url{http://t1.gstatic.com/images?q=tbn:ANd9GcShIHCrdrWkGBNlL2t3m6byPQdydtn96GtSHGdAQuNLUxhfm2axRw}}
+    \endentry
+    \entry{euro}{misc}{}
+      \field{sortinit}{0}
+      \field{labelyear}{nodate}
+      \field{howpublished}{\url{http://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Euro_symbol_black.svg/266px-Euro_symbol_black.svg.png}}
+    \endentry
+    \entry{density}{misc}{}
+      \field{sortinit}{0}
+      \field{labelyear}{nodate}
+      \field{howpublished}{\url{http://www.mdpi.com/sensors/sensors-13-06295/article_deploy/html/images/sensors-13-06295f1-1024.png}}
+    \endentry
     \entry{akyildiz2002wireless}{article}{}
       \name{labelname}{4}{}{%
         {{uniquename=0,hash=f567bce2e52982a6b060d5506dcdf0c1}{Akyildiz}{A\bibinitperiod}{Ian\bibnamedelima F}{I\bibinitperiod\bibinitdelim F\bibinitperiod}{}{}{}{}}%
