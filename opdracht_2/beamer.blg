@@ -1,15 +1,15 @@
 [0] Config.pm:320> INFO - This is Biber 1.9
 [0] Config.pm:323> INFO - Logfile is 'beamer.blg'
-[41] biber:277> INFO - === Sat Nov  8, 2014, 23:49:46
-[41] Biber.pm:333> INFO - Reading 'beamer.bcf'
-[117] Biber.pm:635> INFO - Found 11 citekeys in bib section 0
-[143] Biber.pm:3051> INFO - Processing section 0
-[164] Biber.pm:3189> INFO - Looking for bibtex format file 'bibliography.bib' for section 0
-[165] bibtex.pm:990> INFO - Decoding LaTeX character macros into UTF-8
-[168] bibtex.pm:864> INFO - Found BibTeX data source 'bibliography.bib'
-[369] UCollate.pm:66> INFO - Overriding locale 'nl-NL' defaults 'variable = shifted' with 'variable = non-ignorable'
-[369] UCollate.pm:66> INFO - Overriding locale 'nl-NL' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[370] Biber.pm:2928> INFO - Sorting list 'nyt' of type 'entry' with scheme 'nyt' and locale 'nl-NL'
-[370] Biber.pm:2932> INFO - No sort tailoring available for locale 'nl-NL'
-[403] bbl.pm:517> INFO - Writing 'beamer.bbl' with encoding 'UTF-8'
-[405] bbl.pm:606> INFO - Output to beamer.bbl
+[42] biber:277> INFO - === Sun Nov  9, 2014, 10:24:40
+[42] Biber.pm:333> INFO - Reading 'beamer.bcf'
+[123] Biber.pm:632> INFO - Using all citekeys in bib section 0
+[150] Biber.pm:3051> INFO - Processing section 0
+[172] Biber.pm:3189> INFO - Looking for bibtex format file 'bibliography.bib' for section 0
+[173] bibtex.pm:990> INFO - Decoding LaTeX character macros into UTF-8
+[175] bibtex.pm:864> INFO - Found BibTeX data source 'bibliography.bib'
+[394] UCollate.pm:66> INFO - Overriding locale 'nl-NL' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[394] UCollate.pm:66> INFO - Overriding locale 'nl-NL' defaults 'variable = shifted' with 'variable = non-ignorable'
+[394] Biber.pm:2928> INFO - Sorting list 'nyt' of type 'entry' with scheme 'nyt' and locale 'nl-NL'
+[394] Biber.pm:2932> INFO - No sort tailoring available for locale 'nl-NL'
+[431] bbl.pm:517> INFO - Writing 'beamer.bbl' with encoding 'UTF-8'
+[433] bbl.pm:606> INFO - Output to beamer.bbl

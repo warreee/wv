@@ -269,8 +269,6 @@ INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/babel/babel.sty
 INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/babel-dutch/dutch.ldf
 INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/babel-dutch/dutch.ldf
 INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/babel/babel.def
-INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/beamer/multimedia/multimedia.sty
-INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/beamer/multimedia/multimedia.sty
 INPUT beamerthemekuleuven.sty
 INPUT beamerthemekuleuven.sty
 INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/base/fontenc.sty
@@ -281,6 +279,8 @@ INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/base/fix-cm.sty
 INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/base/fix-cm.sty
 INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/base/ts1enc.def
 INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/base/ts1enc.def
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/beamer/multimedia/multimedia.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/beamer/multimedia/multimedia.sty
 INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
 INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
 INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
