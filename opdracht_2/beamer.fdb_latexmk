@@ -1,11 +1,11 @@
 # Fdb version 3
-["biber beamer"] 1415529479 "beamer.bcf" "beamer.bbl" "beamer" 1415530710
-  "beamer.bcf" 1415530710 91743 6073581ebf77d198e0a282e24bcf7abb ""
+["biber beamer"] 1415532181 "beamer.bcf" "beamer.bbl" "beamer" 1415532269
+  "beamer.bcf" 1415532269 91743 6073581ebf77d198e0a282e24bcf7abb ""
   "bibliography.bib" 1415529064 2782 87c073b5bbe74a5d0a7da3803fcb9ff8 ""
   (generated)
   "beamer.blg"
   "beamer.bbl"
-["pdflatex"] 1415530707 "beamer.tex" "beamer.pdf" "beamer" 1415530710
+["pdflatex"] 1415532266 "beamer.tex" "beamer.pdf" "beamer" 1415532269
   "/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2014/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2014/texmf-dist/fonts/tfm/jknappen/ec/ecsi1200.tfm" 1136768653 3584 76f906ed3d5c5ef20a2687ba265e1ef9 ""
@@ -273,13 +273,13 @@
   "/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1415488242 1561746 8c3e8c4beef862114e4ab93116e6cb61 ""
   "/usr/local/texlive/2014/texmf-var/web2c/pdftex/pdflatex.fmt" 1415488323 3847283 fdff91146be60346fc648e6ac973cbc4 ""
   "/usr/local/texlive/2014/texmf.cnf" 1411927731 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
-  "beamer.aux" 1415530710 18842 c86d61446b23d594fbf6a6767fc44c2c ""
-  "beamer.bbl" 1415529480 13410 ef7f4a17a68dbb594620c0fa55c7b233 "biber beamer"
-  "beamer.nav" 1415530710 6319 e27822ad3c32d7de27fd7355b87be978 ""
-  "beamer.out" 1415530710 206 9c4e3203011c84944485df6ab5d7023f ""
-  "beamer.run.xml" 1415530710 2359 fb0e439ea541497ae5a55816db599d2b ""
-  "beamer.tex" 1415530706 6557 c075c5f196fea5f9c22095ff882cdff9 ""
-  "beamer.toc" 1415530710 592 7c728fdc22ca65ada1f95286810b2360 ""
+  "beamer.aux" 1415532269 18842 c86d61446b23d594fbf6a6767fc44c2c ""
+  "beamer.bbl" 1415532183 13410 ef7f4a17a68dbb594620c0fa55c7b233 "biber beamer"
+  "beamer.nav" 1415532269 6319 e27822ad3c32d7de27fd7355b87be978 ""
+  "beamer.out" 1415532269 206 9c4e3203011c84944485df6ab5d7023f ""
+  "beamer.run.xml" 1415532269 2359 fb0e439ea541497ae5a55816db599d2b ""
+  "beamer.tex" 1415532258 6532 11e0798eb341d100ae715313f0528f43 ""
+  "beamer.toc" 1415532269 592 7c728fdc22ca65ada1f95286810b2360 ""
   "beamerthemekuleuven.sty" 1415474920 5592 57d1e343414c67c634a71417a623f995 ""
   "graphics/cpu.png" 1415529197 24877 8e26dcc9972890ff603fa473192047bd ""
   "graphics/energy_measurement_diagram.png" 1415029799 85130 9401cbf338e1d8e720fbc9b87ca89d88 ""
