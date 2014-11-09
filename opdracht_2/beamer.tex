@@ -60,7 +60,7 @@
 %\end{itemize}
 
 
-\section{Introductie}
+\section{Inleiding tot wireless sensor networks}
 \label{sec-1}
 \begin{frame}[label=sec-1-1]{Wireless sensor networks: wat zijn ze? (1)}
 
@@ -144,23 +144,6 @@ doel: makkelijke aanpasbare topologie
 \note{Consume extremely low power, operate in high volumetric densities, have low production cost and be dispensable, be autonomous and operate unattended, be adaptive to the environment.}
 \end{frame}
 
-\begin{frame}[label=sec-1-7]{Store, compute, transmit? (1)}
-\begin{itemize}
-\item drie grote factoren in energieverbruik:
-\vfill
-\begin{tabular}{c c c}
-\hiddencell{2}{\includegraphics[width=0.25\textwidth,keepaspectration=true]{storage}} & \hiddencell{3}{\includegraphics[width=0.25\textwidth,keepaspectration=true]{cpu}} & \hiddencell{4}{\includegraphics[width=0.25\textwidth,keepaspectration=true]{radio}}  \\
-\hiddencell{2}{flash-opslag} & \hiddencell{3}{berekeningen} & \hiddencell{4}{netwerkoverdracht}
-\end{tabular}
-\vfill
-\end{itemize}
-\end{frame}
-
-\begin{frame}[label=sec-1-8]{Store, compute, transmit? (2)}
-\begin{itemize}
-\item Mss een grafiekje dat de verschillen duidt?
-\end{itemize}
-\end{frame}
 \section{Middleware voor WSNs}
 \label{sec-2}
 \begin{frame}[label=sec-2-1]{Wat is middleware?}
@@ -194,21 +177,46 @@ doel: makkelijke aanpasbare topologie
 \end{columns}
 \end{frame}
 
-\begin{frame}[label=sec-2-4]{Looci (2)}
+\begin{frame}[label=sec-2-4]{LooCi (2)}
 \centering
 \includegraphics[width=0.9\textwidth,keepaspectration=true]{looci/LooCIExecEnvironment.png}
 \end{frame}
 
-\begin{frame}[label=sec-2-5]{Looci Demo}
+\begin{frame}[label=sec-2-5]{LooCi Demo}
 Filmpje van youtubekanaal
 \end{frame}
 
-\section{Energieverbruik analyseren}
+\section{Energieverbruik}
 \label{sec-3}
 
-\begin{frame}[label=sec-3-1]{Waarom is energiegebruik belangrijk?}
+\begin{frame}[label=sec-3-1]{Waarom is energieverbruik belangrijk?}
+  \begin{itemize}
+  \item belangrijk aspect van WSN-design
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[label=sec-1-7]{Store, compute, transmit? (1)}
 \begin{itemize}
-\item rechtstreeks verband met belangrijke aspecten van WSN-design:
+\item drie grote factoren in energieverbruik:
+\vfill
+\begin{tabular}{c c c}
+\hiddencell{2}{\includegraphics[width=0.25\textwidth,keepaspectration=true]{storage}} & \hiddencell{3}{\includegraphics[width=0.25\textwidth,keepaspectration=true]{cpu}} & \hiddencell{4}{\includegraphics[width=0.25\textwidth,keepaspectration=true]{radio}}  \\
+\hiddencell{2}{flash-opslag} & \hiddencell{3}{berekeningen} & \hiddencell{4}{netwerkoverdracht}
+\end{tabular}
+\vfill
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label=sec-1-8]{Store, compute, transmit? (2)}
+\begin{itemize}
+\item antennes op en aan zetten kost veel energie
+\item flash en CPU iets minder, maar:
+  \begin{itemize}
+  \item{lage kloksnelheid $\Rightarrow$ slechte concurrency, slechte
+performantie in het algemeen}
+  \item beperkte hoeveelheid geheugen
+  \end{itemize}
+\item huidige aanpak: veel netwerkoverdracht, weinig CPU- en geheugengebruik
 \end{itemize}
 \end{frame}
 
