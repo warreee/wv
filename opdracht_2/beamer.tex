@@ -102,12 +102,12 @@
 \begin{minipage}{.5\textwidth}
 \centering
 \fbox{\includegraphics[width=.8\textwidth]{gdi/gdi_duckmote.jpg}} 
-\captionof{figure}{Motes in nesten}
+\captionof{figure}{A figure}
 \end{minipage}%
 \begin{minipage}{.5\textwidth}
 \centering
 \fbox{\includegraphics[width=.8\textwidth]{gdi/micamote.png}}
-\captionof{figure}{Motes in het gras}
+\captionof{figure}{Another figure}
 \end{minipage}
 \end{figure}
 \begin{itemize}
@@ -120,23 +120,21 @@
 \note{En aanvullingen werden bijgezet}
 \end{frame}
 
-\begin{frame}[label=sec-1-6]{Belangrijke aspecten bij WSN-design}
-\begin{minipage}{.3\textwidth}
-  energie-effici\"ent
-\end{minipage}%
-\begin{minipage}{.3\textwidth}
-  dichtheid
-\end{minipage}%
-\begin{minipage}{.3\textwidth}
-  goedkoop
-\end{minipage}
-\begin{minipage}{.5\textwidth}
-  autonoom
-\end{minipage}%
-\begin{minipage}{.5\textwidth}
-  adaptief
-\end{minipage}
+\begin{frame}[label=sec-1-6]{Belangrijke aspecten bij WSN design}
+\begin{center}
 
+\vfill
+\begin{tabular}{l c r}
+\hiddencell{1}{\includegraphics[width=0.25\textwidth,keepaspectration=true]{wsndesign/battery.png}} & \hiddencell{2}{\includegraphics[width=0.25\textwidth,keepaspectration=true]{wsndesign/density.png}} & \hiddencell{3}{\includegraphics[width=0.15\textwidth,keepaspectration=true]{wsndesign/euro.png}}  \\
+\hiddencell{1}{Energieverbruik} & \hiddencell{2}{Dichtheid} & \hiddencell{3}{Goedkoop}\\
+%
+\hiddencell{4}{} & \hiddencell{5}{}\\
+\hiddencell{4}{} & \hiddencell{5}{}\\
+\hiddencell{4}{Autonoom} & \hiddencell{5}{Adaptief}
+\end{tabular}
+\vfill
+
+\end{center}
 \note{Consume extremely low power, operate in high volumetric densities, have low production cost and be dispensable, be autonomous and operate unattended, be adaptive to the environment.}
 \end{frame}
 
@@ -209,23 +207,23 @@ Filmpje van youtubekanaal
 \end{frame}
 
 \begin{frame}[label=sec-3-2]{Hoe meten we het?}
-\begin{itemize}
-\item oscilloscoop
-foto/filmpje
-\item software-triggers starten metingen
-\item stroomverbruik analyseren met de wet van Ohm
-\end{itemize}
+\begin{minipage}{\textwidth}
+\centering
+\fbox{\includegraphics[width=0.9\textwidth,keepaspectration=true]{elek/dso.jpg}} 
+\captionof{figure}{Oscilloscoop}
+\end{minipage}
 \end{frame}
 
 \begin{frame}[label=sec-3-3]{Setup}
-\includegraphics[width=\textwidth,keepaspectration=true]{energy_measurement_diagram}
+\includegraphics[width=\textwidth,keepaspectration=true]{elek/diag1}
 \end{frame}
 
 \begin{frame}[label=sec-3-4]{Voltageplot}
-\includegraphics[width=0.95\textwidth,keepaspectration=true]{energy_measurement_plot}
+\includegraphics[width=0.95\textwidth,keepaspectration=true]{elek/energy_measurement_plot.png}
 \end{frame}
 
 \begin{frame}[label=sec-3-5]{Analyse energieverbruik}
+\includegraphics[width=\textwidth,keepaspectration=true]{elek/diag2}
 \begin{itemize}
 \item kan afgeleid worden met de wet van Ohm
 \item kan gemodeleerd worden m.b.v. lineaire regressie
