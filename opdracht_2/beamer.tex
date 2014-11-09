@@ -17,7 +17,8 @@
 \usepackage{hyperref}
 \usepackage{url}
 \usepackage[dutch]{babel}
-
+\usepackage[font=scriptsize,labelfont=bf]{caption}
+\setbeamertemplate{caption}[numbered]
 
 
 \tolerance=1000
@@ -89,24 +90,31 @@
 
 \begin{frame}[label=sec-1-4]{Great Duck Island experiment I}
 \centering
-\includegraphics[width=\textwidth,keepaspectration=true]{gdi/gdi.jpg}
+\begin{figure}
+\fbox{\includegraphics[width=0.85\textwidth,keepaspectratio=true]{gdi/gdi.jpg}}
+\caption{Great Duck Island}
+\end{figure}
 
 \end{frame}
 %TODO Beter woord voor monitoring vinden
 \begin{frame}[label=sec-1-5]{Great Duck Island experiment II}
-\begin{columns}[t]
-\column{.5\textwidth}
+\begin{figure}
+\begin{minipage}{.5\textwidth}
 \centering
-\includegraphics[width=5cm,height=3.5cm]{gdi/gdi_duckmote.jpg}\\
-\includegraphics[width=5cm,height=3.5cm]{gdi/micamote.png}
-\column{.5\textwidth}
+\fbox{\includegraphics[width=.8\textwidth]{gdi/gdi_duckmote.jpg}} 
+\captionof{figure}{A figure}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
 \centering
+\fbox{\includegraphics[width=.8\textwidth]{gdi/micamote.png}}
+\captionof{figure}{Another figure}
+\end{minipage}
+\end{figure}
 \begin{itemize}
 \item habitat monitoring van eenden
 \item motes in broedholen
 \item 7 maanden
 \end{itemize}
-\end{columns}
 \note{Mensen konden niet in de buurt komen zonder te storen}
 \note{In de holen werden de motes gelegd}
 \note{En aanvullingen werden bijgezet}
@@ -136,7 +144,7 @@
 \vfill
 \begin{tabular}{c c c}
 \hiddencell{2}{\includegraphics[width=0.25\textwidth,keepaspectration=true]{storage}} & \hiddencell{3}{\includegraphics[width=0.25\textwidth,keepaspectration=true]{cpu}} & \hiddencell{4}{\includegraphics[width=0.25\textwidth,keepaspectration=true]{radio}}  \\
-\hiddencell{2}{STORE} & \hiddencell{3}{COMPUTE} & \hiddencell{4}{TRANSMIT}
+\hiddencell{2}{flash-opslag} & \hiddencell{3}{berekeningen} & \hiddencell{4}{netwerkoverdracht}
 \end{tabular}
 \vfill
 \end{itemize}
