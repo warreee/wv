@@ -36,6 +36,14 @@
   pdfkeywords={},
   pdfsubject={},
   pdfcreator={Emacs 24.3.1 (Org mode N/A)}}
+
+
+
+\newcommand{\aheader}[2]{\action<#1-|alert@#1>{#2}}
+% first argument: slide number to appear from, second argument: content of header 
+\newcommand{\hiddencell}[2]{\action<#1->{#2}}
+% first argument: slide number to appear from, second argument: content of cell
+
 \begin{document}
 
 \maketitle
@@ -121,12 +129,10 @@
 \item drie grote factoren in energieverbruik
 \vfill
 \begin{tabular}{c c c}
-\includegraphics[width=0.25\textwidth,keepaspectration=true]{cpu} & \includegraphics[width=0.25\textwidth,keepaspectration=true]{radio} & 
-\includegraphics[width=0.25\textwidth,keepaspectration=true]{storage} \\
-COMPUTE & TRANSMIT & STORE
+\hiddencell{2}{\includegraphics[width=0.25\textwidth,keepaspectration=true]{storage}} & \hiddencell{3}{\includegraphics[width=0.25\textwidth,keepaspectration=true]{cpu}} & \hiddencell{4}{\includegraphics[width=0.25\textwidth,keepaspectration=true]{radio}}  \\
+\hiddencell{2}{STORE} & \hiddencell{3}{COMPUTE} & \hiddencell{4}{TRANSMIT}
 \end{tabular}
 \vfill
-\item transmitting kost veel energie
 \end{itemize}
 \end{frame}
 
