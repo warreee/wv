@@ -515,6 +515,15 @@ INPUT beamer.toc
 INPUT graphics/middleware.png
 INPUT ./graphics/middleware.png
 INPUT ./graphics/middleware.png
+INPUT graphics/looci/looci.png
+INPUT ./graphics/looci/looci.png
+INPUT ./graphics/looci/looci.png
+INPUT graphics/looci/distrinet.png
+INPUT ./graphics/looci/distrinet.png
+INPUT ./graphics/looci/distrinet.png
+INPUT graphics/looci/LooCIExecEnvironment.png
+INPUT ./graphics/looci/LooCIExecEnvironment.png
+INPUT ./graphics/looci/LooCIExecEnvironment.png
 INPUT beamer.toc
 INPUT beamer.toc
 INPUT graphics/energy_measurement_diagram.png

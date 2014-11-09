@@ -1,0 +1,15 @@
+[0] Config.pm:320> INFO - This is Biber 1.9
+[0] Config.pm:323> INFO - Logfile is 'beamer.blg'
+[61] biber:277> INFO - === Sun Nov  9, 2014, 11:31:10
+[62] Biber.pm:333> INFO - Reading 'beamer.bcf'
+[153] Biber.pm:632> INFO - Using all citekeys in bib section 0
+[181] Biber.pm:3051> INFO - Processing section 0
+[209] Biber.pm:3189> INFO - Looking for bibtex format file 'bibliography.bib' for section 0
+[211] bibtex.pm:990> INFO - Decoding LaTeX character macros into UTF-8
+[213] bibtex.pm:864> INFO - Found BibTeX data source 'bibliography.bib'
+[482] UCollate.pm:66> INFO - Overriding locale 'nl-NL' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[482] UCollate.pm:66> INFO - Overriding locale 'nl-NL' defaults 'variable = shifted' with 'variable = non-ignorable'
+[482] Biber.pm:2928> INFO - Sorting list 'nyt' of type 'entry' with scheme 'nyt' and locale 'nl-NL'
+[482] Biber.pm:2932> INFO - No sort tailoring available for locale 'nl-NL'
+[526] bbl.pm:517> INFO - Writing 'beamer.bbl' with encoding 'UTF-8'
+[528] bbl.pm:606> INFO - Output to beamer.bbl
