@@ -117,7 +117,7 @@
     \end{minipage}
   \end{figure}
   \begin{itemize}
-  \item habitat monitoring van eenden
+  \item habitat monitoring van vogels
   \item motes in broedholen
   \item 7 maanden
   \end{itemize}
@@ -153,18 +153,36 @@
 \section{Middleware voor WSNs}
 \label{sec-2}
 \begin{frame}[label=sec-2-1]{Wat is middleware?}
-  \includegraphics[width=\textwidth,keepaspectration=true]{middleware}
+  \includegraphics[width=0.9\textwidth, height=0.8\textheight,keepaspectration=false]{looci/schema.png}
 \end{frame}
 
 \begin{frame}[label=sec-2-2]{Mogelijke aanpakken}
-  \begin{itemize}
+
+\begin{minipage}{.5\textwidth}
+{\large Zonder middleware}
+\begin{itemize}
+\item Monolithische aanpak; bv. TinyOS
+\end{itemize}
+{\large Met middleware}
+\begin{itemize}
   \item application-based; bv. Contiki, Squawk
   \item component-based; bv. OpenCOM, Figaro, LooCi
-    \begin{itemize}
-    \item statisch
-    \item dynamisch reconfigureerbaar
-    \end{itemize}
   \end{itemize}
+      
+    \end{minipage}%
+\begin{minipage}{.5\textwidth}
+      \centering
+      \fbox{\includegraphics[width=.8\textwidth]{looci/schema.png}} 
+      
+    \end{minipage}
+
+
+
+
+\note{granularity\\}
+\note{Monolithisch = OS + app\\
+applicationbased = os en apps gescheiden
+component-based = at runtime component in app}
 \end{frame}
 
 \begin{frame}[label=sec-2-3]{LooCi (1)}
@@ -186,6 +204,7 @@
 \begin{frame}[label=sec-2-4]{LooCi (2)}
   \centering
   \includegraphics[width=0.9\textwidth,keepaspectration=true]{looci/LooCIExecEnvironment.png}
+\note{It provides a clean separation of distribution concerns from component implementation}
 \end{frame}
 
 \begin{frame}[label=sec-2-5]{LooCi Demo}
