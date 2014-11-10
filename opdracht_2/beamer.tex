@@ -50,180 +50,196 @@
 
 \maketitle
 \begin{frame}[noframenumbering]{Outline}
-\tableofcontents
+  \tableofcontents
 \end{frame}
 
-%\begin{itemize}
-%\item TODO hier een afbeelding zoeken en aan de hand hiervan uitleggen!
-%\item bestaan uit embedded computers, zgn. ‘motes’
-%TODO foto/video van motes
-%\item uitgerust met low-power radioantennes en sensoren
-%\end{itemize}
+% \begin{itemize}
+% \item TODO hier een afbeelding zoeken en aan de hand hiervan uitleggen!
+% \item bestaan uit embedded computers, zgn. ‘motes’
+%   TODO foto/video van motes
+% \item uitgerust met low-power radioantennes en sensoren
+% \end{itemize}
 
 
 \section{Inleiding tot wireless sensor networks}
 \label{sec-1}
 \begin{frame}[label=sec-1-1]{Wireless sensor networks: wat zijn ze? (1)}
 
-\begin{figure}
-\fbox{\includegraphics[width=0.82\textwidth,keepaspectration=true]{intro/overview.png}}
-\caption{Een wireless sensor network}
-\end{figure}
+  \begin{figure}
+    \fbox{\includegraphics[width=0.82\textwidth,keepaspectration=true]{intro/overview.png}}
+    \caption{Een wireless sensor network}
+  \end{figure}
 
 \end{frame}
 
 \begin{frame}[label=sec-1-2]{Wireless sensor networks: wat zijn ze? (2)}
-\begin{figure}
-\fbox{\includegraphics[height=0.78\textheight,keepaspectration=true]{intro/psumote.jpg}}
-\caption{Een PSUMote}
-\end{figure}
+  \begin{figure}
+    \fbox{\includegraphics[height=0.78\textheight,keepaspectration=true]{intro/psumote.jpg}}
+    \caption{Een PSUMote}
+  \end{figure}
 
 \end{frame}
 
 
 
 \begin{frame}[label=sec-1-3]{Toepassingen van WSN}
-\centering 
-\begin{tabular}{c c c}
-\includegraphics[width=5.25cm,keepaspectration=true]{graphics/sample_applications/fire.jpg}
-& \includegraphics[width=5cm,keepaspectration=true]{graphics/sample_applications/landbouw.jpg} \\
-\includegraphics[width=5.25cm,keepaspectration=true]{graphics/sample_applications/military.jpg}
-& \includegraphics[width=5cm,keepaspectration=true]{graphics/sample_applications/medicine.jpg}
-\end{tabular}
-\note{and another test}
+  \centering 
+  \begin{tabular}{c c c}
+    \includegraphics[width=5.25cm,keepaspectration=true]{graphics/sample_applications/fire.jpg}
+    & \includegraphics[width=5cm,keepaspectration=true]{graphics/sample_applications/landbouw.jpg} \\
+    \includegraphics[width=5.25cm,keepaspectration=true]{graphics/sample_applications/military.jpg}
+    & \includegraphics[width=5cm,keepaspectration=true]{graphics/sample_applications/medicine.jpg}
+  \end{tabular}
+  \note{and another test}
 
 \end{frame}
 
 \begin{frame}[label=sec-1-4]{Great Duck Island experiment I}
-\centering
-\begin{figure}
-\fbox{\includegraphics[width=0.85\textwidth,keepaspectratio=true]{gdi/gdi.jpg}}
-\caption{Great Duck Island}
-\end{figure}
+  \centering
+  \begin{figure}
+    \fbox{\includegraphics[width=0.85\textwidth,keepaspectratio=true]{gdi/gdi.jpg}}
+    \caption{Great Duck Island}
+  \end{figure}
 
 \end{frame}
-%TODO Beter woord voor monitoring vinden
+% TODO Beter woord voor monitoring vinden
 \begin{frame}[label=sec-1-5]{Great Duck Island experiment II}
-\begin{figure}
-\begin{minipage}{.5\textwidth}
-\centering
-\fbox{\includegraphics[width=.8\textwidth]{gdi/gdi_duckmote.jpg}} 
-\captionof{figure}{Motes in nesten}
-\end{minipage}%
-\begin{minipage}{.5\textwidth}
-\centering
-\fbox{\includegraphics[width=.8\textwidth]{gdi/micamote.png}}
-\captionof{figure}{Motes in het gras}
-\end{minipage}
-\end{figure}
-\begin{itemize}
-\item habitat monitoring van eenden
-\item motes in broedholen
-\item 7 maanden
-\end{itemize}
-\note{Mensen konden niet in de buurt komen zonder te storen}
-\note{In de holen werden de motes gelegd}
-\note{En aanvullingen werden bijgezet}
+  \begin{figure}
+    \begin{minipage}{.5\textwidth}
+      \centering
+      \fbox{\includegraphics[width=.8\textwidth]{gdi/gdi_duckmote.jpg}} 
+      \captionof{figure}{Motes in nesten}
+    \end{minipage}%
+    \begin{minipage}{.5\textwidth}
+      \centering
+      \fbox{\includegraphics[width=.8\textwidth]{gdi/micamote.png}}
+      \captionof{figure}{Motes in het gras}
+    \end{minipage}
+  \end{figure}
+  \begin{itemize}
+  \item habitat monitoring van eenden
+  \item motes in broedholen
+  \item 7 maanden
+  \end{itemize}
+  \note{
+  \begin{itemize}
+    \item Mensen konden niet in de buurt komen zonder te storen
+    \item In de holen werden de motes gelegd
+    \item En aanvullingen werden bijgezet
+  \end{itemize}
+
+  }
 \end{frame}
 
 \begin{frame}[label=sec-1-6]{Belangrijke aspecten bij WSN-design}
-\uncover<2->{\begin{block}{energie-effici\"ent}
-tot 10 jaar meegaan op \'e\'en batterij
-\end{block}}%
-\uncover<3->{\begin{block}{dichtheid}
-tot 20 sensor nodes per $m^3$ (geen harde limiet)
-\end{block}}%
-\uncover<4->{\begin{block}{goedkoop}
-\$1 of minder voor heel grootschalige deployments
-\end{block}}%
-\uncover<5->{\begin{block}{autonoom}
-deploy and forget
-\end{block}}%
-\uncover<6->{\begin{block}{adaptief}
-makkelijke aanpasbare topologie, bestand tegen falen van motes
-\end{block}}
-\note{Consume extremely low power, operate in high volumetric densities, have low production cost and be dispensable, be autonomous and operate unattended, be adaptive to the environment.}
+  \uncover<2->{\begin{block}{energie-effici\"ent}
+      tot 10 jaar meegaan op \'e\'en batterij
+    \end{block}}%
+  \uncover<3->{\begin{block}{dichtheid}
+      tot 20 sensor nodes per $m^3$ (geen harde limiet)
+    \end{block}}%
+  \uncover<4->{\begin{block}{goedkoop}
+      \$1 of minder voor heel grootschalige deployments
+    \end{block}}%
+  \uncover<5->{\begin{block}{autonoom}
+      deploy and forget
+    \end{block}}%
+  \uncover<6->{\begin{block}{adaptief}
+      makkelijke aanpasbare topologie, bestand tegen falen van motes
+    \end{block}}
+  \note{Consume extremely low power, operate in high volumetric densities, have low production cost and be dispensable, be autonomous and operate unattended, be adaptive to the environment.}
 \end{frame}
 
 \section{Middleware voor WSNs}
 \label{sec-2}
 \begin{frame}[label=sec-2-1]{Wat is middleware?}
-\includegraphics[width=\textwidth,keepaspectration=true]{middleware}
+  \includegraphics[width=\textwidth,keepaspectration=true]{middleware}
 \end{frame}
 
 \begin{frame}[label=sec-2-2]{Mogelijke aanpakken}
-\begin{itemize}
-\item application-based; bv. Contiki, Squawk
-\item component-based; bv. OpenCOM, Figaro, LooCi
-\begin{itemize}
-\item statisch
-\item dynamisch reconfigureerbaar
-\end{itemize}
-\end{itemize}
+  \begin{itemize}
+  \item application-based; bv. Contiki, Squawk
+  \item component-based; bv. OpenCOM, Figaro, LooCi
+    \begin{itemize}
+    \item statisch
+    \item dynamisch reconfigureerbaar
+    \end{itemize}
+  \end{itemize}
 \end{frame}
 
 \begin{frame}[label=sec-2-3]{LooCi (1)}
-\begin{columns}[t]
-\column{.5\textwidth}
-\centering
-\includegraphics[width=5cm,keepaspectration=true]{looci/looci.png}\\
-\includegraphics[width=5cm,keepaspectration=true]{looci/distrinet.png}
-\column{.5\textwidth}
-\centering
-\begin{itemize}
-\item Ontwikkeld aan KULeuven
-\item Runtime deployable components
-\item Werkt op Contiki, Sun SPOT, OSGi en Android
-\end{itemize}
-\end{columns}
+  \begin{columns}[t]
+    \column{.5\textwidth}
+    \centering
+    \includegraphics[width=5cm,keepaspectration=true]{looci/looci.png}\\
+    \includegraphics[width=5cm,keepaspectration=true]{looci/distrinet.png}
+    \column{.5\textwidth}
+    \centering
+    \begin{itemize}
+    \item Ontwikkeld aan KULeuven
+    \item Runtime deployable components
+    \item Werkt op Contiki, Sun SPOT, OSGi en Android
+    \end{itemize}
+  \end{columns}
 \end{frame}
 
 \begin{frame}[label=sec-2-4]{LooCi (2)}
-\centering
-\includegraphics[width=0.9\textwidth,keepaspectration=true]{looci/LooCIExecEnvironment.png}
+  \centering
+  \includegraphics[width=0.9\textwidth,keepaspectration=true]{looci/LooCIExecEnvironment.png}
 \end{frame}
 
 \begin{frame}[label=sec-2-5]{LooCi Demo}
-Filmpje van youtubekanaal
+  Filmpje van youtubekanaal
 \end{frame}
 
 \section{Energieverbruik}
 \label{sec-3}
 
 \begin{frame}[label=sec-1-7]{Store, compute, transmit?}
-\begin{itemize}
-\item drie grote factoren in energieverbruik:
-\vfill
-\begin{tabular}{c c c}
-\hiddencell{2}{\includegraphics[width=0.25\textwidth,keepaspectration=true]{storage}} & \hiddencell{3}{\includegraphics[width=0.25\textwidth,keepaspectration=true]{cpu}} & \hiddencell{4}{\includegraphics[width=0.25\textwidth,keepaspectration=true]{radio}}  \\
-\hiddencell{2}{flash-opslag} & \hiddencell{3}{berekeningen} & \hiddencell{4}{netwerkoverdracht}
-\end{tabular}
-\vfill
-\end{itemize}
-\note{
-\begin{itemize}
-\item antennes op en aan zetten kost veel energie
-\item flash en CPU iets minder, maar:
   \begin{itemize}
-    \item lage kloksnelheid 
-    \begin{itemize}
-    \item slechte concurrency, 
-    \item slechte performantie in het algemeen
-    \end{itemize}
-  \item beperkte hoeveelheid geheugen
+  \item drie grote factoren in energieverbruik:
+    \vfill
+    \begin{tabular}{c c c}
+      \hiddencell{2}{\includegraphics[width=0.25\textwidth,keepaspectration=true]{storage}} & \hiddencell{3}{\includegraphics[width=0.25\textwidth,keepaspectration=true]{cpu}} & \hiddencell{4}{\includegraphics[width=0.25\textwidth,keepaspectration=true]{radio}}  \\
+      \hiddencell{2}{flash-opslag} & \hiddencell{3}{berekeningen} & \hiddencell{4}{netwerkoverdracht}
+    \end{tabular}
+    \vfill
   \end{itemize}
-\item huidige aanpak: veel netwerkoverdracht, weinig CPU- en geheugengebruik
-\end{itemize}
-}
+
+  \only<4>{
+    \note{
+      \begin{itemize}
+      \item antennes op en aan zetten kost veel energie
+      \item flash en CPU iets minder, maar:
+        \begin{itemize}
+        \item lage kloksnelheid 
+          \begin{itemize}
+          \item slechte concurrency, 
+          \item slechte performantie in het algemeen
+          \end{itemize}
+        \item beperkte hoeveelheid geheugen
+        \end{itemize}
+      \item huidige aanpak: veel netwerkoverdracht, weinig CPU- en geheugengebruik
+      \end{itemize}
+    }
+  }
+
 \end{frame}
 
 
 \begin{frame}[label=sec-3-2]{Hoe meten we het?}
-\begin{minipage}{\textwidth}
-\centering
-\fbox{\includegraphics[width=0.9\textwidth,keepaspectration=true]{elek/dso.jpg}} 
-\captionof{figure}{Oscilloscoop}
-\end{minipage}
+  \begin{minipage}{\textwidth}
+    \centering
+    \fbox{\includegraphics[width=0.9\textwidth,keepaspectration=true]{elek/dso.jpg}} 
+    \captionof{figure}{Oscilloscoop}
+  \end{minipage}
+
+  \note{
+    \begin{itemize}
+    \item een oscilloscoop meet voltage t.o.v. tijd
+    \item kan ook veel afleiden uit zijn metingen
+    \end{itemize}
+  }
 \end{frame}
 
 \begin{frame}[label=sec-3-3]{Meetopstelling}
@@ -232,6 +248,12 @@ Filmpje van youtubekanaal
     \includegraphics[width=0.9\textwidth,keepaspectration=true]{elek/diag1}
     \caption{Meetopstelling}
   \end{figure}
+  \note{
+    \begin{itemize}
+    \item we willen het stroomverbruik van bepaalde methodes plotten
+    \item pinnetje flippen met behulp van software trigger
+    \end{itemize}
+  }
 \end{frame}
 
 \begin{frame}[label=sec-3-4]{Voltageplot}
@@ -243,26 +265,26 @@ Filmpje van youtubekanaal
 \end{frame}
 
 \begin{frame}[label=sec-3-5]{Analyse energieverbruik}
-\begin{itemize}
-\item kan afgeleid worden met de wet van Ohm
-  \begin{figure}
-    \centering
-    \includegraphics[width=0.9\textwidth,keepaspectration=true]{elek/diag2}
+  \begin{itemize}
+  \item kan afgeleid worden met de wet van Ohm
+    \begin{figure}
+      \centering
+      \includegraphics[width=0.9\textwidth,keepaspectration=true]{elek/diag2}
 
-    \caption{Stroomverbruikanalyse}
-  \end{figure}
-\item kan gemodeleerd worden m.b.v. lineaire regressie
-\end{itemize}
+      \caption{Stroomverbruikanalyse}
+    \end{figure}
+  \item kan gemodeleerd worden m.b.v. lineaire regressie
+  \end{itemize}
 \end{frame}
 \section{Conclusie}
 \label{sec-4}
 \begin{frame}[label=sec-4-1]{Waar komen wij in het spel?}
-\begin{itemize}
-\item huidige aanpak in het veld: netwerk-overdracht
-\item is dit wel de enige goede methode?
-\item analyse stroomverbruik voor verschillende types code deployment
-\item implementeren tool voor simulatie energieverbruik
-\end{itemize}
+  \begin{itemize}
+  \item huidige aanpak in het veld: netwerk-overdracht
+  \item is dit wel de enige goede methode?
+  \item analyse stroomverbruik voor verschillende types code deployment
+  \item implementeren tool voor simulatie energieverbruik
+  \end{itemize}
 \end{frame}
 
 \begin{frame}[label=sec-4-2]{Conclusie}
@@ -273,8 +295,8 @@ Filmpje van youtubekanaal
   \end{itemize}
 \end{frame}
 \begin{frame}[allowframebreaks]{Bibliografie}
-\nocite{*}
-\printbibliography
+  \nocite{*}
+  \printbibliography
 \end{frame}
 
 % Emacs 24.3.1 (Org mode N/A)
