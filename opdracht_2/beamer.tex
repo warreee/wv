@@ -16,6 +16,7 @@
 \usepackage{amstext}
 \usepackage{hyperref}
 \usepackage{url}
+\usepackage{multimedia}
 \usepackage[dutch]{babel}
 \usepackage[font=scriptsize,labelfont=bf]{caption}
 \setbeamertemplate{caption}[numbered]
@@ -188,8 +189,8 @@
   \includegraphics[width=0.9\textwidth,keepaspectration=true]{looci/LooCIExecEnvironment.png}
 \end{frame}
 
-\begin{frame}[label=sec-2-5]{LooCi Demo}
-  Filmpje van youtubekanaal
+\begin{frame}[label=sec-2-5]{LooCi demo}
+  
 \end{frame}
 
 \section{Energieverbruik}
@@ -235,10 +236,12 @@
   \end{minipage}
 
   \note{
-    \begin{itemize}
-    \item een oscilloscoop meet voltage t.o.v. tijd
-    \item kan ook veel afleiden uit zijn metingen
-    \end{itemize}
+    Oscilloscopes are used to observe the change of an electrical
+signal over time, such that voltage and time describe a shape which is
+continuously graphed against a calibrated scale.
+    
+    The observed waveform can be analyzed for such properties as
+amplitude, frequency, rise time, time interval, distortion and others.
   }
 \end{frame}
 
@@ -249,10 +252,16 @@
     \caption{Meetopstelling}
   \end{figure}
   \note{
-    \begin{itemize}
-    \item we willen het stroomverbruik van bepaalde methodes plotten
-    \item pinnetje flippen met behulp van software trigger
-    \end{itemize}
+    We willen het stroomverbruik van bepaalde methodes plotten. De
+opstelling is als volgt: er wordt een weerstand in serie geplaatst met
+de stroomtoevoer van de sensor node. De oscilloscoop zal de spanning
+in het circuit meten. We laten de oscilloscoop metingen starten en
+stoppen m.b.v. een output-pin op de sensor node. Deze pin zal
+softwarematig aan en uit gezet worden door middel van een speciale
+methode.
+
+Meetmethode: meerdere keren het te meten stuk code oproepen. Pin zal
+verscheidene keren aan en uit flippen en metingen triggeren.
   }
 \end{frame}
 
@@ -262,19 +271,36 @@
     \includegraphics[width=0.85\textwidth,keepaspectration=true]{elek/energy_measurement_plot.png}
     \caption{Voltageplot}
   \end{figure}
+  \note{
+    Ziet er als volgt uit.
+
+    \begin{itemize}
+    \item blauw: voltage over weerstand
+    \item groen: voltage op pin
+    \end{itemize}
+  }
 \end{frame}
 
 \begin{frame}[label=sec-3-5]{Analyse energieverbruik}
   \begin{itemize}
-  \item kan afgeleid worden met de wet van Ohm
+  \item wet van Ohm!
     \begin{figure}
       \centering
       \includegraphics[width=0.9\textwidth,keepaspectration=true]{elek/diag2}
 
       \caption{Stroomverbruikanalyse}
     \end{figure}
-  \item kan gemodeleerd worden m.b.v. lineaire regressie
+  \item modelleren m.b.v. lineaire regressie
   \end{itemize}
+  \note{
+
+    \begin{itemize}
+    \item gebruik de wet van Ohm
+    \item accurate metingen van stroomverbruik van bepaalde methodes
+    \item herhaal metingen tot we een goed idee hebben van \\ gemiddeld verbruik
+    \end{itemize}
+
+  }
 \end{frame}
 \section{Conclusie}
 \label{sec-4}
@@ -290,8 +316,8 @@
 \begin{frame}[label=sec-4-2]{Conclusie}
   \begin{itemize}
   \item momenteel weinig aandacht voor alternatieve code deployment
+  \item we hebben jullie een aantal idee\"en getoond 
   \item hier gaan we iets aan doen!
-  \item 
   \end{itemize}
 \end{frame}
 \begin{frame}[allowframebreaks]{Bibliografie}
