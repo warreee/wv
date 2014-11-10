@@ -205,9 +205,9 @@
       \hiddencell{2}{flash-opslag} & \hiddencell{3}{berekeningen} & \hiddencell{4}{netwerkoverdracht}
     \end{tabular}
     \vfill
+  \item ook sensoren aangesloten op microcontroller hebben invloed
   \end{itemize}
 
-  \only<4>{
     \note{
       \begin{itemize}
       \item antennes op en aan zetten kost veel energie
@@ -223,7 +223,6 @@
       \item huidige aanpak: veel netwerkoverdracht, weinig CPU- en geheugengebruik
       \end{itemize}
     }
-  }
 
 \end{frame}
 
@@ -252,16 +251,20 @@ amplitude, frequency, rise time, time interval, distortion and others.
     \caption{Meetopstelling}
   \end{figure}
   \note{
-    We willen het stroomverbruik van bepaalde methodes plotten. De
-opstelling is als volgt: er wordt een weerstand in serie geplaatst met
-de stroomtoevoer van de sensor node. De oscilloscoop zal de spanning
-in het circuit meten. We laten de oscilloscoop metingen starten en
-stoppen m.b.v. een output-pin op de sensor node. Deze pin zal
-softwarematig aan en uit gezet worden door middel van een speciale
-methode.
 
-Meetmethode: meerdere keren het te meten stuk code oproepen. Pin zal
-verscheidene keren aan en uit flippen en metingen triggeren.
+    \begin{itemize}
+    \item stroomverbruik van bepaalde methodes plotten
+    \item opstelling: weerstand in serie geplaatst met stroomtoevoer
+    \item oscilloscoop meet spanning
+    \item start en stop mbv output pin
+    \item outputpin softwarematig getriggerd
+    \end{itemize}
+
+Meetmethode:\\
+\begin{itemize}
+\item meerdere keren het te meten stuk code oproepen
+\item pin zal verscheidene keren aan en uit flippen en metingen triggeren
+\end{itemize}
   }
 \end{frame}
 
