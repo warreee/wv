@@ -1,5 +1,5 @@
 % $ biblatex auxiliary file $
-% $ biblatex bbl format version 2.3 $
+% $ biblatex bbl format version 2.4 $
 % Do not modify the above lines!
 %
 % This is an auxiliary file used by the 'biblatex' package.
@@ -18,59 +18,70 @@
 
 
 \refsection{0}
-  \sortlist{entry}{nyt}
+  \sortlist{nyt}{nyt}
     \entry{wsnintro}{misc}{}
       \field{sortinit}{0}
+      \field{sortinithash}{a08a9549c5c2429f8cec5d1a581b26ca}
       \field{labelyear}{nodate}
       \field{howpublished}{\url{http://www.intechopen.com/source/html/16536/media/image9.png}}
     \endentry
     \entry{toep1}{misc}{}
       \field{sortinit}{0}
+      \field{sortinithash}{a08a9549c5c2429f8cec5d1a581b26ca}
       \field{labelyear}{nodate}
       \field{howpublished}{\url{http://rtime.felk.cvut.cz/hw/images/3/31/WSN_Motivation.jpg}}
     \endentry
     \entry{toep2}{misc}{}
       \field{sortinit}{0}
+      \field{sortinithash}{a08a9549c5c2429f8cec5d1a581b26ca}
       \field{labelyear}{nodate}
       \field{howpublished}{\url{http://www.lockheedmartin.com/content/lockheed/us/products/span/_jcr_content/product_image.img.jpg/1328558373319.jpg}}
     \endentry
     \entry{toep3}{misc}{}
       \field{sortinit}{0}
+      \field{sortinithash}{a08a9549c5c2429f8cec5d1a581b26ca}
       \field{labelyear}{nodate}
       \field{howpublished}{\url{http://www.probesrl.net/eng/wp-content/uploads/2010/06/campo.jpg}}
     \endentry
     \entry{toep4}{misc}{}
       \field{sortinit}{0}
+      \field{sortinithash}{a08a9549c5c2429f8cec5d1a581b26ca}
       \field{labelyear}{nodate}
       \field{howpublished}{\url{http://www.designworldonline.com/uploads/Imagegallery/sensors-on-a-patient.jpg}}
     \endentry
     \entry{gdi1}{misc}{}
       \field{sortinit}{0}
+      \field{sortinithash}{a08a9549c5c2429f8cec5d1a581b26ca}
       \field{labelyear}{nodate}
       \field{howpublished}{\url{https://colleges.niche.com/images/standard/48528/?v=5ed9c3b}}
     \endentry
     \entry{gdi2afb1}{misc}{}
       \field{sortinit}{0}
+      \field{sortinithash}{a08a9549c5c2429f8cec5d1a581b26ca}
       \field{labelyear}{nodate}
       \field{howpublished}{\url{http://archive.wired.com/wired/archive/11.12/images/FF_241_network_1.jpg}}
     \endentry
     \entry{psumote}{misc}{}
       \field{sortinit}{0}
+      \field{sortinithash}{a08a9549c5c2429f8cec5d1a581b26ca}
       \field{labelyear}{nodate}
       \field{howpublished}{\url{http://www.ee.psu.ac.th/~wiklom/WSN/pic/Q_psumote2.jpg}}
     \endentry
     \entry{looci}{misc}{}
       \field{sortinit}{0}
+      \field{sortinithash}{a08a9549c5c2429f8cec5d1a581b26ca}
       \field{labelyear}{nodate}
       \field{howpublished}{\url{http://www.slideserve.com/kasa/loosely-coupled-component-infrastructure-using-looci-contiki-osgi-android}}
     \endentry
     \entry{distri}{misc}{}
       \field{sortinit}{0}
+      \field{sortinithash}{a08a9549c5c2429f8cec5d1a581b26ca}
       \field{labelyear}{nodate}
       \field{howpublished}{\url{https://distrinet.cs.kuleuven.be/images/logo_distrinet_leftmenu.png}}
     \endentry
     \entry{osci}{misc}{}
       \field{sortinit}{0}
+      \field{sortinithash}{a08a9549c5c2429f8cec5d1a581b26ca}
       \field{labelyear}{nodate}
       \field{howpublished}{\url{http://www.itcelectronics.com/images/2540B-GEN.jpg}}
     \endentry
@@ -93,6 +104,7 @@
       \strng{namehash}{b4365237fe0ff096ea04190b346a1cbf}
       \strng{fullhash}{ecc860c38893130590e960dd6bdae22d}
       \field{sortinit}{A}
+      \field{sortinithash}{c8a29dea43e9d2645817723335a4dbe8}
       \field{labelyear}{2002}
       \field{datelabelsource}{}
       \field{labeltitle}{Wireless sensor networks: a survey}
@@ -136,6 +148,7 @@
       \strng{namehash}{a10c98e41167ad17b373e3c0f2752698}
       \strng{fullhash}{48a32bbd8b4e42cafda2ead12efa90ef}
       \field{sortinit}{H}
+      \field{sortinithash}{95b2cb08933fe649b7e9f8beee2132b4}
       \field{labelyear}{2013}
       \field{datelabelsource}{}
       \field{labeltitle}{Energy aware software evolution for wireless sensor networks}
@@ -148,7 +161,7 @@
       \name{labelname}{8}{uniquelist=2}{%
         {{uniquename=0,hash=09898dd06ebbe31c53c57923c4c951f7}{Hughes}{H\bibinitperiod}{Danny}{D\bibinitperiod}{}{}{}{}}%
         {{uniquename=0,hash=a08cf02c525d1bb5ee7f9bd0c3f73200}{Thoelen}{T\bibinitperiod}{Klaas}{K\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=933e4eaafe01e3f9d6e7f33089a3a51c}{Horré}{H\bibinitperiod}{Wouter}{W\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=5c9175486671b917137988acbf5bed7d}{Horr{é}}{H\bibinitperiod}{Wouter}{W\bibinitperiod}{}{}{}{}}%
         {{uniquename=0,hash=efe53cb13649b7bb289bd36aa04e053d}{Matthys}{M\bibinitperiod}{Nelson}{N\bibinitperiod}{}{}{}{}}%
         {{uniquename=0,hash=05bea338243e6e33fcfeee967ca77099}{Cid}{C\bibinitperiod}{Javier\bibnamedelima Del}{J\bibinitperiod\bibinitdelim D\bibinitperiod}{}{}{}{}}%
         {{uniquename=0,hash=c02282c0fcc4d7a93f573c9ab1ddd05c}{Michiels}{M\bibinitperiod}{Sam}{S\bibinitperiod}{}{}{}{}}%
@@ -158,7 +171,7 @@
       \name{author}{8}{uniquelist=2}{%
         {{uniquename=0,hash=09898dd06ebbe31c53c57923c4c951f7}{Hughes}{H\bibinitperiod}{Danny}{D\bibinitperiod}{}{}{}{}}%
         {{uniquename=0,hash=a08cf02c525d1bb5ee7f9bd0c3f73200}{Thoelen}{T\bibinitperiod}{Klaas}{K\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=933e4eaafe01e3f9d6e7f33089a3a51c}{Horré}{H\bibinitperiod}{Wouter}{W\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=5c9175486671b917137988acbf5bed7d}{Horr{é}}{H\bibinitperiod}{Wouter}{W\bibinitperiod}{}{}{}{}}%
         {{uniquename=0,hash=efe53cb13649b7bb289bd36aa04e053d}{Matthys}{M\bibinitperiod}{Nelson}{N\bibinitperiod}{}{}{}{}}%
         {{uniquename=0,hash=05bea338243e6e33fcfeee967ca77099}{Cid}{C\bibinitperiod}{Javier\bibnamedelima Del}{J\bibinitperiod\bibinitdelim D\bibinitperiod}{}{}{}{}}%
         {{uniquename=0,hash=c02282c0fcc4d7a93f573c9ab1ddd05c}{Michiels}{M\bibinitperiod}{Sam}{S\bibinitperiod}{}{}{}{}}%
@@ -169,8 +182,9 @@
         {ACM}%
       }
       \strng{namehash}{7cd7e121d9110ac14b98d2a3db6b8697}
-      \strng{fullhash}{7e2ce08c9b4cbb465e508c8131c7b13c}
+      \strng{fullhash}{1c21ec9770d549c9d4ca38b52cd6eefb}
       \field{sortinit}{H}
+      \field{sortinithash}{95b2cb08933fe649b7e9f8beee2132b4}
       \field{labelyear}{2009}
       \field{datelabelsource}{}
       \field{labeltitle}{LooCI: a loosely-coupled component infrastructure for networked embedded systems}
@@ -200,6 +214,7 @@
       \strng{namehash}{3fd4d7a8fac1466f78d96186074b0ea7}
       \strng{fullhash}{7e1c70a8bde2747f43e9d578c9e596a4}
       \field{sortinit}{M}
+      \field{sortinithash}{4203d16473bc940d4ac780773cb7c5dd}
       \field{labelyear}{2002}
       \field{datelabelsource}{}
       \field{labeltitle}{Wireless sensor networks for habitat monitoring}
