@@ -55,14 +55,10 @@
 \maketitle
 \begin{frame}[noframenumbering]{Outline}
   \tableofcontents
+  \note{3 grote luiken\\
+        }
 \end{frame}
 
-% \begin{itemize}
-% \item TODO hier een afbeelding zoeken en aan de hand hiervan uitleggen!
-% \item bestaan uit embedded computers, zgn. ‘motes’
-%   TODO foto/video van motes
-% \item uitgerust met low-power radioantennes en sensoren
-% \end{itemize}
 
 
 \section{Inleiding tot wireless sensor networks}
@@ -73,7 +69,16 @@
     \fbox{\includegraphics[width=0.82\textwidth,keepaspectration=true]{intro/overview.png}}
     \caption{Een wireless sensor network}
   \end{figure}
+  \note{
+\begin{itemize}
+\item heel veel, sensoren enkele gateways
+\item netwerk bestaande uit sensoren
+\item ad-hoc netwerk technieken, geen bestaande!
+\item geen routing door 1 centrale unit
+\item communiceren via elkaar
 
+\end{itemize}
+}
 \end{frame}
 
 \begin{frame}[label=sec-1-2]{Wireless sensor networks: wat zijn ze? (2)}
@@ -81,7 +86,14 @@
     \fbox{\includegraphics[height=0.78\textheight,keepaspectration=true]{intro/psumote.jpg}}
     \caption{Een PSUMote}
   \end{figure}
-
+\note{
+\begin{itemize}
+\item embedded device
+\item RF antenne, geen wifi, minder energie, groter bereik
+\item sensoren worden aangesloten
+\item microcontroller COMPUTEr ON A CHIP
+\end{itemize}
+}
 \end{frame}
 
 
@@ -94,8 +106,14 @@
     \includegraphics[width=5.25cm,keepaspectration=true]{graphics/sample_applications/military.jpg}
     & \includegraphics[width=5cm,keepaspectration=true]{graphics/sample_applications/medicine.jpg}
   \end{tabular}
-  \note{and another test}
-
+  \note{
+  \begin{itemize}
+  \item bosbranden
+  \item landbouw
+  \item militaire doeleinden
+  \item geneeskunde
+  \end{itemize}
+}
 \end{frame}
 
 \begin{frame}[label=sec-1-4]{Great Duck Island experiment I}
@@ -104,7 +122,13 @@
     \fbox{\includegraphics[width=0.85\textwidth,keepaspectratio=true]{gdi/gdi.jpg}}
     \caption{Great Duck Island}
   \end{figure}
-
+ \note{
+ \begin{itemize}
+ \item experiment uit paper
+ \item biologen wouden vogels bestuderen
+ 
+\end{itemize}  }
+ 
 \end{frame}
 % TODO Beter woord voor monitoring vinden
 \begin{frame}[label=sec-1-5]{Great Duck Island experiment II}
@@ -133,6 +157,7 @@
   \end{itemize}
 
   }
+ 
 \end{frame}
 
 \begin{frame}[label=sec-1-6]{Belangrijke aspecten bij WSN-design}
@@ -151,13 +176,31 @@
   \uncover<6->{\begin{block}{adaptief}
       makkelijke aanpasbare topologie, bestand tegen falen van motes
     \end{block}}
-  \note{Consume extremely low power, operate in high volumetric densities, have low production cost and be dispensable, be autonomous and operate unattended, be adaptive to the environment.}
+  \note{
+  \begin{itemize}
+  \item energie efficeit tot 10 jaar
+  \item dichtheid, zie geneeskunde
+  \item grote hoeveelheid, dus moet goedkoop, moet kapot gaan
+  \item autonoom deploy and forget
+  \item adaptief, topologie verandert, falende motes
+  \end{itemize}}
 \end{frame}
 
 \section{Middleware voor WSNs}
 \label{sec-2}
 \begin{frame}[label=sec-2-1]{Wat is middleware?}
   \includegraphics[width=0.9\textwidth, height=0.8\textheight,keepaspectration=false]{looci/schema.png}
+\note{\begin{itemize}
+\item uitgebreide verz architeturen in WSN $\rightarrow$ physical node
+\item gedistriubeerde systeem is hetrogeen
+\item verschillende ossen
+\item laag tussen os en applicatie die funcitonaliteit aanbied
+\item middleware zorgt voor consitente manier van programmeren
+\end{itemize}
+
+
+
+}
 \end{frame}
 
 \begin{frame}[label=sec-2-2]{Mogelijke aanpakken}
@@ -181,12 +224,17 @@
     \end{minipage}
 
 
+\note{
+\begin{itemize}
+\item granularity
+\item Monolithisch = OS + app\\
+\item applicationbased = os en apps gescheiden
+\item component-based = at runtime component in app
+
+\end{itemize}
+}
 
 
-\note{granularity\\}
-\note{Monolithisch = OS + app\\
-applicationbased = os en apps gescheiden
-component-based = at runtime component in app}
 \end{frame}
 
 \begin{frame}[label=sec-2-3]{LooCi (1)}
@@ -203,6 +251,11 @@ component-based = at runtime component in app}
     \item Werkt op Contiki, Sun SPOT, OSGi en Android
     \end{itemize}
   \end{columns}
+  \note{\begin{itemize}
+    \item Ontwikkeld aan KULeuven
+    \item Runtime deployable components
+    \item Werkt op Contiki, Sun SPOT, OSGi en Android
+    \end{itemize}}
 \end{frame}
 
 \begin{frame}[label=sec-2-4]{LooCi (2)}
