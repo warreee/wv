@@ -237,20 +237,20 @@
 
 \end{frame}
 
-\begin{frame}[label=sec-2-3]{LooCi (1)}
-  \begin{columns}[t]
-    \column{.5\textwidth}
+\begin{frame}[label=sec-2-3]{LooCi I}
+  \begin{minipage}{.5\textwidth}
     \centering
     \includegraphics[width=5cm,keepaspectration=true]{looci/looci.png}\\
     \includegraphics[width=5cm,keepaspectration=true]{looci/distrinet.png}
-    \column{.5\textwidth}
+  \end{minipage}%
+  \begin{minipage}{.5\textwidth}
     \centering
     \begin{itemize}
     \item Ontwikkeld aan KULeuven
     \item Runtime deployable components
     \item Werkt op Contiki, Sun SPOT, OSGi en Android
     \end{itemize}
-  \end{columns}
+  \end{minipage}%
   \note{\begin{itemize}
     \item Ontwikkeld aan KULeuven
     \item Runtime deployable components
@@ -258,7 +258,7 @@
     \end{itemize}}
 \end{frame}
 
-\begin{frame}[label=sec-2-4]{LooCi (2)}
+\begin{frame}[label=sec-2-4]{LooCi II}
   \centering
   \includegraphics[width=0.9\textwidth,keepaspectration=true]{looci/LooCIExecEnvironment.png}
 \note{scheiding van gedistribueerde achtergrond en component implementatie
@@ -282,7 +282,7 @@ Reconfigure engine}
       \hiddencell{2}{flash-opslag} & \hiddencell{3}{berekeningen} & \hiddencell{4}{netwerkoverdracht}
     \end{tabular}
     \vfill
-  \item ook sensoren aangesloten op microcontroller hebben invloed
+  \item<5>  ook sensoren aangesloten op microcontroller hebben invloed
   \end{itemize}
 
     \note{
