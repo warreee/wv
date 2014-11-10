@@ -47,6 +47,9 @@
 \newcommand{\hiddencell}[2]{\action<#1->{#2}}
 % first argument: slide number to appear from, second argument: content of cell
 
+\DeclareBibliographyCategory{papers}
+
+
 \begin{document}
 
 \maketitle
@@ -240,6 +243,8 @@ component-based = at runtime component in app}
         \item beperkte hoeveelheid geheugen
         \end{itemize}
       \item huidige aanpak: veel netwerkoverdracht, weinig CPU- en geheugengebruik
+      \item waarom voor sommige dingen geen CPU en flash gebruiken? bv. temperatuurmetingen
+      \item doel: kijken hoe doenbaar dit is
       \end{itemize}
     }
 
@@ -254,12 +259,20 @@ component-based = at runtime component in app}
   \end{minipage}
 
   \note{
-    Oscilloscopes are used to observe the change of an electrical
-signal over time, such that voltage and time describe a shape which is
-continuously graphed against a calibrated scale.
+    \begin{itemize}
+    \item oscilloscopes are used to observe the change of an electrical signal over time
+    \item voltage and time describe a shape which is continuously graphed against a calibrated scale
+    \item observed waveform can be analyzed for such properties 
+      \begin{itemize}
+      \item amplitude
+      \item frequency
+      \item rise time
+      \item time interval
+      \item distortion 
+      \item etc.
+      \end{itemize}
+    \end{itemize}
     
-    The observed waveform can be analyzed for such properties as
-amplitude, frequency, rise time, time interval, distortion and others.
   }
 \end{frame}
 
@@ -299,6 +312,7 @@ Meetmethode:\\
     \begin{itemize}
     \item blauw: voltage over weerstand
     \item groen: voltage op pin
+    \item kan veel uit afgeleid worden!
     \end{itemize}
   }
 \end{frame}
@@ -333,6 +347,15 @@ Meetmethode:\\
   \item analyse stroomverbruik voor verschillende types code deployment
   \item implementeren tool voor simulatie energieverbruik
   \end{itemize}
+  \note{
+
+    \begin{itemize}
+    \item paper gebruikt het voor meten van kost van reconfiguratie
+    \item wij gaan het toepassen op code deployment
+    \item d.w.z. is het interessanter om deze methode te \\ draaien op sensor node of op server?
+    \end{itemize}
+
+  }
 \end{frame}
 
 \begin{frame}[label=sec-4-2]{Conclusie}
@@ -343,8 +366,17 @@ Meetmethode:\\
   \end{itemize}
 \end{frame}
 \begin{frame}[allowframebreaks]{Bibliografie}
+
+\addtocategory{papers}{akyildiz2002wireless}
+\addtocategory{papers}{mainwaring2002wireless}
+\addtocategory{papers}{hughes2009looci}
+\addtocategory{papers}{hughes2013energy}
   \nocite{*}
-  \printbibliography
+  \textbf{Papers}
+  \printbibliography[category=papers]
+  \newpage
+  \textbf{Afbeeldingen}
+  \printbibliography[type=misc]
 \end{frame}
 
 % Emacs 24.3.1 (Org mode N/A)
