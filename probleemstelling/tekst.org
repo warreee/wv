@@ -8,15 +8,22 @@
 
 * Observatie
 In WSNs wordt weinig gebruik gemaakt van de ingebedde rekenkracht en
-opslagcapaciteit van de sensor nodes.
+opslagcapaciteit van de sensor nodes.\\
 
 Mogelijke vragen: 
 
-1. Is dit zo? Waar haal je dit vandaan?
+1. Is dit zo? Waar haal je dit vandaan?\\
+   Papers.
 * Vraagstelling
 Zou het mogelijk zijn om een andere aanpak te gebruiken, d.i. meer
 berekeningen uit te voeren en meer data op te slaan op de sensor nodes
-zelf, zonder verlies van performantie of energie-efficiëntie?
+zelf, zonder verlies van performantie of energie-efficiëntie?\\
+
+Mogelijke vragen: 
+
+1. Geef eens een voorbeeld van zo'n operaties?\\
+   Bijvoorbeeld compressie van sensordata en opslag om zo meer data in
+   één keer op te sturen, maar minder frequent.
 * Waarom
 Als dit mogelijk was dan zouden we minder gebruik moeten maken van de
 RF-antennes, die veel energie verbruiken. Eventueel kan dit zelfs ook
