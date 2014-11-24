@@ -51,36 +51,69 @@
 \begin{frame}[label=sec-1]{Slide 1}
 \begin{itemize}[<+->]
 \item Observatie\\
+
+  \begin{itemize}
+  \item in WSN's weinig gebruik van CPU \& flash
+  \end{itemize}
+\note{
 In WSNs wordt weinig gebruik gemaakt van de ingebedde rekenkracht en
 opslagcapaciteit van de sensor nodes.
+}
 
 \item Vraagstelling\\
+  \begin{itemize}
+  \item andere, misschien betere, aanpak mogelijk?
+  \end{itemize}
+
+\note{
 Zou het mogelijk zijn om een andere aanpak te gebruiken, d.i. meer
 berekeningen uit te voeren en meer data op te slaan op de sensor nodes
 zelf, zonder verlies van performantie of energie-efficiëntie?
+}
 \item Waarom\\
+\note{
+  \begin{itemize}
+  \item gereduceerd energieverbruik
+  \item efficiënter netwerk
+  \end{itemize}
 Als dit mogelijk was dan zouden we minder gebruik moeten maken van de
 RF-antennes, die veel energie verbruiken. Eventueel kan dit zelfs ook
 betere performantie opleveren, omdat er dan minder data over het
 netwerk zou moeten overgedragen worden.
+}
 \end{itemize}
 \end{frame}
 \begin{frame}[label=sec-2]{Slide 2}
 \begin{itemize}[<+->]
 \item Hypothese\\
+  \begin{itemize}
+  \item in sommige scenario's beter om CPU \& flash te gebruiken
+  \end{itemize}
+\note{
 Wij denken dat in bepaalde scenario's het beter is om bewerkingen op
 de sensor nodes uit te voeren voor een efficiënter energiegebruik en
 misschien zelfs betere performantie.
+}
 \item Bewijs\\
+  \begin{itemize}
+  \item metingen voor zelfde fysieke setup met energie- en performantiewinst
+  \end{itemize}
+\note{
 Metingen die aantonen dat voor een gelijkaardige fysieke setup een
 andere verdeling van de werklast binnen het WSN voordelen oplevert qua
 energieverbruik en/of performantie vis-à-vis een klassiekere
 werkverdeling.
+}
 \item Vereisten\\
+  \begin{itemize}
+  \item simulatietool op basis van type node en code deployment
+  \end{itemize}
+\note{
 Het ontwikkelen van een tool die toelaat om de potentiële
 energie-efficiëntie en performantie van een WSN te meten op basis
 van welke types code (bv. adhv. vooraf gebenchmarkte API calls) waar
 worden uitgevoerd.
+}
 \end{itemize}
 \end{frame}
 \begin{frame}[label=sec-3]{Pyramide}
