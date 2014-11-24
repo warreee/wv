@@ -1,0 +1,92 @@
+#+TITLE:     Internet of Things code deployment metrics: probleemstelling
+#+AUTHOR:    Ward Schodts, Xavier Goás Aguililla
+#+EMAIL:     ward.schodts@student.kuleuven.be, xavier.goas@student.kuleuven.be
+#+DATE:      maandag 10 november 2014
+#+startup: beamer
+#+LaTeX_CLASS: beamer
+#+LaTeX_CLASS_OPTIONS: [presentation, bigger]
+#+OPTIONS:   H:1, toc:nil
+
+#+latex_header: \usetheme{kuleuven} 
+#+latex_header: \useinnertheme{rectangles} 
+#+latex_header: \graphicspath{{graphics/}}
+#+latex_header: \usepackage[dutch]{babel}
+#+latex_header: \usepackage{graphicx}
+#+latex_header: \usepackage{tikz}
+#+latex_header: \usetikzlibrary{intersections}
+
+* Slide 1
+- Observatie
+In WSNs wordt weinig gebruik gemaakt van de ingebedde rekenkracht en
+opslagcapaciteit van de sensor nodes.
+
+- Vraagstelling
+Zou het mogelijk zijn om een andere aanpak te gebruiken, d.i. meer
+berekeningen uit te voeren en meer data op te slaan op de sensor nodes
+zelf, zonder verlies van performantie of energie-efficiëntie?
+- Waarom
+Als dit mogelijk was dan zouden we minder gebruik moeten maken van de
+RF-antennes, die veel energie verbruiken. Eventueel kan dit zelfs ook
+betere performantie opleveren, omdat er dan minder data over het
+netwerk zou moeten overgedragen worden.
+* Slide 2
+- Hypothese
+Wij denken dat in bepaalde scenario's het beter is om bewerkingen op
+de sensor nodes uit te voeren voor een efficiënter energiegebruik en
+misschien zelfs betere performantie.
+- Bewijs
+Metingen die aantonen dat voor een gelijkaardige fysieke setup een
+andere verdeling van de werklast binnen het WSN voordelen oplevert qua
+energieverbruik en/of performantie vis-à-vis een klassiekere
+werkverdeling.
+- Vereisten
+Het ontwikkelen van een tool die toelaat om de potentiële
+energie-efficiëntie en performantie van een WSN te meten op basis
+van welke types code (bv. adhv. vooraf gebenchmarkte API calls) waar
+worden uitgevoerd.
+# * Slide 3
+# - Pyramide
+# ** Globaal
+# 1. Nagaan of alternatieve code deployment enige voordelen biedt qua
+#    performantie of energieverbruik.
+# 2. Een semi-automatische tool die deze metingen kan uitvoeren voor een WSN-.
+# 3. Een volautomatische tool die een quasi-optimale code deployment kan voorstellen.
+# ** Praktisch
+# 1. Metingen voor één soort node op basis van API calls en verschillende sensoren.
+# 2. Metingen voor verschillende soorten node op basis van API calls +
+#    data energieverbruik nodes + data energieverbruik sensoren.
+# 3. Metingen voor hele netwerken.
+* Pyramide
+
+\begin{minipage}{.5\textwidth}
+\centering
+\begin{tikzpicture}
+\coordinate (A) at (-3.25,0) {};
+\coordinate (B) at ( 3.25,0) {};
+\coordinate (C) at (0,4) {};
+\draw[name path=AC] (A) -- (C);
+\draw[name path=BC] (B) -- (C);
+\foreach \y/\A in {0/\scriptsize{biedt alternatieve code deployment voordelen?},1/\scriptsize{semi-automatische tool},2/\scriptsize{volautomatische tool}} {
+    \path[name path=horiz] (A|-0,\y) -- (B|-0,\y);
+    \draw[name intersections={of=AC and horiz,by=P},
+          name intersections={of=BC and horiz,by=Q}] (P) -- (Q)
+        node[midway,above] {\A};
+}
+\end{tikzpicture}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+\centering
+\begin{tikzpicture}
+\coordinate (A) at (-2.75,0) {};
+\coordinate (B) at ( 2.75,0) {};
+\coordinate (C) at (0,4) {};
+\draw[name path=AC] (A) -- (C);
+\draw[name path=BC] (B) -- (C);
+\foreach \y/\A in {0/\scriptsize{\'e\'en type node},1/\scriptsize{verschillende soorten node},2/\scriptsize{hele netwerken}} {
+    \path[name path=horiz] (A|-0,\y) -- (B|-0,\y);
+    \draw[name intersections={of=AC and horiz,by=P},
+          name intersections={of=BC and horiz,by=Q}] (P) -- (Q)
+        node[midway,above] {\A};
+}
+\end{tikzpicture}
+\end{minipage}

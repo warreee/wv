@@ -1,4 +1,3 @@
-% Created 2014-11-08 Sat 11:30
 \documentclass[presentation, bigger]{beamer}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -20,8 +19,8 @@
 \usepackage[dutch]{babel}
 \usepackage[font=scriptsize,labelfont=bf]{caption}
 \setbeamertemplate{caption}[numbered]
-\usepackage{pgfpages}
-\setbeameroption{show notes on second screen=right}
+% \usepackage{pgfpages}
+% \setbeameroption{show notes on second screen=right}
 
 \tolerance=1000
 \usetheme{kuleuven}
@@ -35,13 +34,6 @@
 \author{Ward Schodts, Xavier Goás Aguililla}
 \date{maandag 10 november 2014}
 \title{Internet of Things code deployment metrics}
-\hypersetup{
-  pdfkeywords={},
-  pdfsubject={},
-  pdfcreator={Emacs 24.3.1 (Org mode N/A)}}
-
-
-
 \newcommand{\aheader}[2]{\action<#1-|alert@#1>{#2}}
 % first argument: slide number to appear from, second argument: content of header 
 \newcommand{\hiddencell}[2]{\action<#1->{#2}}
@@ -56,7 +48,7 @@
 \begin{frame}[noframenumbering]{Outline}
   \tableofcontents
   \note{3 grote luiken\\
-        }
+  }
 \end{frame}
 
 
@@ -70,15 +62,15 @@
     \caption{Een wireless sensor network}
   \end{figure}
   \note{
-\begin{itemize}
-\item heel veel, sensoren enkele gateways
-\item netwerk bestaande uit sensoren
-\item ad-hoc netwerk technieken, geen bestaande!
-\item geen routing door 1 centrale unit
-\item communiceren via elkaar
+    \begin{itemize}
+    \item heel veel, sensoren enkele gateways
+    \item netwerk bestaande uit sensoren
+    \item ad-hoc netwerk technieken, geen bestaande!
+    \item geen routing door 1 centrale unit
+    \item communiceren via elkaar
 
-\end{itemize}
-}
+    \end{itemize}
+  }
 \end{frame}
 
 \begin{frame}[label=sec-1-2]{Wireless sensor networks: wat zijn ze? (2)}
@@ -86,14 +78,14 @@
     \fbox{\includegraphics[height=0.78\textheight,keepaspectration=true]{intro/psumote.jpg}}
     \caption{Een PSUMote}
   \end{figure}
-\note{
-\begin{itemize}
-\item embedded device
-\item RF antenne, geen wifi, minder energie, groter bereik
-\item sensoren worden aangesloten
-\item microcontroller COMPUTEr ON A CHIP
-\end{itemize}
-}
+  \note{
+    \begin{itemize}
+    \item embedded device
+    \item RF antenne, geen wifi, minder energie, groter bereik
+    \item sensoren worden aangesloten
+    \item microcontroller COMPUTEr ON A CHIP
+    \end{itemize}
+  }
 \end{frame}
 
 
@@ -107,13 +99,13 @@
     & \includegraphics[width=5cm,keepaspectration=true]{graphics/sample_applications/medicine.jpg}
   \end{tabular}
   \note{
-  \begin{itemize}
-  \item bosbranden
-  \item landbouw
-  \item militaire doeleinden
-  \item geneeskunde
-  \end{itemize}
-}
+    \begin{itemize}
+    \item bosbranden
+    \item landbouw
+    \item militaire doeleinden
+    \item geneeskunde
+    \end{itemize}
+  }
 \end{frame}
 
 \begin{frame}[label=sec-1-4]{Great Duck Island experiment I}
@@ -122,13 +114,13 @@
     \fbox{\includegraphics[width=0.85\textwidth,keepaspectratio=true]{gdi/gdi.jpg}}
     \caption{Great Duck Island}
   \end{figure}
- \note{
- \begin{itemize}
- \item experiment uit paper
- \item biologen wouden vogels bestuderen
- 
-\end{itemize}  }
- 
+  \note{
+    \begin{itemize}
+    \item experiment uit paper
+    \item biologen wouden vogels bestuderen
+      
+    \end{itemize}  }
+  
 \end{frame}
 % TODO Beter woord voor monitoring vinden
 \begin{frame}[label=sec-1-5]{Great Duck Island experiment II}
@@ -150,14 +142,14 @@
   \item 7 maanden
   \end{itemize}
   \note{
-  \begin{itemize}
+    \begin{itemize}
     \item Mensen konden niet in de buurt komen zonder te storen
     \item In de holen werden de motes gelegd
     \item En aanvullingen werden bijgezet
-  \end{itemize}
+    \end{itemize}
 
   }
- 
+  
 \end{frame}
 
 \begin{frame}[label=sec-1-6]{Belangrijke aspecten bij WSN-design}
@@ -177,62 +169,62 @@
       makkelijke aanpasbare topologie, bestand tegen falen van motes
     \end{block}}
   \note{
-  \begin{itemize}
-  \item energie efficeit tot 10 jaar
-  \item dichtheid, zie geneeskunde
-  \item grote hoeveelheid, dus moet goedkoop, moet kapot gaan
-  \item autonoom deploy and forget
-  \item adaptief, topologie verandert, falende motes
-  \end{itemize}}
+    \begin{itemize}
+    \item energie efficeit tot 10 jaar
+    \item dichtheid, zie geneeskunde
+    \item grote hoeveelheid, dus moet goedkoop, moet kapot gaan
+    \item autonoom deploy and forget
+    \item adaptief, topologie verandert, falende motes
+    \end{itemize}}
 \end{frame}
 
 \section{Middleware voor WSNs}
 \label{sec-2}
 \begin{frame}[label=sec-2-1]{Wat is middleware?}
   \includegraphics[width=0.9\textwidth, height=0.8\textheight,keepaspectration=false]{looci/schema.png}
-\note{\begin{itemize}
-\item uitgebreide verz architeturen in WSN $\rightarrow$ physical node
-\item gedistriubeerde systeem is hetrogeen
-\item verschillende ossen
-\item laag tussen os en applicatie die funcitonaliteit aanbied
-\item middleware zorgt voor consitente manier van programmeren
-\end{itemize}
+  \note{\begin{itemize}
+    \item uitgebreide verz architeturen in WSN $\rightarrow$ physical node
+    \item gedistriubeerde systeem is hetrogeen
+    \item verschillende ossen
+    \item laag tussen os en applicatie die funcitonaliteit aanbied
+    \item middleware zorgt voor consitente manier van programmeren
+    \end{itemize}
 
 
 
-}
+  }
 \end{frame}
 
 \begin{frame}[label=sec-2-2]{Mogelijke aanpakken}
 
-\begin{minipage}{.5\textwidth}
-{\large Zonder middleware}
-\begin{itemize}
-\item Monolithische aanpak; bv. TinyOS
-\end{itemize}
-{\large Met middleware}
-\begin{itemize}
-  \item application-based; bv. Contiki, Squawk
-  \item component-based; bv. OpenCOM, Figaro, LooCi
-  \end{itemize}
-      
-    \end{minipage}%
-\begin{minipage}{.5\textwidth}
-      \centering
-      \fbox{\includegraphics[width=.8\textwidth]{looci/schema.png}} 
-      
-    \end{minipage}
+  \begin{minipage}{.5\textwidth}
+    {\large Zonder middleware}
+    \begin{itemize}
+    \item Monolithische aanpak; bv. TinyOS
+    \end{itemize}
+    {\large Met middleware}
+    \begin{itemize}
+    \item application-based; bv. Contiki, Squawk
+    \item component-based; bv. OpenCOM, Figaro, LooCi
+    \end{itemize}
+    
+  \end{minipage}%
+  \begin{minipage}{.5\textwidth}
+    \centering
+    \fbox{\includegraphics[width=.8\textwidth]{looci/schema.png}} 
+    
+  \end{minipage}
 
 
-\note{
-\begin{itemize}
-\item granularity
-\item Monolithisch = OS + app\\
-\item applicationbased = os en apps gescheiden
-\item component-based = at runtime component in app
+  \note{
+    \begin{itemize}
+    \item granularity
+    \item Monolithisch = OS + app\\
+    \item applicationbased = os en apps gescheiden
+    \item component-based = at runtime component in app
 
-\end{itemize}
-}
+    \end{itemize}
+  }
 
 
 \end{frame}
@@ -261,9 +253,9 @@
 \begin{frame}[label=sec-2-4]{LooCi II}
   \centering
   \includegraphics[width=0.9\textwidth,keepaspectration=true]{looci/LooCIExecEnvironment.png}
-\note{scheiding van gedistribueerde achtergrond en component implementatie
-\\
-Reconfigure engine}
+  \note{scheiding van gedistribueerde achtergrond en component implementatie
+    \\
+    Reconfigure engine}
 \end{frame}
 
 \begin{frame}[label=sec-2-5]{LooCi demo}
@@ -285,23 +277,23 @@ Reconfigure engine}
   \item<5>  ook sensoren aangesloten op microcontroller hebben invloed
   \end{itemize}
 
-    \note{
+  \note{
+    \begin{itemize}
+    \item antennes op en aan zetten kost veel energie
+    \item flash en CPU iets minder, maar:
       \begin{itemize}
-      \item antennes op en aan zetten kost veel energie
-      \item flash en CPU iets minder, maar:
+      \item lage kloksnelheid 
         \begin{itemize}
-        \item lage kloksnelheid 
-          \begin{itemize}
-          \item slechte concurrency, 
-          \item slechte performantie in het algemeen
-          \end{itemize}
-        \item beperkte hoeveelheid geheugen
+        \item slechte concurrency, 
+        \item slechte performantie in het algemeen
         \end{itemize}
-      \item huidige aanpak: veel netwerkoverdracht, weinig CPU- en geheugengebruik
-      \item waarom voor sommige dingen geen CPU en flash gebruiken? bv. temperatuurmetingen
-      \item doel: kijken hoe doenbaar dit is
+      \item beperkte hoeveelheid geheugen
       \end{itemize}
-    }
+    \item huidige aanpak: veel netwerkoverdracht, weinig CPU- en geheugengebruik
+    \item waarom voor sommige dingen geen CPU en flash gebruiken? bv. temperatuurmetingen
+    \item doel: kijken hoe doenbaar dit is
+    \end{itemize}
+  }
 
 \end{frame}
 
@@ -347,11 +339,11 @@ Reconfigure engine}
     \item outputpin softwarematig getriggerd
     \end{itemize}
 
-Meetmethode:\\
-\begin{itemize}
-\item meerdere keren het te meten stuk code oproepen
-\item pin zal verscheidene keren aan en uit flippen en metingen triggeren
-\end{itemize}
+    Meetmethode:\\
+    \begin{itemize}
+    \item meerdere keren het te meten stuk code oproepen
+    \item pin zal verscheidene keren aan en uit flippen en metingen triggeren
+    \end{itemize}
   }
 \end{frame}
 
@@ -422,10 +414,10 @@ Meetmethode:\\
 \end{frame}
 \begin{frame}[allowframebreaks]{Bibliografie}
 
-\addtocategory{papers}{akyildiz2002wireless}
-\addtocategory{papers}{mainwaring2002wireless}
-\addtocategory{papers}{hughes2009looci}
-\addtocategory{papers}{hughes2013energy}
+  \addtocategory{papers}{akyildiz2002wireless}
+  \addtocategory{papers}{mainwaring2002wireless}
+  \addtocategory{papers}{hughes2009looci}
+  \addtocategory{papers}{hughes2013energy}
   \nocite{*}
   \textbf{Papers}
   \printbibliography[category=papers]
@@ -434,5 +426,4 @@ Meetmethode:\\
   \printbibliography[type=misc]
 \end{frame}
 
-% Emacs 24.3.1 (Org mode N/A)
 \end{document}
