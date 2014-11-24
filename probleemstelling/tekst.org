@@ -1,25 +1,14 @@
+
 #+TITLE:     Internet of Things code deployment metrics: probleemstelling
 #+AUTHOR:    Ward Schodts, Xavier Goás Aguililla
 #+EMAIL:     ward.schodts@student.kuleuven.be, xavier.goas@student.kuleuven.be
 #+DATE:      maandag 10 november 2014
-#+startup: beamer
-#+LaTeX_CLASS: beamer
-#+LaTeX_CLASS_OPTIONS: [presentation, bigger]
-#+OPTIONS:   H:1, toc:nil
 
-#+latex_header: \usetheme{kuleuven} 
-#+latex_header: \useinnertheme{rectangles} 
-#+latex_header: \graphicspath{{graphics/}}
-#+latex_header: \usepackage[dutch]{babel}
-#+latex_header: \usepackage{graphicx}
-#+latex_header: \usepackage{tikz}
-#+latex_header: \usetikzlibrary{intersections}
-
-* Slide 1
+#+OPTIONS:   toc:nil
+* 
 - Observatie
 In WSNs wordt weinig gebruik gemaakt van de ingebedde rekenkracht en
 opslagcapaciteit van de sensor nodes.
-
 - Vraagstelling
 Zou het mogelijk zijn om een andere aanpak te gebruiken, d.i. meer
 berekeningen uit te voeren en meer data op te slaan op de sensor nodes
@@ -29,7 +18,6 @@ Als dit mogelijk was dan zouden we minder gebruik moeten maken van de
 RF-antennes, die veel energie verbruiken. Eventueel kan dit zelfs ook
 betere performantie opleveren, omdat er dan minder data over het
 netwerk zou moeten overgedragen worden.
-* Slide 2
 - Hypothese
 Wij denken dat in bepaalde scenario's het beter is om bewerkingen op
 de sensor nodes uit te voeren voor een efficiënter energiegebruik en
