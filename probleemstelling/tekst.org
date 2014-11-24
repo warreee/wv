@@ -9,6 +9,10 @@
 * Observatie
 In WSNs wordt weinig gebruik gemaakt van de ingebedde rekenkracht en
 opslagcapaciteit van de sensor nodes.
+
+Mogelijke vragen: 
+
+1. Is dit zo? Waar haal je dit vandaan?
 * Vraagstelling
 Zou het mogelijk zijn om een andere aanpak te gebruiken, d.i. meer
 berekeningen uit te voeren en meer data op te slaan op de sensor nodes
