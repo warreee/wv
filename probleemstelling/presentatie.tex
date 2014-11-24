@@ -15,6 +15,7 @@
 \usepackage{wasysym}
 \usepackage{amssymb}
 \usepackage{hyperref}
+\usepackage{caption}
 \tolerance=1000
 \usetheme{kuleuven}
 \useinnertheme{rectangles}
@@ -116,8 +117,9 @@ worden uitgevoerd.
 }
 \end{itemize}
 \end{frame}
-\begin{frame}[label=sec-3]{Pyramide}
+\begin{frame}[label=sec-3]{Doelstellingen}
 \begin{minipage}{.5\textwidth}
+\begin{figure}
 \centering
 \begin{tikzpicture}
 \coordinate (A) at (-3.25,0) {};
@@ -132,22 +134,27 @@ worden uitgevoerd.
         node[midway,above] {\A};
 }
 \end{tikzpicture}
+\caption*{Tool}
+\end{figure}
 \end{minipage}%
 \begin{minipage}{.5\textwidth}
+\begin{figure}
 \centering
 \begin{tikzpicture}
 \coordinate (A) at (-2.75,0) {};
 \coordinate (B) at ( 2.75,0) {};
-\coordinate (C) at (0,4) {};
+\coordinate (C) at (0,5) {};
 \draw[name path=AC] (A) -- (C);
 \draw[name path=BC] (B) -- (C);
-\foreach \y/\A in {0/\scriptsize{\'e\'en type node},1/\scriptsize{verschillende soorten node},2/\scriptsize{hele netwerken}} {
+\foreach \y/\A in {0/\scriptsize{\'e\'en type node},1/\scriptsize{verschillende soorten node},2/\scriptsize{verschillende sensoren},3/\scriptsize{hele netwerken}} {
     \path[name path=horiz] (A|-0,\y) -- (B|-0,\y);
     \draw[name intersections={of=AC and horiz,by=P},
           name intersections={of=BC and horiz,by=Q}] (P) -- (Q)
         node[midway,above] {\A};
 }
 \end{tikzpicture}
+\caption*{Reikwijdte}
+\end{figure}
 \end{minipage}
 \end{frame}
 % Emacs 24.4.1 (Org mode 8.2.10)
