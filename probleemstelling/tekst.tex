@@ -1,4 +1,4 @@
-% Created 2014-11-24 Mon 12:38
+% Created 2014-11-24 Mon 13:15
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -34,10 +34,10 @@ opslagcapaciteit van de sensor nodes.\\
 
 Mogelijke vragen: 
 
-\begin{enumerate}
+\begin{itemize}
 \item Is dit zo? Waar haal je dit vandaan?\\
-   Papers.
-\end{enumerate}
+  Papers.
+\end{itemize}
 \section{Vraagstelling}
 \label{sec-2}
 Zou het mogelijk zijn om een andere aanpak te gebruiken, d.i. meer
@@ -46,11 +46,11 @@ zelf, zonder verlies van performantie of energie-efficiëntie?\\
 
 Mogelijke vragen: 
 
-\begin{enumerate}
+\begin{itemize}
 \item Geef eens een voorbeeld van zo'n operaties?\\
-   Bijvoorbeeld compressie van sensordata en opslag om zo meer data in
+  Bijvoorbeeld compressie van sensordata en opslag om zo meer data in
 één keer op te sturen, maar minder frequent.
-\end{enumerate}
+\end{itemize}
 \section{Waarom}
 \label{sec-3}
 Als dit mogelijk was dan zouden we minder gebruik moeten maken van de
@@ -61,18 +61,42 @@ netwerk zou moeten overgedragen worden.
 \label{sec-4}
 Wij denken dat in bepaalde scenario's het beter is om bewerkingen op
 de sensor nodes uit te voeren voor een efficiënter energiegebruik en
-misschien zelfs betere performantie.
+misschien zelfs betere performantie.\\
+
+Mogelijke vragen: 
+
+\begin{itemize}
+\item Waarom denk je dit?\\
+  Vanuit theoretisch oogpunt lijkt het logisch dat er bewerkingen zijn
+die beter wat opgeslagen worden op de nodes berekend. Bijvoorbeeld:
+temperatuurmetingen, die we zouden kunnen comprimeren en in grote
+'batches' doorsturen.
+\end{itemize}
 \section{Bewijs}
 \label{sec-5}
 Metingen die aantonen dat voor een gelijkaardige fysieke setup een
 andere verdeling van de werklast binnen het WSN voordelen oplevert qua
 energieverbruik en/of performantie vis-à-vis een klassiekere
-werkverdeling.
+werkverdeling.\\
+
+Mogelijke vragen: 
+
+\begin{itemize}
+\item Is dat zo voor elke andere verdeling?\\
+  Zal zich nog uitwijzen tijdens het onderzoek.
+\end{itemize}
 \section{Vereisten}
 \label{sec-6}
 Het ontwikkelen van een tool die toelaat om de potentiële
 energie-efficiëntie en performantie van een WSN te meten op basis van
 welke types code (bv. adhv. vooraf gebenchmarkte API calls) waar
 worden uitgevoerd.
+
+Mogelijke vragen: 
+
+\begin{itemize}
+\item Hoe willen jullie dit concreet aanpakken?\\
+  Zie pyramide.
+\end{itemize}
 % Emacs 24.4.1 (Org mode 8.2.10)
 \end{document}
