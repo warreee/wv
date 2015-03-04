@@ -48,7 +48,7 @@ static uint8_t activate(struct state* compState, void* data){
 static uint8_t time(struct state* compState, void* data){
   compState->counter += 1;
   
-  if (compState->counter / 2 == 0) {
+  if (compState->counter % 2 == 0) {
     PORTE |= _BV(PE6);
     PRINT_LN("Pin high");
   } else {
