@@ -15,7 +15,7 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="whiteposter.svg"
+   sodipodi:docname="poster.svg"
    inkscape:export-filename="/home/warreee/Google Drive/Unief/Wetenschappelijke vorming/Poster/testafdruk2.png"
    inkscape:export-xdpi="150"
    inkscape:export-ydpi="150">
@@ -26,18 +26,18 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.2736541"
-     inkscape:cx="779.49514"
-     inkscape:cy="2341.4652"
+     inkscape:zoom="0.25"
+     inkscape:cx="-72.419104"
+     inkscape:cy="1450.7884"
      inkscape:document-units="px"
-     inkscape:current-layer="layer3"
+     inkscape:current-layer="layer1"
      showgrid="true"
      inkscape:showpageshadow="false"
      showguides="true"
      inkscape:guide-bbox="true"
      units="mm"
-     inkscape:window-width="1600"
-     inkscape:window-height="827"
+     inkscape:window-width="1920"
+     inkscape:window-height="1056"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -2104,6 +2104,18 @@
          stdDeviation="13.721997"
          inkscape:collect="always" />
     </filter>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath6886">
+      <rect
+         style="fill:#6486b9;fill-opacity:1;stroke:none"
+         id="rect6888"
+         width="365.4248"
+         height="89.159637"
+         x="113.97039"
+         y="-685.40564"
+         transform="scale(1,-1)" />
+    </clipPath>
   </defs>
   <metadata
      id="metadata7">
@@ -2128,10 +2140,10 @@
        height="2979.9211"
        width="2104.7244"
        id="rect13700"
-       style="opacity:1;fill:#6486b9;fill-opacity:1;stroke:none;stroke-width:0;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+       style="fill:#6486b9;fill-opacity:1;stroke:none" />
   </g>
   <g
-     style="opacity:0.75;display:none"
+     style="opacity:0.75;display:inline"
      inkscape:label="BackgroundNetwork"
      id="layer2"
      inkscape:groupmode="layer"
@@ -3226,7 +3238,7 @@
     </g>
   </g>
   <g
-     style="display:none"
+     style="display:inline"
      transform="translate(0,1927.5584)"
      id="layer1"
      inkscape:groupmode="layer"
@@ -5043,7 +5055,7 @@
        style="opacity:0.9;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#ffffff;stroke-width:29.38805199;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
     <path
        style="opacity:0.9;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#ffffff;stroke-width:34.60174942;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
-       d="m 95.253622,267.42684 1914.217078,0 0,441.08313 -1914.217078,0 z"
+       d="m 117.00476,271.84563 1914.21704,0 0,441.08313 -1914.21704,0 z"
        id="path5389"
        inkscape:connector-curvature="0" />
     <path
@@ -5228,12 +5240,61 @@
            x="132.47429"
            y="405.42075"
            style="font-size:40px;font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans Italic" /></flowRegion><flowPara
-         id="flowPara5376-4">Expected results</flowPara></flowRoot>  </g>
+         id="flowPara5376-4">Expected results</flowPara></flowRoot>    <g
+       transform="matrix(1.25,0,0,-1.260303,335.32998,1691.4452)"
+       inkscape:label="ref"
+       id="g6839"
+       clip-path="url(#clipPath6886)">
+      <text
+         id="text6841"
+         transform="matrix(1,0,0,-1,134.765,704.136)">
+        <tspan
+           id="tspan6843"
+           sodipodi:role="line"
+           y="0"
+           x="0 3.0305481 8.4850979"
+           style="font-size:10.90909958px;font-variant:normal;font-weight:normal;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:CMR10;-inkscape-font-specification:CMR10">[1]</tspan>
+      </text>
+      <text
+         id="text6849"
+         transform="scale(1,-1)"
+         sodipodi:linespacing="125%"
+         x="215.828"
+         y="-673.97656"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans">
+        <tspan
+           sodipodi:role="line"
+           id="tspan4249"
+           x="215.828"
+           y="-673.97656">[1]DannyHughese.a.“Energyawaresoftwareevolutionforwirelesssen-</tspan>
+        <tspan
+           sodipodi:role="line"
+           id="tspan4251"
+           x="215.828"
+           y="-658.97656">sornetworks”.In: World of Wireless, Mobile and Multimedia Networks</tspan>
+        <tspan
+           sodipodi:role="line"
+           id="tspan4253"
+           x="215.828"
+           y="-643.97656">(WoWMoM), 2013 IEEE 14th International Symposiumand Work-shopsona</tspan>
+        <tspan
+           sodipodi:role="line"
+           id="tspan4255"
+           x="215.828"
+           y="-628.97656">.IEEE.2013,p.1–9.</tspan>
+        <tspan
+           sodipodi:role="line"
+           id="tspan4257"
+           x="215.828"
+           y="-613.97656">1</tspan>
+      </text>
+    </g>
+  </g>
   <g
      inkscape:groupmode="layer"
      id="layer4"
      inkscape:label="Abstractepresentatie"
-     style="display:none"
+     style="display:inline"
      sodipodi:insensitive="true">
     <g
        id="g5219"
