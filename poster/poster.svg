@@ -28,9 +28,9 @@
      inkscape:pageshadow="2"
      inkscape:zoom="0.5"
      inkscape:cx="1032.6953"
-     inkscape:cy="2481.2692"
+     inkscape:cy="721.26921"
      inkscape:document-units="px"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="layer3"
      showgrid="true"
      inkscape:showpageshadow="false"
      showguides="true"
@@ -2125,7 +2125,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -5013,14 +5013,14 @@
          id="flowPara6720">Concretely: can we find a simple metric which allows us to quickly assess in which tier we run code? this is the transmit/store/compute ratio</flowPara><flowPara
          id="flowPara6722"></flowPara><flowPara
          id="flowPara6724"></flowPara></flowRoot>    <rect
-       style="fill:#eceded;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:5.00000048;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       style="fill:#eceded;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:3;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        id="rect6586"
        width="294.1564"
        height="80.610176"
        x="101.82344"
        y="-1539.8906"
-       rx="53.149609"
-       ry="32.526917" />
+       rx="17.716536"
+       ry="17.716536" />
     <g
        id="g5198"
        transform="translate(-19.08292,12.789869)">
@@ -5312,8 +5312,8 @@
        height="83.438606"
        x="97.580795"
        y="452.7363"
-       rx="53.149605"
-       ry="32.526917" />
+       rx="17.716536"
+       ry="17.716536" />
     <flowRoot
        xml:space="preserve"
        id="flowRoot5370-2"
@@ -5327,12 +5327,12 @@
            y="405.42075"
            style="font-size:40px;font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans Italic" /></flowRegion><flowPara
          id="flowPara5376-4">Expected results</flowPara></flowRoot>    <rect
-       ry="32.526917"
-       rx="53.149605"
+       ry="17.716536"
+       rx="17.716536"
        y="802.047"
        x="101.82344"
        height="83.438606"
-       width="261.62949"
+       width="249.62949"
        id="rect6582"
        style="fill:#eceded;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
     <flowRoot
@@ -5347,9 +5347,9 @@
            height="92.482056"
            width="367.42871"
            id="rect5215" /></flowRegion><flowPara
-         id="flowPara5217">Referenties</flowPara></flowRoot>    <rect
-       ry="32.526917"
-       rx="53.149605"
+         id="flowPara6726">References</flowPara></flowRoot>    <rect
+       ry="17.716536"
+       rx="17.716536"
        y="-735.20312"
        x="94.752373"
        height="83.438606"
