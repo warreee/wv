@@ -26,11 +26,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.5"
-     inkscape:cx="1032.6953"
-     inkscape:cy="721.26921"
+     inkscape:zoom="0.35355339"
+     inkscape:cx="895.48391"
+     inkscape:cy="1170.1745"
      inkscape:document-units="px"
-     inkscape:current-layer="layer3"
+     inkscape:current-layer="layer1"
      showgrid="true"
      inkscape:showpageshadow="false"
      showguides="true"
@@ -5306,19 +5306,19 @@
          id="flowPara6572">Danny Hughes e.a. “Energy aware software evolution for wireless sensor networks”. In: World of Wireless, Mobile </flowPara><flowPara
          id="flowPara6574">and Multimedia Networks (WoWMoM), 2013 IEEE 14th International Symposium and Workshops on a. IEEE. 2013, p. 1–9.</flowPara><flowPara
          id="flowPara6576"></flowPara></flowRoot>    <rect
-       style="fill:#eceded;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       style="fill:#eceded;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:3;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        id="rect6578"
        width="373.35236"
        height="83.438606"
-       x="97.580795"
-       y="452.7363"
+       x="100.40923"
+       y="454.15051"
        rx="17.716536"
        ry="17.716536" />
     <flowRoot
        xml:space="preserve"
        id="flowRoot5370-2"
        style="font-size:40px;font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans Italic"
-       transform="translate(-19.08292,62.466173)"><flowRegion
+       transform="translate(-19.08292,65.294599)"><flowRegion
          id="flowRegion5372-8"><rect
            id="rect5374-2"
            width="367.42871"
@@ -5329,14 +5329,14 @@
          id="flowPara5376-4">Expected results</flowPara></flowRoot>    <rect
        ry="17.716536"
        rx="17.716536"
-       y="802.047"
+       y="813.36072"
        x="101.82344"
        height="83.438606"
        width="249.62949"
        id="rect6582"
-       style="fill:#eceded;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+       style="fill:#eceded;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:3;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
     <flowRoot
-       transform="translate(-19.08292,411.47015)"
+       transform="translate(-19.08292,422.78386)"
        style="font-size:40px;font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans Italic"
        id="flowRoot5211"
        xml:space="preserve"><flowRegion
@@ -5350,14 +5350,14 @@
          id="flowPara6726">References</flowPara></flowRoot>    <rect
        ry="17.716536"
        rx="17.716536"
-       y="-735.20312"
-       x="94.752373"
+       y="-728.83917"
+       x="106.06609"
        height="83.438606"
        width="155.56348"
        id="rect6584"
-       style="fill:#eceded;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:5.00000048;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+       style="fill:#eceded;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:3;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
     <flowRoot
-       transform="translate(-19.08292,-1125.5017)"
+       transform="translate(-19.08292,-1119.8448)"
        style="font-size:40px;font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans Italic"
        id="flowRoot5395"
        xml:space="preserve"><flowRegion
