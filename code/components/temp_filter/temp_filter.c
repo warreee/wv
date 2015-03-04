@@ -22,6 +22,7 @@ COMPONENT_RECEPTACLES( TEMP_READING);
 LOOCI_COMPONENT( "temp_filter",struct state);
 
 static uint8_t init(struct state* compState, void* data){
+  NETSTACK_MAC.off(0); //radios off
   compState->previous_reading = 0;
   compState->threshold = 0;
   return 1;
@@ -33,7 +34,9 @@ static uint8_t event(struct state* compState, core_looci_event_t* event){
     if(abs(temp - compState->previous_reading) >= compState->threshold) {
       // forward the event if it differs from the previous reading by more than the value of compState->threshold
       compState->previous_reading = *(event->payload);
+      NETSTACK_MAC.on(); //radios on
       PUBLISH_EVENT(TEMP_READING, event->payload,event->len);
+      NETSTACK_MAC.off(0); //radios off
     }
   }
   return 1;
