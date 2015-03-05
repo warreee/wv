@@ -1,5 +1,6 @@
 #include "contiki.h"
 #include "looci.h"
+#include "string.h"
 #include "ram_power_usage.h"
 #include <stdint.h>
 #include <avr/pgmspace.h>
@@ -31,8 +32,8 @@ LOOCI_COMPONENT("ram_power_usage",struct state);
 
 static uint8_t activate(struct state* compState, void* data){
   
-  // a buffer full of NULL bytes
-  uint8_t buffer[MAX_BYTES_TO_WRITE]; 
+  // a buffer ready to be written to
+  uint8_t *buffer = malloc(MAX_BYTES_TO_WRITE); 
 
   // initialise pin
   DDRE |= _BV(PE6);
@@ -47,7 +48,7 @@ static uint8_t activate(struct state* compState, void* data){
       // flip pin
       PORTE ^= _BV(PE6);
 	
-      memset( (void *)&buffer, '\0', bytes_to_write);
+      memset( (void *)buffer, '\0', bytes_to_write);
 	
       // flip pin back
       PORTE ^= _BV(PE6);
