@@ -53,6 +53,7 @@
 #include "utils.h"
 #include "component.h"
 #include "event-types.h"
+#include "netstack.h"
 
 struct state{
   uint16_t total;
@@ -67,6 +68,7 @@ COMPONENT_RECEPTACLES(TEMP_READING);
 LOOCI_COMPONENT("averager",struct state);
 
 static uint8_t init(struct state* compState, void* data){
+  NETSTACK_MAC.off(0); //radios off
   compState->total =0;
   compState->nb = 0;
   return 1;
@@ -78,8 +80,11 @@ static uint8_t event(struct state* compState, core_looci_event_t* event){
     compState->nb++;
     if(compState->nb == 10) {
       // forward the average temp
+
       compState->total = compState->total / compState->nb;
+      NETSTACK_MAC.on(); // radios on
       PUBLISH_EVENT(TEMP_READING, &compState->total, sizeof(uint16_t));
+      NETSTACK_MAC.off(0); //radios off
       compState->total = 0;
       compState->nb = 0;
     }
