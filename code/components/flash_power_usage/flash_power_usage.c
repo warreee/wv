@@ -42,7 +42,6 @@ static uint8_t activate(struct state* compState, void* data){
 
   // file to be written
   char filename[] = "/null_file";
-  
 
   // initialise pin
   DDRE |= _BV(PE6);
