@@ -33,28 +33,21 @@ PROCESS_THREAD(ram_power_usage_process, ev, data)
     
     uint32_t sampling_round;
     for (sampling_round = 0; sampling_round < AMOUNT_OF_SAMPLES; sampling_round++) {
-      /* uint32_t bytes_to_write; */
-      /* bytes_to_write = 1; */
-    
-      /* while (bytes_to_write <= MAX_BYTES_TO_WRITE) { */
 
-	int i;
+      int i;
 
-	for (i = 8; i > 0; i--) {
-	  // flip pin
-	  PORTE ^= _BV(PE6);
-	  memset( (void *)buffer, '\0', MAX_BYTES_TO_WRITE);
+      // flip pin
+      PORTE ^= _BV(PE6);
+
+      memset( (void *)buffer, '\0', MAX_BYTES_TO_WRITE);
 	
-	  // flip pin back
-	  PORTE ^= _BV(PE6);
-	  etimer_set(&et, (CLOCK_SECOND * 1));
+      // flip pin back
+      PORTE ^= _BV(PE6);
+      
+      etimer_set(&et, (CLOCK_SECOND * 1));
 
-	  PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));
+      PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));
 
-	}
-	// double counter
-	/* bytes_to_write = bytes_to_write * 2; */
-      /* } */
     }
   }
   
