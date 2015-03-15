@@ -34,8 +34,6 @@ PROCESS_THREAD(ram_power_usage_process, ev, data)
     uint32_t sampling_round;
     for (sampling_round = 0; sampling_round < AMOUNT_OF_SAMPLES; sampling_round++) {
 
-      int i;
-
       // flip pin
       PORTE ^= _BV(PE6);
 
