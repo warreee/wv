@@ -37,12 +37,12 @@ PROCESS_THREAD(ram_power_usage_process, ev, data)
       /* bytes_to_write = 1; */
     
       /* while (bytes_to_write <= MAX_BYTES_TO_WRITE) { */
-	// flip pin
-	PORTE ^= _BV(PE6);
 
 	int i;
 
 	for (i = 8; i > 0; i--) {
+	  // flip pin
+	  PORTE ^= _BV(PE6);
 	  memset( (void *)buffer, '\0', MAX_BYTES_TO_WRITE);
 	
 	  // flip pin back
