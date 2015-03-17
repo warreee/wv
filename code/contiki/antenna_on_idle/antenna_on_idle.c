@@ -8,6 +8,8 @@ AUTOSTART_PROCESSES(&antenna_on_idle_process);
 /*---------------------------------------------------------------------------*/
 PROCESS_THREAD(antenna_on_idle_process, ev, data)
 {
+#define AMOUNT_OF_SAMPLES 10
+  
   static struct etimer et;
   
   PROCESS_BEGIN();
