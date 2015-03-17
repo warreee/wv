@@ -9,8 +9,7 @@ AUTOSTART_PROCESSES(&antenna_on_idle_process);
 /*---------------------------------------------------------------------------*/
 PROCESS_THREAD(antenna_on_idle_process, ev, data)
 {
-#define AMOUNT_OF_SAMPLES 10
-  
+#define AMOUNT_OF_SAMPLES 20
   static struct etimer et;
   
   PROCESS_BEGIN();
@@ -26,10 +25,10 @@ PROCESS_THREAD(antenna_on_idle_process, ev, data)
     etimer_set(&et, (CLOCK_SECOND * 10));
 
     PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));
-  
-    // flip pin back
-    PORTE ^= _BV(PE6);
   }
+
+  // pin low
+  PORTE &= ~(_BV(PE6));
 
   PROCESS_END();
 }
