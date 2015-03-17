@@ -1,5 +1,17 @@
 Archive member included because of file (symbol)
 
+contiki-avr-zigduino.a(nullmac.o)
+                              antenna_off_idle.co (nullmac_driver)
+contiki-avr-zigduino.a(sicslowmac.o)
+                              contiki-avr-zigduino.a(nullmac.o) (sicslowmac_driver)
+contiki-avr-zigduino.a(etimer.o)
+                              antenna_off_idle.co (etimer_set)
+contiki-avr-zigduino.a(random.o)
+                              contiki-avr-zigduino.a(sicslowmac.o) (random_rand)
+contiki-avr-zigduino.a(packetbuf.o)
+                              contiki-avr-zigduino.a(sicslowmac.o) (packetbuf_hdrreduce)
+contiki-avr-zigduino.a(queuebuf.o)
+                              contiki-avr-zigduino.a(sicslowmac.o) (queuebuf_to_packetbuf)
 contiki-avr-zigduino.a(contiki-main.o)
                               antenna_off_idle.co (rf230_driver)
 contiki-avr-zigduino.a(params.o)
@@ -15,9 +27,9 @@ contiki-avr-zigduino.a(rf230bb.o)
 contiki-avr-zigduino.a(halbb.o)
                               contiki-avr-zigduino.a(rf230bb.o) (hal_init)
 contiki-avr-zigduino.a(rimeaddr.o)
-                              contiki-avr-zigduino.a(contiki-main.o) (rimeaddr_set_node_addr)
+                              contiki-avr-zigduino.a(sicslowmac.o) (rimeaddr_copy)
 contiki-avr-zigduino.a(rime.o)
-                              contiki-avr-zigduino.a(contiki-main.o) (rime_driver)
+                              contiki-avr-zigduino.a(nullmac.o) (rime_driver)
 contiki-avr-zigduino.a(announcement.o)
                               contiki-avr-zigduino.a(rime.o) (announcement_init)
 contiki-avr-zigduino.a(broadcast-annou)
@@ -32,34 +44,28 @@ contiki-avr-zigduino.a(channel.o)
                               contiki-avr-zigduino.a(chameleon.o) (channel_init)
 contiki-avr-zigduino.a(chameleon-bitop)
                               contiki-avr-zigduino.a(chameleon.o) (chameleon_bitopt)
-contiki-avr-zigduino.a(nullmac.o)
-                              contiki-avr-zigduino.a(contiki-main.o) (nullmac_driver)
-contiki-avr-zigduino.a(sicslowmac.o)
-                              contiki-avr-zigduino.a(contiki-main.o) (sicslowmac_driver)
+contiki-avr-zigduino.a(frame802154.o)
+                              contiki-avr-zigduino.a(sicslowmac.o) (frame802154_hdrlen)
 contiki-avr-zigduino.a(process.o)
-                              contiki-avr-zigduino.a(contiki-main.o) (process_init)
+                              contiki-avr-zigduino.a(etimer.o) (process_current)
 contiki-avr-zigduino.a(autostart.o)
                               contiki-avr-zigduino.a(contiki-main.o) (autostart_start)
 contiki-avr-zigduino.a(serial-line.o)
                               contiki-avr-zigduino.a(contiki-main.o) (serial_line_input_byte)
+contiki-avr-zigduino.a(memb.o)
+                              contiki-avr-zigduino.a(queuebuf.o) (memb_init)
 contiki-avr-zigduino.a(mmem.o)
                               contiki-avr-zigduino.a(contiki-main.o) (mmem_init)
+contiki-avr-zigduino.a(timer.o)
+                              contiki-avr-zigduino.a(etimer.o) (timer_set)
 contiki-avr-zigduino.a(list.o)
                               contiki-avr-zigduino.a(announcement.o) (list_init)
-contiki-avr-zigduino.a(etimer.o)
-                              contiki-avr-zigduino.a(clock.o) (etimer_request_poll)
 contiki-avr-zigduino.a(ctimer.o)
                               contiki-avr-zigduino.a(contiki-main.o) (ctimer_init)
 contiki-avr-zigduino.a(rtimer.o)
                               contiki-avr-zigduino.a(contiki-main.o) (rtimer_init)
-contiki-avr-zigduino.a(random.o)
-                              contiki-avr-zigduino.a(contiki-main.o) (random_init)
 contiki-avr-zigduino.a(ringbuf.o)
                               contiki-avr-zigduino.a(serial-line.o) (ringbuf_init)
-contiki-avr-zigduino.a(packetbuf.o)
-                              contiki-avr-zigduino.a(chameleon-bitop) (packetbuf_hdrreduce)
-contiki-avr-zigduino.a(queuebuf.o)
-                              contiki-avr-zigduino.a(contiki-main.o) (queuebuf_init)
 contiki-avr-zigduino.a(tcpip.o)
                               contiki-avr-zigduino.a(contiki-main.o) (tcpip_process)
 contiki-avr-zigduino.a(uip-split.o)
@@ -68,12 +74,6 @@ contiki-avr-zigduino.a(uip.o)
                               contiki-avr-zigduino.a(tcpip.o) (uip_aligned_buf)
 contiki-avr-zigduino.a(rtimer-arch.o)
                               contiki-avr-zigduino.a(rtimer.o) (rtimer_arch_init)
-contiki-avr-zigduino.a(frame802154.o)
-                              contiki-avr-zigduino.a(sicslowmac.o) (frame802154_hdrlen)
-contiki-avr-zigduino.a(memb.o)
-                              contiki-avr-zigduino.a(queuebuf.o) (memb_init)
-contiki-avr-zigduino.a(timer.o)
-                              contiki-avr-zigduino.a(etimer.o) (timer_set)
 /usr/lib/gcc/avr/4.5.3/avr51/libgcc.a(_udivmodhi4.o)
                               contiki-avr-zigduino.a(contiki-main.o) (__udivmodhi4)
 /usr/lib/gcc/avr/4.5.3/avr51/libgcc.a(_udivmodsi4.o)
@@ -89,7 +89,7 @@ contiki-avr-zigduino.a(timer.o)
 /usr/lib/gcc/avr/4.5.3/../../../../avr/lib/avr51/libc.a(memcmp.o)
                               contiki-avr-zigduino.a(rimeaddr.o) (memcmp)
 /usr/lib/gcc/avr/4.5.3/../../../../avr/lib/avr51/libc.a(memcpy.o)
-                              contiki-avr-zigduino.a(rf230bb.o) (memcpy)
+                              contiki-avr-zigduino.a(packetbuf.o) (memcpy)
 /usr/lib/gcc/avr/4.5.3/../../../../avr/lib/avr51/libc.a(memmove.o)
                               contiki-avr-zigduino.a(mmem.o) (memmove)
 /usr/lib/gcc/avr/4.5.3/../../../../avr/lib/avr51/libc.a(memset.o)
@@ -176,6 +176,62 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.5.3/../../../../avr/lib/avr51/crtm128rfa1.o
  .text          0x0000000000000000        0x0 antenna_off_idle.co
  .bss           0x0000000000000000        0x0 antenna_off_idle.co
+ .text          0x0000000000000000        0x0 contiki-avr-zigduino.a(nullmac.o)
+ .bss           0x0000000000000000        0x0 contiki-avr-zigduino.a(nullmac.o)
+ .text          0x0000000000000000        0x0 contiki-avr-zigduino.a(sicslowmac.o)
+ .bss           0x0000000000000000        0x0 contiki-avr-zigduino.a(sicslowmac.o)
+ .text          0x0000000000000000        0x0 contiki-avr-zigduino.a(etimer.o)
+ .bss           0x0000000000000000        0x0 contiki-avr-zigduino.a(etimer.o)
+ .text.etimer_reset
+                0x0000000000000000       0x16 contiki-avr-zigduino.a(etimer.o)
+ .text.etimer_adjust
+                0x0000000000000000       0x14 contiki-avr-zigduino.a(etimer.o)
+ .text.etimer_expiration_time
+                0x0000000000000000       0x12 contiki-avr-zigduino.a(etimer.o)
+ .text.etimer_start_time
+                0x0000000000000000        0x8 contiki-avr-zigduino.a(etimer.o)
+ .text.etimer_next_expiration_time
+                0x0000000000000000       0x1e contiki-avr-zigduino.a(etimer.o)
+ .text.etimer_stop
+                0x0000000000000000       0x50 contiki-avr-zigduino.a(etimer.o)
+ .text          0x0000000000000000        0x0 contiki-avr-zigduino.a(random.o)
+ .bss           0x0000000000000000        0x0 contiki-avr-zigduino.a(random.o)
+ .text          0x0000000000000000        0x0 contiki-avr-zigduino.a(packetbuf.o)
+ .bss           0x0000000000000000        0x0 contiki-avr-zigduino.a(packetbuf.o)
+ .text.packetbuf_clear_hdr
+                0x0000000000000000        0x8 contiki-avr-zigduino.a(packetbuf.o)
+ .text.packetbuf_copyto_hdr
+                0x0000000000000000       0x2e contiki-avr-zigduino.a(packetbuf.o)
+ .text.packetbuf_copyto
+                0x0000000000000000       0x88 contiki-avr-zigduino.a(packetbuf.o)
+ .text.packetbuf_hdr_remove
+                0x0000000000000000        0xc contiki-avr-zigduino.a(packetbuf.o)
+ .text.packetbuf_reference_ptr
+                0x0000000000000000        0xa contiki-avr-zigduino.a(packetbuf.o)
+ .text.packetbuf_hdrlen
+                0x0000000000000000        0xa contiki-avr-zigduino.a(packetbuf.o)
+ .text.packetbuf_reference
+                0x0000000000000000       0x2a contiki-avr-zigduino.a(packetbuf.o)
+ .text.packetbuf_attr_copyto
+                0x0000000000000000       0x2a contiki-avr-zigduino.a(packetbuf.o)
+ .text          0x0000000000000000        0x0 contiki-avr-zigduino.a(queuebuf.o)
+ .bss           0x0000000000000000        0x0 contiki-avr-zigduino.a(queuebuf.o)
+ .text.queuebuf_new_from_packetbuf
+                0x0000000000000000       0x9e contiki-avr-zigduino.a(queuebuf.o)
+ .text.queuebuf_update_attr_from_packetbuf
+                0x0000000000000000       0x16 contiki-avr-zigduino.a(queuebuf.o)
+ .text.queuebuf_free
+                0x0000000000000000       0x44 contiki-avr-zigduino.a(queuebuf.o)
+ .text.queuebuf_dataptr
+                0x0000000000000000       0x3e contiki-avr-zigduino.a(queuebuf.o)
+ .text.queuebuf_datalen
+                0x0000000000000000        0xe contiki-avr-zigduino.a(queuebuf.o)
+ .text.queuebuf_addr
+                0x0000000000000000       0x18 contiki-avr-zigduino.a(queuebuf.o)
+ .text.queuebuf_attr
+                0x0000000000000000       0x1c contiki-avr-zigduino.a(queuebuf.o)
+ .text.queuebuf_debug_print
+                0x0000000000000000        0x2 contiki-avr-zigduino.a(queuebuf.o)
  .text          0x0000000000000000        0x0 contiki-avr-zigduino.a(contiki-main.o)
  .bss           0x0000000000000000        0x0 contiki-avr-zigduino.a(contiki-main.o)
  .text.log_message
@@ -272,10 +328,8 @@ Discarded input sections
                 0x0000000000000000        0xc contiki-avr-zigduino.a(channel.o)
  .text          0x0000000000000000        0x0 contiki-avr-zigduino.a(chameleon-bitop)
  .bss           0x0000000000000000        0x0 contiki-avr-zigduino.a(chameleon-bitop)
- .text          0x0000000000000000        0x0 contiki-avr-zigduino.a(nullmac.o)
- .bss           0x0000000000000000        0x0 contiki-avr-zigduino.a(nullmac.o)
- .text          0x0000000000000000        0x0 contiki-avr-zigduino.a(sicslowmac.o)
- .bss           0x0000000000000000        0x0 contiki-avr-zigduino.a(sicslowmac.o)
+ .text          0x0000000000000000        0x0 contiki-avr-zigduino.a(frame802154.o)
+ .bss           0x0000000000000000        0x0 contiki-avr-zigduino.a(frame802154.o)
  .text          0x0000000000000000        0x0 contiki-avr-zigduino.a(process.o)
  .bss           0x0000000000000000        0x0 contiki-avr-zigduino.a(process.o)
  .text.process_exit
@@ -294,6 +348,12 @@ Discarded input sections
                 0x0000000000000000       0x1c contiki-avr-zigduino.a(serial-line.o)
  .bss.rxbuf_data
                 0x0000000000000000       0x80 contiki-avr-zigduino.a(serial-line.o)
+ .text          0x0000000000000000        0x0 contiki-avr-zigduino.a(memb.o)
+ .bss           0x0000000000000000        0x0 contiki-avr-zigduino.a(memb.o)
+ .text.memb_alloc
+                0x0000000000000000       0x4c contiki-avr-zigduino.a(memb.o)
+ .text.memb_free
+                0x0000000000000000       0x4a contiki-avr-zigduino.a(memb.o)
  .text          0x0000000000000000        0x0 contiki-avr-zigduino.a(mmem.o)
  .bss           0x0000000000000000        0x0 contiki-avr-zigduino.a(mmem.o)
  .text.mmem_alloc
@@ -303,6 +363,12 @@ Discarded input sections
  .text.mmem_freememory
                 0x0000000000000000        0xa contiki-avr-zigduino.a(mmem.o)
  .bss.memory    0x0000000000000000     0x1000 contiki-avr-zigduino.a(mmem.o)
+ .text          0x0000000000000000        0x0 contiki-avr-zigduino.a(timer.o)
+ .bss           0x0000000000000000        0x0 contiki-avr-zigduino.a(timer.o)
+ .text.timer_reset
+                0x0000000000000000       0x14 contiki-avr-zigduino.a(timer.o)
+ .text.timer_remaining
+                0x0000000000000000       0x2a contiki-avr-zigduino.a(timer.o)
  .text          0x0000000000000000        0x0 contiki-avr-zigduino.a(list.o)
  .bss           0x0000000000000000        0x0 contiki-avr-zigduino.a(list.o)
  .text.list_copy
@@ -317,20 +383,6 @@ Discarded input sections
                 0x0000000000000000       0x20 contiki-avr-zigduino.a(list.o)
  .text.list_insert
                 0x0000000000000000       0x20 contiki-avr-zigduino.a(list.o)
- .text          0x0000000000000000        0x0 contiki-avr-zigduino.a(etimer.o)
- .bss           0x0000000000000000        0x0 contiki-avr-zigduino.a(etimer.o)
- .text.etimer_reset
-                0x0000000000000000       0x16 contiki-avr-zigduino.a(etimer.o)
- .text.etimer_adjust
-                0x0000000000000000       0x14 contiki-avr-zigduino.a(etimer.o)
- .text.etimer_expiration_time
-                0x0000000000000000       0x12 contiki-avr-zigduino.a(etimer.o)
- .text.etimer_start_time
-                0x0000000000000000        0x8 contiki-avr-zigduino.a(etimer.o)
- .text.etimer_next_expiration_time
-                0x0000000000000000       0x1e contiki-avr-zigduino.a(etimer.o)
- .text.etimer_stop
-                0x0000000000000000       0x50 contiki-avr-zigduino.a(etimer.o)
  .text          0x0000000000000000        0x0 contiki-avr-zigduino.a(ctimer.o)
  .bss           0x0000000000000000        0x0 contiki-avr-zigduino.a(ctimer.o)
  .text.ctimer_reset
@@ -345,8 +397,6 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 contiki-avr-zigduino.a(rtimer.o)
  .text.rtimer_set
                 0x0000000000000000       0x38 contiki-avr-zigduino.a(rtimer.o)
- .text          0x0000000000000000        0x0 contiki-avr-zigduino.a(random.o)
- .bss           0x0000000000000000        0x0 contiki-avr-zigduino.a(random.o)
  .text          0x0000000000000000        0x0 contiki-avr-zigduino.a(ringbuf.o)
  .bss           0x0000000000000000        0x0 contiki-avr-zigduino.a(ringbuf.o)
  .text.ringbuf_init
@@ -355,42 +405,6 @@ Discarded input sections
                 0x0000000000000000        0xe contiki-avr-zigduino.a(ringbuf.o)
  .text.ringbuf_elements
                 0x0000000000000000       0x18 contiki-avr-zigduino.a(ringbuf.o)
- .text          0x0000000000000000        0x0 contiki-avr-zigduino.a(packetbuf.o)
- .bss           0x0000000000000000        0x0 contiki-avr-zigduino.a(packetbuf.o)
- .text.packetbuf_clear_hdr
-                0x0000000000000000        0x8 contiki-avr-zigduino.a(packetbuf.o)
- .text.packetbuf_copyto_hdr
-                0x0000000000000000       0x2e contiki-avr-zigduino.a(packetbuf.o)
- .text.packetbuf_copyto
-                0x0000000000000000       0x88 contiki-avr-zigduino.a(packetbuf.o)
- .text.packetbuf_hdr_remove
-                0x0000000000000000        0xc contiki-avr-zigduino.a(packetbuf.o)
- .text.packetbuf_reference_ptr
-                0x0000000000000000        0xa contiki-avr-zigduino.a(packetbuf.o)
- .text.packetbuf_hdrlen
-                0x0000000000000000        0xa contiki-avr-zigduino.a(packetbuf.o)
- .text.packetbuf_reference
-                0x0000000000000000       0x2a contiki-avr-zigduino.a(packetbuf.o)
- .text.packetbuf_attr_copyto
-                0x0000000000000000       0x2a contiki-avr-zigduino.a(packetbuf.o)
- .text          0x0000000000000000        0x0 contiki-avr-zigduino.a(queuebuf.o)
- .bss           0x0000000000000000        0x0 contiki-avr-zigduino.a(queuebuf.o)
- .text.queuebuf_new_from_packetbuf
-                0x0000000000000000       0x9e contiki-avr-zigduino.a(queuebuf.o)
- .text.queuebuf_update_attr_from_packetbuf
-                0x0000000000000000       0x16 contiki-avr-zigduino.a(queuebuf.o)
- .text.queuebuf_free
-                0x0000000000000000       0x44 contiki-avr-zigduino.a(queuebuf.o)
- .text.queuebuf_dataptr
-                0x0000000000000000       0x3e contiki-avr-zigduino.a(queuebuf.o)
- .text.queuebuf_datalen
-                0x0000000000000000        0xe contiki-avr-zigduino.a(queuebuf.o)
- .text.queuebuf_addr
-                0x0000000000000000       0x18 contiki-avr-zigduino.a(queuebuf.o)
- .text.queuebuf_attr
-                0x0000000000000000       0x1c contiki-avr-zigduino.a(queuebuf.o)
- .text.queuebuf_debug_print
-                0x0000000000000000        0x2 contiki-avr-zigduino.a(queuebuf.o)
  .text          0x0000000000000000        0x0 contiki-avr-zigduino.a(tcpip.o)
  .bss           0x0000000000000000        0x0 contiki-avr-zigduino.a(tcpip.o)
  .text.tcpip_set_outputfunc
@@ -442,20 +456,6 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 contiki-avr-zigduino.a(rtimer-arch.o)
  .text.rtimer_arch_sleep
                 0x0000000000000000       0xe8 contiki-avr-zigduino.a(rtimer-arch.o)
- .text          0x0000000000000000        0x0 contiki-avr-zigduino.a(frame802154.o)
- .bss           0x0000000000000000        0x0 contiki-avr-zigduino.a(frame802154.o)
- .text          0x0000000000000000        0x0 contiki-avr-zigduino.a(memb.o)
- .bss           0x0000000000000000        0x0 contiki-avr-zigduino.a(memb.o)
- .text.memb_alloc
-                0x0000000000000000       0x4c contiki-avr-zigduino.a(memb.o)
- .text.memb_free
-                0x0000000000000000       0x4a contiki-avr-zigduino.a(memb.o)
- .text          0x0000000000000000        0x0 contiki-avr-zigduino.a(timer.o)
- .bss           0x0000000000000000        0x0 contiki-avr-zigduino.a(timer.o)
- .text.timer_reset
-                0x0000000000000000       0x14 contiki-avr-zigduino.a(timer.o)
- .text.timer_remaining
-                0x0000000000000000       0x2a contiki-avr-zigduino.a(timer.o)
  .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.5.3/avr51/libgcc.a(_udivmodhi4.o)
  .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.5.3/avr51/libgcc.a(_udivmodhi4.o)
  .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.5.3/avr51/libgcc.a(_udivmodsi4.o)
@@ -624,7 +624,7 @@ LOAD /usr/lib/gcc/avr/4.5.3/avr51/libgcc.a
 .rela.plt
  *(.rela.plt)
 
-.text           0x0000000000000000     0x5206
+.text           0x0000000000000000     0x5256
  *(.vectors)
  .vectors       0x0000000000000000      0x120 /usr/lib/gcc/avr/4.5.3/../../../../avr/lib/avr51/crtm128rfa1.o
                 0x0000000000000000                __vectors
@@ -748,602 +748,602 @@ LOAD /usr/lib/gcc/avr/4.5.3/avr51/libgcc.a
                 0x00000000000002cc                . = ALIGN (0x2)
  *(.text.*)
  .text.process_thread_antenna_off_idle_process
-                0x00000000000002cc       0x24 antenna_off_idle.co
- .text.rng_get_uint8
-                0x00000000000002f0       0x2e contiki-avr-zigduino.a(contiki-main.o)
-                0x00000000000002f0                rng_get_uint8
- .text.initialize
-                0x000000000000031e      0x326 contiki-avr-zigduino.a(contiki-main.o)
-                0x000000000000031e                initialize
- .text.main     0x0000000000000644      0x132 contiki-avr-zigduino.a(contiki-main.o)
-                0x0000000000000644                main
- .text.params_get_channel
-                0x0000000000000776      0x130 contiki-avr-zigduino.a(params.o)
-                0x0000000000000776                params_get_channel
- .text.params_get_eui64
-                0x00000000000008a6       0x14 contiki-avr-zigduino.a(params.o)
-                0x00000000000008a6                params_get_eui64
- .text.params_get_panid
-                0x00000000000008ba        0xa contiki-avr-zigduino.a(params.o)
-                0x00000000000008ba                params_get_panid
- .text.params_get_panaddr
-                0x00000000000008c4        0xa contiki-avr-zigduino.a(params.o)
-                0x00000000000008c4                params_get_panaddr
- .text.params_get_txpower
-                0x00000000000008ce        0xa contiki-avr-zigduino.a(params.o)
-                0x00000000000008ce                params_get_txpower
- .text.clock_init
-                0x00000000000008d8       0x20 contiki-avr-zigduino.a(clock.o)
-                0x00000000000008d8                clock_init
- .text.clock_time
-                0x00000000000008f8       0x1a contiki-avr-zigduino.a(clock.o)
-                0x00000000000008f8                clock_time
- .text.clock_seconds
-                0x0000000000000912       0x30 contiki-avr-zigduino.a(clock.o)
-                0x0000000000000912                clock_seconds
- .text.__vector_21
-                0x0000000000000942       0xa6 contiki-avr-zigduino.a(clock.o)
-                0x0000000000000942                __vector_21
- .text.__vector_25
-                0x00000000000009e8       0x5e contiki-avr-zigduino.a(rs232.o)
-                0x00000000000009e8                __vector_25
- .text.__vector_36
-                0x0000000000000a46       0x5e contiki-avr-zigduino.a(rs232.o)
-                0x0000000000000a46                __vector_36
- .text.rs232_init
-                0x0000000000000aa4       0x40 contiki-avr-zigduino.a(rs232.o)
-                0x0000000000000aa4                rs232_init
- .text.rs232_send
-                0x0000000000000ae4       0x24 contiki-avr-zigduino.a(rs232.o)
-                0x0000000000000ae4                rs232_send
- .text.rs232_stdout_putchar
-                0x0000000000000b08       0x2a contiki-avr-zigduino.a(rs232.o)
-                0x0000000000000b08                rs232_stdout_putchar
- .text.rs232_set_input
-                0x0000000000000b32       0x1c contiki-avr-zigduino.a(rs232.o)
-                0x0000000000000b32                rs232_set_input
- .text.rs232_redirect_stdout
-                0x0000000000000b4e       0x12 contiki-avr-zigduino.a(rs232.o)
-                0x0000000000000b4e                rs232_redirect_stdout
- .text.watchdog_init
-                0x0000000000000b60       0x18 contiki-avr-zigduino.a(watchdog.o)
-                0x0000000000000b60                watchdog_init
- .text.watchdog_start
-                0x0000000000000b78       0x18 contiki-avr-zigduino.a(watchdog.o)
-                0x0000000000000b78                watchdog_start
- .text.watchdog_periodic
-                0x0000000000000b90        0x4 contiki-avr-zigduino.a(watchdog.o)
-                0x0000000000000b90                watchdog_periodic
- .text.flushrx  0x0000000000000b94       0x22 contiki-avr-zigduino.a(rf230bb.o)
- .text.rf230_pending_packet
-                0x0000000000000bb6        0x8 contiki-avr-zigduino.a(rf230bb.o)
- .text.rf230_isidle
-                0x0000000000000bbe       0x38 contiki-avr-zigduino.a(rf230bb.o)
- .text.rf230_waitidle
-                0x0000000000000bf6       0x12 contiki-avr-zigduino.a(rf230bb.o)
- .text.rf230_receiving_packet
-                0x0000000000000c08       0x2e contiki-avr-zigduino.a(rf230bb.o)
- .text.radio_reset_state_machine
-                0x0000000000000c36       0x32 contiki-avr-zigduino.a(rf230bb.o)
- .text.radio_off
-                0x0000000000000c68       0x28 contiki-avr-zigduino.a(rf230bb.o)
- .text.rf230_off
-                0x0000000000000c90       0x16 contiki-avr-zigduino.a(rf230bb.o)
- .text.set_txpower
-                0x0000000000000ca6       0x1e contiki-avr-zigduino.a(rf230bb.o)
- .text.rf230_prepare
-                0x0000000000000cc4       0x2a contiki-avr-zigduino.a(rf230bb.o)
- .text.radio_get_trx_state
-                0x0000000000000cee        0xe contiki-avr-zigduino.a(rf230bb.o)
-                0x0000000000000cee                radio_get_trx_state
- .text.radio_set_trx_state
-                0x0000000000000cfc       0xc4 contiki-avr-zigduino.a(rf230bb.o)
- .text.radio_on
-                0x0000000000000dc0       0x42 contiki-avr-zigduino.a(rf230bb.o)
- .text.rf230_on
-                0x0000000000000e02       0x12 contiki-avr-zigduino.a(rf230bb.o)
- .text.rf230_cca
-                0x0000000000000e14       0x92 contiki-avr-zigduino.a(rf230bb.o)
- .text.rf230_warm_reset
-                0x0000000000000ea6       0x40 contiki-avr-zigduino.a(rf230bb.o)
-                0x0000000000000ea6                rf230_warm_reset
- .text.rf230_init
-                0x0000000000000ee6       0x74 contiki-avr-zigduino.a(rf230bb.o)
-                0x0000000000000ee6                rf230_init
- .text.rf230_get_channel
-                0x0000000000000f5a        0x6 contiki-avr-zigduino.a(rf230bb.o)
-                0x0000000000000f5a                rf230_get_channel
- .text.rf230_set_channel
-                0x0000000000000f60       0x2a contiki-avr-zigduino.a(rf230bb.o)
-                0x0000000000000f60                rf230_set_channel
- .text.rf230_set_pan_addr
-                0x0000000000000f8a       0x64 contiki-avr-zigduino.a(rf230bb.o)
-                0x0000000000000f8a                rf230_set_pan_addr
- .text.rf230_interrupt
-                0x0000000000000fee       0x14 contiki-avr-zigduino.a(rf230bb.o)
-                0x0000000000000fee                rf230_interrupt
- .text.rf230_read
-                0x0000000000001002      0x120 contiki-avr-zigduino.a(rf230bb.o)
- .text.process_thread_rf230_process
-                0x0000000000001122       0x7c contiki-avr-zigduino.a(rf230bb.o)
- .text.rf230_set_txpower
-                0x000000000000119e        0x6 contiki-avr-zigduino.a(rf230bb.o)
-                0x000000000000119e                rf230_set_txpower
- .text.rf230_get_txpower
-                0x00000000000011a4       0x1a contiki-avr-zigduino.a(rf230bb.o)
-                0x00000000000011a4                rf230_get_txpower
- .text.rf230_transmit
-                0x00000000000011be      0x10c contiki-avr-zigduino.a(rf230bb.o)
- .text.rf230_send
-                0x00000000000012ca       0x20 contiki-avr-zigduino.a(rf230bb.o)
- .text.hal_init
-                0x00000000000012ea        0x2 contiki-avr-zigduino.a(halbb.o)
-                0x00000000000012ea                hal_init
- .text.hal_subregister_read
-                0x00000000000012ec       0x14 contiki-avr-zigduino.a(halbb.o)
-                0x00000000000012ec                hal_subregister_read
- .text.hal_subregister_write
-                0x0000000000001300       0x38 contiki-avr-zigduino.a(halbb.o)
-                0x0000000000001300                hal_subregister_write
- .text.hal_frame_read
-                0x0000000000001338       0x5a contiki-avr-zigduino.a(halbb.o)
-                0x0000000000001338                hal_frame_read
- .text.hal_frame_write
-                0x0000000000001392       0x1e contiki-avr-zigduino.a(halbb.o)
-                0x0000000000001392                hal_frame_write
- .text.__vector_60
-                0x00000000000013b0       0x7e contiki-avr-zigduino.a(halbb.o)
-                0x00000000000013b0                __vector_60
- .text.__vector_59
-                0x000000000000142e       0x14 contiki-avr-zigduino.a(halbb.o)
-                0x000000000000142e                __vector_59
- .text.__vector_57
-                0x0000000000001442       0x14 contiki-avr-zigduino.a(halbb.o)
-                0x0000000000001442                __vector_57
- .text.__vector_58
-                0x0000000000001456       0x14 contiki-avr-zigduino.a(halbb.o)
-                0x0000000000001456                __vector_58
- .text.__vector_64
-                0x000000000000146a       0x18 contiki-avr-zigduino.a(halbb.o)
-                0x000000000000146a                __vector_64
- .text.__vector_63
-                0x0000000000001482       0x18 contiki-avr-zigduino.a(halbb.o)
-                0x0000000000001482                __vector_63
- .text.__vector_62
-                0x000000000000149a       0x14 contiki-avr-zigduino.a(halbb.o)
-                0x000000000000149a                __vector_62
- .text.__vector_61
-                0x00000000000014ae       0x18 contiki-avr-zigduino.a(halbb.o)
-                0x00000000000014ae                __vector_61
- .text.rimeaddr_copy
-                0x00000000000014c6        0xe contiki-avr-zigduino.a(rimeaddr.o)
-                0x00000000000014c6                rimeaddr_copy
- .text.rimeaddr_cmp
-                0x00000000000014d4       0x18 contiki-avr-zigduino.a(rimeaddr.o)
-                0x00000000000014d4                rimeaddr_cmp
- .text.rimeaddr_set_node_addr
-                0x00000000000014ec        0xc contiki-avr-zigduino.a(rimeaddr.o)
-                0x00000000000014ec                rimeaddr_set_node_addr
- .text.input    0x00000000000014f8       0x4c contiki-avr-zigduino.a(rime.o)
- .text.init     0x0000000000001544       0x26 contiki-avr-zigduino.a(rime.o)
- .text.packet_sent
-                0x000000000000156a       0x5e contiki-avr-zigduino.a(rime.o)
- .text.rime_output
-                0x00000000000015c8       0x34 contiki-avr-zigduino.a(rime.o)
-                0x00000000000015c8                rime_output
- .text.announcement_init
-                0x00000000000015fc        0xa contiki-avr-zigduino.a(announcement.o)
-                0x00000000000015fc                announcement_init
- .text.announcement_register_observer_callback
-                0x0000000000001606        0xa contiki-avr-zigduino.a(announcement.o)
-                0x0000000000001606                announcement_register_observer_callback
- .text.announcement_list
-                0x0000000000001610        0xa contiki-avr-zigduino.a(announcement.o)
-                0x0000000000001610                announcement_list
- .text.announcement_heard
-                0x000000000000161a       0x5e contiki-avr-zigduino.a(announcement.o)
-                0x000000000000161a                announcement_heard
- .text.adv_packet_sent
-                0x0000000000001678        0x2 contiki-avr-zigduino.a(broadcast-annou)
- .text.adv_packet_received
-                0x000000000000167a       0x84 contiki-avr-zigduino.a(broadcast-annou)
- .text.set_timers
-                0x00000000000016fe       0x46 contiki-avr-zigduino.a(broadcast-annou)
- .text.new_announcement
-                0x0000000000001744       0x1e contiki-avr-zigduino.a(broadcast-annou)
- .text.send_timer
-                0x0000000000001762       0x2a contiki-avr-zigduino.a(broadcast-annou)
- .text.send_adv
-                0x000000000000178c       0xa8 contiki-avr-zigduino.a(broadcast-annou)
- .text.broadcast_announcement_init
-                0x0000000000001834       0x50 contiki-avr-zigduino.a(broadcast-annou)
-                0x0000000000001834                broadcast_announcement_init
- .text.sent_by_abc
-                0x0000000000001884       0x18 contiki-avr-zigduino.a(broadcast.o)
- .text.recv_from_abc
-                0x000000000000189c       0x56 contiki-avr-zigduino.a(broadcast.o)
- .text.broadcast_open
-                0x00000000000018f2       0x36 contiki-avr-zigduino.a(broadcast.o)
-                0x00000000000018f2                broadcast_open
- .text.broadcast_send
-                0x0000000000001928       0x1c contiki-avr-zigduino.a(broadcast.o)
-                0x0000000000001928                broadcast_send
- .text.abc_open
-                0x0000000000001944       0x32 contiki-avr-zigduino.a(abc.o)
-                0x0000000000001944                abc_open
- .text.abc_send
-                0x0000000000001976        0x6 contiki-avr-zigduino.a(abc.o)
-                0x0000000000001976                abc_send
- .text.abc_input
-                0x000000000000197c       0x18 contiki-avr-zigduino.a(abc.o)
-                0x000000000000197c                abc_input
- .text.abc_sent
-                0x0000000000001994       0x18 contiki-avr-zigduino.a(abc.o)
-                0x0000000000001994                abc_sent
- .text.chameleon_init
-                0x00000000000019ac        0x6 contiki-avr-zigduino.a(chameleon.o)
-                0x00000000000019ac                chameleon_init
- .text.chameleon_parse
-                0x00000000000019b2       0x2e contiki-avr-zigduino.a(chameleon.o)
-                0x00000000000019b2                chameleon_parse
- .text.chameleon_create
-                0x00000000000019e0       0x3a contiki-avr-zigduino.a(chameleon.o)
-                0x00000000000019e0                chameleon_create
- .text.chameleon_hdrsize
-                0x0000000000001a1a        0xc contiki-avr-zigduino.a(chameleon.o)
-                0x0000000000001a1a                chameleon_hdrsize
- .text.channel_init
-                0x0000000000001a26        0xa contiki-avr-zigduino.a(channel.o)
-                0x0000000000001a26                channel_init
- .text.channel_open
-                0x0000000000001a30       0x12 contiki-avr-zigduino.a(channel.o)
-                0x0000000000001a30                channel_open
- .text.channel_lookup
-                0x0000000000001a42       0x30 contiki-avr-zigduino.a(channel.o)
-                0x0000000000001a42                channel_lookup
- .text.channel_set_attributes
-                0x0000000000001a72       0x2a contiki-avr-zigduino.a(channel.o)
-                0x0000000000001a72                channel_set_attributes
- .text.header_size
-                0x0000000000001a9c       0x1a contiki-avr-zigduino.a(chameleon-bitop)
- .text.get_bits_in_byte
-                0x0000000000001ab6       0x3e contiki-avr-zigduino.a(chameleon-bitop)
-                0x0000000000001ab6                get_bits_in_byte
- .text.get_bits
-                0x0000000000001af4       0xda contiki-avr-zigduino.a(chameleon-bitop)
-                0x0000000000001af4                get_bits
- .text.unpack_header
-                0x0000000000001bce      0x136 contiki-avr-zigduino.a(chameleon-bitop)
- .text.set_bits_in_byte
-                0x0000000000001d04       0x28 contiki-avr-zigduino.a(chameleon-bitop)
-                0x0000000000001d04                set_bits_in_byte
- .text.set_bits
-                0x0000000000001d2c      0x100 contiki-avr-zigduino.a(chameleon-bitop)
-                0x0000000000001d2c                set_bits
- .text.pack_header
-                0x0000000000001e2c      0x12c contiki-avr-zigduino.a(chameleon-bitop)
+                0x00000000000002cc       0x74 antenna_off_idle.co
  .text.send_packet
-                0x0000000000001f58        0xc contiki-avr-zigduino.a(nullmac.o)
+                0x0000000000000340        0xc contiki-avr-zigduino.a(nullmac.o)
  .text.packet_input
-                0x0000000000001f64        0xc contiki-avr-zigduino.a(nullmac.o)
- .text.on       0x0000000000001f70        0xc contiki-avr-zigduino.a(nullmac.o)
- .text.off      0x0000000000001f7c        0xc contiki-avr-zigduino.a(nullmac.o)
+                0x000000000000034c        0xc contiki-avr-zigduino.a(nullmac.o)
+ .text.on       0x0000000000000358        0xc contiki-avr-zigduino.a(nullmac.o)
+ .text.off      0x0000000000000364        0xc contiki-avr-zigduino.a(nullmac.o)
  .text.channel_check_interval
-                0x0000000000001f88        0x6 contiki-avr-zigduino.a(nullmac.o)
- .text.init     0x0000000000001f8e        0x2 contiki-avr-zigduino.a(nullmac.o)
- .text.on       0x0000000000001f90        0xc contiki-avr-zigduino.a(sicslowmac.o)
- .text.off      0x0000000000001f9c       0x1c contiki-avr-zigduino.a(sicslowmac.o)
+                0x0000000000000370        0x6 contiki-avr-zigduino.a(nullmac.o)
+ .text.init     0x0000000000000376        0x2 contiki-avr-zigduino.a(nullmac.o)
+ .text.on       0x0000000000000378        0xc contiki-avr-zigduino.a(sicslowmac.o)
+ .text.off      0x0000000000000384       0x1c contiki-avr-zigduino.a(sicslowmac.o)
  .text.channel_check_interval
-                0x0000000000001fb8        0x6 contiki-avr-zigduino.a(sicslowmac.o)
+                0x00000000000003a0        0x6 contiki-avr-zigduino.a(sicslowmac.o)
  .text.input_packet
-                0x0000000000001fbe       0xd4 contiki-avr-zigduino.a(sicslowmac.o)
+                0x00000000000003a6       0xd4 contiki-avr-zigduino.a(sicslowmac.o)
  .text.send_packet
-                0x0000000000002092      0x140 contiki-avr-zigduino.a(sicslowmac.o)
- .text.init     0x00000000000021d2       0x14 contiki-avr-zigduino.a(sicslowmac.o)
+                0x000000000000047a      0x140 contiki-avr-zigduino.a(sicslowmac.o)
+ .text.init     0x00000000000005ba       0x14 contiki-avr-zigduino.a(sicslowmac.o)
  .text.send_list
-                0x00000000000021e6       0x2e contiki-avr-zigduino.a(sicslowmac.o)
-                0x00000000000021e6                send_list
- .text.call_process
-                0x0000000000002214       0x52 contiki-avr-zigduino.a(process.o)
- .text.exit_process
-                0x0000000000002266       0xd8 contiki-avr-zigduino.a(process.o)
- .text.do_poll  0x000000000000233e       0x3e contiki-avr-zigduino.a(process.o)
- .text.process_alloc_event
-                0x000000000000237c        0xe contiki-avr-zigduino.a(process.o)
-                0x000000000000237c                process_alloc_event
- .text.process_init
-                0x000000000000238a       0x20 contiki-avr-zigduino.a(process.o)
-                0x000000000000238a                process_init
- .text.process_run
-                0x00000000000023aa       0xd2 contiki-avr-zigduino.a(process.o)
-                0x00000000000023aa                process_run
- .text.process_post
-                0x000000000000247c       0x46 contiki-avr-zigduino.a(process.o)
-                0x000000000000247c                process_post
- .text.process_post_synch
-                0x00000000000024c2       0x1e contiki-avr-zigduino.a(process.o)
-                0x00000000000024c2                process_post_synch
- .text.process_start
-                0x00000000000024e0       0x46 contiki-avr-zigduino.a(process.o)
-                0x00000000000024e0                process_start
- .text.process_poll
-                0x0000000000002526       0x18 contiki-avr-zigduino.a(process.o)
-                0x0000000000002526                process_poll
- .text.autostart_start
-                0x000000000000253e       0x2e contiki-avr-zigduino.a(autostart.o)
-                0x000000000000253e                autostart_start
- .text.process_thread_serial_line_process
-                0x000000000000256c       0xca contiki-avr-zigduino.a(serial-line.o)
- .text.serial_line_input_byte
-                0x0000000000002636       0x4c contiki-avr-zigduino.a(serial-line.o)
-                0x0000000000002636                serial_line_input_byte
- .text.mmem_init
-                0x0000000000002682       0x16 contiki-avr-zigduino.a(mmem.o)
-                0x0000000000002682                mmem_init
- .text.list_init
-                0x0000000000002698        0x8 contiki-avr-zigduino.a(list.o)
-                0x0000000000002698                list_init
- .text.list_head
-                0x00000000000026a0        0x8 contiki-avr-zigduino.a(list.o)
-                0x00000000000026a0                list_head
- .text.list_tail
-                0x00000000000026a8       0x24 contiki-avr-zigduino.a(list.o)
-                0x00000000000026a8                list_tail
- .text.list_remove
-                0x00000000000026cc       0x4a contiki-avr-zigduino.a(list.o)
-                0x00000000000026cc                list_remove
- .text.list_add
-                0x0000000000002716       0x3e contiki-avr-zigduino.a(list.o)
-                0x0000000000002716                list_add
- .text.list_item_next
-                0x0000000000002754       0x14 contiki-avr-zigduino.a(list.o)
-                0x0000000000002754                list_item_next
+                0x00000000000005ce       0x2e contiki-avr-zigduino.a(sicslowmac.o)
+                0x00000000000005ce                send_list
  .text.update_time
-                0x0000000000002768       0x64 contiki-avr-zigduino.a(etimer.o)
+                0x00000000000005fc       0x64 contiki-avr-zigduino.a(etimer.o)
  .text.etimer_request_poll
-                0x00000000000027cc        0xa contiki-avr-zigduino.a(etimer.o)
-                0x00000000000027cc                etimer_request_poll
+                0x0000000000000660        0xa contiki-avr-zigduino.a(etimer.o)
+                0x0000000000000660                etimer_request_poll
  .text.process_thread_etimer_process
-                0x00000000000027d6      0x11a contiki-avr-zigduino.a(etimer.o)
+                0x000000000000066a      0x11a contiki-avr-zigduino.a(etimer.o)
  .text.add_timer
-                0x00000000000028f0       0x64 contiki-avr-zigduino.a(etimer.o)
+                0x0000000000000784       0x64 contiki-avr-zigduino.a(etimer.o)
  .text.etimer_set
-                0x0000000000002954       0x16 contiki-avr-zigduino.a(etimer.o)
-                0x0000000000002954                etimer_set
+                0x00000000000007e8       0x16 contiki-avr-zigduino.a(etimer.o)
+                0x00000000000007e8                etimer_set
  .text.etimer_restart
-                0x000000000000296a       0x16 contiki-avr-zigduino.a(etimer.o)
-                0x000000000000296a                etimer_restart
+                0x00000000000007fe       0x16 contiki-avr-zigduino.a(etimer.o)
+                0x00000000000007fe                etimer_restart
  .text.etimer_expired
-                0x0000000000002980       0x16 contiki-avr-zigduino.a(etimer.o)
-                0x0000000000002980                etimer_expired
+                0x0000000000000814       0x16 contiki-avr-zigduino.a(etimer.o)
+                0x0000000000000814                etimer_expired
  .text.etimer_pending
-                0x0000000000002996       0x18 contiki-avr-zigduino.a(etimer.o)
-                0x0000000000002996                etimer_pending
- .text.process_thread_ctimer_process
-                0x00000000000029ae       0xe6 contiki-avr-zigduino.a(ctimer.o)
- .text.ctimer_init
-                0x0000000000002a94       0x1a contiki-avr-zigduino.a(ctimer.o)
-                0x0000000000002a94                ctimer_init
- .text.ctimer_set
-                0x0000000000002aae       0x66 contiki-avr-zigduino.a(ctimer.o)
-                0x0000000000002aae                ctimer_set
- .text.rtimer_init
-                0x0000000000002b14        0x6 contiki-avr-zigduino.a(rtimer.o)
-                0x0000000000002b14                rtimer_init
- .text.rtimer_run_next
-                0x0000000000002b1a       0x3e contiki-avr-zigduino.a(rtimer.o)
-                0x0000000000002b1a                rtimer_run_next
+                0x000000000000082a       0x18 contiki-avr-zigduino.a(etimer.o)
+                0x000000000000082a                etimer_pending
  .text.random_init
-                0x0000000000002b58        0x6 contiki-avr-zigduino.a(random.o)
-                0x0000000000002b58                random_init
+                0x0000000000000842        0x6 contiki-avr-zigduino.a(random.o)
+                0x0000000000000842                random_init
  .text.random_rand
-                0x0000000000002b5e        0x6 contiki-avr-zigduino.a(random.o)
-                0x0000000000002b5e                random_rand
- .text.ringbuf_put
-                0x0000000000002b64       0x40 contiki-avr-zigduino.a(ringbuf.o)
-                0x0000000000002b64                ringbuf_put
- .text.ringbuf_get
-                0x0000000000002ba4       0x3e contiki-avr-zigduino.a(ringbuf.o)
-                0x0000000000002ba4                ringbuf_get
+                0x0000000000000848        0x6 contiki-avr-zigduino.a(random.o)
+                0x0000000000000848                random_rand
  .text.packetbuf_hdrreduce
-                0x0000000000002be2       0x3e contiki-avr-zigduino.a(packetbuf.o)
-                0x0000000000002be2                packetbuf_hdrreduce
+                0x000000000000084e       0x3e contiki-avr-zigduino.a(packetbuf.o)
+                0x000000000000084e                packetbuf_hdrreduce
  .text.packetbuf_set_datalen
-                0x0000000000002c20        0xa contiki-avr-zigduino.a(packetbuf.o)
-                0x0000000000002c20                packetbuf_set_datalen
+                0x000000000000088c        0xa contiki-avr-zigduino.a(packetbuf.o)
+                0x000000000000088c                packetbuf_set_datalen
  .text.packetbuf_dataptr
-                0x0000000000002c2a       0x10 contiki-avr-zigduino.a(packetbuf.o)
-                0x0000000000002c2a                packetbuf_dataptr
+                0x0000000000000896       0x10 contiki-avr-zigduino.a(packetbuf.o)
+                0x0000000000000896                packetbuf_dataptr
  .text.packetbuf_hdrptr
-                0x0000000000002c3a        0xe contiki-avr-zigduino.a(packetbuf.o)
-                0x0000000000002c3a                packetbuf_hdrptr
+                0x00000000000008a6        0xe contiki-avr-zigduino.a(packetbuf.o)
+                0x00000000000008a6                packetbuf_hdrptr
  .text.packetbuf_is_reference
-                0x0000000000002c48       0x1c contiki-avr-zigduino.a(packetbuf.o)
-                0x0000000000002c48                packetbuf_is_reference
+                0x00000000000008b4       0x1c contiki-avr-zigduino.a(packetbuf.o)
+                0x00000000000008b4                packetbuf_is_reference
  .text.packetbuf_compact
-                0x0000000000002c64       0x60 contiki-avr-zigduino.a(packetbuf.o)
-                0x0000000000002c64                packetbuf_compact
+                0x00000000000008d0       0x60 contiki-avr-zigduino.a(packetbuf.o)
+                0x00000000000008d0                packetbuf_compact
  .text.packetbuf_datalen
-                0x0000000000002cc4        0xa contiki-avr-zigduino.a(packetbuf.o)
-                0x0000000000002cc4                packetbuf_datalen
+                0x0000000000000930        0xa contiki-avr-zigduino.a(packetbuf.o)
+                0x0000000000000930                packetbuf_datalen
  .text.packetbuf_totlen
-                0x0000000000002cce       0x18 contiki-avr-zigduino.a(packetbuf.o)
-                0x0000000000002cce                packetbuf_totlen
+                0x000000000000093a       0x18 contiki-avr-zigduino.a(packetbuf.o)
+                0x000000000000093a                packetbuf_totlen
  .text.packetbuf_hdralloc
-                0x0000000000002ce6       0x3e contiki-avr-zigduino.a(packetbuf.o)
-                0x0000000000002ce6                packetbuf_hdralloc
+                0x0000000000000952       0x3e contiki-avr-zigduino.a(packetbuf.o)
+                0x0000000000000952                packetbuf_hdralloc
  .text.packetbuf_attr_clear
-                0x0000000000002d24       0x38 contiki-avr-zigduino.a(packetbuf.o)
-                0x0000000000002d24                packetbuf_attr_clear
+                0x0000000000000990       0x38 contiki-avr-zigduino.a(packetbuf.o)
+                0x0000000000000990                packetbuf_attr_clear
  .text.packetbuf_clear
-                0x0000000000002d5c       0x28 contiki-avr-zigduino.a(packetbuf.o)
-                0x0000000000002d5c                packetbuf_clear
+                0x00000000000009c8       0x28 contiki-avr-zigduino.a(packetbuf.o)
+                0x00000000000009c8                packetbuf_clear
  .text.packetbuf_copyfrom
-                0x0000000000002d84       0x66 contiki-avr-zigduino.a(packetbuf.o)
-                0x0000000000002d84                packetbuf_copyfrom
+                0x00000000000009f0       0x66 contiki-avr-zigduino.a(packetbuf.o)
+                0x00000000000009f0                packetbuf_copyfrom
  .text.packetbuf_attr_copyfrom
-                0x0000000000002dea       0x2a contiki-avr-zigduino.a(packetbuf.o)
-                0x0000000000002dea                packetbuf_attr_copyfrom
+                0x0000000000000a56       0x2a contiki-avr-zigduino.a(packetbuf.o)
+                0x0000000000000a56                packetbuf_attr_copyfrom
  .text.packetbuf_set_attr
-                0x0000000000002e14       0x16 contiki-avr-zigduino.a(packetbuf.o)
-                0x0000000000002e14                packetbuf_set_attr
+                0x0000000000000a80       0x16 contiki-avr-zigduino.a(packetbuf.o)
+                0x0000000000000a80                packetbuf_set_attr
  .text.packetbuf_attr
-                0x0000000000002e2a       0x12 contiki-avr-zigduino.a(packetbuf.o)
-                0x0000000000002e2a                packetbuf_attr
+                0x0000000000000a96       0x12 contiki-avr-zigduino.a(packetbuf.o)
+                0x0000000000000a96                packetbuf_attr
  .text.packetbuf_set_addr
-                0x0000000000002e3c       0x14 contiki-avr-zigduino.a(packetbuf.o)
-                0x0000000000002e3c                packetbuf_set_addr
+                0x0000000000000aa8       0x14 contiki-avr-zigduino.a(packetbuf.o)
+                0x0000000000000aa8                packetbuf_set_addr
  .text.packetbuf_addr
-                0x0000000000002e50       0x10 contiki-avr-zigduino.a(packetbuf.o)
-                0x0000000000002e50                packetbuf_addr
+                0x0000000000000abc       0x10 contiki-avr-zigduino.a(packetbuf.o)
+                0x0000000000000abc                packetbuf_addr
  .text.queuebuf_init
-                0x0000000000002e60       0x1a contiki-avr-zigduino.a(queuebuf.o)
-                0x0000000000002e60                queuebuf_init
+                0x0000000000000acc       0x1a contiki-avr-zigduino.a(queuebuf.o)
+                0x0000000000000acc                queuebuf_init
  .text.queuebuf_to_packetbuf
-                0x0000000000002e7a       0x7c contiki-avr-zigduino.a(queuebuf.o)
-                0x0000000000002e7a                queuebuf_to_packetbuf
- .text.start_periodic_tcp_timer
-                0x0000000000002ef6       0x16 contiki-avr-zigduino.a(tcpip.o)
- .text.tcpip_output
-                0x0000000000002f0c       0x14 contiki-avr-zigduino.a(tcpip.o)
-                0x0000000000002f0c                tcpip_output
- .text.process_thread_tcpip_process
-                0x0000000000002f20      0x280 contiki-avr-zigduino.a(tcpip.o)
- .text.tcpip_uipcall
-                0x00000000000031a0       0x86 contiki-avr-zigduino.a(tcpip.o)
-                0x00000000000031a0                tcpip_uipcall
- .text.uip_split_output
-                0x0000000000003226      0x11e contiki-avr-zigduino.a(uip-split.o)
-                0x0000000000003226                uip_split_output
- .text.chksum   0x0000000000003344       0x50 contiki-avr-zigduino.a(uip.o)
- .text.upper_layer_chksum
-                0x0000000000003394       0x4c contiki-avr-zigduino.a(uip.o)
- .text.uip_add32
-                0x00000000000033e0       0x70 contiki-avr-zigduino.a(uip.o)
-                0x00000000000033e0                uip_add32
- .text.uip_add_rcv_nxt
-                0x0000000000003450       0x32 contiki-avr-zigduino.a(uip.o)
- .text.uip_ipchksum
-                0x0000000000003482       0x22 contiki-avr-zigduino.a(uip.o)
-                0x0000000000003482                uip_ipchksum
- .text.uip_tcpchksum
-                0x00000000000034a4        0x8 contiki-avr-zigduino.a(uip.o)
-                0x00000000000034a4                uip_tcpchksum
- .text.uip_udpchksum
-                0x00000000000034ac        0x8 contiki-avr-zigduino.a(uip.o)
-                0x00000000000034ac                uip_udpchksum
- .text.uip_init
-                0x00000000000034b4       0x72 contiki-avr-zigduino.a(uip.o)
-                0x00000000000034b4                uip_init
- .text.uip_unlisten
-                0x0000000000003526       0x34 contiki-avr-zigduino.a(uip.o)
-                0x0000000000003526                uip_unlisten
- .text.uip_process
-                0x000000000000355a      0xec2 contiki-avr-zigduino.a(uip.o)
-                0x000000000000355a                uip_process
- .text.__vector_32
-                0x000000000000441c       0x5a contiki-avr-zigduino.a(rtimer-arch.o)
-                0x000000000000441c                __vector_32
- .text.rtimer_arch_init
-                0x0000000000004476       0x34 contiki-avr-zigduino.a(rtimer-arch.o)
-                0x0000000000004476                rtimer_arch_init
- .text.rtimer_arch_schedule
-                0x00000000000044aa       0x20 contiki-avr-zigduino.a(rtimer-arch.o)
-                0x00000000000044aa                rtimer_arch_schedule
- .text.__vector_13
-                0x00000000000044ca       0x14 contiki-avr-zigduino.a(rtimer-arch.o)
-                0x00000000000044ca                __vector_13
+                0x0000000000000ae6       0x7c contiki-avr-zigduino.a(queuebuf.o)
+                0x0000000000000ae6                queuebuf_to_packetbuf
+ .text.rng_get_uint8
+                0x0000000000000b62       0x2e contiki-avr-zigduino.a(contiki-main.o)
+                0x0000000000000b62                rng_get_uint8
+ .text.initialize
+                0x0000000000000b90      0x326 contiki-avr-zigduino.a(contiki-main.o)
+                0x0000000000000b90                initialize
+ .text.main     0x0000000000000eb6      0x132 contiki-avr-zigduino.a(contiki-main.o)
+                0x0000000000000eb6                main
+ .text.params_get_channel
+                0x0000000000000fe8      0x130 contiki-avr-zigduino.a(params.o)
+                0x0000000000000fe8                params_get_channel
+ .text.params_get_eui64
+                0x0000000000001118       0x14 contiki-avr-zigduino.a(params.o)
+                0x0000000000001118                params_get_eui64
+ .text.params_get_panid
+                0x000000000000112c        0xa contiki-avr-zigduino.a(params.o)
+                0x000000000000112c                params_get_panid
+ .text.params_get_panaddr
+                0x0000000000001136        0xa contiki-avr-zigduino.a(params.o)
+                0x0000000000001136                params_get_panaddr
+ .text.params_get_txpower
+                0x0000000000001140        0xa contiki-avr-zigduino.a(params.o)
+                0x0000000000001140                params_get_txpower
+ .text.clock_init
+                0x000000000000114a       0x20 contiki-avr-zigduino.a(clock.o)
+                0x000000000000114a                clock_init
+ .text.clock_time
+                0x000000000000116a       0x1a contiki-avr-zigduino.a(clock.o)
+                0x000000000000116a                clock_time
+ .text.clock_seconds
+                0x0000000000001184       0x30 contiki-avr-zigduino.a(clock.o)
+                0x0000000000001184                clock_seconds
+ .text.__vector_21
+                0x00000000000011b4       0xa6 contiki-avr-zigduino.a(clock.o)
+                0x00000000000011b4                __vector_21
+ .text.__vector_25
+                0x000000000000125a       0x5e contiki-avr-zigduino.a(rs232.o)
+                0x000000000000125a                __vector_25
+ .text.__vector_36
+                0x00000000000012b8       0x5e contiki-avr-zigduino.a(rs232.o)
+                0x00000000000012b8                __vector_36
+ .text.rs232_init
+                0x0000000000001316       0x40 contiki-avr-zigduino.a(rs232.o)
+                0x0000000000001316                rs232_init
+ .text.rs232_send
+                0x0000000000001356       0x24 contiki-avr-zigduino.a(rs232.o)
+                0x0000000000001356                rs232_send
+ .text.rs232_stdout_putchar
+                0x000000000000137a       0x2a contiki-avr-zigduino.a(rs232.o)
+                0x000000000000137a                rs232_stdout_putchar
+ .text.rs232_set_input
+                0x00000000000013a4       0x1c contiki-avr-zigduino.a(rs232.o)
+                0x00000000000013a4                rs232_set_input
+ .text.rs232_redirect_stdout
+                0x00000000000013c0       0x12 contiki-avr-zigduino.a(rs232.o)
+                0x00000000000013c0                rs232_redirect_stdout
+ .text.watchdog_init
+                0x00000000000013d2       0x18 contiki-avr-zigduino.a(watchdog.o)
+                0x00000000000013d2                watchdog_init
+ .text.watchdog_start
+                0x00000000000013ea       0x18 contiki-avr-zigduino.a(watchdog.o)
+                0x00000000000013ea                watchdog_start
+ .text.watchdog_periodic
+                0x0000000000001402        0x4 contiki-avr-zigduino.a(watchdog.o)
+                0x0000000000001402                watchdog_periodic
+ .text.flushrx  0x0000000000001406       0x22 contiki-avr-zigduino.a(rf230bb.o)
+ .text.rf230_pending_packet
+                0x0000000000001428        0x8 contiki-avr-zigduino.a(rf230bb.o)
+ .text.rf230_isidle
+                0x0000000000001430       0x38 contiki-avr-zigduino.a(rf230bb.o)
+ .text.rf230_waitidle
+                0x0000000000001468       0x12 contiki-avr-zigduino.a(rf230bb.o)
+ .text.rf230_receiving_packet
+                0x000000000000147a       0x2e contiki-avr-zigduino.a(rf230bb.o)
+ .text.radio_reset_state_machine
+                0x00000000000014a8       0x32 contiki-avr-zigduino.a(rf230bb.o)
+ .text.radio_off
+                0x00000000000014da       0x28 contiki-avr-zigduino.a(rf230bb.o)
+ .text.rf230_off
+                0x0000000000001502       0x16 contiki-avr-zigduino.a(rf230bb.o)
+ .text.set_txpower
+                0x0000000000001518       0x1e contiki-avr-zigduino.a(rf230bb.o)
+ .text.rf230_prepare
+                0x0000000000001536       0x2a contiki-avr-zigduino.a(rf230bb.o)
+ .text.radio_get_trx_state
+                0x0000000000001560        0xe contiki-avr-zigduino.a(rf230bb.o)
+                0x0000000000001560                radio_get_trx_state
+ .text.radio_set_trx_state
+                0x000000000000156e       0xc4 contiki-avr-zigduino.a(rf230bb.o)
+ .text.radio_on
+                0x0000000000001632       0x42 contiki-avr-zigduino.a(rf230bb.o)
+ .text.rf230_on
+                0x0000000000001674       0x12 contiki-avr-zigduino.a(rf230bb.o)
+ .text.rf230_cca
+                0x0000000000001686       0x92 contiki-avr-zigduino.a(rf230bb.o)
+ .text.rf230_warm_reset
+                0x0000000000001718       0x40 contiki-avr-zigduino.a(rf230bb.o)
+                0x0000000000001718                rf230_warm_reset
+ .text.rf230_init
+                0x0000000000001758       0x74 contiki-avr-zigduino.a(rf230bb.o)
+                0x0000000000001758                rf230_init
+ .text.rf230_get_channel
+                0x00000000000017cc        0x6 contiki-avr-zigduino.a(rf230bb.o)
+                0x00000000000017cc                rf230_get_channel
+ .text.rf230_set_channel
+                0x00000000000017d2       0x2a contiki-avr-zigduino.a(rf230bb.o)
+                0x00000000000017d2                rf230_set_channel
+ .text.rf230_set_pan_addr
+                0x00000000000017fc       0x64 contiki-avr-zigduino.a(rf230bb.o)
+                0x00000000000017fc                rf230_set_pan_addr
+ .text.rf230_interrupt
+                0x0000000000001860       0x14 contiki-avr-zigduino.a(rf230bb.o)
+                0x0000000000001860                rf230_interrupt
+ .text.rf230_read
+                0x0000000000001874      0x120 contiki-avr-zigduino.a(rf230bb.o)
+ .text.process_thread_rf230_process
+                0x0000000000001994       0x7c contiki-avr-zigduino.a(rf230bb.o)
+ .text.rf230_set_txpower
+                0x0000000000001a10        0x6 contiki-avr-zigduino.a(rf230bb.o)
+                0x0000000000001a10                rf230_set_txpower
+ .text.rf230_get_txpower
+                0x0000000000001a16       0x1a contiki-avr-zigduino.a(rf230bb.o)
+                0x0000000000001a16                rf230_get_txpower
+ .text.rf230_transmit
+                0x0000000000001a30      0x10c contiki-avr-zigduino.a(rf230bb.o)
+ .text.rf230_send
+                0x0000000000001b3c       0x20 contiki-avr-zigduino.a(rf230bb.o)
+ .text.hal_init
+                0x0000000000001b5c        0x2 contiki-avr-zigduino.a(halbb.o)
+                0x0000000000001b5c                hal_init
+ .text.hal_subregister_read
+                0x0000000000001b5e       0x14 contiki-avr-zigduino.a(halbb.o)
+                0x0000000000001b5e                hal_subregister_read
+ .text.hal_subregister_write
+                0x0000000000001b72       0x38 contiki-avr-zigduino.a(halbb.o)
+                0x0000000000001b72                hal_subregister_write
+ .text.hal_frame_read
+                0x0000000000001baa       0x5a contiki-avr-zigduino.a(halbb.o)
+                0x0000000000001baa                hal_frame_read
+ .text.hal_frame_write
+                0x0000000000001c04       0x1e contiki-avr-zigduino.a(halbb.o)
+                0x0000000000001c04                hal_frame_write
+ .text.__vector_60
+                0x0000000000001c22       0x7e contiki-avr-zigduino.a(halbb.o)
+                0x0000000000001c22                __vector_60
+ .text.__vector_59
+                0x0000000000001ca0       0x14 contiki-avr-zigduino.a(halbb.o)
+                0x0000000000001ca0                __vector_59
+ .text.__vector_57
+                0x0000000000001cb4       0x14 contiki-avr-zigduino.a(halbb.o)
+                0x0000000000001cb4                __vector_57
+ .text.__vector_58
+                0x0000000000001cc8       0x14 contiki-avr-zigduino.a(halbb.o)
+                0x0000000000001cc8                __vector_58
+ .text.__vector_64
+                0x0000000000001cdc       0x18 contiki-avr-zigduino.a(halbb.o)
+                0x0000000000001cdc                __vector_64
+ .text.__vector_63
+                0x0000000000001cf4       0x18 contiki-avr-zigduino.a(halbb.o)
+                0x0000000000001cf4                __vector_63
+ .text.__vector_62
+                0x0000000000001d0c       0x14 contiki-avr-zigduino.a(halbb.o)
+                0x0000000000001d0c                __vector_62
+ .text.__vector_61
+                0x0000000000001d20       0x18 contiki-avr-zigduino.a(halbb.o)
+                0x0000000000001d20                __vector_61
+ .text.rimeaddr_copy
+                0x0000000000001d38        0xe contiki-avr-zigduino.a(rimeaddr.o)
+                0x0000000000001d38                rimeaddr_copy
+ .text.rimeaddr_cmp
+                0x0000000000001d46       0x18 contiki-avr-zigduino.a(rimeaddr.o)
+                0x0000000000001d46                rimeaddr_cmp
+ .text.rimeaddr_set_node_addr
+                0x0000000000001d5e        0xc contiki-avr-zigduino.a(rimeaddr.o)
+                0x0000000000001d5e                rimeaddr_set_node_addr
+ .text.input    0x0000000000001d6a       0x4c contiki-avr-zigduino.a(rime.o)
+ .text.init     0x0000000000001db6       0x26 contiki-avr-zigduino.a(rime.o)
+ .text.packet_sent
+                0x0000000000001ddc       0x5e contiki-avr-zigduino.a(rime.o)
+ .text.rime_output
+                0x0000000000001e3a       0x34 contiki-avr-zigduino.a(rime.o)
+                0x0000000000001e3a                rime_output
+ .text.announcement_init
+                0x0000000000001e6e        0xa contiki-avr-zigduino.a(announcement.o)
+                0x0000000000001e6e                announcement_init
+ .text.announcement_register_observer_callback
+                0x0000000000001e78        0xa contiki-avr-zigduino.a(announcement.o)
+                0x0000000000001e78                announcement_register_observer_callback
+ .text.announcement_list
+                0x0000000000001e82        0xa contiki-avr-zigduino.a(announcement.o)
+                0x0000000000001e82                announcement_list
+ .text.announcement_heard
+                0x0000000000001e8c       0x5e contiki-avr-zigduino.a(announcement.o)
+                0x0000000000001e8c                announcement_heard
+ .text.adv_packet_sent
+                0x0000000000001eea        0x2 contiki-avr-zigduino.a(broadcast-annou)
+ .text.adv_packet_received
+                0x0000000000001eec       0x84 contiki-avr-zigduino.a(broadcast-annou)
+ .text.set_timers
+                0x0000000000001f70       0x46 contiki-avr-zigduino.a(broadcast-annou)
+ .text.new_announcement
+                0x0000000000001fb6       0x1e contiki-avr-zigduino.a(broadcast-annou)
+ .text.send_timer
+                0x0000000000001fd4       0x2a contiki-avr-zigduino.a(broadcast-annou)
+ .text.send_adv
+                0x0000000000001ffe       0xa8 contiki-avr-zigduino.a(broadcast-annou)
+ .text.broadcast_announcement_init
+                0x00000000000020a6       0x50 contiki-avr-zigduino.a(broadcast-annou)
+                0x00000000000020a6                broadcast_announcement_init
+ .text.sent_by_abc
+                0x00000000000020f6       0x18 contiki-avr-zigduino.a(broadcast.o)
+ .text.recv_from_abc
+                0x000000000000210e       0x56 contiki-avr-zigduino.a(broadcast.o)
+ .text.broadcast_open
+                0x0000000000002164       0x36 contiki-avr-zigduino.a(broadcast.o)
+                0x0000000000002164                broadcast_open
+ .text.broadcast_send
+                0x000000000000219a       0x1c contiki-avr-zigduino.a(broadcast.o)
+                0x000000000000219a                broadcast_send
+ .text.abc_open
+                0x00000000000021b6       0x32 contiki-avr-zigduino.a(abc.o)
+                0x00000000000021b6                abc_open
+ .text.abc_send
+                0x00000000000021e8        0x6 contiki-avr-zigduino.a(abc.o)
+                0x00000000000021e8                abc_send
+ .text.abc_input
+                0x00000000000021ee       0x18 contiki-avr-zigduino.a(abc.o)
+                0x00000000000021ee                abc_input
+ .text.abc_sent
+                0x0000000000002206       0x18 contiki-avr-zigduino.a(abc.o)
+                0x0000000000002206                abc_sent
+ .text.chameleon_init
+                0x000000000000221e        0x6 contiki-avr-zigduino.a(chameleon.o)
+                0x000000000000221e                chameleon_init
+ .text.chameleon_parse
+                0x0000000000002224       0x2e contiki-avr-zigduino.a(chameleon.o)
+                0x0000000000002224                chameleon_parse
+ .text.chameleon_create
+                0x0000000000002252       0x3a contiki-avr-zigduino.a(chameleon.o)
+                0x0000000000002252                chameleon_create
+ .text.chameleon_hdrsize
+                0x000000000000228c        0xc contiki-avr-zigduino.a(chameleon.o)
+                0x000000000000228c                chameleon_hdrsize
+ .text.channel_init
+                0x0000000000002298        0xa contiki-avr-zigduino.a(channel.o)
+                0x0000000000002298                channel_init
+ .text.channel_open
+                0x00000000000022a2       0x12 contiki-avr-zigduino.a(channel.o)
+                0x00000000000022a2                channel_open
+ .text.channel_lookup
+                0x00000000000022b4       0x30 contiki-avr-zigduino.a(channel.o)
+                0x00000000000022b4                channel_lookup
+ .text.channel_set_attributes
+                0x00000000000022e4       0x2a contiki-avr-zigduino.a(channel.o)
+                0x00000000000022e4                channel_set_attributes
+ .text.header_size
+                0x000000000000230e       0x1a contiki-avr-zigduino.a(chameleon-bitop)
+ .text.get_bits_in_byte
+                0x0000000000002328       0x3e contiki-avr-zigduino.a(chameleon-bitop)
+                0x0000000000002328                get_bits_in_byte
+ .text.get_bits
+                0x0000000000002366       0xda contiki-avr-zigduino.a(chameleon-bitop)
+                0x0000000000002366                get_bits
+ .text.unpack_header
+                0x0000000000002440      0x136 contiki-avr-zigduino.a(chameleon-bitop)
+ .text.set_bits_in_byte
+                0x0000000000002576       0x28 contiki-avr-zigduino.a(chameleon-bitop)
+                0x0000000000002576                set_bits_in_byte
+ .text.set_bits
+                0x000000000000259e      0x100 contiki-avr-zigduino.a(chameleon-bitop)
+                0x000000000000259e                set_bits
+ .text.pack_header
+                0x000000000000269e      0x12c contiki-avr-zigduino.a(chameleon-bitop)
  .text.field_len
-                0x00000000000044de       0xb2 contiki-avr-zigduino.a(frame802154.o)
+                0x00000000000027ca       0xb2 contiki-avr-zigduino.a(frame802154.o)
  .text.frame802154_hdrlen
-                0x0000000000004590       0x4a contiki-avr-zigduino.a(frame802154.o)
-                0x0000000000004590                frame802154_hdrlen
+                0x000000000000287c       0x4a contiki-avr-zigduino.a(frame802154.o)
+                0x000000000000287c                frame802154_hdrlen
  .text.frame802154_create
-                0x00000000000045da      0x1c8 contiki-avr-zigduino.a(frame802154.o)
-                0x00000000000045da                frame802154_create
+                0x00000000000028c6      0x1c8 contiki-avr-zigduino.a(frame802154.o)
+                0x00000000000028c6                frame802154_create
  .text.frame802154_parse
-                0x00000000000047a2      0x1a0 contiki-avr-zigduino.a(frame802154.o)
-                0x00000000000047a2                frame802154_parse
+                0x0000000000002a8e      0x1a0 contiki-avr-zigduino.a(frame802154.o)
+                0x0000000000002a8e                frame802154_parse
+ .text.call_process
+                0x0000000000002c2e       0x52 contiki-avr-zigduino.a(process.o)
+ .text.exit_process
+                0x0000000000002c80       0xd8 contiki-avr-zigduino.a(process.o)
+ .text.do_poll  0x0000000000002d58       0x3e contiki-avr-zigduino.a(process.o)
+ .text.process_alloc_event
+                0x0000000000002d96        0xe contiki-avr-zigduino.a(process.o)
+                0x0000000000002d96                process_alloc_event
+ .text.process_init
+                0x0000000000002da4       0x20 contiki-avr-zigduino.a(process.o)
+                0x0000000000002da4                process_init
+ .text.process_run
+                0x0000000000002dc4       0xd2 contiki-avr-zigduino.a(process.o)
+                0x0000000000002dc4                process_run
+ .text.process_post
+                0x0000000000002e96       0x46 contiki-avr-zigduino.a(process.o)
+                0x0000000000002e96                process_post
+ .text.process_post_synch
+                0x0000000000002edc       0x1e contiki-avr-zigduino.a(process.o)
+                0x0000000000002edc                process_post_synch
+ .text.process_start
+                0x0000000000002efa       0x46 contiki-avr-zigduino.a(process.o)
+                0x0000000000002efa                process_start
+ .text.process_poll
+                0x0000000000002f40       0x18 contiki-avr-zigduino.a(process.o)
+                0x0000000000002f40                process_poll
+ .text.autostart_start
+                0x0000000000002f58       0x2e contiki-avr-zigduino.a(autostart.o)
+                0x0000000000002f58                autostart_start
+ .text.process_thread_serial_line_process
+                0x0000000000002f86       0xca contiki-avr-zigduino.a(serial-line.o)
+ .text.serial_line_input_byte
+                0x0000000000003050       0x4c contiki-avr-zigduino.a(serial-line.o)
+                0x0000000000003050                serial_line_input_byte
  .text.memb_init
-                0x0000000000004942       0x40 contiki-avr-zigduino.a(memb.o)
-                0x0000000000004942                memb_init
+                0x000000000000309c       0x40 contiki-avr-zigduino.a(memb.o)
+                0x000000000000309c                memb_init
  .text.memb_inmemb
-                0x0000000000004982       0x3a contiki-avr-zigduino.a(memb.o)
-                0x0000000000004982                memb_inmemb
+                0x00000000000030dc       0x3a contiki-avr-zigduino.a(memb.o)
+                0x00000000000030dc                memb_inmemb
+ .text.mmem_init
+                0x0000000000003116       0x16 contiki-avr-zigduino.a(mmem.o)
+                0x0000000000003116                mmem_init
  .text.timer_set
-                0x00000000000049bc       0x18 contiki-avr-zigduino.a(timer.o)
-                0x00000000000049bc                timer_set
+                0x000000000000312c       0x18 contiki-avr-zigduino.a(timer.o)
+                0x000000000000312c                timer_set
  .text.timer_restart
-                0x00000000000049d4       0x14 contiki-avr-zigduino.a(timer.o)
-                0x00000000000049d4                timer_restart
+                0x0000000000003144       0x14 contiki-avr-zigduino.a(timer.o)
+                0x0000000000003144                timer_restart
  .text.timer_expired
-                0x00000000000049e8       0x2e contiki-avr-zigduino.a(timer.o)
-                0x00000000000049e8                timer_expired
- .text.libgcc   0x0000000000004a16       0x28 /usr/lib/gcc/avr/4.5.3/avr51/libgcc.a(_udivmodhi4.o)
-                0x0000000000004a16                __udivmodhi4
- .text.libgcc   0x0000000000004a3e       0x44 /usr/lib/gcc/avr/4.5.3/avr51/libgcc.a(_udivmodsi4.o)
-                0x0000000000004a3e                __udivmodsi4
+                0x0000000000003158       0x2e contiki-avr-zigduino.a(timer.o)
+                0x0000000000003158                timer_expired
+ .text.list_init
+                0x0000000000003186        0x8 contiki-avr-zigduino.a(list.o)
+                0x0000000000003186                list_init
+ .text.list_head
+                0x000000000000318e        0x8 contiki-avr-zigduino.a(list.o)
+                0x000000000000318e                list_head
+ .text.list_tail
+                0x0000000000003196       0x24 contiki-avr-zigduino.a(list.o)
+                0x0000000000003196                list_tail
+ .text.list_remove
+                0x00000000000031ba       0x4a contiki-avr-zigduino.a(list.o)
+                0x00000000000031ba                list_remove
+ .text.list_add
+                0x0000000000003204       0x3e contiki-avr-zigduino.a(list.o)
+                0x0000000000003204                list_add
+ .text.list_item_next
+                0x0000000000003242       0x14 contiki-avr-zigduino.a(list.o)
+                0x0000000000003242                list_item_next
+ .text.process_thread_ctimer_process
+                0x0000000000003256       0xe6 contiki-avr-zigduino.a(ctimer.o)
+ .text.ctimer_init
+                0x000000000000333c       0x1a contiki-avr-zigduino.a(ctimer.o)
+                0x000000000000333c                ctimer_init
+ .text.ctimer_set
+                0x0000000000003356       0x66 contiki-avr-zigduino.a(ctimer.o)
+                0x0000000000003356                ctimer_set
+ .text.rtimer_init
+                0x00000000000033bc        0x6 contiki-avr-zigduino.a(rtimer.o)
+                0x00000000000033bc                rtimer_init
+ .text.rtimer_run_next
+                0x00000000000033c2       0x3e contiki-avr-zigduino.a(rtimer.o)
+                0x00000000000033c2                rtimer_run_next
+ .text.ringbuf_put
+                0x0000000000003400       0x40 contiki-avr-zigduino.a(ringbuf.o)
+                0x0000000000003400                ringbuf_put
+ .text.ringbuf_get
+                0x0000000000003440       0x3e contiki-avr-zigduino.a(ringbuf.o)
+                0x0000000000003440                ringbuf_get
+ .text.start_periodic_tcp_timer
+                0x000000000000347e       0x16 contiki-avr-zigduino.a(tcpip.o)
+ .text.tcpip_output
+                0x0000000000003494       0x14 contiki-avr-zigduino.a(tcpip.o)
+                0x0000000000003494                tcpip_output
+ .text.process_thread_tcpip_process
+                0x00000000000034a8      0x280 contiki-avr-zigduino.a(tcpip.o)
+ .text.tcpip_uipcall
+                0x0000000000003728       0x86 contiki-avr-zigduino.a(tcpip.o)
+                0x0000000000003728                tcpip_uipcall
+ .text.uip_split_output
+                0x00000000000037ae      0x11e contiki-avr-zigduino.a(uip-split.o)
+                0x00000000000037ae                uip_split_output
+ .text.chksum   0x00000000000038cc       0x50 contiki-avr-zigduino.a(uip.o)
+ .text.upper_layer_chksum
+                0x000000000000391c       0x4c contiki-avr-zigduino.a(uip.o)
+ .text.uip_add32
+                0x0000000000003968       0x70 contiki-avr-zigduino.a(uip.o)
+                0x0000000000003968                uip_add32
+ .text.uip_add_rcv_nxt
+                0x00000000000039d8       0x32 contiki-avr-zigduino.a(uip.o)
+ .text.uip_ipchksum
+                0x0000000000003a0a       0x22 contiki-avr-zigduino.a(uip.o)
+                0x0000000000003a0a                uip_ipchksum
+ .text.uip_tcpchksum
+                0x0000000000003a2c        0x8 contiki-avr-zigduino.a(uip.o)
+                0x0000000000003a2c                uip_tcpchksum
+ .text.uip_udpchksum
+                0x0000000000003a34        0x8 contiki-avr-zigduino.a(uip.o)
+                0x0000000000003a34                uip_udpchksum
+ .text.uip_init
+                0x0000000000003a3c       0x72 contiki-avr-zigduino.a(uip.o)
+                0x0000000000003a3c                uip_init
+ .text.uip_unlisten
+                0x0000000000003aae       0x34 contiki-avr-zigduino.a(uip.o)
+                0x0000000000003aae                uip_unlisten
+ .text.uip_process
+                0x0000000000003ae2      0xec2 contiki-avr-zigduino.a(uip.o)
+                0x0000000000003ae2                uip_process
+ .text.__vector_32
+                0x00000000000049a4       0x5a contiki-avr-zigduino.a(rtimer-arch.o)
+                0x00000000000049a4                __vector_32
+ .text.rtimer_arch_init
+                0x00000000000049fe       0x34 contiki-avr-zigduino.a(rtimer-arch.o)
+                0x00000000000049fe                rtimer_arch_init
+ .text.rtimer_arch_schedule
+                0x0000000000004a32       0x20 contiki-avr-zigduino.a(rtimer-arch.o)
+                0x0000000000004a32                rtimer_arch_schedule
+ .text.__vector_13
+                0x0000000000004a52       0x14 contiki-avr-zigduino.a(rtimer-arch.o)
+                0x0000000000004a52                __vector_13
+ .text.libgcc   0x0000000000004a66       0x28 /usr/lib/gcc/avr/4.5.3/avr51/libgcc.a(_udivmodhi4.o)
+                0x0000000000004a66                __udivmodhi4
+ .text.libgcc   0x0000000000004a8e       0x44 /usr/lib/gcc/avr/4.5.3/avr51/libgcc.a(_udivmodsi4.o)
+                0x0000000000004a8e                __udivmodsi4
  .text.avr-libc
-                0x0000000000004a82       0xbc /usr/lib/gcc/avr/4.5.3/../../../../avr/lib/avr51/libc.a(rand.o)
-                0x0000000000004b18                rand_r
-                0x0000000000004b1e                rand
-                0x0000000000004b28                srand
+                0x0000000000004ad2       0xbc /usr/lib/gcc/avr/4.5.3/../../../../avr/lib/avr51/libc.a(rand.o)
+                0x0000000000004b68                rand_r
+                0x0000000000004b6e                rand
+                0x0000000000004b78                srand
  .text.avr-libc
-                0x0000000000004b3e       0x1a /usr/lib/gcc/avr/4.5.3/../../../../avr/lib/avr51/libc.a(memcmp.o)
-                0x0000000000004b3e                memcmp
+                0x0000000000004b8e       0x1a /usr/lib/gcc/avr/4.5.3/../../../../avr/lib/avr51/libc.a(memcmp.o)
+                0x0000000000004b8e                memcmp
  .text.avr-libc
-                0x0000000000004b58       0x12 /usr/lib/gcc/avr/4.5.3/../../../../avr/lib/avr51/libc.a(memcpy.o)
-                0x0000000000004b58                memcpy
+                0x0000000000004ba8       0x12 /usr/lib/gcc/avr/4.5.3/../../../../avr/lib/avr51/libc.a(memcpy.o)
+                0x0000000000004ba8                memcpy
  .text.avr-libc
-                0x0000000000004b6a        0xe /usr/lib/gcc/avr/4.5.3/../../../../avr/lib/avr51/libc.a(memset.o)
-                0x0000000000004b6a                memset
+                0x0000000000004bba        0xe /usr/lib/gcc/avr/4.5.3/../../../../avr/lib/avr51/libc.a(memset.o)
+                0x0000000000004bba                memset
  .text.avr-libc
-                0x0000000000004b78       0x40 /usr/lib/gcc/avr/4.5.3/../../../../avr/lib/avr51/libc.a(printf_p.o)
-                0x0000000000004b78                printf_P
+                0x0000000000004bc8       0x40 /usr/lib/gcc/avr/4.5.3/../../../../avr/lib/avr51/libc.a(printf_p.o)
+                0x0000000000004bc8                printf_P
  .text.avr-libc
-                0x0000000000004bb8      0x420 /usr/lib/gcc/avr/4.5.3/../../../../avr/lib/avr51/libc.a(vfprintf_std.o)
-                0x0000000000004bb8                vfprintf
+                0x0000000000004c08      0x420 /usr/lib/gcc/avr/4.5.3/../../../../avr/lib/avr51/libc.a(vfprintf_std.o)
+                0x0000000000004c08                vfprintf
  .text.avr-libc
-                0x0000000000004fd8       0x20 /usr/lib/gcc/avr/4.5.3/../../../../avr/lib/avr51/libc.a(eerd_block_atmega128rfa1.o)
-                0x0000000000004fd8                __eerd_block_m128rfa1
-                0x0000000000004fdc                __eerd_blraw_m128rfa1
+                0x0000000000005028       0x20 /usr/lib/gcc/avr/4.5.3/../../../../avr/lib/avr51/libc.a(eerd_block_atmega128rfa1.o)
+                0x0000000000005028                __eerd_block_m128rfa1
+                0x000000000000502c                __eerd_blraw_m128rfa1
  .text.avr-libc
-                0x0000000000004ff8       0x10 /usr/lib/gcc/avr/4.5.3/../../../../avr/lib/avr51/libc.a(eerd_byte_atmega128rfa1.o)
-                0x0000000000004ff8                __eerd_byte_m128rfa1
+                0x0000000000005048       0x10 /usr/lib/gcc/avr/4.5.3/../../../../avr/lib/avr51/libc.a(eerd_byte_atmega128rfa1.o)
+                0x0000000000005048                __eerd_byte_m128rfa1
  .text.avr-libc
-                0x0000000000005008        0xc /usr/lib/gcc/avr/4.5.3/../../../../avr/lib/avr51/libc.a(eerd_word_atmega128rfa1.o)
-                0x0000000000005008                __eerd_word_m128rfa1
+                0x0000000000005058        0xc /usr/lib/gcc/avr/4.5.3/../../../../avr/lib/avr51/libc.a(eerd_word_atmega128rfa1.o)
+                0x0000000000005058                __eerd_word_m128rfa1
  .text.avr-libc
-                0x0000000000005014       0x14 /usr/lib/gcc/avr/4.5.3/../../../../avr/lib/avr51/libc.a(eewr_block_atmega128rfa1.o)
-                0x0000000000005014                __eewr_block_m128rfa1
+                0x0000000000005064       0x14 /usr/lib/gcc/avr/4.5.3/../../../../avr/lib/avr51/libc.a(eewr_block_atmega128rfa1.o)
+                0x0000000000005064                __eewr_block_m128rfa1
  .text.avr-libc
-                0x0000000000005028       0x1c /usr/lib/gcc/avr/4.5.3/../../../../avr/lib/avr51/libc.a(eewr_byte_atmega128rfa1.o)
-                0x0000000000005028                __eewr_byte_m128rfa1
-                0x000000000000502a                __eewr_r18_m128rfa1
+                0x0000000000005078       0x1c /usr/lib/gcc/avr/4.5.3/../../../../avr/lib/avr51/libc.a(eewr_byte_atmega128rfa1.o)
+                0x0000000000005078                __eewr_byte_m128rfa1
+                0x000000000000507a                __eewr_r18_m128rfa1
  .text.avr-libc
-                0x0000000000005044        0xa /usr/lib/gcc/avr/4.5.3/../../../../avr/lib/avr51/libc.a(eewr_word_atmega128rfa1.o)
-                0x0000000000005044                __eewr_word_m128rfa1
+                0x0000000000005094        0xa /usr/lib/gcc/avr/4.5.3/../../../../avr/lib/avr51/libc.a(eewr_word_atmega128rfa1.o)
+                0x0000000000005094                __eewr_word_m128rfa1
  .text.avr-libc
-                0x000000000000504e       0x16 /usr/lib/gcc/avr/4.5.3/../../../../avr/lib/avr51/libc.a(strnlen_P.o)
-                0x000000000000504e                strnlen_P
+                0x000000000000509e       0x16 /usr/lib/gcc/avr/4.5.3/../../../../avr/lib/avr51/libc.a(strnlen_P.o)
+                0x000000000000509e                strnlen_P
  .text.avr-libc
-                0x0000000000005064       0x16 /usr/lib/gcc/avr/4.5.3/../../../../avr/lib/avr51/libc.a(strnlen.o)
-                0x0000000000005064                strnlen
+                0x00000000000050b4       0x16 /usr/lib/gcc/avr/4.5.3/../../../../avr/lib/avr51/libc.a(strnlen.o)
+                0x00000000000050b4                strnlen
  .text.avr-libc
-                0x000000000000507a       0x58 /usr/lib/gcc/avr/4.5.3/../../../../avr/lib/avr51/libc.a(fputc.o)
-                0x000000000000507a                fputc
+                0x00000000000050ca       0x58 /usr/lib/gcc/avr/4.5.3/../../../../avr/lib/avr51/libc.a(fputc.o)
+                0x00000000000050ca                fputc
  .text.avr-libc
-                0x00000000000050d2       0xbc /usr/lib/gcc/avr/4.5.3/../../../../avr/lib/avr51/libc.a(ultoa_invert.o)
-                0x00000000000050d2                __ultoa_invert
- .text.libgcc   0x000000000000518e       0x3e /usr/lib/gcc/avr/4.5.3/avr51/libgcc.a(_mulsi3.o)
-                0x000000000000518e                __mulsi3
- .text.libgcc   0x00000000000051cc       0x36 /usr/lib/gcc/avr/4.5.3/avr51/libgcc.a(_divmodsi4.o)
-                0x00000000000051cc                __divmodsi4
-                0x0000000000005202                . = ALIGN (0x2)
+                0x0000000000005122       0xbc /usr/lib/gcc/avr/4.5.3/../../../../avr/lib/avr51/libc.a(ultoa_invert.o)
+                0x0000000000005122                __ultoa_invert
+ .text.libgcc   0x00000000000051de       0x3e /usr/lib/gcc/avr/4.5.3/avr51/libgcc.a(_mulsi3.o)
+                0x00000000000051de                __mulsi3
+ .text.libgcc   0x000000000000521c       0x36 /usr/lib/gcc/avr/4.5.3/avr51/libgcc.a(_divmodsi4.o)
+                0x000000000000521c                __divmodsi4
+                0x0000000000005252                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x0000000000005202        0x0 /usr/lib/gcc/avr/4.5.3/avr51/libgcc.a(_exit.o)
-                0x0000000000005202                exit
-                0x0000000000005202                _exit
+ .fini9         0x0000000000005252        0x0 /usr/lib/gcc/avr/4.5.3/avr51/libgcc.a(_exit.o)
+                0x0000000000005252                exit
+                0x0000000000005252                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -1362,52 +1362,52 @@ LOAD /usr/lib/gcc/avr/4.5.3/avr51/libgcc.a
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x0000000000005202        0x4 /usr/lib/gcc/avr/4.5.3/avr51/libgcc.a(_exit.o)
+ .fini0         0x0000000000005252        0x4 /usr/lib/gcc/avr/4.5.3/avr51/libgcc.a(_exit.o)
  *(.fini0)
-                0x0000000000005206                _etext = .
+                0x0000000000005256                _etext = .
 
-.data           0x0000000000800200      0x144 load address 0x0000000000005206
+.data           0x0000000000800200      0x144 load address 0x0000000000005256
                 0x0000000000800200                PROVIDE (__data_start, .)
  *(.data)
  .data          0x0000000000800200        0x0 /usr/lib/gcc/avr/4.5.3/../../../../avr/lib/avr51/crtm128rfa1.o
  .data          0x0000000000800200       0x12 antenna_off_idle.co
- .data          0x0000000000800212        0xc contiki-avr-zigduino.a(contiki-main.o)
- .data          0x000000000080021e        0x0 contiki-avr-zigduino.a(params.o)
- .data          0x000000000080021e        0x0 contiki-avr-zigduino.a(clock.o)
- .data          0x000000000080021e        0x0 contiki-avr-zigduino.a(rs232.o)
- .data          0x000000000080021e        0x0 contiki-avr-zigduino.a(watchdog.o)
- .data          0x000000000080021e        0xd contiki-avr-zigduino.a(rf230bb.o)
- .data          0x000000000080022b        0x0 contiki-avr-zigduino.a(halbb.o)
- .data          0x000000000080022b        0x0 contiki-avr-zigduino.a(rimeaddr.o)
- .data          0x000000000080022b        0x5 contiki-avr-zigduino.a(rime.o)
- .data          0x0000000000800230        0x0 contiki-avr-zigduino.a(announcement.o)
- .data          0x0000000000800230        0x0 contiki-avr-zigduino.a(broadcast-annou)
- .data          0x0000000000800230        0x0 contiki-avr-zigduino.a(broadcast.o)
- .data          0x0000000000800230        0x0 contiki-avr-zigduino.a(abc.o)
- .data          0x0000000000800230        0x0 contiki-avr-zigduino.a(chameleon.o)
- .data          0x0000000000800230        0x0 contiki-avr-zigduino.a(channel.o)
- .data          0x0000000000800230        0x0 contiki-avr-zigduino.a(chameleon-bitop)
- .data          0x0000000000800230        0x8 contiki-avr-zigduino.a(nullmac.o)
- .data          0x0000000000800238        0xb contiki-avr-zigduino.a(sicslowmac.o)
- .data          0x0000000000800243        0x0 contiki-avr-zigduino.a(process.o)
- .data          0x0000000000800243        0x0 contiki-avr-zigduino.a(autostart.o)
- .data          0x0000000000800243        0xe contiki-avr-zigduino.a(serial-line.o)
- .data          0x0000000000800251        0x0 contiki-avr-zigduino.a(mmem.o)
- .data          0x0000000000800251        0x0 contiki-avr-zigduino.a(list.o)
- .data          0x0000000000800251        0xc contiki-avr-zigduino.a(etimer.o)
+ .data          0x0000000000800212        0x8 contiki-avr-zigduino.a(nullmac.o)
+ .data          0x000000000080021a        0xb contiki-avr-zigduino.a(sicslowmac.o)
+ .data          0x0000000000800225        0xc contiki-avr-zigduino.a(etimer.o)
+ .data          0x0000000000800231        0x0 contiki-avr-zigduino.a(random.o)
+ .data          0x0000000000800231        0x0 contiki-avr-zigduino.a(packetbuf.o)
+ .data          0x0000000000800231        0x0 contiki-avr-zigduino.a(queuebuf.o)
+ .data          0x0000000000800231        0xc contiki-avr-zigduino.a(contiki-main.o)
+ .data          0x000000000080023d        0x0 contiki-avr-zigduino.a(params.o)
+ .data          0x000000000080023d        0x0 contiki-avr-zigduino.a(clock.o)
+ .data          0x000000000080023d        0x0 contiki-avr-zigduino.a(rs232.o)
+ .data          0x000000000080023d        0x0 contiki-avr-zigduino.a(watchdog.o)
+ .data          0x000000000080023d        0xd contiki-avr-zigduino.a(rf230bb.o)
+ .data          0x000000000080024a        0x0 contiki-avr-zigduino.a(halbb.o)
+ .data          0x000000000080024a        0x0 contiki-avr-zigduino.a(rimeaddr.o)
+ .data          0x000000000080024a        0x5 contiki-avr-zigduino.a(rime.o)
+ .data          0x000000000080024f        0x0 contiki-avr-zigduino.a(announcement.o)
+ .data          0x000000000080024f        0x0 contiki-avr-zigduino.a(broadcast-annou)
+ .data          0x000000000080024f        0x0 contiki-avr-zigduino.a(broadcast.o)
+ .data          0x000000000080024f        0x0 contiki-avr-zigduino.a(abc.o)
+ .data          0x000000000080024f        0x0 contiki-avr-zigduino.a(chameleon.o)
+ .data          0x000000000080024f        0x0 contiki-avr-zigduino.a(channel.o)
+ .data          0x000000000080024f        0x0 contiki-avr-zigduino.a(chameleon-bitop)
+ .data          0x000000000080024f        0x0 contiki-avr-zigduino.a(frame802154.o)
+ .data          0x000000000080024f        0x0 contiki-avr-zigduino.a(process.o)
+ .data          0x000000000080024f        0x0 contiki-avr-zigduino.a(autostart.o)
+ .data          0x000000000080024f        0xe contiki-avr-zigduino.a(serial-line.o)
+ .data          0x000000000080025d        0x0 contiki-avr-zigduino.a(memb.o)
+ .data          0x000000000080025d        0x0 contiki-avr-zigduino.a(mmem.o)
+ .data          0x000000000080025d        0x0 contiki-avr-zigduino.a(timer.o)
+ .data          0x000000000080025d        0x0 contiki-avr-zigduino.a(list.o)
  .data          0x000000000080025d        0xf contiki-avr-zigduino.a(ctimer.o)
  .data          0x000000000080026c        0x0 contiki-avr-zigduino.a(rtimer.o)
- .data          0x000000000080026c        0x0 contiki-avr-zigduino.a(random.o)
  .data          0x000000000080026c        0x0 contiki-avr-zigduino.a(ringbuf.o)
- .data          0x000000000080026c        0x0 contiki-avr-zigduino.a(packetbuf.o)
- .data          0x000000000080026c        0x0 contiki-avr-zigduino.a(queuebuf.o)
  .data          0x000000000080026c        0xd contiki-avr-zigduino.a(tcpip.o)
  .data          0x0000000000800279        0x0 contiki-avr-zigduino.a(uip-split.o)
  .data          0x0000000000800279        0x0 contiki-avr-zigduino.a(uip.o)
  .data          0x0000000000800279        0x0 contiki-avr-zigduino.a(rtimer-arch.o)
- .data          0x0000000000800279        0x0 contiki-avr-zigduino.a(frame802154.o)
- .data          0x0000000000800279        0x0 contiki-avr-zigduino.a(memb.o)
- .data          0x0000000000800279        0x0 contiki-avr-zigduino.a(timer.o)
  .data          0x0000000000800279        0x0 /usr/lib/gcc/avr/4.5.3/avr51/libgcc.a(_udivmodhi4.o)
  .data          0x0000000000800279        0x0 /usr/lib/gcc/avr/4.5.3/avr51/libgcc.a(_udivmodsi4.o)
  .data          0x0000000000800279        0x0 /usr/lib/gcc/avr/4.5.3/avr51/libgcc.a(_exit.o)
@@ -1437,25 +1437,25 @@ LOAD /usr/lib/gcc/avr/4.5.3/avr51/libgcc.a
  .data.antenna_off_idle_process
                 0x000000000080027d        0xa antenna_off_idle.co
                 0x000000000080027d                antenna_off_idle_process
- .data.rs232_stdout
-                0x0000000000800287        0xe contiki-avr-zigduino.a(rs232.o)
- .data.rf230_process
-                0x0000000000800295        0xa contiki-avr-zigduino.a(rf230bb.o)
-                0x0000000000800295                rf230_process
- .data.serial_line_process
-                0x000000000080029f        0xa contiki-avr-zigduino.a(serial-line.o)
-                0x000000000080029f                serial_line_process
  .data.etimer_process
-                0x00000000008002a9        0xa contiki-avr-zigduino.a(etimer.o)
-                0x00000000008002a9                etimer_process
- .data.ctimer_process
-                0x00000000008002b3        0xa contiki-avr-zigduino.a(ctimer.o)
-                0x00000000008002b3                ctimer_process
- .data.bufmem   0x00000000008002bd        0x8 contiki-avr-zigduino.a(queuebuf.o)
+                0x0000000000800287        0xa contiki-avr-zigduino.a(etimer.o)
+                0x0000000000800287                etimer_process
+ .data.bufmem   0x0000000000800291        0x8 contiki-avr-zigduino.a(queuebuf.o)
  .data.refbufmem
-                0x00000000008002c5        0x8 contiki-avr-zigduino.a(queuebuf.o)
+                0x0000000000800299        0x8 contiki-avr-zigduino.a(queuebuf.o)
  .data.buframmem
-                0x00000000008002cd        0x8 contiki-avr-zigduino.a(queuebuf.o)
+                0x00000000008002a1        0x8 contiki-avr-zigduino.a(queuebuf.o)
+ .data.rs232_stdout
+                0x00000000008002a9        0xe contiki-avr-zigduino.a(rs232.o)
+ .data.rf230_process
+                0x00000000008002b7        0xa contiki-avr-zigduino.a(rf230bb.o)
+                0x00000000008002b7                rf230_process
+ .data.serial_line_process
+                0x00000000008002c1        0xa contiki-avr-zigduino.a(serial-line.o)
+                0x00000000008002c1                serial_line_process
+ .data.ctimer_process
+                0x00000000008002cb        0xa contiki-avr-zigduino.a(ctimer.o)
+                0x00000000008002cb                ctimer_process
  .data.tcpip_process
                 0x00000000008002d5        0xa contiki-avr-zigduino.a(tcpip.o)
                 0x00000000008002d5                tcpip_process
@@ -1464,198 +1464,199 @@ LOAD /usr/lib/gcc/avr/4.5.3/avr51/libgcc.a
  .rodata.autostart_processes
                 0x00000000008002df        0x4 antenna_off_idle.co
                 0x00000000008002df                autostart_processes
- .rodata.rf230_driver
-                0x00000000008002e3       0x14 contiki-avr-zigduino.a(rf230bb.o)
-                0x00000000008002e3                rf230_driver
- .rodata.rimeaddr_null
-                0x00000000008002f7        0x2 contiki-avr-zigduino.a(rimeaddr.o)
-                0x00000000008002f7                rimeaddr_null
- .rodata.rime_driver
-                0x00000000008002f9        0x6 contiki-avr-zigduino.a(rime.o)
-                0x00000000008002f9                rime_driver
- .rodata.broadcast_callbacks
-                0x00000000008002ff        0x4 contiki-avr-zigduino.a(broadcast-annou)
- .rodata.broadcast
-                0x0000000000800303        0x4 contiki-avr-zigduino.a(broadcast.o)
- .rodata.attributes
-                0x0000000000800307        0x4 contiki-avr-zigduino.a(broadcast.o)
- .rodata.attributes
-                0x000000000080030b        0x2 contiki-avr-zigduino.a(abc.o)
- .rodata.chameleon_bitopt
-                0x000000000080030d        0x6 contiki-avr-zigduino.a(chameleon-bitop)
-                0x000000000080030d                chameleon_bitopt
- .rodata.bitmask
-                0x0000000000800313        0x9 contiki-avr-zigduino.a(chameleon-bitop)
  .rodata.nullmac_driver
-                0x000000000080031c        0xe contiki-avr-zigduino.a(nullmac.o)
-                0x000000000080031c                nullmac_driver
+                0x00000000008002e3        0xe contiki-avr-zigduino.a(nullmac.o)
+                0x00000000008002e3                nullmac_driver
  .rodata.sicslowmac_driver
-                0x000000000080032a       0x10 contiki-avr-zigduino.a(sicslowmac.o)
-                0x000000000080032a                sicslowmac_driver
- .rodata.uip_broadcast_addr
-                0x000000000080033a        0x4 contiki-avr-zigduino.a(uip.o)
-                0x000000000080033a                uip_broadcast_addr
- .rodata.uip_all_zeroes_addr
-                0x000000000080033e        0x4 contiki-avr-zigduino.a(uip.o)
-                0x000000000080033e                uip_all_zeroes_addr
+                0x00000000008002f1       0x10 contiki-avr-zigduino.a(sicslowmac.o)
+                0x00000000008002f1                sicslowmac_driver
+ .rodata.rf230_driver
+                0x0000000000800301       0x14 contiki-avr-zigduino.a(rf230bb.o)
+                0x0000000000800301                rf230_driver
+ .rodata.rimeaddr_null
+                0x0000000000800315        0x2 contiki-avr-zigduino.a(rimeaddr.o)
+                0x0000000000800315                rimeaddr_null
+ .rodata.rime_driver
+                0x0000000000800317        0x6 contiki-avr-zigduino.a(rime.o)
+                0x0000000000800317                rime_driver
+ .rodata.broadcast_callbacks
+                0x000000000080031d        0x4 contiki-avr-zigduino.a(broadcast-annou)
+ .rodata.broadcast
+                0x0000000000800321        0x4 contiki-avr-zigduino.a(broadcast.o)
+ .rodata.attributes
+                0x0000000000800325        0x4 contiki-avr-zigduino.a(broadcast.o)
+ .rodata.attributes
+                0x0000000000800329        0x2 contiki-avr-zigduino.a(abc.o)
+ .rodata.chameleon_bitopt
+                0x000000000080032b        0x6 contiki-avr-zigduino.a(chameleon-bitop)
+                0x000000000080032b                chameleon_bitopt
+ .rodata.bitmask
+                0x0000000000800331        0x9 contiki-avr-zigduino.a(chameleon-bitop)
  .rodata.CSWTCH.4
-                0x0000000000800342        0x2 contiki-avr-zigduino.a(frame802154.o)
+                0x000000000080033a        0x2 contiki-avr-zigduino.a(frame802154.o)
+ .rodata.uip_broadcast_addr
+                0x000000000080033c        0x4 contiki-avr-zigduino.a(uip.o)
+                0x000000000080033c                uip_broadcast_addr
+ .rodata.uip_all_zeroes_addr
+                0x0000000000800340        0x4 contiki-avr-zigduino.a(uip.o)
+                0x0000000000800340                uip_all_zeroes_addr
  *(.gnu.linkonce.d*)
                 0x0000000000800344                . = ALIGN (0x2)
                 0x0000000000800344                _edata = .
                 0x0000000000800344                PROVIDE (__data_end, .)
 
-.bss            0x0000000000800344      0xc0d
+.bss            0x0000000000800344      0xc15
                 0x0000000000800344                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
- .bss.count     0x0000000000800344        0x2 contiki-avr-zigduino.a(clock.o)
- .bss.scount    0x0000000000800346        0x1 contiki-avr-zigduino.a(clock.o)
- .bss.stdout_rs232_port
-                0x0000000000800347        0x1 contiki-avr-zigduino.a(rs232.o)
- .bss.buffer    0x0000000000800348       0x81 contiki-avr-zigduino.a(rf230bb.o)
- .bss.channel   0x00000000008003c9        0x1 contiki-avr-zigduino.a(rf230bb.o)
- .bss.sniffers_list
-                0x00000000008003ca        0x2 contiki-avr-zigduino.a(rime.o)
- .bss.announcements_list
-                0x00000000008003cc        0x2 contiki-avr-zigduino.a(announcement.o)
- .bss.observer_callback
-                0x00000000008003ce        0x2 contiki-avr-zigduino.a(announcement.o)
- .bss.c         0x00000000008003d0       0x35 contiki-avr-zigduino.a(broadcast-annou)
- .bss.channel_list_list
-                0x0000000000800405        0x2 contiki-avr-zigduino.a(channel.o)
- .bss.mac_dsn   0x0000000000800407        0x1 contiki-avr-zigduino.a(sicslowmac.o)
- .bss.process_list
-                0x0000000000800408        0x2 contiki-avr-zigduino.a(process.o)
-                0x0000000000800408                process_list
- .bss.process_current
-                0x000000000080040a        0x2 contiki-avr-zigduino.a(process.o)
-                0x000000000080040a                process_current
- .bss.poll_requested
-                0x000000000080040c        0x1 contiki-avr-zigduino.a(process.o)
- .bss.nevents   0x000000000080040d        0x1 contiki-avr-zigduino.a(process.o)
- .bss.fevent    0x000000000080040e        0x1 contiki-avr-zigduino.a(process.o)
- .bss.events    0x000000000080040f       0xa0 contiki-avr-zigduino.a(process.o)
- .bss.snum.1531
-                0x00000000008004af        0x1 contiki-avr-zigduino.a(process.o)
- .bss.p.1516    0x00000000008004b0        0x2 contiki-avr-zigduino.a(process.o)
- .bss.receiver.1515
-                0x00000000008004b2        0x2 contiki-avr-zigduino.a(process.o)
- .bss.data.1514
-                0x00000000008004b4        0x2 contiki-avr-zigduino.a(process.o)
- .bss.ev.1513   0x00000000008004b6        0x1 contiki-avr-zigduino.a(process.o)
- .bss.lastevent
-                0x00000000008004b7        0x1 contiki-avr-zigduino.a(process.o)
- .bss.rxbuf     0x00000000008004b8        0x5 contiki-avr-zigduino.a(serial-line.o)
- .bss.ptr.2331  0x00000000008004bd        0x2 contiki-avr-zigduino.a(serial-line.o)
- .bss.buf.2330  0x00000000008004bf       0x80 contiki-avr-zigduino.a(serial-line.o)
- .bss.overflow.2324
-                0x000000000080053f        0x1 contiki-avr-zigduino.a(serial-line.o)
- .bss.mmemlist_list
-                0x0000000000800540        0x2 contiki-avr-zigduino.a(mmem.o)
+ .bss.et.2278   0x0000000000800344        0x8 antenna_off_idle.co
+ .bss.mac_dsn   0x000000000080034c        0x1 contiki-avr-zigduino.a(sicslowmac.o)
  .bss.timerlist
-                0x0000000000800542        0x2 contiki-avr-zigduino.a(etimer.o)
+                0x000000000080034d        0x2 contiki-avr-zigduino.a(etimer.o)
  .bss.next_expiration
-                0x0000000000800544        0x2 contiki-avr-zigduino.a(etimer.o)
- .bss.initialized
-                0x0000000000800546        0x1 contiki-avr-zigduino.a(ctimer.o)
- .bss.ctimer_list_list
-                0x0000000000800547        0x2 contiki-avr-zigduino.a(ctimer.o)
- .bss.next_rtimer
-                0x0000000000800549        0x2 contiki-avr-zigduino.a(rtimer.o)
- .bss.hdrptr    0x000000000080054b        0x1 contiki-avr-zigduino.a(packetbuf.o)
- .bss.buflen    0x000000000080054c        0x2 contiki-avr-zigduino.a(packetbuf.o)
+                0x000000000080034f        0x2 contiki-avr-zigduino.a(etimer.o)
+ .bss.hdrptr    0x0000000000800351        0x1 contiki-avr-zigduino.a(packetbuf.o)
+ .bss.buflen    0x0000000000800352        0x2 contiki-avr-zigduino.a(packetbuf.o)
  .bss.packetbufptr
-                0x000000000080054e        0x2 contiki-avr-zigduino.a(packetbuf.o)
+                0x0000000000800354        0x2 contiki-avr-zigduino.a(packetbuf.o)
  .bss.packetbuf_aligned
-                0x0000000000800550       0xb2 contiki-avr-zigduino.a(packetbuf.o)
- .bss.bufptr    0x0000000000800602        0x2 contiki-avr-zigduino.a(packetbuf.o)
+                0x0000000000800356       0xb2 contiki-avr-zigduino.a(packetbuf.o)
+ .bss.bufptr    0x0000000000800408        0x2 contiki-avr-zigduino.a(packetbuf.o)
  .bss.bufmem_memb_count
-                0x0000000000800604        0x3 contiki-avr-zigduino.a(queuebuf.o)
+                0x000000000080040a        0x3 contiki-avr-zigduino.a(queuebuf.o)
  .bss.bufmem_memb_mem
-                0x0000000000800607        0x6 contiki-avr-zigduino.a(queuebuf.o)
+                0x000000000080040d        0x6 contiki-avr-zigduino.a(queuebuf.o)
  .bss.refbufmem_memb_count
-                0x000000000080060d        0x2 contiki-avr-zigduino.a(queuebuf.o)
+                0x0000000000800413        0x2 contiki-avr-zigduino.a(queuebuf.o)
  .bss.refbufmem_memb_mem
-                0x000000000080060f       0x6a contiki-avr-zigduino.a(queuebuf.o)
+                0x0000000000800415       0x6a contiki-avr-zigduino.a(queuebuf.o)
  .bss.buframmem_memb_count
-                0x0000000000800679        0x3 contiki-avr-zigduino.a(queuebuf.o)
+                0x000000000080047f        0x3 contiki-avr-zigduino.a(queuebuf.o)
  .bss.buframmem_memb_mem
-                0x000000000080067c      0x22e contiki-avr-zigduino.a(queuebuf.o)
- .bss.s         0x00000000008008aa        0xe contiki-avr-zigduino.a(tcpip.o)
- .bss.periodic  0x00000000008008b8        0x8 contiki-avr-zigduino.a(tcpip.o)
- .bss.i.4245    0x00000000008008c0        0x1 contiki-avr-zigduino.a(tcpip.o)
- .bss.i.4197    0x00000000008008c1        0x1 contiki-avr-zigduino.a(tcpip.o)
- .bss.i.4233    0x00000000008008c2        0x1 contiki-avr-zigduino.a(tcpip.o)
+                0x0000000000800482      0x22e contiki-avr-zigduino.a(queuebuf.o)
+ .bss.count     0x00000000008006b0        0x2 contiki-avr-zigduino.a(clock.o)
+ .bss.scount    0x00000000008006b2        0x1 contiki-avr-zigduino.a(clock.o)
+ .bss.stdout_rs232_port
+                0x00000000008006b3        0x1 contiki-avr-zigduino.a(rs232.o)
+ .bss.buffer    0x00000000008006b4       0x81 contiki-avr-zigduino.a(rf230bb.o)
+ .bss.channel   0x0000000000800735        0x1 contiki-avr-zigduino.a(rf230bb.o)
+ .bss.sniffers_list
+                0x0000000000800736        0x2 contiki-avr-zigduino.a(rime.o)
+ .bss.announcements_list
+                0x0000000000800738        0x2 contiki-avr-zigduino.a(announcement.o)
+ .bss.observer_callback
+                0x000000000080073a        0x2 contiki-avr-zigduino.a(announcement.o)
+ .bss.c         0x000000000080073c       0x35 contiki-avr-zigduino.a(broadcast-annou)
+ .bss.channel_list_list
+                0x0000000000800771        0x2 contiki-avr-zigduino.a(channel.o)
+ .bss.process_list
+                0x0000000000800773        0x2 contiki-avr-zigduino.a(process.o)
+                0x0000000000800773                process_list
+ .bss.process_current
+                0x0000000000800775        0x2 contiki-avr-zigduino.a(process.o)
+                0x0000000000800775                process_current
+ .bss.poll_requested
+                0x0000000000800777        0x1 contiki-avr-zigduino.a(process.o)
+ .bss.nevents   0x0000000000800778        0x1 contiki-avr-zigduino.a(process.o)
+ .bss.fevent    0x0000000000800779        0x1 contiki-avr-zigduino.a(process.o)
+ .bss.events    0x000000000080077a       0xa0 contiki-avr-zigduino.a(process.o)
+ .bss.snum.1531
+                0x000000000080081a        0x1 contiki-avr-zigduino.a(process.o)
+ .bss.p.1516    0x000000000080081b        0x2 contiki-avr-zigduino.a(process.o)
+ .bss.receiver.1515
+                0x000000000080081d        0x2 contiki-avr-zigduino.a(process.o)
+ .bss.data.1514
+                0x000000000080081f        0x2 contiki-avr-zigduino.a(process.o)
+ .bss.ev.1513   0x0000000000800821        0x1 contiki-avr-zigduino.a(process.o)
+ .bss.lastevent
+                0x0000000000800822        0x1 contiki-avr-zigduino.a(process.o)
+ .bss.rxbuf     0x0000000000800823        0x5 contiki-avr-zigduino.a(serial-line.o)
+ .bss.ptr.2331  0x0000000000800828        0x2 contiki-avr-zigduino.a(serial-line.o)
+ .bss.buf.2330  0x000000000080082a       0x80 contiki-avr-zigduino.a(serial-line.o)
+ .bss.overflow.2324
+                0x00000000008008aa        0x1 contiki-avr-zigduino.a(serial-line.o)
+ .bss.mmemlist_list
+                0x00000000008008ab        0x2 contiki-avr-zigduino.a(mmem.o)
+ .bss.initialized
+                0x00000000008008ad        0x1 contiki-avr-zigduino.a(ctimer.o)
+ .bss.ctimer_list_list
+                0x00000000008008ae        0x2 contiki-avr-zigduino.a(ctimer.o)
+ .bss.next_rtimer
+                0x00000000008008b0        0x2 contiki-avr-zigduino.a(rtimer.o)
+ .bss.s         0x00000000008008b2        0xe contiki-avr-zigduino.a(tcpip.o)
+ .bss.periodic  0x00000000008008c0        0x8 contiki-avr-zigduino.a(tcpip.o)
+ .bss.i.4245    0x00000000008008c8        0x1 contiki-avr-zigduino.a(tcpip.o)
+ .bss.i.4197    0x00000000008008c9        0x1 contiki-avr-zigduino.a(tcpip.o)
+ .bss.i.4233    0x00000000008008ca        0x1 contiki-avr-zigduino.a(tcpip.o)
  .bss.outputfunc
-                0x00000000008008c3        0x2 contiki-avr-zigduino.a(tcpip.o)
- .bss.iss       0x00000000008008c5        0x4 contiki-avr-zigduino.a(uip.o)
- .bss.tmp16     0x00000000008008c9        0x2 contiki-avr-zigduino.a(uip.o)
- .bss.c         0x00000000008008cb        0x1 contiki-avr-zigduino.a(uip.o)
- .bss.opt       0x00000000008008cc        0x1 contiki-avr-zigduino.a(uip.o)
- .bss.ipid      0x00000000008008cd        0x2 contiki-avr-zigduino.a(uip.o)
- .bss.lastport  0x00000000008008cf        0x2 contiki-avr-zigduino.a(uip.o)
+                0x00000000008008cb        0x2 contiki-avr-zigduino.a(tcpip.o)
+ .bss.iss       0x00000000008008cd        0x4 contiki-avr-zigduino.a(uip.o)
+ .bss.tmp16     0x00000000008008d1        0x2 contiki-avr-zigduino.a(uip.o)
+ .bss.c         0x00000000008008d3        0x1 contiki-avr-zigduino.a(uip.o)
+ .bss.opt       0x00000000008008d4        0x1 contiki-avr-zigduino.a(uip.o)
+ .bss.ipid      0x00000000008008d5        0x2 contiki-avr-zigduino.a(uip.o)
+ .bss.lastport  0x00000000008008d7        0x2 contiki-avr-zigduino.a(uip.o)
  *(COMMON)
- COMMON         0x00000000008008d1        0x6 contiki-avr-zigduino.a(contiki-main.o)
-                0x00000000008008d1                ledtimer
-                0x00000000008008d3                clocktime
- COMMON         0x00000000008008d7        0x8 contiki-avr-zigduino.a(clock.o)
-                0x00000000008008d7                sleepseconds
-                0x00000000008008db                seconds
- COMMON         0x00000000008008df        0x4 contiki-avr-zigduino.a(rs232.o)
-                0x00000000008008df                input_handler_1
-                0x00000000008008e1                input_handler_0
- COMMON         0x00000000008008e3       0x8c contiki-avr-zigduino.a(rf230bb.o)
-                0x00000000008008e3                rf230_last_correlation
-                0x00000000008008e4                rf230_last_rssi
-                0x00000000008008e5                rf230_smallest_rssi
-                0x00000000008008e6                rf230_pending
-                0x00000000008008e7                rf230_ccawait
-                0x00000000008008e8                rf230_txendwait
-                0x00000000008008e9                rxframe_tail
-                0x00000000008008ea                rxframe_head
-                0x00000000008008eb                rxframe
-                0x000000000080096d                rf230_wakewait
-                0x000000000080096e                RF230_receive_on
- COMMON         0x000000000080096f        0x2 contiki-avr-zigduino.a(rimeaddr.o)
-                0x000000000080096f                rimeaddr_node_addr
- COMMON         0x0000000000800971        0x1 contiki-avr-zigduino.a(serial-line.o)
-                0x0000000000800971                serial_line_event_message
- COMMON         0x0000000000800972        0x2 contiki-avr-zigduino.a(mmem.o)
-                0x0000000000800972                avail_memory
- COMMON         0x0000000000800974       0x38 contiki-avr-zigduino.a(packetbuf.o)
-                0x0000000000800974                packetbuf_addrs
-                0x000000000080097c                packetbuf_attrs
- COMMON         0x00000000008009ac        0x1 contiki-avr-zigduino.a(tcpip.o)
-                0x00000000008009ac                tcpip_event
- COMMON         0x00000000008009ad      0x59e contiki-avr-zigduino.a(uip.o)
-                0x00000000008009ad                uip_len
-                0x00000000008009af                uip_sappdata
-                0x00000000008009b1                uip_acc32
-                0x00000000008009b5                uip_aligned_buf
-                0x0000000000800ec9                uip_flags
-                0x0000000000800eca                uip_udp_conn
-                0x0000000000800ecc                uip_appdata
-                0x0000000000800ece                uip_conn
-                0x0000000000800ed0                uip_conns
-                0x0000000000800f10                uip_listenports
-                0x0000000000800f16                uip_draddr
-                0x0000000000800f1a                uip_netmask
-                0x0000000000800f1e                uip_hostaddr
-                0x0000000000800f22                uip_slen
-                0x0000000000800f24                uip_udp_conns
- COMMON         0x0000000000800f4b        0x6 /usr/lib/gcc/avr/4.5.3/../../../../avr/lib/avr51/libc.a(iob.o)
-                0x0000000000800f4b                __iob
-                0x0000000000800f51                PROVIDE (__bss_end, .)
-                0x0000000000005206                __data_load_start = LOADADDR (.data)
-                0x000000000000534a                __data_load_end = (__data_load_start + SIZEOF (.data))
+ COMMON         0x00000000008008d9       0x38 contiki-avr-zigduino.a(packetbuf.o)
+                0x00000000008008d9                packetbuf_addrs
+                0x00000000008008e1                packetbuf_attrs
+ COMMON         0x0000000000800911        0x6 contiki-avr-zigduino.a(contiki-main.o)
+                0x0000000000800911                ledtimer
+                0x0000000000800913                clocktime
+ COMMON         0x0000000000800917        0x8 contiki-avr-zigduino.a(clock.o)
+                0x0000000000800917                sleepseconds
+                0x000000000080091b                seconds
+ COMMON         0x000000000080091f        0x4 contiki-avr-zigduino.a(rs232.o)
+                0x000000000080091f                input_handler_1
+                0x0000000000800921                input_handler_0
+ COMMON         0x0000000000800923       0x8c contiki-avr-zigduino.a(rf230bb.o)
+                0x0000000000800923                rf230_last_correlation
+                0x0000000000800924                rf230_last_rssi
+                0x0000000000800925                rf230_smallest_rssi
+                0x0000000000800926                rf230_pending
+                0x0000000000800927                rf230_ccawait
+                0x0000000000800928                rf230_txendwait
+                0x0000000000800929                rxframe_tail
+                0x000000000080092a                rxframe_head
+                0x000000000080092b                rxframe
+                0x00000000008009ad                rf230_wakewait
+                0x00000000008009ae                RF230_receive_on
+ COMMON         0x00000000008009af        0x2 contiki-avr-zigduino.a(rimeaddr.o)
+                0x00000000008009af                rimeaddr_node_addr
+ COMMON         0x00000000008009b1        0x1 contiki-avr-zigduino.a(serial-line.o)
+                0x00000000008009b1                serial_line_event_message
+ COMMON         0x00000000008009b2        0x2 contiki-avr-zigduino.a(mmem.o)
+                0x00000000008009b2                avail_memory
+ COMMON         0x00000000008009b4        0x1 contiki-avr-zigduino.a(tcpip.o)
+                0x00000000008009b4                tcpip_event
+ COMMON         0x00000000008009b5      0x59e contiki-avr-zigduino.a(uip.o)
+                0x00000000008009b5                uip_len
+                0x00000000008009b7                uip_sappdata
+                0x00000000008009b9                uip_acc32
+                0x00000000008009bd                uip_aligned_buf
+                0x0000000000800ed1                uip_flags
+                0x0000000000800ed2                uip_udp_conn
+                0x0000000000800ed4                uip_appdata
+                0x0000000000800ed6                uip_conn
+                0x0000000000800ed8                uip_conns
+                0x0000000000800f18                uip_listenports
+                0x0000000000800f1e                uip_draddr
+                0x0000000000800f22                uip_netmask
+                0x0000000000800f26                uip_hostaddr
+                0x0000000000800f2a                uip_slen
+                0x0000000000800f2c                uip_udp_conns
+ COMMON         0x0000000000800f53        0x6 /usr/lib/gcc/avr/4.5.3/../../../../avr/lib/avr51/libc.a(iob.o)
+                0x0000000000800f53                __iob
+                0x0000000000800f59                PROVIDE (__bss_end, .)
+                0x0000000000005256                __data_load_start = LOADADDR (.data)
+                0x000000000000539a                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x0000000000800f51        0x0
-                0x0000000000800f51                PROVIDE (__noinit_start, .)
+.noinit         0x0000000000800f59        0x0
+                0x0000000000800f59                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x0000000000800f51                PROVIDE (__noinit_end, .)
-                0x0000000000800f51                _end = .
-                0x0000000000800f51                PROVIDE (__heap_start, .)
+                0x0000000000800f59                PROVIDE (__noinit_end, .)
+                0x0000000000800f59                _end = .
+                0x0000000000800f59                PROVIDE (__heap_start, .)
 
 .eeprom         0x0000000000810000       0x29
  *(.eeprom*)
@@ -1727,79 +1728,79 @@ LOAD /usr/lib/gcc/avr/4.5.3/avr51/libgcc.a
  .debug_aranges
                 0x0000000000000000       0x20 antenna_off_idle.co
  .debug_aranges
-                0x0000000000000020       0x38 contiki-avr-zigduino.a(contiki-main.o)
+                0x0000000000000020       0x48 contiki-avr-zigduino.a(nullmac.o)
  .debug_aranges
-                0x0000000000000058       0x40 contiki-avr-zigduino.a(params.o)
+                0x0000000000000068       0x50 contiki-avr-zigduino.a(sicslowmac.o)
  .debug_aranges
-                0x0000000000000098       0x60 contiki-avr-zigduino.a(clock.o)
+                0x00000000000000b8       0x88 contiki-avr-zigduino.a(etimer.o)
  .debug_aranges
-                0x00000000000000f8       0x60 contiki-avr-zigduino.a(rs232.o)
+                0x0000000000000140       0x28 contiki-avr-zigduino.a(random.o)
  .debug_aranges
-                0x0000000000000158       0x40 contiki-avr-zigduino.a(watchdog.o)
+                0x0000000000000168       0xe0 contiki-avr-zigduino.a(packetbuf.o)
  .debug_aranges
-                0x0000000000000198      0x118 contiki-avr-zigduino.a(rf230bb.o)
+                0x0000000000000248       0x68 contiki-avr-zigduino.a(queuebuf.o)
  .debug_aranges
-                0x00000000000002b0       0x80 contiki-avr-zigduino.a(halbb.o)
+                0x00000000000002b0       0x38 contiki-avr-zigduino.a(contiki-main.o)
  .debug_aranges
-                0x0000000000000330       0x30 contiki-avr-zigduino.a(rimeaddr.o)
+                0x00000000000002e8       0x40 contiki-avr-zigduino.a(params.o)
  .debug_aranges
-                0x0000000000000360       0x48 contiki-avr-zigduino.a(rime.o)
+                0x0000000000000328       0x60 contiki-avr-zigduino.a(clock.o)
  .debug_aranges
-                0x00000000000003a8       0x70 contiki-avr-zigduino.a(announcement.o)
+                0x0000000000000388       0x60 contiki-avr-zigduino.a(rs232.o)
  .debug_aranges
-                0x0000000000000418       0x60 contiki-avr-zigduino.a(broadcast-annou)
+                0x00000000000003e8       0x40 contiki-avr-zigduino.a(watchdog.o)
  .debug_aranges
-                0x0000000000000478       0x40 contiki-avr-zigduino.a(broadcast.o)
+                0x0000000000000428      0x118 contiki-avr-zigduino.a(rf230bb.o)
  .debug_aranges
-                0x00000000000004b8       0x40 contiki-avr-zigduino.a(abc.o)
+                0x0000000000000540       0x80 contiki-avr-zigduino.a(halbb.o)
  .debug_aranges
-                0x00000000000004f8       0x38 contiki-avr-zigduino.a(chameleon.o)
+                0x00000000000005c0       0x30 contiki-avr-zigduino.a(rimeaddr.o)
  .debug_aranges
-                0x0000000000000530       0x40 contiki-avr-zigduino.a(channel.o)
+                0x00000000000005f0       0x48 contiki-avr-zigduino.a(rime.o)
  .debug_aranges
-                0x0000000000000570       0x50 contiki-avr-zigduino.a(chameleon-bitop)
+                0x0000000000000638       0x70 contiki-avr-zigduino.a(announcement.o)
  .debug_aranges
-                0x00000000000005c0       0x48 contiki-avr-zigduino.a(nullmac.o)
+                0x00000000000006a8       0x60 contiki-avr-zigduino.a(broadcast-annou)
  .debug_aranges
-                0x0000000000000608       0x50 contiki-avr-zigduino.a(sicslowmac.o)
+                0x0000000000000708       0x40 contiki-avr-zigduino.a(broadcast.o)
  .debug_aranges
-                0x0000000000000658       0x80 contiki-avr-zigduino.a(process.o)
+                0x0000000000000748       0x40 contiki-avr-zigduino.a(abc.o)
  .debug_aranges
-                0x00000000000006d8       0x28 contiki-avr-zigduino.a(autostart.o)
+                0x0000000000000788       0x38 contiki-avr-zigduino.a(chameleon.o)
  .debug_aranges
-                0x0000000000000700       0x30 contiki-avr-zigduino.a(serial-line.o)
+                0x00000000000007c0       0x40 contiki-avr-zigduino.a(channel.o)
  .debug_aranges
-                0x0000000000000730       0x38 contiki-avr-zigduino.a(mmem.o)
+                0x0000000000000800       0x50 contiki-avr-zigduino.a(chameleon-bitop)
  .debug_aranges
-                0x0000000000000768       0x78 contiki-avr-zigduino.a(list.o)
+                0x0000000000000850       0x38 contiki-avr-zigduino.a(frame802154.o)
  .debug_aranges
-                0x00000000000007e0       0x88 contiki-avr-zigduino.a(etimer.o)
+                0x0000000000000888       0x80 contiki-avr-zigduino.a(process.o)
  .debug_aranges
-                0x0000000000000868       0x50 contiki-avr-zigduino.a(ctimer.o)
+                0x0000000000000908       0x28 contiki-avr-zigduino.a(autostart.o)
  .debug_aranges
-                0x00000000000008b8       0x30 contiki-avr-zigduino.a(rtimer.o)
+                0x0000000000000930       0x30 contiki-avr-zigduino.a(serial-line.o)
  .debug_aranges
-                0x00000000000008e8       0x28 contiki-avr-zigduino.a(random.o)
+                0x0000000000000960       0x38 contiki-avr-zigduino.a(memb.o)
  .debug_aranges
-                0x0000000000000910       0x40 contiki-avr-zigduino.a(ringbuf.o)
+                0x0000000000000998       0x38 contiki-avr-zigduino.a(mmem.o)
  .debug_aranges
-                0x0000000000000950       0xe0 contiki-avr-zigduino.a(packetbuf.o)
+                0x00000000000009d0       0x40 contiki-avr-zigduino.a(timer.o)
  .debug_aranges
-                0x0000000000000a30       0x68 contiki-avr-zigduino.a(queuebuf.o)
+                0x0000000000000a10       0x78 contiki-avr-zigduino.a(list.o)
  .debug_aranges
-                0x0000000000000a98       0x90 contiki-avr-zigduino.a(tcpip.o)
+                0x0000000000000a88       0x50 contiki-avr-zigduino.a(ctimer.o)
  .debug_aranges
-                0x0000000000000b28       0x20 contiki-avr-zigduino.a(uip-split.o)
+                0x0000000000000ad8       0x30 contiki-avr-zigduino.a(rtimer.o)
  .debug_aranges
-                0x0000000000000b48       0xa8 contiki-avr-zigduino.a(uip.o)
+                0x0000000000000b08       0x40 contiki-avr-zigduino.a(ringbuf.o)
  .debug_aranges
-                0x0000000000000bf0       0x40 contiki-avr-zigduino.a(rtimer-arch.o)
+                0x0000000000000b48       0x90 contiki-avr-zigduino.a(tcpip.o)
  .debug_aranges
-                0x0000000000000c30       0x38 contiki-avr-zigduino.a(frame802154.o)
+                0x0000000000000bd8       0x20 contiki-avr-zigduino.a(uip-split.o)
  .debug_aranges
-                0x0000000000000c68       0x38 contiki-avr-zigduino.a(memb.o)
+                0x0000000000000bf8       0xa8 contiki-avr-zigduino.a(uip.o)
  .debug_aranges
-                0x0000000000000ca0       0x40 contiki-avr-zigduino.a(timer.o)
+                0x0000000000000ca0       0x40 contiki-avr-zigduino.a(rtimer-arch.o)
 
 .debug_pubnames
                 0x0000000000000000     0x1a26
@@ -1807,362 +1808,362 @@ LOAD /usr/lib/gcc/avr/4.5.3/avr51/libgcc.a
  .debug_pubnames
                 0x0000000000000000       0x47 antenna_off_idle.co
  .debug_pubnames
-                0x0000000000000047       0x93 contiki-avr-zigduino.a(contiki-main.o)
+                0x0000000000000047       0x25 contiki-avr-zigduino.a(nullmac.o)
  .debug_pubnames
-                0x00000000000000da      0x162 contiki-avr-zigduino.a(params.o)
+                0x000000000000006c       0x36 contiki-avr-zigduino.a(sicslowmac.o)
  .debug_pubnames
-                0x000000000000023c       0xd5 contiki-avr-zigduino.a(clock.o)
+                0x00000000000000a2      0x109 contiki-avr-zigduino.a(etimer.o)
  .debug_pubnames
-                0x0000000000000311       0xe4 contiki-avr-zigduino.a(rs232.o)
+                0x00000000000001ab       0x32 contiki-avr-zigduino.a(random.o)
  .debug_pubnames
-                0x00000000000003f5       0x73 contiki-avr-zigduino.a(watchdog.o)
+                0x00000000000001dd      0x280 contiki-avr-zigduino.a(packetbuf.o)
  .debug_pubnames
-                0x0000000000000468      0x24b contiki-avr-zigduino.a(rf230bb.o)
+                0x000000000000045d       0xff contiki-avr-zigduino.a(queuebuf.o)
  .debug_pubnames
-                0x00000000000006b3       0xf9 contiki-avr-zigduino.a(halbb.o)
+                0x000000000000055c       0x93 contiki-avr-zigduino.a(contiki-main.o)
  .debug_pubnames
-                0x00000000000007ac       0x79 contiki-avr-zigduino.a(rimeaddr.o)
+                0x00000000000005ef      0x162 contiki-avr-zigduino.a(params.o)
  .debug_pubnames
-                0x0000000000000825       0x5f contiki-avr-zigduino.a(rime.o)
+                0x0000000000000751       0xd5 contiki-avr-zigduino.a(clock.o)
  .debug_pubnames
-                0x0000000000000884      0x144 contiki-avr-zigduino.a(announcement.o)
+                0x0000000000000826       0xe4 contiki-avr-zigduino.a(rs232.o)
  .debug_pubnames
-                0x00000000000009c8       0x7d contiki-avr-zigduino.a(broadcast-annou)
+                0x000000000000090a       0x73 contiki-avr-zigduino.a(watchdog.o)
  .debug_pubnames
-                0x0000000000000a45       0x4c contiki-avr-zigduino.a(broadcast.o)
+                0x000000000000097d      0x24b contiki-avr-zigduino.a(rf230bb.o)
  .debug_pubnames
-                0x0000000000000a91       0x55 contiki-avr-zigduino.a(abc.o)
+                0x0000000000000bc8       0xf9 contiki-avr-zigduino.a(halbb.o)
  .debug_pubnames
-                0x0000000000000ae6       0x64 contiki-avr-zigduino.a(chameleon.o)
+                0x0000000000000cc1       0x79 contiki-avr-zigduino.a(rimeaddr.o)
  .debug_pubnames
-                0x0000000000000b4a       0x74 contiki-avr-zigduino.a(channel.o)
+                0x0000000000000d3a       0x5f contiki-avr-zigduino.a(rime.o)
  .debug_pubnames
-                0x0000000000000bbe       0x6b contiki-avr-zigduino.a(chameleon-bitop)
+                0x0000000000000d99      0x144 contiki-avr-zigduino.a(announcement.o)
  .debug_pubnames
-                0x0000000000000c29       0x25 contiki-avr-zigduino.a(nullmac.o)
+                0x0000000000000edd       0x7d contiki-avr-zigduino.a(broadcast-annou)
  .debug_pubnames
-                0x0000000000000c4e       0x36 contiki-avr-zigduino.a(sicslowmac.o)
+                0x0000000000000f5a       0x4c contiki-avr-zigduino.a(broadcast.o)
  .debug_pubnames
-                0x0000000000000c84       0xf7 contiki-avr-zigduino.a(process.o)
+                0x0000000000000fa6       0x55 contiki-avr-zigduino.a(abc.o)
  .debug_pubnames
-                0x0000000000000d7b       0x39 contiki-avr-zigduino.a(autostart.o)
+                0x0000000000000ffb       0x64 contiki-avr-zigduino.a(chameleon.o)
  .debug_pubnames
-                0x0000000000000db4       0x78 contiki-avr-zigduino.a(serial-line.o)
+                0x000000000000105f       0x74 contiki-avr-zigduino.a(channel.o)
  .debug_pubnames
-                0x0000000000000e2c       0x62 contiki-avr-zigduino.a(mmem.o)
+                0x00000000000010d3       0x6b contiki-avr-zigduino.a(chameleon-bitop)
  .debug_pubnames
-                0x0000000000000e8e       0xc3 contiki-avr-zigduino.a(list.o)
+                0x000000000000113e       0x56 contiki-avr-zigduino.a(frame802154.o)
  .debug_pubnames
-                0x0000000000000f51      0x109 contiki-avr-zigduino.a(etimer.o)
+                0x0000000000001194       0xf7 contiki-avr-zigduino.a(process.o)
  .debug_pubnames
-                0x000000000000105a       0x8b contiki-avr-zigduino.a(ctimer.o)
+                0x000000000000128b       0x39 contiki-avr-zigduino.a(autostart.o)
  .debug_pubnames
-                0x00000000000010e5       0x45 contiki-avr-zigduino.a(rtimer.o)
+                0x00000000000012c4       0x78 contiki-avr-zigduino.a(serial-line.o)
  .debug_pubnames
-                0x000000000000112a       0x32 contiki-avr-zigduino.a(random.o)
+                0x000000000000133c       0x4d contiki-avr-zigduino.a(memb.o)
  .debug_pubnames
-                0x000000000000115c       0x69 contiki-avr-zigduino.a(ringbuf.o)
+                0x0000000000001389       0x62 contiki-avr-zigduino.a(mmem.o)
  .debug_pubnames
-                0x00000000000011c5      0x280 contiki-avr-zigduino.a(packetbuf.o)
+                0x00000000000013eb       0x68 contiki-avr-zigduino.a(timer.o)
  .debug_pubnames
-                0x0000000000001445       0xff contiki-avr-zigduino.a(queuebuf.o)
+                0x0000000000001453       0xc3 contiki-avr-zigduino.a(list.o)
  .debug_pubnames
-                0x0000000000001544      0x116 contiki-avr-zigduino.a(tcpip.o)
+                0x0000000000001516       0x8b contiki-avr-zigduino.a(ctimer.o)
  .debug_pubnames
-                0x000000000000165a       0x27 contiki-avr-zigduino.a(uip-split.o)
+                0x00000000000015a1       0x45 contiki-avr-zigduino.a(rtimer.o)
  .debug_pubnames
-                0x0000000000001681      0x224 contiki-avr-zigduino.a(uip.o)
+                0x00000000000015e6       0x69 contiki-avr-zigduino.a(ringbuf.o)
  .debug_pubnames
-                0x00000000000018a5       0x76 contiki-avr-zigduino.a(rtimer-arch.o)
+                0x000000000000164f      0x116 contiki-avr-zigduino.a(tcpip.o)
  .debug_pubnames
-                0x000000000000191b       0x56 contiki-avr-zigduino.a(frame802154.o)
+                0x0000000000001765       0x27 contiki-avr-zigduino.a(uip-split.o)
  .debug_pubnames
-                0x0000000000001971       0x4d contiki-avr-zigduino.a(memb.o)
+                0x000000000000178c      0x224 contiki-avr-zigduino.a(uip.o)
  .debug_pubnames
-                0x00000000000019be       0x68 contiki-avr-zigduino.a(timer.o)
+                0x00000000000019b0       0x76 contiki-avr-zigduino.a(rtimer-arch.o)
 
-.debug_info     0x0000000000000000     0xae3b
+.debug_info     0x0000000000000000     0xafe0
  *(.debug_info .gnu.linkonce.wi.*)
- .debug_info    0x0000000000000000      0x308 antenna_off_idle.co
- .debug_info    0x0000000000000308      0x7e3 contiki-avr-zigduino.a(contiki-main.o)
- .debug_info    0x0000000000000aeb      0x392 contiki-avr-zigduino.a(params.o)
- .debug_info    0x0000000000000e7d      0x2b6 contiki-avr-zigduino.a(clock.o)
- .debug_info    0x0000000000001133      0x3a8 contiki-avr-zigduino.a(rs232.o)
- .debug_info    0x00000000000014db       0xdd contiki-avr-zigduino.a(watchdog.o)
- .debug_info    0x00000000000015b8      0xf9f contiki-avr-zigduino.a(rf230bb.o)
- .debug_info    0x0000000000002557      0x3e9 contiki-avr-zigduino.a(halbb.o)
- .debug_info    0x0000000000002940      0x176 contiki-avr-zigduino.a(rimeaddr.o)
- .debug_info    0x0000000000002ab6      0x42c contiki-avr-zigduino.a(rime.o)
- .debug_info    0x0000000000002ee2      0x3ed contiki-avr-zigduino.a(announcement.o)
- .debug_info    0x00000000000032cf      0x7de contiki-avr-zigduino.a(broadcast-annou)
- .debug_info    0x0000000000003aad      0x490 contiki-avr-zigduino.a(broadcast.o)
- .debug_info    0x0000000000003f3d      0x392 contiki-avr-zigduino.a(abc.o)
- .debug_info    0x00000000000042cf      0x2f1 contiki-avr-zigduino.a(chameleon.o)
- .debug_info    0x00000000000045c0      0x230 contiki-avr-zigduino.a(channel.o)
- .debug_info    0x00000000000047f0      0x643 contiki-avr-zigduino.a(chameleon-bitop)
- .debug_info    0x0000000000004e33      0x37d contiki-avr-zigduino.a(nullmac.o)
- .debug_info    0x00000000000051b0      0x8b1 contiki-avr-zigduino.a(sicslowmac.o)
- .debug_info    0x0000000000005a61      0x564 contiki-avr-zigduino.a(process.o)
- .debug_info    0x0000000000005fc5      0x1b9 contiki-avr-zigduino.a(autostart.o)
- .debug_info    0x000000000000617e      0x320 contiki-avr-zigduino.a(serial-line.o)
- .debug_info    0x000000000000649e      0x1c1 contiki-avr-zigduino.a(mmem.o)
- .debug_info    0x000000000000665f      0x349 contiki-avr-zigduino.a(list.o)
- .debug_info    0x00000000000069a8      0x4ec contiki-avr-zigduino.a(etimer.o)
- .debug_info    0x0000000000006e94      0x486 contiki-avr-zigduino.a(ctimer.o)
- .debug_info    0x000000000000731a      0x1be contiki-avr-zigduino.a(rtimer.o)
- .debug_info    0x00000000000074d8       0xa7 contiki-avr-zigduino.a(random.o)
- .debug_info    0x000000000000757f      0x1cc contiki-avr-zigduino.a(ringbuf.o)
- .debug_info    0x000000000000774b      0x711 contiki-avr-zigduino.a(packetbuf.o)
- .debug_info    0x0000000000007e5c      0x698 contiki-avr-zigduino.a(queuebuf.o)
- .debug_info    0x00000000000084f4      0xcfb contiki-avr-zigduino.a(tcpip.o)
- .debug_info    0x00000000000091ef      0x338 contiki-avr-zigduino.a(uip-split.o)
- .debug_info    0x0000000000009527      0xfb4 contiki-avr-zigduino.a(uip.o)
- .debug_info    0x000000000000a4db      0x188 contiki-avr-zigduino.a(rtimer-arch.o)
- .debug_info    0x000000000000a663      0x4a7 contiki-avr-zigduino.a(frame802154.o)
- .debug_info    0x000000000000ab0a      0x1ad contiki-avr-zigduino.a(memb.o)
- .debug_info    0x000000000000acb7      0x184 contiki-avr-zigduino.a(timer.o)
+ .debug_info    0x0000000000000000      0x4ad antenna_off_idle.co
+ .debug_info    0x00000000000004ad      0x37d contiki-avr-zigduino.a(nullmac.o)
+ .debug_info    0x000000000000082a      0x8b1 contiki-avr-zigduino.a(sicslowmac.o)
+ .debug_info    0x00000000000010db      0x4ec contiki-avr-zigduino.a(etimer.o)
+ .debug_info    0x00000000000015c7       0xa7 contiki-avr-zigduino.a(random.o)
+ .debug_info    0x000000000000166e      0x711 contiki-avr-zigduino.a(packetbuf.o)
+ .debug_info    0x0000000000001d7f      0x698 contiki-avr-zigduino.a(queuebuf.o)
+ .debug_info    0x0000000000002417      0x7e3 contiki-avr-zigduino.a(contiki-main.o)
+ .debug_info    0x0000000000002bfa      0x392 contiki-avr-zigduino.a(params.o)
+ .debug_info    0x0000000000002f8c      0x2b6 contiki-avr-zigduino.a(clock.o)
+ .debug_info    0x0000000000003242      0x3a8 contiki-avr-zigduino.a(rs232.o)
+ .debug_info    0x00000000000035ea       0xdd contiki-avr-zigduino.a(watchdog.o)
+ .debug_info    0x00000000000036c7      0xf9f contiki-avr-zigduino.a(rf230bb.o)
+ .debug_info    0x0000000000004666      0x3e9 contiki-avr-zigduino.a(halbb.o)
+ .debug_info    0x0000000000004a4f      0x176 contiki-avr-zigduino.a(rimeaddr.o)
+ .debug_info    0x0000000000004bc5      0x42c contiki-avr-zigduino.a(rime.o)
+ .debug_info    0x0000000000004ff1      0x3ed contiki-avr-zigduino.a(announcement.o)
+ .debug_info    0x00000000000053de      0x7de contiki-avr-zigduino.a(broadcast-annou)
+ .debug_info    0x0000000000005bbc      0x490 contiki-avr-zigduino.a(broadcast.o)
+ .debug_info    0x000000000000604c      0x392 contiki-avr-zigduino.a(abc.o)
+ .debug_info    0x00000000000063de      0x2f1 contiki-avr-zigduino.a(chameleon.o)
+ .debug_info    0x00000000000066cf      0x230 contiki-avr-zigduino.a(channel.o)
+ .debug_info    0x00000000000068ff      0x643 contiki-avr-zigduino.a(chameleon-bitop)
+ .debug_info    0x0000000000006f42      0x4a7 contiki-avr-zigduino.a(frame802154.o)
+ .debug_info    0x00000000000073e9      0x564 contiki-avr-zigduino.a(process.o)
+ .debug_info    0x000000000000794d      0x1b9 contiki-avr-zigduino.a(autostart.o)
+ .debug_info    0x0000000000007b06      0x320 contiki-avr-zigduino.a(serial-line.o)
+ .debug_info    0x0000000000007e26      0x1ad contiki-avr-zigduino.a(memb.o)
+ .debug_info    0x0000000000007fd3      0x1c1 contiki-avr-zigduino.a(mmem.o)
+ .debug_info    0x0000000000008194      0x184 contiki-avr-zigduino.a(timer.o)
+ .debug_info    0x0000000000008318      0x349 contiki-avr-zigduino.a(list.o)
+ .debug_info    0x0000000000008661      0x486 contiki-avr-zigduino.a(ctimer.o)
+ .debug_info    0x0000000000008ae7      0x1be contiki-avr-zigduino.a(rtimer.o)
+ .debug_info    0x0000000000008ca5      0x1cc contiki-avr-zigduino.a(ringbuf.o)
+ .debug_info    0x0000000000008e71      0xcfb contiki-avr-zigduino.a(tcpip.o)
+ .debug_info    0x0000000000009b6c      0x338 contiki-avr-zigduino.a(uip-split.o)
+ .debug_info    0x0000000000009ea4      0xfb4 contiki-avr-zigduino.a(uip.o)
+ .debug_info    0x000000000000ae58      0x188 contiki-avr-zigduino.a(rtimer-arch.o)
 
-.debug_abbrev   0x0000000000000000     0x3bac
+.debug_abbrev   0x0000000000000000     0x3bd2
  *(.debug_abbrev)
- .debug_abbrev  0x0000000000000000      0x15a antenna_off_idle.co
- .debug_abbrev  0x000000000000015a      0x287 contiki-avr-zigduino.a(contiki-main.o)
- .debug_abbrev  0x00000000000003e1      0x10a contiki-avr-zigduino.a(params.o)
- .debug_abbrev  0x00000000000004eb      0x17f contiki-avr-zigduino.a(clock.o)
- .debug_abbrev  0x000000000000066a      0x186 contiki-avr-zigduino.a(rs232.o)
- .debug_abbrev  0x00000000000007f0       0x4c contiki-avr-zigduino.a(watchdog.o)
- .debug_abbrev  0x000000000000083c      0x334 contiki-avr-zigduino.a(rf230bb.o)
- .debug_abbrev  0x0000000000000b70      0x143 contiki-avr-zigduino.a(halbb.o)
- .debug_abbrev  0x0000000000000cb3      0x101 contiki-avr-zigduino.a(rimeaddr.o)
- .debug_abbrev  0x0000000000000db4      0x1ac contiki-avr-zigduino.a(rime.o)
- .debug_abbrev  0x0000000000000f60      0x16a contiki-avr-zigduino.a(announcement.o)
- .debug_abbrev  0x00000000000010ca      0x20b contiki-avr-zigduino.a(broadcast-annou)
- .debug_abbrev  0x00000000000012d5      0x185 contiki-avr-zigduino.a(broadcast.o)
- .debug_abbrev  0x000000000000145a      0x145 contiki-avr-zigduino.a(abc.o)
- .debug_abbrev  0x000000000000159f      0x12f contiki-avr-zigduino.a(chameleon.o)
- .debug_abbrev  0x00000000000016ce      0x11a contiki-avr-zigduino.a(channel.o)
- .debug_abbrev  0x00000000000017e8      0x202 contiki-avr-zigduino.a(chameleon-bitop)
- .debug_abbrev  0x00000000000019ea      0x158 contiki-avr-zigduino.a(nullmac.o)
- .debug_abbrev  0x0000000000001b42      0x25b contiki-avr-zigduino.a(sicslowmac.o)
- .debug_abbrev  0x0000000000001d9d      0x2ce contiki-avr-zigduino.a(process.o)
- .debug_abbrev  0x000000000000206b       0xf5 contiki-avr-zigduino.a(autostart.o)
- .debug_abbrev  0x0000000000002160      0x1bd contiki-avr-zigduino.a(serial-line.o)
- .debug_abbrev  0x000000000000231d      0x147 contiki-avr-zigduino.a(mmem.o)
- .debug_abbrev  0x0000000000002464      0x13a contiki-avr-zigduino.a(list.o)
- .debug_abbrev  0x000000000000259e      0x212 contiki-avr-zigduino.a(etimer.o)
- .debug_abbrev  0x00000000000027b0      0x1b5 contiki-avr-zigduino.a(ctimer.o)
- .debug_abbrev  0x0000000000002965      0x12a contiki-avr-zigduino.a(rtimer.o)
- .debug_abbrev  0x0000000000002a8f       0x67 contiki-avr-zigduino.a(random.o)
- .debug_abbrev  0x0000000000002af6       0xf0 contiki-avr-zigduino.a(ringbuf.o)
- .debug_abbrev  0x0000000000002be6      0x242 contiki-avr-zigduino.a(packetbuf.o)
- .debug_abbrev  0x0000000000002e28      0x1dd contiki-avr-zigduino.a(queuebuf.o)
- .debug_abbrev  0x0000000000003005      0x386 contiki-avr-zigduino.a(tcpip.o)
- .debug_abbrev  0x000000000000338b      0x100 contiki-avr-zigduino.a(uip-split.o)
- .debug_abbrev  0x000000000000348b      0x304 contiki-avr-zigduino.a(uip.o)
- .debug_abbrev  0x000000000000378f       0xc5 contiki-avr-zigduino.a(rtimer-arch.o)
- .debug_abbrev  0x0000000000003854      0x19c contiki-avr-zigduino.a(frame802154.o)
- .debug_abbrev  0x00000000000039f0       0xea contiki-avr-zigduino.a(memb.o)
- .debug_abbrev  0x0000000000003ada       0xd2 contiki-avr-zigduino.a(timer.o)
+ .debug_abbrev  0x0000000000000000      0x180 antenna_off_idle.co
+ .debug_abbrev  0x0000000000000180      0x158 contiki-avr-zigduino.a(nullmac.o)
+ .debug_abbrev  0x00000000000002d8      0x25b contiki-avr-zigduino.a(sicslowmac.o)
+ .debug_abbrev  0x0000000000000533      0x212 contiki-avr-zigduino.a(etimer.o)
+ .debug_abbrev  0x0000000000000745       0x67 contiki-avr-zigduino.a(random.o)
+ .debug_abbrev  0x00000000000007ac      0x242 contiki-avr-zigduino.a(packetbuf.o)
+ .debug_abbrev  0x00000000000009ee      0x1dd contiki-avr-zigduino.a(queuebuf.o)
+ .debug_abbrev  0x0000000000000bcb      0x287 contiki-avr-zigduino.a(contiki-main.o)
+ .debug_abbrev  0x0000000000000e52      0x10a contiki-avr-zigduino.a(params.o)
+ .debug_abbrev  0x0000000000000f5c      0x17f contiki-avr-zigduino.a(clock.o)
+ .debug_abbrev  0x00000000000010db      0x186 contiki-avr-zigduino.a(rs232.o)
+ .debug_abbrev  0x0000000000001261       0x4c contiki-avr-zigduino.a(watchdog.o)
+ .debug_abbrev  0x00000000000012ad      0x334 contiki-avr-zigduino.a(rf230bb.o)
+ .debug_abbrev  0x00000000000015e1      0x143 contiki-avr-zigduino.a(halbb.o)
+ .debug_abbrev  0x0000000000001724      0x101 contiki-avr-zigduino.a(rimeaddr.o)
+ .debug_abbrev  0x0000000000001825      0x1ac contiki-avr-zigduino.a(rime.o)
+ .debug_abbrev  0x00000000000019d1      0x16a contiki-avr-zigduino.a(announcement.o)
+ .debug_abbrev  0x0000000000001b3b      0x20b contiki-avr-zigduino.a(broadcast-annou)
+ .debug_abbrev  0x0000000000001d46      0x185 contiki-avr-zigduino.a(broadcast.o)
+ .debug_abbrev  0x0000000000001ecb      0x145 contiki-avr-zigduino.a(abc.o)
+ .debug_abbrev  0x0000000000002010      0x12f contiki-avr-zigduino.a(chameleon.o)
+ .debug_abbrev  0x000000000000213f      0x11a contiki-avr-zigduino.a(channel.o)
+ .debug_abbrev  0x0000000000002259      0x202 contiki-avr-zigduino.a(chameleon-bitop)
+ .debug_abbrev  0x000000000000245b      0x19c contiki-avr-zigduino.a(frame802154.o)
+ .debug_abbrev  0x00000000000025f7      0x2ce contiki-avr-zigduino.a(process.o)
+ .debug_abbrev  0x00000000000028c5       0xf5 contiki-avr-zigduino.a(autostart.o)
+ .debug_abbrev  0x00000000000029ba      0x1bd contiki-avr-zigduino.a(serial-line.o)
+ .debug_abbrev  0x0000000000002b77       0xea contiki-avr-zigduino.a(memb.o)
+ .debug_abbrev  0x0000000000002c61      0x147 contiki-avr-zigduino.a(mmem.o)
+ .debug_abbrev  0x0000000000002da8       0xd2 contiki-avr-zigduino.a(timer.o)
+ .debug_abbrev  0x0000000000002e7a      0x13a contiki-avr-zigduino.a(list.o)
+ .debug_abbrev  0x0000000000002fb4      0x1b5 contiki-avr-zigduino.a(ctimer.o)
+ .debug_abbrev  0x0000000000003169      0x12a contiki-avr-zigduino.a(rtimer.o)
+ .debug_abbrev  0x0000000000003293       0xf0 contiki-avr-zigduino.a(ringbuf.o)
+ .debug_abbrev  0x0000000000003383      0x386 contiki-avr-zigduino.a(tcpip.o)
+ .debug_abbrev  0x0000000000003709      0x100 contiki-avr-zigduino.a(uip-split.o)
+ .debug_abbrev  0x0000000000003809      0x304 contiki-avr-zigduino.a(uip.o)
+ .debug_abbrev  0x0000000000003b0d       0xc5 contiki-avr-zigduino.a(rtimer-arch.o)
 
-.debug_line     0x0000000000000000     0x8b0a
+.debug_line     0x0000000000000000     0x8c42
  *(.debug_line .debug_line.* .debug_line_end)
- .debug_line    0x0000000000000000      0x15a antenna_off_idle.co
- .debug_line    0x000000000000015a      0x678 contiki-avr-zigduino.a(contiki-main.o)
- .debug_line    0x00000000000007d2      0x207 contiki-avr-zigduino.a(params.o)
- .debug_line    0x00000000000009d9      0x2f7 contiki-avr-zigduino.a(clock.o)
- .debug_line    0x0000000000000cd0      0x2ed contiki-avr-zigduino.a(rs232.o)
- .debug_line    0x0000000000000fbd      0x15b contiki-avr-zigduino.a(watchdog.o)
- .debug_line    0x0000000000001118      0xda2 contiki-avr-zigduino.a(rf230bb.o)
- .debug_line    0x0000000000001eba      0x333 contiki-avr-zigduino.a(halbb.o)
- .debug_line    0x00000000000021ed       0xe6 contiki-avr-zigduino.a(rimeaddr.o)
- .debug_line    0x00000000000022d3      0x30f contiki-avr-zigduino.a(rime.o)
- .debug_line    0x00000000000025e2      0x30c contiki-avr-zigduino.a(announcement.o)
- .debug_line    0x00000000000028ee      0x44e contiki-avr-zigduino.a(broadcast-annou)
- .debug_line    0x0000000000002d3c      0x226 contiki-avr-zigduino.a(broadcast.o)
- .debug_line    0x0000000000002f62      0x1e1 contiki-avr-zigduino.a(abc.o)
- .debug_line    0x0000000000003143      0x1cb contiki-avr-zigduino.a(chameleon.o)
- .debug_line    0x000000000000330e      0x22c contiki-avr-zigduino.a(channel.o)
- .debug_line    0x000000000000353a      0x4cd contiki-avr-zigduino.a(chameleon-bitop)
- .debug_line    0x0000000000003a07      0x193 contiki-avr-zigduino.a(nullmac.o)
- .debug_line    0x0000000000003b9a      0x437 contiki-avr-zigduino.a(sicslowmac.o)
- .debug_line    0x0000000000003fd1      0x4d0 contiki-avr-zigduino.a(process.o)
- .debug_line    0x00000000000044a1      0x106 contiki-avr-zigduino.a(autostart.o)
- .debug_line    0x00000000000045a7      0x29b contiki-avr-zigduino.a(serial-line.o)
- .debug_line    0x0000000000004842      0x177 contiki-avr-zigduino.a(mmem.o)
- .debug_line    0x00000000000049b9      0x349 contiki-avr-zigduino.a(list.o)
- .debug_line    0x0000000000004d02      0x4b9 contiki-avr-zigduino.a(etimer.o)
- .debug_line    0x00000000000051bb      0x3d9 contiki-avr-zigduino.a(ctimer.o)
- .debug_line    0x0000000000005594      0x125 contiki-avr-zigduino.a(rtimer.o)
- .debug_line    0x00000000000056b9       0xaf contiki-avr-zigduino.a(random.o)
- .debug_line    0x0000000000005768      0x1b6 contiki-avr-zigduino.a(ringbuf.o)
- .debug_line    0x000000000000591e      0x583 contiki-avr-zigduino.a(packetbuf.o)
- .debug_line    0x0000000000005ea1      0x3bf contiki-avr-zigduino.a(queuebuf.o)
- .debug_line    0x0000000000006260      0x735 contiki-avr-zigduino.a(tcpip.o)
- .debug_line    0x0000000000006995      0x1bc contiki-avr-zigduino.a(uip-split.o)
- .debug_line    0x0000000000006b51     0x14bb contiki-avr-zigduino.a(uip.o)
- .debug_line    0x000000000000800c      0x2f9 contiki-avr-zigduino.a(rtimer-arch.o)
- .debug_line    0x0000000000008305      0x4e7 contiki-avr-zigduino.a(frame802154.o)
- .debug_line    0x00000000000087ec      0x195 contiki-avr-zigduino.a(memb.o)
- .debug_line    0x0000000000008981      0x189 contiki-avr-zigduino.a(timer.o)
+ .debug_line    0x0000000000000000      0x292 antenna_off_idle.co
+ .debug_line    0x0000000000000292      0x193 contiki-avr-zigduino.a(nullmac.o)
+ .debug_line    0x0000000000000425      0x437 contiki-avr-zigduino.a(sicslowmac.o)
+ .debug_line    0x000000000000085c      0x4b9 contiki-avr-zigduino.a(etimer.o)
+ .debug_line    0x0000000000000d15       0xaf contiki-avr-zigduino.a(random.o)
+ .debug_line    0x0000000000000dc4      0x583 contiki-avr-zigduino.a(packetbuf.o)
+ .debug_line    0x0000000000001347      0x3bf contiki-avr-zigduino.a(queuebuf.o)
+ .debug_line    0x0000000000001706      0x678 contiki-avr-zigduino.a(contiki-main.o)
+ .debug_line    0x0000000000001d7e      0x207 contiki-avr-zigduino.a(params.o)
+ .debug_line    0x0000000000001f85      0x2f7 contiki-avr-zigduino.a(clock.o)
+ .debug_line    0x000000000000227c      0x2ed contiki-avr-zigduino.a(rs232.o)
+ .debug_line    0x0000000000002569      0x15b contiki-avr-zigduino.a(watchdog.o)
+ .debug_line    0x00000000000026c4      0xda2 contiki-avr-zigduino.a(rf230bb.o)
+ .debug_line    0x0000000000003466      0x333 contiki-avr-zigduino.a(halbb.o)
+ .debug_line    0x0000000000003799       0xe6 contiki-avr-zigduino.a(rimeaddr.o)
+ .debug_line    0x000000000000387f      0x30f contiki-avr-zigduino.a(rime.o)
+ .debug_line    0x0000000000003b8e      0x30c contiki-avr-zigduino.a(announcement.o)
+ .debug_line    0x0000000000003e9a      0x44e contiki-avr-zigduino.a(broadcast-annou)
+ .debug_line    0x00000000000042e8      0x226 contiki-avr-zigduino.a(broadcast.o)
+ .debug_line    0x000000000000450e      0x1e1 contiki-avr-zigduino.a(abc.o)
+ .debug_line    0x00000000000046ef      0x1cb contiki-avr-zigduino.a(chameleon.o)
+ .debug_line    0x00000000000048ba      0x22c contiki-avr-zigduino.a(channel.o)
+ .debug_line    0x0000000000004ae6      0x4cd contiki-avr-zigduino.a(chameleon-bitop)
+ .debug_line    0x0000000000004fb3      0x4e7 contiki-avr-zigduino.a(frame802154.o)
+ .debug_line    0x000000000000549a      0x4d0 contiki-avr-zigduino.a(process.o)
+ .debug_line    0x000000000000596a      0x106 contiki-avr-zigduino.a(autostart.o)
+ .debug_line    0x0000000000005a70      0x29b contiki-avr-zigduino.a(serial-line.o)
+ .debug_line    0x0000000000005d0b      0x195 contiki-avr-zigduino.a(memb.o)
+ .debug_line    0x0000000000005ea0      0x177 contiki-avr-zigduino.a(mmem.o)
+ .debug_line    0x0000000000006017      0x189 contiki-avr-zigduino.a(timer.o)
+ .debug_line    0x00000000000061a0      0x349 contiki-avr-zigduino.a(list.o)
+ .debug_line    0x00000000000064e9      0x3d9 contiki-avr-zigduino.a(ctimer.o)
+ .debug_line    0x00000000000068c2      0x125 contiki-avr-zigduino.a(rtimer.o)
+ .debug_line    0x00000000000069e7      0x1b6 contiki-avr-zigduino.a(ringbuf.o)
+ .debug_line    0x0000000000006b9d      0x735 contiki-avr-zigduino.a(tcpip.o)
+ .debug_line    0x00000000000072d2      0x1bc contiki-avr-zigduino.a(uip-split.o)
+ .debug_line    0x000000000000748e     0x14bb contiki-avr-zigduino.a(uip.o)
+ .debug_line    0x0000000000008949      0x2f9 contiki-avr-zigduino.a(rtimer-arch.o)
 
 .debug_frame    0x0000000000000000     0x1598
  *(.debug_frame)
  .debug_frame   0x0000000000000000       0x24 antenna_off_idle.co
- .debug_frame   0x0000000000000024       0x54 contiki-avr-zigduino.a(contiki-main.o)
- .debug_frame   0x0000000000000078       0x64 contiki-avr-zigduino.a(params.o)
- .debug_frame   0x00000000000000dc       0xa4 contiki-avr-zigduino.a(clock.o)
- .debug_frame   0x0000000000000180       0xa4 contiki-avr-zigduino.a(rs232.o)
- .debug_frame   0x0000000000000224       0x64 contiki-avr-zigduino.a(watchdog.o)
- .debug_frame   0x0000000000000288      0x214 contiki-avr-zigduino.a(rf230bb.o)
- .debug_frame   0x000000000000049c       0xe4 contiki-avr-zigduino.a(halbb.o)
- .debug_frame   0x0000000000000580       0x44 contiki-avr-zigduino.a(rimeaddr.o)
- .debug_frame   0x00000000000005c4       0x74 contiki-avr-zigduino.a(rime.o)
- .debug_frame   0x0000000000000638       0xc4 contiki-avr-zigduino.a(announcement.o)
- .debug_frame   0x00000000000006fc       0xa4 contiki-avr-zigduino.a(broadcast-annou)
- .debug_frame   0x00000000000007a0       0x64 contiki-avr-zigduino.a(broadcast.o)
- .debug_frame   0x0000000000000804       0x64 contiki-avr-zigduino.a(abc.o)
- .debug_frame   0x0000000000000868       0x54 contiki-avr-zigduino.a(chameleon.o)
- .debug_frame   0x00000000000008bc       0x64 contiki-avr-zigduino.a(channel.o)
- .debug_frame   0x0000000000000920       0x84 contiki-avr-zigduino.a(chameleon-bitop)
- .debug_frame   0x00000000000009a4       0x74 contiki-avr-zigduino.a(nullmac.o)
- .debug_frame   0x0000000000000a18       0x84 contiki-avr-zigduino.a(sicslowmac.o)
- .debug_frame   0x0000000000000a9c       0xe4 contiki-avr-zigduino.a(process.o)
- .debug_frame   0x0000000000000b80       0x34 contiki-avr-zigduino.a(autostart.o)
- .debug_frame   0x0000000000000bb4       0x44 contiki-avr-zigduino.a(serial-line.o)
- .debug_frame   0x0000000000000bf8       0x54 contiki-avr-zigduino.a(mmem.o)
- .debug_frame   0x0000000000000c4c       0xd4 contiki-avr-zigduino.a(list.o)
- .debug_frame   0x0000000000000d20       0xf4 contiki-avr-zigduino.a(etimer.o)
- .debug_frame   0x0000000000000e14       0x84 contiki-avr-zigduino.a(ctimer.o)
- .debug_frame   0x0000000000000e98       0x44 contiki-avr-zigduino.a(rtimer.o)
- .debug_frame   0x0000000000000edc       0x34 contiki-avr-zigduino.a(random.o)
- .debug_frame   0x0000000000000f10       0x64 contiki-avr-zigduino.a(ringbuf.o)
- .debug_frame   0x0000000000000f74      0x1a4 contiki-avr-zigduino.a(packetbuf.o)
- .debug_frame   0x0000000000001118       0xb4 contiki-avr-zigduino.a(queuebuf.o)
- .debug_frame   0x00000000000011cc      0x104 contiki-avr-zigduino.a(tcpip.o)
- .debug_frame   0x00000000000012d0       0x24 contiki-avr-zigduino.a(uip-split.o)
- .debug_frame   0x00000000000012f4      0x134 contiki-avr-zigduino.a(uip.o)
- .debug_frame   0x0000000000001428       0x64 contiki-avr-zigduino.a(rtimer-arch.o)
- .debug_frame   0x000000000000148c       0x54 contiki-avr-zigduino.a(frame802154.o)
- .debug_frame   0x00000000000014e0       0x54 contiki-avr-zigduino.a(memb.o)
- .debug_frame   0x0000000000001534       0x64 contiki-avr-zigduino.a(timer.o)
+ .debug_frame   0x0000000000000024       0x74 contiki-avr-zigduino.a(nullmac.o)
+ .debug_frame   0x0000000000000098       0x84 contiki-avr-zigduino.a(sicslowmac.o)
+ .debug_frame   0x000000000000011c       0xf4 contiki-avr-zigduino.a(etimer.o)
+ .debug_frame   0x0000000000000210       0x34 contiki-avr-zigduino.a(random.o)
+ .debug_frame   0x0000000000000244      0x1a4 contiki-avr-zigduino.a(packetbuf.o)
+ .debug_frame   0x00000000000003e8       0xb4 contiki-avr-zigduino.a(queuebuf.o)
+ .debug_frame   0x000000000000049c       0x54 contiki-avr-zigduino.a(contiki-main.o)
+ .debug_frame   0x00000000000004f0       0x64 contiki-avr-zigduino.a(params.o)
+ .debug_frame   0x0000000000000554       0xa4 contiki-avr-zigduino.a(clock.o)
+ .debug_frame   0x00000000000005f8       0xa4 contiki-avr-zigduino.a(rs232.o)
+ .debug_frame   0x000000000000069c       0x64 contiki-avr-zigduino.a(watchdog.o)
+ .debug_frame   0x0000000000000700      0x214 contiki-avr-zigduino.a(rf230bb.o)
+ .debug_frame   0x0000000000000914       0xe4 contiki-avr-zigduino.a(halbb.o)
+ .debug_frame   0x00000000000009f8       0x44 contiki-avr-zigduino.a(rimeaddr.o)
+ .debug_frame   0x0000000000000a3c       0x74 contiki-avr-zigduino.a(rime.o)
+ .debug_frame   0x0000000000000ab0       0xc4 contiki-avr-zigduino.a(announcement.o)
+ .debug_frame   0x0000000000000b74       0xa4 contiki-avr-zigduino.a(broadcast-annou)
+ .debug_frame   0x0000000000000c18       0x64 contiki-avr-zigduino.a(broadcast.o)
+ .debug_frame   0x0000000000000c7c       0x64 contiki-avr-zigduino.a(abc.o)
+ .debug_frame   0x0000000000000ce0       0x54 contiki-avr-zigduino.a(chameleon.o)
+ .debug_frame   0x0000000000000d34       0x64 contiki-avr-zigduino.a(channel.o)
+ .debug_frame   0x0000000000000d98       0x84 contiki-avr-zigduino.a(chameleon-bitop)
+ .debug_frame   0x0000000000000e1c       0x54 contiki-avr-zigduino.a(frame802154.o)
+ .debug_frame   0x0000000000000e70       0xe4 contiki-avr-zigduino.a(process.o)
+ .debug_frame   0x0000000000000f54       0x34 contiki-avr-zigduino.a(autostart.o)
+ .debug_frame   0x0000000000000f88       0x44 contiki-avr-zigduino.a(serial-line.o)
+ .debug_frame   0x0000000000000fcc       0x54 contiki-avr-zigduino.a(memb.o)
+ .debug_frame   0x0000000000001020       0x54 contiki-avr-zigduino.a(mmem.o)
+ .debug_frame   0x0000000000001074       0x64 contiki-avr-zigduino.a(timer.o)
+ .debug_frame   0x00000000000010d8       0xd4 contiki-avr-zigduino.a(list.o)
+ .debug_frame   0x00000000000011ac       0x84 contiki-avr-zigduino.a(ctimer.o)
+ .debug_frame   0x0000000000001230       0x44 contiki-avr-zigduino.a(rtimer.o)
+ .debug_frame   0x0000000000001274       0x64 contiki-avr-zigduino.a(ringbuf.o)
+ .debug_frame   0x00000000000012d8      0x104 contiki-avr-zigduino.a(tcpip.o)
+ .debug_frame   0x00000000000013dc       0x24 contiki-avr-zigduino.a(uip-split.o)
+ .debug_frame   0x0000000000001400      0x134 contiki-avr-zigduino.a(uip.o)
+ .debug_frame   0x0000000000001534       0x64 contiki-avr-zigduino.a(rtimer-arch.o)
 
-.debug_str      0x0000000000000000     0x3231
+.debug_str      0x0000000000000000     0x3240
  *(.debug_str)
- .debug_str     0x0000000000000000      0x14e antenna_off_idle.co
-                                        0x1fd (size before relaxing)
- .debug_str     0x000000000000014e      0x1b7 contiki-avr-zigduino.a(contiki-main.o)
-                                        0x34c (size before relaxing)
- .debug_str     0x0000000000000305      0x175 contiki-avr-zigduino.a(params.o)
-                                        0x21e (size before relaxing)
- .debug_str     0x000000000000047a      0x10a contiki-avr-zigduino.a(clock.o)
-                                        0x1c9 (size before relaxing)
- .debug_str     0x0000000000000584      0x130 contiki-avr-zigduino.a(rs232.o)
-                                        0x1d3 (size before relaxing)
- .debug_str     0x00000000000006b4       0x94 contiki-avr-zigduino.a(watchdog.o)
-                                        0x118 (size before relaxing)
- .debug_str     0x0000000000000748      0x8da contiki-avr-zigduino.a(rf230bb.o)
-                                        0xb2a (size before relaxing)
- .debug_str     0x0000000000001022      0x15a contiki-avr-zigduino.a(halbb.o)
-                                        0x282 (size before relaxing)
- .debug_str     0x000000000000117c       0xaf contiki-avr-zigduino.a(rimeaddr.o)
-                                        0x140 (size before relaxing)
- .debug_str     0x000000000000122b      0x141 contiki-avr-zigduino.a(rime.o)
-                                        0x27c (size before relaxing)
- .debug_str     0x000000000000136c      0x1cb contiki-avr-zigduino.a(announcement.o)
-                                        0x2d3 (size before relaxing)
- .debug_str     0x0000000000001537      0x200 contiki-avr-zigduino.a(broadcast-annou)
-                                        0x3d7 (size before relaxing)
- .debug_str     0x0000000000001737       0xa5 contiki-avr-zigduino.a(broadcast.o)
-                                        0x4c8 (size before relaxing)
- .debug_str     0x00000000000017dc       0x75 contiki-avr-zigduino.a(abc.o)
-                                        0x461 (size before relaxing)
- .debug_str     0x0000000000001851       0xb0 contiki-avr-zigduino.a(chameleon.o)
-                                        0x465 (size before relaxing)
- .debug_str     0x0000000000001901       0xb7 contiki-avr-zigduino.a(channel.o)
-                                        0x19a (size before relaxing)
- .debug_str     0x00000000000019b8      0x101 contiki-avr-zigduino.a(chameleon-bitop)
-                                        0x50a (size before relaxing)
- .debug_str     0x0000000000001ab9       0x70 contiki-avr-zigduino.a(nullmac.o)
+ .debug_str     0x0000000000000000      0x1b7 antenna_off_idle.co
+                                        0x28c (size before relaxing)
+ .debug_str     0x00000000000001b7       0xc8 contiki-avr-zigduino.a(nullmac.o)
                                         0x1b2 (size before relaxing)
- .debug_str     0x0000000000001b29      0x1c3 contiki-avr-zigduino.a(sicslowmac.o)
+ .debug_str     0x000000000000027f      0x567 contiki-avr-zigduino.a(sicslowmac.o)
                                         0x730 (size before relaxing)
- .debug_str     0x0000000000001cec      0x192 contiki-avr-zigduino.a(process.o)
-                                        0x27e (size before relaxing)
- .debug_str     0x0000000000001e7e       0x66 contiki-avr-zigduino.a(autostart.o)
-                                        0x148 (size before relaxing)
- .debug_str     0x0000000000001ee4       0xe0 contiki-avr-zigduino.a(serial-line.o)
-                                        0x207 (size before relaxing)
- .debug_str     0x0000000000001fc4       0x95 contiki-avr-zigduino.a(mmem.o)
-                                        0x13d (size before relaxing)
- .debug_str     0x0000000000002059       0xd4 contiki-avr-zigduino.a(list.o)
-                                         0xfb (size before relaxing)
- .debug_str     0x000000000000212d      0x15f contiki-avr-zigduino.a(etimer.o)
+ .debug_str     0x00000000000007e6      0x16f contiki-avr-zigduino.a(etimer.o)
                                         0x29d (size before relaxing)
- .debug_str     0x000000000000228c       0xe5 contiki-avr-zigduino.a(ctimer.o)
-                                        0x231 (size before relaxing)
- .debug_str     0x0000000000002371       0xee contiki-avr-zigduino.a(rtimer.o)
-                                        0x18a (size before relaxing)
- .debug_str     0x000000000000245f       0x61 contiki-avr-zigduino.a(random.o)
+ .debug_str     0x0000000000000955       0x61 contiki-avr-zigduino.a(random.o)
                                          0xe7 (size before relaxing)
- .debug_str     0x00000000000024c0       0x88 contiki-avr-zigduino.a(ringbuf.o)
-                                        0x145 (size before relaxing)
- .debug_str     0x0000000000002548      0x26f contiki-avr-zigduino.a(packetbuf.o)
+ .debug_str     0x00000000000009b6      0x280 contiki-avr-zigduino.a(packetbuf.o)
                                         0x639 (size before relaxing)
- .debug_str     0x00000000000027b7      0x1b6 contiki-avr-zigduino.a(queuebuf.o)
+ .debug_str     0x0000000000000c36      0x1b6 contiki-avr-zigduino.a(queuebuf.o)
                                         0x5bc (size before relaxing)
- .debug_str     0x000000000000296d      0x2e6 contiki-avr-zigduino.a(tcpip.o)
-                                        0x4a7 (size before relaxing)
- .debug_str     0x0000000000002c53       0x7f contiki-avr-zigduino.a(uip-split.o)
-                                        0x1e5 (size before relaxing)
- .debug_str     0x0000000000002cd2      0x2fe contiki-avr-zigduino.a(uip.o)
-                                        0x5d1 (size before relaxing)
- .debug_str     0x0000000000002fd0       0xa6 contiki-avr-zigduino.a(rtimer-arch.o)
-                                        0x1b4 (size before relaxing)
- .debug_str     0x0000000000003076       0xf6 contiki-avr-zigduino.a(frame802154.o)
+ .debug_str     0x0000000000000dec      0x105 contiki-avr-zigduino.a(contiki-main.o)
+                                        0x34c (size before relaxing)
+ .debug_str     0x0000000000000ef1      0x175 contiki-avr-zigduino.a(params.o)
+                                        0x21e (size before relaxing)
+ .debug_str     0x0000000000001066       0xfd contiki-avr-zigduino.a(clock.o)
+                                        0x1c9 (size before relaxing)
+ .debug_str     0x0000000000001163      0x130 contiki-avr-zigduino.a(rs232.o)
+                                        0x1d3 (size before relaxing)
+ .debug_str     0x0000000000001293       0x94 contiki-avr-zigduino.a(watchdog.o)
+                                        0x118 (size before relaxing)
+ .debug_str     0x0000000000001327      0x5bf contiki-avr-zigduino.a(rf230bb.o)
+                                        0xb2a (size before relaxing)
+ .debug_str     0x00000000000018e6      0x15a contiki-avr-zigduino.a(halbb.o)
+                                        0x282 (size before relaxing)
+ .debug_str     0x0000000000001a40       0x8e contiki-avr-zigduino.a(rimeaddr.o)
+                                        0x140 (size before relaxing)
+ .debug_str     0x0000000000001ace       0xed contiki-avr-zigduino.a(rime.o)
+                                        0x27c (size before relaxing)
+ .debug_str     0x0000000000001bbb      0x1cb contiki-avr-zigduino.a(announcement.o)
+                                        0x2d3 (size before relaxing)
+ .debug_str     0x0000000000001d86      0x1f9 contiki-avr-zigduino.a(broadcast-annou)
+                                        0x3d7 (size before relaxing)
+ .debug_str     0x0000000000001f7f       0xa5 contiki-avr-zigduino.a(broadcast.o)
+                                        0x4c8 (size before relaxing)
+ .debug_str     0x0000000000002024       0x75 contiki-avr-zigduino.a(abc.o)
+                                        0x461 (size before relaxing)
+ .debug_str     0x0000000000002099       0xb0 contiki-avr-zigduino.a(chameleon.o)
+                                        0x465 (size before relaxing)
+ .debug_str     0x0000000000002149       0xb7 contiki-avr-zigduino.a(channel.o)
+                                        0x19a (size before relaxing)
+ .debug_str     0x0000000000002200       0xf0 contiki-avr-zigduino.a(chameleon-bitop)
+                                        0x50a (size before relaxing)
+ .debug_str     0x00000000000022f0       0xf6 contiki-avr-zigduino.a(frame802154.o)
                                         0x306 (size before relaxing)
- .debug_str     0x000000000000316c       0x72 contiki-avr-zigduino.a(memb.o)
+ .debug_str     0x00000000000023e6      0x182 contiki-avr-zigduino.a(process.o)
+                                        0x27e (size before relaxing)
+ .debug_str     0x0000000000002568       0x66 contiki-avr-zigduino.a(autostart.o)
+                                        0x148 (size before relaxing)
+ .debug_str     0x00000000000025ce       0xe0 contiki-avr-zigduino.a(serial-line.o)
+                                        0x207 (size before relaxing)
+ .debug_str     0x00000000000026ae       0x72 contiki-avr-zigduino.a(memb.o)
                                         0x10d (size before relaxing)
- .debug_str     0x00000000000031de       0x53 contiki-avr-zigduino.a(timer.o)
+ .debug_str     0x0000000000002720       0x95 contiki-avr-zigduino.a(mmem.o)
+                                        0x13d (size before relaxing)
+ .debug_str     0x00000000000027b5       0x53 contiki-avr-zigduino.a(timer.o)
                                         0x132 (size before relaxing)
+ .debug_str     0x0000000000002808       0xd4 contiki-avr-zigduino.a(list.o)
+                                         0xfb (size before relaxing)
+ .debug_str     0x00000000000028dc       0xe5 contiki-avr-zigduino.a(ctimer.o)
+                                        0x231 (size before relaxing)
+ .debug_str     0x00000000000029c1       0xee contiki-avr-zigduino.a(rtimer.o)
+                                        0x18a (size before relaxing)
+ .debug_str     0x0000000000002aaf       0x88 contiki-avr-zigduino.a(ringbuf.o)
+                                        0x145 (size before relaxing)
+ .debug_str     0x0000000000002b37      0x2e6 contiki-avr-zigduino.a(tcpip.o)
+                                        0x4a7 (size before relaxing)
+ .debug_str     0x0000000000002e1d       0x7f contiki-avr-zigduino.a(uip-split.o)
+                                        0x1e5 (size before relaxing)
+ .debug_str     0x0000000000002e9c      0x2fe contiki-avr-zigduino.a(uip.o)
+                                        0x5d1 (size before relaxing)
+ .debug_str     0x000000000000319a       0xa6 contiki-avr-zigduino.a(rtimer-arch.o)
+                                        0x1b4 (size before relaxing)
 
-.debug_loc      0x0000000000000000     0x4a3a
+.debug_loc      0x0000000000000000     0x4a90
  *(.debug_loc)
- .debug_loc     0x0000000000000000       0x73 antenna_off_idle.co
- .debug_loc     0x0000000000000073       0xeb contiki-avr-zigduino.a(contiki-main.o)
- .debug_loc     0x000000000000015e      0x107 contiki-avr-zigduino.a(params.o)
- .debug_loc     0x0000000000000265       0xee contiki-avr-zigduino.a(clock.o)
- .debug_loc     0x0000000000000353      0x12e contiki-avr-zigduino.a(rs232.o)
- .debug_loc     0x0000000000000481      0x73a contiki-avr-zigduino.a(rf230bb.o)
- .debug_loc     0x0000000000000bbb      0x25b contiki-avr-zigduino.a(halbb.o)
- .debug_loc     0x0000000000000e16       0x58 contiki-avr-zigduino.a(rimeaddr.o)
- .debug_loc     0x0000000000000e6e      0x168 contiki-avr-zigduino.a(rime.o)
- .debug_loc     0x0000000000000fd6      0x224 contiki-avr-zigduino.a(announcement.o)
- .debug_loc     0x00000000000011fa      0x26b contiki-avr-zigduino.a(broadcast-annou)
- .debug_loc     0x0000000000001465      0x168 contiki-avr-zigduino.a(broadcast.o)
- .debug_loc     0x00000000000015cd      0x138 contiki-avr-zigduino.a(abc.o)
- .debug_loc     0x0000000000001705       0xac contiki-avr-zigduino.a(chameleon.o)
- .debug_loc     0x00000000000017b1      0x12c contiki-avr-zigduino.a(channel.o)
- .debug_loc     0x00000000000018dd      0x64f contiki-avr-zigduino.a(chameleon-bitop)
- .debug_loc     0x0000000000001f2c       0x48 contiki-avr-zigduino.a(nullmac.o)
- .debug_loc     0x0000000000001f74      0x177 contiki-avr-zigduino.a(sicslowmac.o)
- .debug_loc     0x00000000000020eb      0x367 contiki-avr-zigduino.a(process.o)
- .debug_loc     0x0000000000002452       0x58 contiki-avr-zigduino.a(autostart.o)
- .debug_loc     0x00000000000024aa      0x11a contiki-avr-zigduino.a(serial-line.o)
- .debug_loc     0x00000000000025c4       0xac contiki-avr-zigduino.a(mmem.o)
- .debug_loc     0x0000000000002670      0x41c contiki-avr-zigduino.a(list.o)
- .debug_loc     0x0000000000002a8c      0x42e contiki-avr-zigduino.a(etimer.o)
- .debug_loc     0x0000000000002eba      0x311 contiki-avr-zigduino.a(ctimer.o)
- .debug_loc     0x00000000000031cb       0xc7 contiki-avr-zigduino.a(rtimer.o)
- .debug_loc     0x0000000000003292       0x18 contiki-avr-zigduino.a(random.o)
- .debug_loc     0x00000000000032aa       0xd4 contiki-avr-zigduino.a(ringbuf.o)
- .debug_loc     0x000000000000337e      0x27b contiki-avr-zigduino.a(packetbuf.o)
- .debug_loc     0x00000000000035f9      0x240 contiki-avr-zigduino.a(queuebuf.o)
- .debug_loc     0x0000000000003839      0x542 contiki-avr-zigduino.a(tcpip.o)
- .debug_loc     0x0000000000003d7b       0x78 contiki-avr-zigduino.a(uip-split.o)
- .debug_loc     0x0000000000003df3      0x5bd contiki-avr-zigduino.a(uip.o)
- .debug_loc     0x00000000000043b0       0x82 contiki-avr-zigduino.a(rtimer-arch.o)
- .debug_loc     0x0000000000004432      0x34c contiki-avr-zigduino.a(frame802154.o)
- .debug_loc     0x000000000000477e      0x1b0 contiki-avr-zigduino.a(memb.o)
- .debug_loc     0x000000000000492e      0x10c contiki-avr-zigduino.a(timer.o)
+ .debug_loc     0x0000000000000000       0xc9 antenna_off_idle.co
+ .debug_loc     0x00000000000000c9       0x48 contiki-avr-zigduino.a(nullmac.o)
+ .debug_loc     0x0000000000000111      0x177 contiki-avr-zigduino.a(sicslowmac.o)
+ .debug_loc     0x0000000000000288      0x42e contiki-avr-zigduino.a(etimer.o)
+ .debug_loc     0x00000000000006b6       0x18 contiki-avr-zigduino.a(random.o)
+ .debug_loc     0x00000000000006ce      0x27b contiki-avr-zigduino.a(packetbuf.o)
+ .debug_loc     0x0000000000000949      0x240 contiki-avr-zigduino.a(queuebuf.o)
+ .debug_loc     0x0000000000000b89       0xeb contiki-avr-zigduino.a(contiki-main.o)
+ .debug_loc     0x0000000000000c74      0x107 contiki-avr-zigduino.a(params.o)
+ .debug_loc     0x0000000000000d7b       0xee contiki-avr-zigduino.a(clock.o)
+ .debug_loc     0x0000000000000e69      0x12e contiki-avr-zigduino.a(rs232.o)
+ .debug_loc     0x0000000000000f97      0x73a contiki-avr-zigduino.a(rf230bb.o)
+ .debug_loc     0x00000000000016d1      0x25b contiki-avr-zigduino.a(halbb.o)
+ .debug_loc     0x000000000000192c       0x58 contiki-avr-zigduino.a(rimeaddr.o)
+ .debug_loc     0x0000000000001984      0x168 contiki-avr-zigduino.a(rime.o)
+ .debug_loc     0x0000000000001aec      0x224 contiki-avr-zigduino.a(announcement.o)
+ .debug_loc     0x0000000000001d10      0x26b contiki-avr-zigduino.a(broadcast-annou)
+ .debug_loc     0x0000000000001f7b      0x168 contiki-avr-zigduino.a(broadcast.o)
+ .debug_loc     0x00000000000020e3      0x138 contiki-avr-zigduino.a(abc.o)
+ .debug_loc     0x000000000000221b       0xac contiki-avr-zigduino.a(chameleon.o)
+ .debug_loc     0x00000000000022c7      0x12c contiki-avr-zigduino.a(channel.o)
+ .debug_loc     0x00000000000023f3      0x64f contiki-avr-zigduino.a(chameleon-bitop)
+ .debug_loc     0x0000000000002a42      0x34c contiki-avr-zigduino.a(frame802154.o)
+ .debug_loc     0x0000000000002d8e      0x367 contiki-avr-zigduino.a(process.o)
+ .debug_loc     0x00000000000030f5       0x58 contiki-avr-zigduino.a(autostart.o)
+ .debug_loc     0x000000000000314d      0x11a contiki-avr-zigduino.a(serial-line.o)
+ .debug_loc     0x0000000000003267      0x1b0 contiki-avr-zigduino.a(memb.o)
+ .debug_loc     0x0000000000003417       0xac contiki-avr-zigduino.a(mmem.o)
+ .debug_loc     0x00000000000034c3      0x10c contiki-avr-zigduino.a(timer.o)
+ .debug_loc     0x00000000000035cf      0x41c contiki-avr-zigduino.a(list.o)
+ .debug_loc     0x00000000000039eb      0x311 contiki-avr-zigduino.a(ctimer.o)
+ .debug_loc     0x0000000000003cfc       0xc7 contiki-avr-zigduino.a(rtimer.o)
+ .debug_loc     0x0000000000003dc3       0xd4 contiki-avr-zigduino.a(ringbuf.o)
+ .debug_loc     0x0000000000003e97      0x542 contiki-avr-zigduino.a(tcpip.o)
+ .debug_loc     0x00000000000043d9       0x78 contiki-avr-zigduino.a(uip-split.o)
+ .debug_loc     0x0000000000004451      0x5bd contiki-avr-zigduino.a(uip.o)
+ .debug_loc     0x0000000000004a0e       0x82 contiki-avr-zigduino.a(rtimer-arch.o)
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -2180,125 +2181,125 @@ LOAD /usr/lib/gcc/avr/4.5.3/avr51/libgcc.a
  *(.debug_varnames)
 
 .debug_pubtypes
-                0x0000000000000000     0x12fc
+                0x0000000000000000     0x135d
  *(.debug_pubtypes)
  .debug_pubtypes
-                0x0000000000000000       0x66 antenna_off_idle.co
+                0x0000000000000000       0xc7 antenna_off_idle.co
  .debug_pubtypes
-                0x0000000000000066       0xfd contiki-avr-zigduino.a(contiki-main.o)
+                0x00000000000000c7       0x67 contiki-avr-zigduino.a(nullmac.o)
  .debug_pubtypes
-                0x0000000000000163       0x2b contiki-avr-zigduino.a(params.o)
+                0x000000000000012e       0xf2 contiki-avr-zigduino.a(sicslowmac.o)
  .debug_pubtypes
-                0x000000000000018e       0x3c contiki-avr-zigduino.a(clock.o)
+                0x0000000000000220       0x7b contiki-avr-zigduino.a(etimer.o)
  .debug_pubtypes
-                0x00000000000001ca       0x29 contiki-avr-zigduino.a(rs232.o)
+                0x000000000000029b       0x12 contiki-avr-zigduino.a(random.o)
  .debug_pubtypes
-                0x00000000000001f3       0x2b contiki-avr-zigduino.a(watchdog.o)
+                0x00000000000002ad       0x75 contiki-avr-zigduino.a(packetbuf.o)
  .debug_pubtypes
-                0x000000000000021e       0xd8 contiki-avr-zigduino.a(rf230bb.o)
+                0x0000000000000322       0xae contiki-avr-zigduino.a(queuebuf.o)
  .debug_pubtypes
-                0x00000000000002f6       0x3e contiki-avr-zigduino.a(halbb.o)
+                0x00000000000003d0       0xfd contiki-avr-zigduino.a(contiki-main.o)
  .debug_pubtypes
-                0x0000000000000334       0x21 contiki-avr-zigduino.a(rimeaddr.o)
+                0x00000000000004cd       0x2b contiki-avr-zigduino.a(params.o)
  .debug_pubtypes
-                0x0000000000000355       0x9f contiki-avr-zigduino.a(rime.o)
+                0x00000000000004f8       0x3c contiki-avr-zigduino.a(clock.o)
  .debug_pubtypes
-                0x00000000000003f4       0x8c contiki-avr-zigduino.a(announcement.o)
+                0x0000000000000534       0x29 contiki-avr-zigduino.a(rs232.o)
  .debug_pubtypes
-                0x0000000000000480      0x194 contiki-avr-zigduino.a(broadcast-annou)
+                0x000000000000055d       0x2b contiki-avr-zigduino.a(watchdog.o)
  .debug_pubtypes
-                0x0000000000000614       0xa7 contiki-avr-zigduino.a(broadcast.o)
+                0x0000000000000588       0xd8 contiki-avr-zigduino.a(rf230bb.o)
  .debug_pubtypes
-                0x00000000000006bb       0x6d contiki-avr-zigduino.a(abc.o)
+                0x0000000000000660       0x3e contiki-avr-zigduino.a(halbb.o)
  .debug_pubtypes
-                0x0000000000000728       0x63 contiki-avr-zigduino.a(chameleon.o)
+                0x000000000000069e       0x21 contiki-avr-zigduino.a(rimeaddr.o)
  .debug_pubtypes
-                0x000000000000078b       0x59 contiki-avr-zigduino.a(channel.o)
+                0x00000000000006bf       0x9f contiki-avr-zigduino.a(rime.o)
  .debug_pubtypes
-                0x00000000000007e4       0x96 contiki-avr-zigduino.a(chameleon-bitop)
+                0x000000000000075e       0x8c contiki-avr-zigduino.a(announcement.o)
  .debug_pubtypes
-                0x000000000000087a       0x67 contiki-avr-zigduino.a(nullmac.o)
+                0x00000000000007ea      0x194 contiki-avr-zigduino.a(broadcast-annou)
  .debug_pubtypes
-                0x00000000000008e1       0xf2 contiki-avr-zigduino.a(sicslowmac.o)
+                0x000000000000097e       0xa7 contiki-avr-zigduino.a(broadcast.o)
  .debug_pubtypes
-                0x00000000000009d3       0x7d contiki-avr-zigduino.a(process.o)
+                0x0000000000000a25       0x6d contiki-avr-zigduino.a(abc.o)
  .debug_pubtypes
-                0x0000000000000a50       0x55 contiki-avr-zigduino.a(autostart.o)
+                0x0000000000000a92       0x63 contiki-avr-zigduino.a(chameleon.o)
  .debug_pubtypes
-                0x0000000000000aa5       0x6d contiki-avr-zigduino.a(serial-line.o)
+                0x0000000000000af5       0x59 contiki-avr-zigduino.a(channel.o)
  .debug_pubtypes
-                0x0000000000000b12       0x26 contiki-avr-zigduino.a(mmem.o)
+                0x0000000000000b4e       0x96 contiki-avr-zigduino.a(chameleon-bitop)
  .debug_pubtypes
-                0x0000000000000b38       0x26 contiki-avr-zigduino.a(list.o)
+                0x0000000000000be4       0xb2 contiki-avr-zigduino.a(frame802154.o)
  .debug_pubtypes
-                0x0000000000000b5e       0x7b contiki-avr-zigduino.a(etimer.o)
+                0x0000000000000c96       0x7d contiki-avr-zigduino.a(process.o)
  .debug_pubtypes
-                0x0000000000000bd9       0x91 contiki-avr-zigduino.a(ctimer.o)
+                0x0000000000000d13       0x55 contiki-avr-zigduino.a(autostart.o)
  .debug_pubtypes
-                0x0000000000000c6a       0x46 contiki-avr-zigduino.a(rtimer.o)
+                0x0000000000000d68       0x6d contiki-avr-zigduino.a(serial-line.o)
  .debug_pubtypes
-                0x0000000000000cb0       0x12 contiki-avr-zigduino.a(random.o)
+                0x0000000000000dd5       0x1b contiki-avr-zigduino.a(memb.o)
  .debug_pubtypes
-                0x0000000000000cc2       0x2a contiki-avr-zigduino.a(ringbuf.o)
+                0x0000000000000df0       0x26 contiki-avr-zigduino.a(mmem.o)
  .debug_pubtypes
-                0x0000000000000cec       0x75 contiki-avr-zigduino.a(packetbuf.o)
+                0x0000000000000e16       0x2d contiki-avr-zigduino.a(timer.o)
  .debug_pubtypes
-                0x0000000000000d61       0xae contiki-avr-zigduino.a(queuebuf.o)
+                0x0000000000000e43       0x26 contiki-avr-zigduino.a(list.o)
  .debug_pubtypes
-                0x0000000000000e0f      0x186 contiki-avr-zigduino.a(tcpip.o)
+                0x0000000000000e69       0x91 contiki-avr-zigduino.a(ctimer.o)
  .debug_pubtypes
-                0x0000000000000f95       0x8d contiki-avr-zigduino.a(uip-split.o)
+                0x0000000000000efa       0x46 contiki-avr-zigduino.a(rtimer.o)
  .debug_pubtypes
-                0x0000000000001022      0x195 contiki-avr-zigduino.a(uip.o)
+                0x0000000000000f40       0x2a contiki-avr-zigduino.a(ringbuf.o)
  .debug_pubtypes
-                0x00000000000011b7       0x4b contiki-avr-zigduino.a(rtimer-arch.o)
+                0x0000000000000f6a      0x186 contiki-avr-zigduino.a(tcpip.o)
  .debug_pubtypes
-                0x0000000000001202       0xb2 contiki-avr-zigduino.a(frame802154.o)
+                0x00000000000010f0       0x8d contiki-avr-zigduino.a(uip-split.o)
  .debug_pubtypes
-                0x00000000000012b4       0x1b contiki-avr-zigduino.a(memb.o)
+                0x000000000000117d      0x195 contiki-avr-zigduino.a(uip.o)
  .debug_pubtypes
-                0x00000000000012cf       0x2d contiki-avr-zigduino.a(timer.o)
+                0x0000000000001312       0x4b contiki-avr-zigduino.a(rtimer-arch.o)
 
-.debug_ranges   0x0000000000000000      0xb58
+.debug_ranges   0x0000000000000000      0xb70
  *(.debug_ranges)
- .debug_ranges  0x0000000000000000       0x10 antenna_off_idle.co
- .debug_ranges  0x0000000000000010       0x88 contiki-avr-zigduino.a(contiki-main.o)
- .debug_ranges  0x0000000000000098       0x30 contiki-avr-zigduino.a(params.o)
- .debug_ranges  0x00000000000000c8       0x50 contiki-avr-zigduino.a(clock.o)
- .debug_ranges  0x0000000000000118       0x50 contiki-avr-zigduino.a(rs232.o)
- .debug_ranges  0x0000000000000168       0x30 contiki-avr-zigduino.a(watchdog.o)
- .debug_ranges  0x0000000000000198      0x120 contiki-avr-zigduino.a(rf230bb.o)
- .debug_ranges  0x00000000000002b8       0x70 contiki-avr-zigduino.a(halbb.o)
- .debug_ranges  0x0000000000000328       0x20 contiki-avr-zigduino.a(rimeaddr.o)
- .debug_ranges  0x0000000000000348       0x38 contiki-avr-zigduino.a(rime.o)
- .debug_ranges  0x0000000000000380       0x60 contiki-avr-zigduino.a(announcement.o)
- .debug_ranges  0x00000000000003e0       0x50 contiki-avr-zigduino.a(broadcast-annou)
- .debug_ranges  0x0000000000000430       0x30 contiki-avr-zigduino.a(broadcast.o)
- .debug_ranges  0x0000000000000460       0x30 contiki-avr-zigduino.a(abc.o)
- .debug_ranges  0x0000000000000490       0x28 contiki-avr-zigduino.a(chameleon.o)
- .debug_ranges  0x00000000000004b8       0x30 contiki-avr-zigduino.a(channel.o)
- .debug_ranges  0x00000000000004e8       0x88 contiki-avr-zigduino.a(chameleon-bitop)
- .debug_ranges  0x0000000000000570       0x38 contiki-avr-zigduino.a(nullmac.o)
- .debug_ranges  0x00000000000005a8       0x40 contiki-avr-zigduino.a(sicslowmac.o)
- .debug_ranges  0x00000000000005e8       0x70 contiki-avr-zigduino.a(process.o)
- .debug_ranges  0x0000000000000658       0x18 contiki-avr-zigduino.a(autostart.o)
- .debug_ranges  0x0000000000000670       0x38 contiki-avr-zigduino.a(serial-line.o)
- .debug_ranges  0x00000000000006a8       0x28 contiki-avr-zigduino.a(mmem.o)
- .debug_ranges  0x00000000000006d0       0x68 contiki-avr-zigduino.a(list.o)
- .debug_ranges  0x0000000000000738       0x78 contiki-avr-zigduino.a(etimer.o)
- .debug_ranges  0x00000000000007b0       0x40 contiki-avr-zigduino.a(ctimer.o)
- .debug_ranges  0x00000000000007f0       0x20 contiki-avr-zigduino.a(rtimer.o)
- .debug_ranges  0x0000000000000810       0x18 contiki-avr-zigduino.a(random.o)
- .debug_ranges  0x0000000000000828       0x30 contiki-avr-zigduino.a(ringbuf.o)
- .debug_ranges  0x0000000000000858       0xd0 contiki-avr-zigduino.a(packetbuf.o)
- .debug_ranges  0x0000000000000928       0x58 contiki-avr-zigduino.a(queuebuf.o)
- .debug_ranges  0x0000000000000980       0x80 contiki-avr-zigduino.a(tcpip.o)
- .debug_ranges  0x0000000000000a00       0x10 contiki-avr-zigduino.a(uip-split.o)
- .debug_ranges  0x0000000000000a10       0x98 contiki-avr-zigduino.a(uip.o)
- .debug_ranges  0x0000000000000aa8       0x30 contiki-avr-zigduino.a(rtimer-arch.o)
- .debug_ranges  0x0000000000000ad8       0x28 contiki-avr-zigduino.a(frame802154.o)
- .debug_ranges  0x0000000000000b00       0x28 contiki-avr-zigduino.a(memb.o)
- .debug_ranges  0x0000000000000b28       0x30 contiki-avr-zigduino.a(timer.o)
+ .debug_ranges  0x0000000000000000       0x28 antenna_off_idle.co
+ .debug_ranges  0x0000000000000028       0x38 contiki-avr-zigduino.a(nullmac.o)
+ .debug_ranges  0x0000000000000060       0x40 contiki-avr-zigduino.a(sicslowmac.o)
+ .debug_ranges  0x00000000000000a0       0x78 contiki-avr-zigduino.a(etimer.o)
+ .debug_ranges  0x0000000000000118       0x18 contiki-avr-zigduino.a(random.o)
+ .debug_ranges  0x0000000000000130       0xd0 contiki-avr-zigduino.a(packetbuf.o)
+ .debug_ranges  0x0000000000000200       0x58 contiki-avr-zigduino.a(queuebuf.o)
+ .debug_ranges  0x0000000000000258       0x88 contiki-avr-zigduino.a(contiki-main.o)
+ .debug_ranges  0x00000000000002e0       0x30 contiki-avr-zigduino.a(params.o)
+ .debug_ranges  0x0000000000000310       0x50 contiki-avr-zigduino.a(clock.o)
+ .debug_ranges  0x0000000000000360       0x50 contiki-avr-zigduino.a(rs232.o)
+ .debug_ranges  0x00000000000003b0       0x30 contiki-avr-zigduino.a(watchdog.o)
+ .debug_ranges  0x00000000000003e0      0x120 contiki-avr-zigduino.a(rf230bb.o)
+ .debug_ranges  0x0000000000000500       0x70 contiki-avr-zigduino.a(halbb.o)
+ .debug_ranges  0x0000000000000570       0x20 contiki-avr-zigduino.a(rimeaddr.o)
+ .debug_ranges  0x0000000000000590       0x38 contiki-avr-zigduino.a(rime.o)
+ .debug_ranges  0x00000000000005c8       0x60 contiki-avr-zigduino.a(announcement.o)
+ .debug_ranges  0x0000000000000628       0x50 contiki-avr-zigduino.a(broadcast-annou)
+ .debug_ranges  0x0000000000000678       0x30 contiki-avr-zigduino.a(broadcast.o)
+ .debug_ranges  0x00000000000006a8       0x30 contiki-avr-zigduino.a(abc.o)
+ .debug_ranges  0x00000000000006d8       0x28 contiki-avr-zigduino.a(chameleon.o)
+ .debug_ranges  0x0000000000000700       0x30 contiki-avr-zigduino.a(channel.o)
+ .debug_ranges  0x0000000000000730       0x88 contiki-avr-zigduino.a(chameleon-bitop)
+ .debug_ranges  0x00000000000007b8       0x28 contiki-avr-zigduino.a(frame802154.o)
+ .debug_ranges  0x00000000000007e0       0x70 contiki-avr-zigduino.a(process.o)
+ .debug_ranges  0x0000000000000850       0x18 contiki-avr-zigduino.a(autostart.o)
+ .debug_ranges  0x0000000000000868       0x38 contiki-avr-zigduino.a(serial-line.o)
+ .debug_ranges  0x00000000000008a0       0x28 contiki-avr-zigduino.a(memb.o)
+ .debug_ranges  0x00000000000008c8       0x28 contiki-avr-zigduino.a(mmem.o)
+ .debug_ranges  0x00000000000008f0       0x30 contiki-avr-zigduino.a(timer.o)
+ .debug_ranges  0x0000000000000920       0x68 contiki-avr-zigduino.a(list.o)
+ .debug_ranges  0x0000000000000988       0x40 contiki-avr-zigduino.a(ctimer.o)
+ .debug_ranges  0x00000000000009c8       0x20 contiki-avr-zigduino.a(rtimer.o)
+ .debug_ranges  0x00000000000009e8       0x30 contiki-avr-zigduino.a(ringbuf.o)
+ .debug_ranges  0x0000000000000a18       0x80 contiki-avr-zigduino.a(tcpip.o)
+ .debug_ranges  0x0000000000000a98       0x10 contiki-avr-zigduino.a(uip-split.o)
+ .debug_ranges  0x0000000000000aa8       0x98 contiki-avr-zigduino.a(uip.o)
+ .debug_ranges  0x0000000000000b40       0x30 contiki-avr-zigduino.a(rtimer-arch.o)
 
 .debug_macro
  *(.debug_macro)
