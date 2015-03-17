@@ -1,6 +1,7 @@
 
 #include "contiki.h"
 #include "net/netstack.h"
+#include <avr/io.h>
 
 /*---------------------------------------------------------------------------*/
 PROCESS(antenna_off_idle_process, "antenna off, idle");
