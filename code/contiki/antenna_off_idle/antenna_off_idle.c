@@ -11,7 +11,7 @@ PROCESS_THREAD(antenna_off_idle_process, ev, data)
 {
   PROCESS_BEGIN();
 
-  NETSTACK_RADIO.off(); //radios off
+  NETSTACK_RADIO.off(0); //radios off
 
   PROCESS_END();
 }
