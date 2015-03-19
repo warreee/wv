@@ -26,29 +26,30 @@ PROCESS_THREAD(ram_power_usage_process, ev, data)
 
   while (1) {
     /* Delay 2 seconds */
-    etimer_set(&et, (CLOCK_SECOND * 5));
+    etimer_set(&et, (CLOCK_SECOND * 2));
 
     PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));
     
-    uint32_t sampling_round;
-    for (sampling_round = 0; sampling_round < AMOUNT_OF_SAMPLES; sampling_round++) {
-
+    /* uint32_t sampling_round; */
+    /* for (sampling_round = 0; sampling_round < AMOUNT_OF_SAMPLES; sampling_round++) { */
+    while (1) {
       // a buffer ready to be written to
       uint8_t *buffer = malloc(MAX_BYTES_TO_WRITE);
 
-      // flip pin
-      PORTE ^= _BV(PE6);
+      //Pin hoog
+      PORTE |= _BV(PE6);
 
       int i;
       for (i = 0; i < 100; i++) {
         memset( (void *)buffer, '\0', MAX_BYTES_TO_WRITE);
       }
-      // flip pin back
-      PORTE ^= _BV(PE6);
+
+      //Pin laag
+      PORTE &= ~(_BV(PE6));
 
       free(buffer);      
 
-      etimer_set(&et, (CLOCK_SECOND * 2.5));
+      etimer_set(&et, (CLOCK_SECOND * 1));
 
       PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));
 
