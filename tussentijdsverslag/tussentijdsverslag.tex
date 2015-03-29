@@ -21,8 +21,13 @@ We wrote a component that writes 100 times 8kB to the RAM-memory, it repeats thi
 \\
 -71.4368 -232.0165  -71.4722 -231.9092  -71.4422 -231.8196  -71.5196 -231.8710  -71.5787 -231.8401  -71.5961 -232.0866  -71.4173 -232.1306  -71.5185 -231.8660  -71.4893 -231.7818  -71.4970
 \\
+\\
 Energy when idle: $\pm 71 mj$\\
 Energy when writing: $\pm 231 mj$
+Energy for writing 1 byte: $ \frac{231-71 mj}{8*1000*100} \approx 0 mj$
+\\
+\\
+We see that in fact writing a byte to RAM consumes almost no energy.
 \subsection{Antenna}
 \subsubsection{Enegry/byte}
 We used the data provided at \url{http://people.cs.kuleuven.be/~wilfried.daniels/energy/results3.html} and used it to derive the energy cost per byte:
@@ -35,20 +40,22 @@ We got about the same energy usage as during the ram test when we wrote nothing:
 -74.7316  -74.7610  -74.7003  -74.6391  -74.4582  -74.6195  -74.6579  -74.4509  -74.6454  -74.7656  -74.5681  -74.8548  -74.6121  -74.7943  -74.8279  -74.8777  -74.6717  -74.9203\\
 \\
 However as you can notice there is a tiny difference and we are not certain what the cause is?
+\\ Another question that arises is that we in the component to write to RAM we didn't explicit turn the radio off, while the energy usage stayed the same?
 \subsubsection{Enegry when listening}
 During the listening test we got the following results:\\
 -114.8897 -114.8994 -114.8356 -115.1350 -115.1103 -114.9205 -115.2339 -115.2512 -115.1336 -115.2102 -115.0942 -115.0485 -115.2242 -115.2833 -115.1356 -115.3479 -115.2736 -115.0013\\
-\subsection{Energy to start the antenna}
-%TODO 
-\subsection{Flash}
-As discussed with Klaas, we will only research this option when we have time.
 
-\subsection{Interim Conclusion}
-%TODO
+\subsection{Flash}
+As discussed with Klaas, we will only research this option when we have time. But it probably won't have any advantages:
+\\
+It most certainly will cost more to write to flash and if you can use half of the flash memory you only have 8 times more space to store data than if you write to RAM (assuming you also use only half the RAM).
+
+\section{Interim Conclusion}
+
 
 \section{Questions}
 \begin{itemize}
 \item The results from our measurements, are they correct?
-\item 
+\item How to measure the CPU usage as described before?
 \end{itemize}
 \end{document}
