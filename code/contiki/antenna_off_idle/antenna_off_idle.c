@@ -10,7 +10,14 @@ AUTOSTART_PROCESSES(&antenna_off_idle_process);
 PROCESS_THREAD(antenna_off_idle_process, ev, data)
 {
 #define AMOUNT_OF_SAMPLES 20
-  
+  int mod (int a, int b){
+   int ret = a % b;
+   if(ret < 0)
+     ret+=b;
+   return ret;
+ }  
+
+
   static struct etimer et;
   PROCESS_BEGIN();
 
@@ -19,20 +26,35 @@ PROCESS_THREAD(antenna_off_idle_process, ev, data)
   
   NETSTACK_MAC.off(0); //mac off
   NETSTACK_RADIO.off(); //radios off
-    
+  
+  //Pin hoog
+    PORTE |= _BV(PE6);
+  
   uint32_t sampling_round;
   for (sampling_round = 0; sampling_round < AMOUNT_OF_SAMPLES; sampling_round++) {
-    // flip pin
-    PORTE ^= _BV(PE6);
-  
+    
+    uint32_t trfl = mod(sampling_round, 2);
+    if (trfl == 0) {
+        // pin low
+        PORTE &= ~(_BV(PE6));
+        
+    } else {
+        //Pin hoog
+        PORTE |= _BV(PE6);
+        
+    }
     etimer_set(&et, (CLOCK_SECOND * 0.5));
 
     PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));
+    
+    
   }
 
   // pin low
   PORTE &= ~(_BV(PE6));
 
   PROCESS_END();
+
+
 }
 /*---------------------------------------------------------------------------*/
