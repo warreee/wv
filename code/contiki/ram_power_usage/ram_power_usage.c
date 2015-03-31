@@ -14,7 +14,7 @@ PROCESS_THREAD(ram_power_usage_process, ev, data)
   
   PROCESS_BEGIN();
 
-#define MAX_BYTES_TO_WRITE 2048
+#define MAX_BYTES_TO_WRITE 12240
 #define AMOUNT_OF_SAMPLES 20
   
 
@@ -26,9 +26,9 @@ PROCESS_THREAD(ram_power_usage_process, ev, data)
 
   while (1) {
     /* Delay 2 seconds */
-    etimer_set(&et, (CLOCK_SECOND * 2));
+    //etimer_set(&et, (CLOCK_SECOND * 2));
 
-    PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));
+    //PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));
     
     /* uint32_t sampling_round; */
     /* for (sampling_round = 0; sampling_round < AMOUNT_OF_SAMPLES; sampling_round++) { */
@@ -46,17 +46,17 @@ PROCESS_THREAD(ram_power_usage_process, ev, data)
       //Pin hoog
       PORTE |= _BV(PE6);
 
-      int i;
-      for (i = 0; i < 100; i++) {
+      //int i;
+      //for (i = 0; i < 100; i++) {
         memset( (void *)buffer, '\0', MAX_BYTES_TO_WRITE);
-      }
+      //}
 
       //Pin laag
       PORTE &= ~(_BV(PE6));
 
       free(buffer);      
 
-      etimer_set(&et, (CLOCK_SECOND * 2));
+      etimer_set(&et, (CLOCK_SECOND * 3));
 
       PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));
 
