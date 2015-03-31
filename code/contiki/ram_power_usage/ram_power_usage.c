@@ -1,7 +1,6 @@
 #include "contiki.h"
 #define DEBUG 1
-#define DEBUG_PRINT 1
-#include "contiki/debug.h"
+
 #include "string.h"
 #include <avr/io.h>
 
@@ -38,13 +37,14 @@ PROCESS_THREAD(ram_power_usage_process, ev, data)
       // a buffer ready to be written to
       uint8_t *buffer = (uint8_t * ) malloc(MAX_BYTES_TO_WRITE * sizeof(uint8_t));
       
+#ifdef DEBUG
       if (buffer == 0) {
-	PRINTF("ERROR: Out of memory\n");
+	printf("ERROR: Out of memory\n");
 	return 1;
+      } else {
+	printf("Success \n");
       }
-      else {
-	PRINTF("Succes \n");
-      }
+#endif
       
       //Pin hoog
       PORTE |= _BV(PE6);
