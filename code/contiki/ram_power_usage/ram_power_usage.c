@@ -1,4 +1,7 @@
 #include "contiki.h"
+#define DEBUG 1
+#define DEBUG_PRINT 1
+#include "contiki/debug.h"
 #include "string.h"
 #include <avr/io.h>
 
@@ -16,7 +19,6 @@ PROCESS_THREAD(ram_power_usage_process, ev, data)
 
 #define MAX_BYTES_TO_WRITE 2048
 #define AMOUNT_OF_SAMPLES 20
-  
 
   // initialise pin
   DDRE |= _BV(PE6);
@@ -36,13 +38,14 @@ PROCESS_THREAD(ram_power_usage_process, ev, data)
       // a buffer ready to be written to
       uint8_t *buffer = (uint8_t * ) malloc(MAX_BYTES_TO_WRITE * sizeof(uint8_t));
       
-		if (buffer == 0)
-		{
-			printf("ERROR: Out of memory\n");
-			return 1;
-		} else {
- 		printf("Succes \n");
-		}
+      if (buffer == 0) {
+	PRINTF("ERROR: Out of memory\n");
+	return 1;
+      }
+      else {
+	PRINTF("Succes \n");
+      }
+      
       //Pin hoog
       PORTE |= _BV(PE6);
 
