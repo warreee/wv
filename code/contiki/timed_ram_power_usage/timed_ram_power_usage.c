@@ -18,9 +18,8 @@ PROCESS_THREAD(timed_ram_power_usage_process, ev, data)
   
   PROCESS_BEGIN();
 
-#define MIN_BYTES_TO_WRITE 512
+#define MIN_BYTES_TO_WRITE 128
 #define MAX_BYTES_TO_WRITE 8192
-#define AMOUNT_OF_SAMPLES 20
 
   // initialise pin
   DDRE |= _BV(PE6);
@@ -57,10 +56,10 @@ PROCESS_THREAD(timed_ram_power_usage_process, ev, data)
 	  }
 #endif
 	  //Pin hoog
-	  PORTE |= _BV(PE6);
+	  PORTE ^= _BV(PE6);
 	  memset( (void *)buffer, '\0', size);
 	  //Pin laag
-	  PORTE &= ~(_BV(PE6));
+	  PORTE ^= _BV(PE6);
 
 	  
 #ifdef DEBUG
