@@ -1,10 +1,13 @@
 #include "contiki.h"
-#define DEBUG 1
+#define DEBUG 0
 
 #include "string.h"
 #include <avr/io.h>
 
+#ifdef DEBUG
 #include <stdio.h> /* For printf() */
+#endif
+
 #include <stdlib.h> /* For malloc */
 /*---------------------------------------------------------------------------*/
 PROCESS(ram_power_usage_process, "RAM power usage meter");
