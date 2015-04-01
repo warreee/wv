@@ -1,10 +1,12 @@
 #include "contiki.h"
-#define DEBUG 1
+#define DEBUG 0
 
 #include "string.h"
 #include <avr/io.h>
 
+#ifdef DEBUG
 #include <stdio.h> /* For printf() */
+#endif
 #include <stdlib.h> /* For malloc */
 /*---------------------------------------------------------------------------*/
 PROCESS(timed_ram_power_usage_process, "RAM power usage meter");
@@ -59,6 +61,11 @@ PROCESS_THREAD(timed_ram_power_usage_process, ev, data)
 	  memset( (void *)buffer, '\0', size);
 	  //Pin laag
 	  PORTE &= ~(_BV(PE6));
+
+	  
+#ifdef DEBUG
+	  printf("%d bytes written to RAM.", size);
+#endif
 
 	  free(buffer);
 	
