@@ -1,8 +1,13 @@
 #include "contiki.h"
+#define DEBUG 0
+
 #include "string.h"
 #include <avr/io.h>
 
+#ifdef DEBUG
 #include <stdio.h> /* For printf() */
+#endif
+
 #include <stdlib.h> /* For malloc */
 /*---------------------------------------------------------------------------*/
 PROCESS(ram_power_usage_process, "RAM power usage meter");
@@ -16,7 +21,6 @@ PROCESS_THREAD(ram_power_usage_process, ev, data)
 
 #define MAX_BYTES_TO_WRITE 12240
 #define AMOUNT_OF_SAMPLES 20
-  
 
   // initialise pin
   DDRE |= _BV(PE6);
@@ -36,13 +40,15 @@ PROCESS_THREAD(ram_power_usage_process, ev, data)
       // a buffer ready to be written to
       uint8_t *buffer = (uint8_t * ) malloc(MAX_BYTES_TO_WRITE * sizeof(uint8_t));
       
-		if (buffer == 0)
-		{
-			printf("ERROR: Out of memory\n");
-			return 1;
-		} else {
- 		printf("Succes \n");
-		}
+#ifdef DEBUG
+      if (buffer == 0) {
+	printf("ERROR: Out of memory\n");
+	return 1;
+      } else {
+	printf("Success \n");
+      }
+#endif
+      
       //Pin hoog
       PORTE |= _BV(PE6);
 
