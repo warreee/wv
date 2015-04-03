@@ -14,7 +14,7 @@ PROCESS_THREAD(ram_power_usage_process, ev, data)
   
   PROCESS_BEGIN();
 
-#define MAX_BYTES_TO_WRITE 16
+#define MAX_BYTES_TO_WRITE 2048
   
 
   // initialise pin
@@ -55,7 +55,7 @@ PROCESS_THREAD(ram_power_usage_process, ev, data)
 
       free(buffer);      
 
-      etimer_set(&et, (CLOCK_SECOND * 0.01));
+      etimer_set(&et, (CLOCK_SECOND * 0.1));
 
       PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));
 
