@@ -51,7 +51,7 @@ def getTimeSpans(first, last, filename):
 
 def main():
 
-    for filename in glob.glob("*.csv"):
+    for filename in glob.glob("*.CSV"):
         parse(csvToMatrix(filename), filename)
         print(filename)
 
