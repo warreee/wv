@@ -22,9 +22,9 @@ PROCESS_THREAD(transmit_power_usage_process, ev, data)
 {
   static struct etimer et;
 
-  // watch out with packet size, this component does NOT allocate the
+  // watch out with buffer size, this component does NOT allocate the
   // bytes to be sent on the heap, so watch out for overflow
-#define PACKET_SIZE 2 
+#define BROADCAST_BUFFER_SIZE 2 
   
   PROCESS_EXITHANDLER(broadcast_close(&broadcast);)
     
@@ -39,16 +39,13 @@ PROCESS_THREAD(transmit_power_usage_process, ev, data)
 
   PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));
     
-  uint8_t buffer[PACKET_SIZE];
-
-  memset( (void *)buffer, '\0', PACKET_SIZE);
       
   while (1) {
-    // wait
-    etimer_set(&et, (CLOCK_SECOND * 0.1));
-    PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));
-    
-    packetbuf_copyfrom((void *) buffer, PACKET_SIZE);
+    uint8_t *buffer = (uint8_t * ) malloc(BROADCAST_BUFFER_SIZE * sizeof(uint8_t));
+
+    memset( (void *)buffer, '\0', BROADCAST_BUFFER_SIZE);
+  
+    packetbuf_copyfrom((void *) buffer, BROADCAST_BUFFER_SIZE);
       
     //Pin hoog
     PORTE |= _BV(PE6);
@@ -58,6 +55,9 @@ PROCESS_THREAD(transmit_power_usage_process, ev, data)
     //Pin laag
     PORTE &= ~(_BV(PE6));
 
+    // wait
+    etimer_set(&et, (CLOCK_SECOND * 0.1));
+    PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));
   }
 
   
