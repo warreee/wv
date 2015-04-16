@@ -22,8 +22,8 @@ PROCESS_THREAD(transmit_power_usage_process, ev, data)
 {
   static struct etimer et;
 
-  // watch out with buffer size, this component does NOT allocate the
-  // bytes to be sent on the heap, so watch out for overflow
+  // watch out with buffer size, the buffer has to be copied to the
+  // packet buffer which by default has max size 128 bytes
 #define BROADCAST_BUFFER_SIZE 2 
   
   PROCESS_EXITHANDLER(broadcast_close(&broadcast);)
@@ -39,12 +39,12 @@ PROCESS_THREAD(transmit_power_usage_process, ev, data)
 
   PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));
     
+  uint8_t buffer[BROADCAST_BUFFER_SIZE];
+
+  memset( (void *)buffer, '\0', BROADCAST_BUFFER_SIZE);
       
   while (1) {
-    uint8_t *buffer = (uint8_t * ) malloc(BROADCAST_BUFFER_SIZE * sizeof(uint8_t));
-
-    memset( (void *)buffer, '\0', BROADCAST_BUFFER_SIZE);
-  
+    
     packetbuf_copyfrom((void *) buffer, BROADCAST_BUFFER_SIZE);
       
     //Pin hoog
