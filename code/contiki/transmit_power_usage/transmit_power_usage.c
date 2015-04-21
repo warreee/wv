@@ -5,6 +5,7 @@
 
 #include <stdio.h> /* For printf() */
 #include <stdlib.h> /* For malloc */
+#include "net/netstack.h"
 /*---------------------------------------------------------------------------*/
 PROCESS(transmit_power_usage_process, "TRANSMIT power usage meter");
 AUTOSTART_PROCESSES(&transmit_power_usage_process);
@@ -25,7 +26,6 @@ PROCESS_THREAD(transmit_power_usage_process, ev, data)
   // watch out with buffer size, the buffer has to be copied to the
   // packet buffer which by default has max size 128 bytes
 
-  
   NETSTACK_MAC.off(0); //mac off
   NETSTACK_RADIO.off(); //radios off
 #define BROADCAST_BUFFER_SIZE 2
