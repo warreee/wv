@@ -24,34 +24,40 @@ PROCESS_THREAD(transmit_power_usage_process, ev, data)
 
   // watch out with buffer size, the buffer has to be copied to the
   // packet buffer which by default has max size 128 bytes
-#define BROADCAST_BUFFER_SIZE 2 
+
   
+  NETSTACK_MAC.off(0); //mac off
+  NETSTACK_RADIO.off(); //radios off
+#define BROADCAST_BUFFER_SIZE 2
+
   PROCESS_EXITHANDLER(broadcast_close(&broadcast);)
-    
+
   PROCESS_BEGIN();
 
   broadcast_open(&broadcast, 129, &broadcast_call);
-  
+
   // initialise pin
   DDRE |= _BV(PE6);
 
   etimer_set(&et, (CLOCK_SECOND * 1));
 
   PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));
-    
+
   uint8_t buffer[BROADCAST_BUFFER_SIZE];
 
   memset( (void *)buffer, '\0', BROADCAST_BUFFER_SIZE);
-      
+
   while (1) {
-    
+
     packetbuf_copyfrom((void *) buffer, BROADCAST_BUFFER_SIZE);
-      
+
     //Pin hoog
     PORTE |= _BV(PE6);
 
+    NETSTACK_RADIO.on(); //radios off
     broadcast_send(&broadcast);
-    
+    NETSTACK_RADIO.off(); //radios off
+
     //Pin laag
     PORTE &= ~(_BV(PE6));
 
@@ -60,7 +66,7 @@ PROCESS_THREAD(transmit_power_usage_process, ev, data)
     PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));
   }
 
-  
+
   PROCESS_END();
 }
 /*---------------------------------------------------------------------------*/
