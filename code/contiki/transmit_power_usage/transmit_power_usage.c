@@ -26,14 +26,13 @@ PROCESS_THREAD(transmit_power_usage_process, ev, data)
   // watch out with buffer size, the buffer has to be copied to the
   // packet buffer which by default has max size 128 bytes
 
-  NETSTACK_MAC.off(0); //mac off
-  NETSTACK_RADIO.off(); //radios off
-#define BROADCAST_BUFFER_SIZE 2
+#define BROADCAST_BUFFER_SIZE 64
+#define NBPACKETS 64
 
   PROCESS_EXITHANDLER(broadcast_close(&broadcast);)
 
   PROCESS_BEGIN();
-
+  NETSTACK_MAC.off(1); //mac off
   broadcast_open(&broadcast, 129, &broadcast_call);
 
   // initialise pin
@@ -50,19 +49,23 @@ PROCESS_THREAD(transmit_power_usage_process, ev, data)
   while (1) {
 
     packetbuf_copyfrom((void *) buffer, BROADCAST_BUFFER_SIZE);
-
+    int i = 0;
     //Pin hoog
     PORTE |= _BV(PE6);
 
-    NETSTACK_RADIO.on(); //radios on
-    broadcast_send(&broadcast);
-    NETSTACK_RADIO.off(); //radios off
+    
+    for (i = 0; i < NBPACKETS; i++) {
+        if (broadcast_send(&broadcast) == 0) {
+            printf("Whoopsie daisy");            
+        }
+    }    
+    
 
     //Pin laag
     PORTE &= ~(_BV(PE6));
 
     // wait
-    etimer_set(&et, (CLOCK_SECOND * 0.1));
+    etimer_set(&et, (CLOCK_SECOND * 0.05));
     PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));
   }
 
