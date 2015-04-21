@@ -54,7 +54,7 @@ PROCESS_THREAD(transmit_power_usage_process, ev, data)
     //Pin hoog
     PORTE |= _BV(PE6);
 
-    NETSTACK_RADIO.on(); //radios off
+    NETSTACK_RADIO.on(); //radios on
     broadcast_send(&broadcast);
     NETSTACK_RADIO.off(); //radios off
 
