@@ -1,0 +1,114 @@
+\documentclass[presentation, bigger]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fixltx2e}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage[normalem]{ulem}
+\usepackage{textcomp}
+\usepackage{marvosym}
+\usepackage{wasysym}
+\usepackage{latexsym}
+\usepackage{amssymb}
+\usepackage{amstext}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{multimedia}
+\usepackage[dutch]{babel}
+\usepackage[font=scriptsize,labelfont=bf]{caption}
+\setbeamertemplate{caption}[numbered]
+% \usepackage{pgfpages}
+% \setbeameroption{show notes on second screen=right}
+
+\tolerance=1000
+\usetheme{kuleuven}
+\useinnertheme{rectangles}
+\graphicspath{{graphics/}}
+\usepackage[style=authoryear,hyperref,backref,square,natbib,ibidtracker=false]{biblatex}
+\bibliography{bibliography}
+
+\usepackage{graphicx}
+\usetheme{default}
+\author{Ward Schodts, Xavier Goás Aguililla}
+\date{Dinsdag 5 mei 2015}
+\title{Internet of Things code deployment metrics}
+\newcommand{\aheader}[2]{\action<#1-|alert@#1>{#2}}
+% first argument: slide number to appear from, second argument: content of header 
+\newcommand{\hiddencell}[2]{\action<#1->{#2}}
+% first argument: slide number to appear from, second argument: content of cell
+
+\DeclareBibliographyCategory{papers}
+
+
+\begin{document}
+
+\maketitle
+\begin{frame}[noframenumbering]{Outline}
+  \tableofcontents
+  \note{3 grote luiken\\
+  }
+\end{frame}
+
+
+
+\section{Inleiding}
+\label{sec-1}
+\begin{frame}[label=sec-1-1]{Wireless sensor networks}
+
+Hoe uitgebreid moet de introductie?
+\end{frame}
+
+
+\section{Probleemstelling}
+\label{sec-2}
+\begin{frame}[label=sec-2-1]{Probleemstelling}
+
+\end{frame}
+
+\section{Voorgestelde oplossing}
+\label{sec-3}
+
+\begin{frame}[label=sec-1-7]{Voorgestelde oplossing}
+
+\end{frame}
+
+\section{Resultaten}
+\begin{frame}[label=sec-3-3]{Resultaten}
+
+\end{frame}
+
+\section{Demo}
+\begin{frame}{Demo}
+\begin{center}
+\Huge{Demo}
+\end{center}
+\end{frame}
+
+\section{Conclusie}
+\label{sec-4}
+\begin{frame}[label=sec-4-1]{Conclusie}
+Voor of na verder werk laten komen?
+\end{frame}
+
+\section{Verder werk}
+\begin{frame}[label=sec-4-1]{Verder werk}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[allowframebreaks]{Bibliografie}
+
+  \addtocategory{papers}{akyildiz2002wireless}
+  \addtocategory{papers}{mainwaring2002wireless}
+  \addtocategory{papers}{hughes2009looci}
+  \addtocategory{papers}{hughes2013energy}
+  \nocite{*}
+  \textbf{Papers}
+  \printbibliography[category=papers]
+  \newpage
+  \textbf{Afbeeldingen}
+  \printbibliography[type=misc]
+\end{frame}
+
+\end{document}
