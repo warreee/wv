@@ -1,50 +1,50 @@
-%%%% ijcai11.tex
-
-% \typeout{IJCAI-11 Instructions for Authors}
-
-% These are the instructions for authors for IJCAI-11.
-% They are the same as the ones for IJCAI-07 with superficical wording
-%   changes only.
-
 \documentclass{article}
-
-% The file ijcai11.sty is the style file for IJCAI-11 (same as ijcai07.sty).
 \usepackage{ijcai11}
-
-% Lorem ipsum
 \usepackage{lipsum}
-
-% Use the postscript times font!
 \usepackage{times}
-
-% the following package is optional:
 \usepackage{latexsym} 
+\usepackage{todonotes} 
 
 \title{Internet of Things code deployment metrics}
-\author{Ward Schodts, Xavier Go\'as Aguililla}
+\author{Ward Schodts \and Xavier Go\'as Aguililla \\ ward.schodts@student.kuleuven.be \\ xavier.goas@student.kuleuven.be}
 
 \begin{document}
 
 \maketitle
 
 \begin{abstract}
-  \lipsum[1]
+We propose a simple, rule-of-thumb metric for deciding where to deploy
+functionality in wireless sensor networks. 
+  
+\lipsum[1]
 \end{abstract}
 
 \section{Introduction}
 
-  \lipsum[2]
+\todo[inline]{explain what WSNs are?}
 
-\subsection{A subsection}
+Energy efficiency is a key concern in the development of wireless
+sensor networks. Typically, WSN motes do not have access to an
+unlimited power source, but have to make do with batteries. It is
+desirable for the motes to make good use of these batteries in order
+for the network to have a long lifespan. This has made research on
+energy efficiency an important part of research on WSNs in general,
+impacting OS development, network protocols, topology studies ...
 
-  \lipsum[3]
+The most widely used approach for developing WSN applications is
+`sense and send', in which motes do one thing: transmit the data
+coming from their sensors as it comes in. This, of course, is the most
+naive method possible. 
 
-\section{Another section}
+\section{Materials and methods}
 
-  \lipsum[4]
+\lipsum[3]
 
-\section{Conclusion}
- \lipsum[5]
+\section{Results}
+\lipsum[4]
+\section{Conclusion \& future work}
+
+\lipsum[5]
 
 %% The file named.bst is a bibliography style file for BibTeX 0.99c
 \bibliographystyle{named}

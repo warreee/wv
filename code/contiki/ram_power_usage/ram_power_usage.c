@@ -4,6 +4,7 @@
 
 #include <stdio.h> /* For printf() */
 #include <stdlib.h> /* For malloc */
+#include "net/netstack.h"
 /*---------------------------------------------------------------------------*/
 PROCESS(ram_power_usage_process, "RAM power usage meter");
 AUTOSTART_PROCESSES(&ram_power_usage_process);
@@ -14,13 +15,14 @@ PROCESS_THREAD(ram_power_usage_process, ev, data)
   
   PROCESS_BEGIN();
 
-#define MAX_BYTES_TO_WRITE 2048
+#define MAX_BYTES_TO_WRITE 8192
   
 
   // initialise pin
   DDRE |= _BV(PE6);
 
-  // loop variables
+  NETSTACK_MAC.off(0); //mac off
+  NETSTACK_RADIO.off(); //radios off
 
 
   while (1) {
@@ -55,7 +57,7 @@ PROCESS_THREAD(ram_power_usage_process, ev, data)
 
       free(buffer);      
 
-      etimer_set(&et, (CLOCK_SECOND * 0.1));
+      etimer_set(&et, (CLOCK_SECOND * 0.01));
 
       PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));
 
