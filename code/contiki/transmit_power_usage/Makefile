@@ -1,4 +1,5 @@
 CONTIKI_PROJECT = transmit_power_usage
+APPS=servreg-hack
 # APPS+=powertrace
 all: $(CONTIKI_PROJECT)
 
@@ -6,5 +7,8 @@ upload:
 	make all
 	make $(CONTIKI_PROJECT).avr-zigduino.u
 
-CONTIKI = $(LOOCI)/looci2-contiki-os/contiki-2.7/
+WITH_UIP6=1
+UIP_CONF_IPV6=1
+CFLAGS+= -DUIP_CONF_IPV6_RPL
+CONTIKI = $(LOOCI)/looci2-contiki-os/contiki-2.7
 include $(CONTIKI)/Makefile.include

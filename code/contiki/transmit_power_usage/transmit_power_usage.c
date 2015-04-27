@@ -1,71 +1,107 @@
-#include "contiki.h"
-#include "string.h"
-#include "net/rime.h"
-#include <avr/io.h>
+/*
+ * Copyright (c) 2011, Swedish Institute of Computer Science.
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ * 1. Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ * 2. Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ * 3. Neither the name of the Institute nor the names of its contributors
+ *    may be used to endorse or promote products derived from this software
+ *    without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE INSTITUTE AND CONTRIBUTORS ``AS IS'' AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED.  IN NO EVENT SHALL THE INSTITUTE OR CONTRIBUTORS BE LIABLE
+ * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+ * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+ * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+ * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+ * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+ * SUCH DAMAGE.
+ *
+ * This file is part of the Contiki operating system.
+ *
+ */
 
-#include <stdio.h> /* For printf() */
-#include <stdlib.h> /* For malloc */
-#include "net/netstack.h"
+#include "contiki.h"
+#include "lib/random.h"
+#include "sys/ctimer.h"
+#include "sys/etimer.h"
+#include "net/uip-ds6.h"
+#include "net/uip.h"
+
+#include "simple-udp.h"
+
+
+#include <avr/io.h>
+#include <stdio.h>
+#include <string.h>
+
+#define UDP_PORT 1234
+
+#define SEND_INTERVAL		(20 * CLOCK_SECOND)
+#define SEND_TIME		(random_rand() % (SEND_INTERVAL))
+
+#define BROADCAST_BUFFER_SIZE 2
+
+static struct simple_udp_connection broadcast_connection;
+
 /*---------------------------------------------------------------------------*/
-PROCESS(transmit_power_usage_process, "TRANSMIT power usage meter");
+PROCESS(transmit_power_usage_process, "UDP broadcast example process");
 AUTOSTART_PROCESSES(&transmit_power_usage_process);
 /*---------------------------------------------------------------------------*/
 static void
-broadcast_recv(struct broadcast_conn *c, const rimeaddr_t *from)
+receiver(struct simple_udp_connection *c,
+         const uip_ipaddr_t *sender_addr,
+         uint16_t sender_port,
+         const uip_ipaddr_t *receiver_addr,
+         uint16_t receiver_port,
+         const uint8_t *data,
+         uint16_t datalen)
 {
-  printf("broadcast message received from %d.%d: '%s'\n",
-         from->u8[0], from->u8[1], (char *)packetbuf_dataptr());
+  printf("Data received on port %d from port %d with length %d\n",
+         receiver_port, sender_port, datalen);
 }
-static const struct broadcast_callbacks broadcast_call = {broadcast_recv};
-static struct broadcast_conn broadcast;
 /*---------------------------------------------------------------------------*/
 PROCESS_THREAD(transmit_power_usage_process, ev, data)
 {
-  static struct etimer et;
-
-  // watch out with buffer size, the buffer has to be copied to the
-  // packet buffer which by default has max size 128 bytes
-
-  NETSTACK_MAC.off(0); //mac off
-  NETSTACK_RADIO.off(); //radios off
-#define BROADCAST_BUFFER_SIZE 2
-
-  PROCESS_EXITHANDLER(broadcast_close(&broadcast);)
+  static struct etimer periodic_timer;
+  uip_ipaddr_t addr;
 
   PROCESS_BEGIN();
 
-  broadcast_open(&broadcast, 129, &broadcast_call);
-
-  // initialise pin
   DDRE |= _BV(PE6);
 
-  etimer_set(&et, (CLOCK_SECOND * 1));
+  NETSTACK_MAC.off(1); //mac off
+  NETSTACK_RADIO.on(); //antenna always on
 
-  PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));
+  simple_udp_register(&broadcast_connection, UDP_PORT,
+                      NULL, UDP_PORT,
+                      receiver);
 
   uint8_t buffer[BROADCAST_BUFFER_SIZE];
+  memset((void *) buffer, '\0', BROADCAST_BUFFER_SIZE);
 
-  memset( (void *)buffer, '\0', BROADCAST_BUFFER_SIZE);
-
-  while (1) {
-
-    packetbuf_copyfrom((void *) buffer, BROADCAST_BUFFER_SIZE);
+  while(1) {
+    etimer_set(&periodic_timer, SEND_INTERVAL);
+    PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&periodic_timer));
 
     //Pin hoog
     PORTE |= _BV(PE6);
 
-    NETSTACK_RADIO.on(); //radios on
-    broadcast_send(&broadcast);
-    NETSTACK_RADIO.off(); //radios off
+    uip_create_linklocal_allnodes_mcast(&addr);
+    simple_udp_sendto(&broadcast_connection, (void *) buffer, 4, &addr);
 
     //Pin laag
     PORTE &= ~(_BV(PE6));
-
-    // wait
-    etimer_set(&et, (CLOCK_SECOND * 0.1));
-    PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));
   }
-
 
   PROCESS_END();
 }
