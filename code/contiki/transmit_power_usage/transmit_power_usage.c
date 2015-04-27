@@ -46,10 +46,10 @@
 
 #define UDP_PORT 1234
 
-#define SEND_INTERVAL		(20 * CLOCK_SECOND)
-#define SEND_TIME		(random_rand() % (SEND_INTERVAL))
+#define SEND_INTERVAL		(0.1 * CLOCK_SECOND)
 
-#define BROADCAST_BUFFER_SIZE 2
+
+#define BROADCAST_BUFFER_SIZE 64
 
 static struct simple_udp_connection broadcast_connection;
 
@@ -97,7 +97,10 @@ PROCESS_THREAD(transmit_power_usage_process, ev, data)
     PORTE |= _BV(PE6);
 
     uip_create_linklocal_allnodes_mcast(&addr);
-    simple_udp_sendto(&broadcast_connection, (void *) buffer, 4, &addr);
+
+    if (simple_udp_sendto(&broadcast_connection, "PornoPornoPornoPornoPornoPornoPornoPornoPornoPornoPornoPornoPornoPornoPornoPorno", 4, &addr)) {
+        printf("Pipi");
+    }
 
     //Pin laag
     PORTE &= ~(_BV(PE6));
