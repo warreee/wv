@@ -118,35 +118,37 @@
 
 
 \section{Probleemstelling}
-\begin{frame}{Probleemstelling}
-Onze focus:
-\begin{block}{energie-effici\"ent}
-      tot 10 jaar meegaan op \'e\'en batterij
-    \end{block}
-   
-
-\end{frame}
 
 \begin{frame}{Probleemstelling}
-
+\hiddencell{1}{	\large{Onze focus: \textbf{energie-efficiëntie}.}}
+\hiddencell{2}{
 \begin{exampleblock}{}
   {\textbf{Onderzoeksvraag:} is het energie-efficiënter om gegevens te verwerken op een embedded IoT toestel of op de back-end van het systeem?}
-\end{exampleblock}
+\end{exampleblock}}
+
+\hiddencell{3}{
 \begin{center}
 
 \begin{tikzpicture}
-\filldraw[blue_kuleuven] (0,0) -- (4,0) -- (2,-1) -- (0,0);
-\node[text width=3cm] at (2.15,-0.25) {\textcolor{white}{Concretisering}};
+\filldraw[blue_kuleuven] (0,0) -- (5,0) -- (2.5,-1) -- (0,0);
+\node[text width=3cm] at (2.34,-0.25) {\textcolor{white}{Concretisering}};
 \end{tikzpicture}
  
 \end{center}
 \begin{exampleblock}{}
   {\textbf{Onderzoeksopgave:} introduceer een simpele ?metric? om vlug te kunnen bepalen waar er bepaalde code moet uitgevoerd worden.}
 \end{exampleblock}
+}
 \end{frame}
 
 \section{Methodologie}
 \begin{frame}{Methodologie}
+\large{Energie berekenen voor:}
+\vfill
+\begin{tabular}{c c c}
+      \hiddencell{2}{\includegraphics[width=0.25\textwidth,keepaspectration=true]{storage}} & \hiddencell{3}{\includegraphics[width=0.25\textwidth,keepaspectration=true]{cpu}} & \hiddencell{4}{\includegraphics[width=0.25\textwidth,keepaspectration=true]{radio}}  \\
+      \hiddencell{2}{flash-opslag} & \hiddencell{3}{berekeningen} & \hiddencell{4}{netwerkoverdracht}
+    \end{tabular}
 
 \end{frame}
 
