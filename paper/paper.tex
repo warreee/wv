@@ -4,6 +4,7 @@
 \usepackage{times}
 \usepackage{latexsym} 
 \usepackage{todonotes} 
+\usepackage[dutch]{babel} 
 
 \title{Internet of Things code deployment metrics}
 \author{Ward Schodts \and Xavier Go\'as Aguililla \\ ward.schodts@student.kuleuven.be \\ xavier.goas@student.kuleuven.be}
@@ -13,39 +14,52 @@
 \maketitle
 
 \begin{abstract}
-We propose a simple, rule-of-thumb metric for deciding where to deploy
-functionality in wireless sensor networks. 
+Wij stellen een simpele vuistregel voor die kan dienen om te beslissen of een
+bepaald stuk applicatielogica op een mote kan draaien zonder energie- of
+performantieverlies.
   
-\lipsum[1]
+% \lipsum[1]
 \end{abstract}
 
-\section{Introduction}
+\section{Inleiding \& probleemstelling}
 
 \todo[inline]{explain what WSNs are?}
 
-Energy efficiency is a key concern in the development of wireless
-sensor networks. Typically, WSN motes do not have access to an
-unlimited power source, but have to make do with batteries. It is
-desirable for the motes to make good use of these batteries in order
-for the network to have a long lifespan. This has made research on
-energy efficiency an important part of research on WSNs in general,
-impacting OS development, network protocols, topology studies ...
+Energie-effici\"entie is een cruciale factor op alle niveau's bij het
+ontwikkelen van wireless sensor networks: een typische mote heeft geen toegang
+tot een onbeperkte stroombron en moet het doen met een batterij. Deze batterij
+kan in veel scenario's waarin WSNs worden gebruikt ook niet hernieuwd worden, en
+dus is de levensduur van de mote ook afhankelijk van hoe zuinig hij omspringt
+met energie. Het is dan ook geen wonder dat veel research in het gebied
+rechtstreeks wordt be\"invloed door deze kwestie: van de ontwikkeling van
+besturingssystemen voor motes over netwerkprotocollen tot studies van
+netwerktopologie\"en.
 
-WSN motes themselves have very little computational power and storage space, and
-are bad at concurrency. Therefore, the most widely used type of code deployed to
-WSN motes is `sense and send', in which motes do one thing: transmit the data
-coming from their sensors as it comes in. This, of course, is the most naive
-method possible.
+Een typische mote heeft ook erg beperkte reken- en opslagcapaciteit, wat
+verhindert dat er meerdere processen op effici\"ente wijze concurrent kunnen
+worden uitgevoerd. In het algemeen gaat men daarom een simpele strategie
+toepassen voor dataverwerking, waarbij de mote \'e\'en enkele
+verantwoordelijkheid heeft, het zgn. 'sense and send': sensordata wordt op de
+motes niet bewerkt, maar meteen doorgestuurd naar de backend voor verdere
+verwerking, waardoor de rol van de motes bij het verwerken van de data
+geminimaliseerd wordt.
 
-\section{Materials and methods}
+Dit is de na\"iefste aanpak die men kan gebruiken, en steunt net op het deel van
+mote dat het gulzigst is met energie: de antenne.  De vraag dringt zich op: is
+er geen manier om van de weliswaar beperkte rekenkracht van de motes gebruik te
+maken om effici\"enter om te springen met de antenne? En is het mogelijk een
+simpele, algemene maatstaf te gebruiken om te beslissen of dit in een specifiek
+deployment scenario kan of niet?
 
-\lipsum[3]
+\section{Methodologie}
 
-\section{Results}
-\lipsum[4]
-\section{Conclusion \& future work}
+% \lipsum[3]
 
-\lipsum[5]
+\section{Resultaten}
+% \lipsum[4]
+\section{Conclusie \& verder werk}
+
+% \lipsum[5]
 
 %% The file named.bst is a bibliography style file for BibTeX 0.99c
 \bibliographystyle{named}
