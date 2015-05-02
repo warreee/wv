@@ -12,7 +12,10 @@
     "times"
     "latexsym"
     "todonotes"
+    "amsmath"
     "babel")
+   (LaTeX-add-labels
+    "fig:meetopstelling")
    (LaTeX-add-bibliographies
     "bibliography")))
 

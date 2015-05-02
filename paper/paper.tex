@@ -4,6 +4,7 @@
 \usepackage{times}
 \usepackage{latexsym} 
 \usepackage{todonotes} 
+\usepackage{amsmath} 
 \usepackage[dutch]{babel} 
 
 \title{Internet of Things code deployment metrics}
@@ -15,15 +16,16 @@
 
 \begin{abstract}
 Wij stellen een simpele vuistregel voor die kan dienen om te beslissen of een
-bepaald stuk applicatielogica op een mote kan draaien zonder energie- of
+bepaald stuk applicatielogica op een mote kan draaien zonder lokaal energie- of
 performantieverlies.
   
-% \lipsum[1]
 \end{abstract}
 
-\section{Inleiding \& probleemstelling}
+\section{Situering \& probleemstelling}
 
 \todo[inline]{explain what WSNs are?}
+
+\subsection{Wat}
 
 Energie-effici\"entie is een cruciale factor op alle niveau's bij het
 ontwikkelen van wireless sensor networks: een typische mote heeft geen toegang
@@ -51,17 +53,107 @@ maken om effici\"enter om te springen met de antenne? En is het mogelijk een
 simpele, algemene maatstaf te gebruiken om te beslissen of dit in een specifiek
 deployment scenario kan of niet?
 
+\subsection{Waarom?}
 \section{Methodologie}
+\subsection{Een \textit{code deployment metric}}
+We vertrekken vanuit de veronderstelling dat de ontwikkelaar een stuk
+applicatielogica rechtstreeks op de motes wilt deployen. Vanuit deze optiek
+maken we abstractie van de low-level details van simulatie e.d., en gebruiken we
+in plaats daarvan een eenvoudige vuistregel (\textit{code deployment
+metric}. Deze geeft een makkelijke ja/nee-beslissing die zegt of we kunnen
+deployen of niet. We kunnen deze uitdrukken als volgt:
 
-% \lipsum[3]
+\begin{equation}
+  \begin{split}
+    cost(reduce(input)) + cost(transfer(m)) \\ 
+    \leq \\ 
+    cost(transfer(n))
+  \end{split}
+\end{equation}
+
+Waarbij $n$ de grootte van de sensordata in bytes is, en $m$ de verwachte
+grootte van de output van de functie compute toegepast op de sensorinput, ook in
+bytes.
+
+Wat deze ongelijkheid afweegt is: gegeven een reductie van de sensordata van $n$ naar
+$m$ bytes, is de som van de kost van deze reductie op een input van een bepaalde
+grootte en de kost van het verzenden van de output van deze reductie kleiner dan
+de kost van het verzenden van de originele input?
+
+De aard van deze reductie ligt niet vast. In eerste instantie zouden we kunnen
+denken aan een louter computationeel proces dat het aantal over te dragen bytes
+reduceert en dan meteen overdraagt (bijvoorbeeld een compressiealgoritme), maar
+we kunnen evengoed de sensordata aggregeren in het geheugen, zodat de
+transferkost daar nul wordt.\footnote{Merk ook op dat de kost van het verzenden
+van gegevens niet lineair is -- er is geen garantie dat $cost(transfer(x)) +
+cost(transfer(y)) = cost(transfer(x + y))$. In een keer $x + y$ bytes versturen
+kan dus voordeliger uitkomen dan $x$ en $y$ bytes apart te verzenden.}
+
+\subsection{Benodigdheden}
+
+De kwestie is nu om wat we theoretisch uiteen hebben gezet in te vullen met
+empirische data: hoe berekenen wij de kost van het verzenden en verwerken van
+gegevens concreet? We berekenen het kostenplaatje \textit{atomisch}: we kiezen
+bepaalde eenheden voor de drie componenten van het energieverbruik die we kunnen
+be\ïnvloeden:
+
+\begin{itemize}
+\item \textbf{storage}: hoeveel kost het om $n$ bytes op te slaan in het RAM of
+het EEPROM?
+\item \textbf{computation}: hoeveel kosten $n$ seconden CPU-tijd?
+\item \textbf{transmission}: hoeveel kost het om $n$ bytes te verzenden; hoeveel
+kost het om de antenne aan en uit te zetten?
+\end{itemize}
+
+Een eerste reflex is om naar de technische fiche van de motes te grijpen. die
+zijn dan wel vrij betrouwbaar, maar geven metingen weer die als het ware in een
+vacu\üm zijn gedaan: de kost van het draaien van het OS, van het op laten staan
+van de antenne in low power listening modus, enz. worden hierin niet
+meegerekend. We zijn daarom experimenteel gaan uitzoeken wat de kost was van elk
+van deze types.
+
+\subsection{Meetopstelling en materialen}
+
+Voor onze metingen maakten wij gebruik van de AVR Zigduino. Deze werd
+aangesloten op een circuit met spanning 6V en stroom 0.04A.
+
+Voor het meten van het energieverbruik gedurende een bepaalde periode maken we gebruik van het volgende circuit:
+
+\begin{figure}[h]
+\centering
+\missingfigure
+\caption{De meetopstelling}
+\label{fig:meetopstelling}
+\end{figure}
+
+De oscilloscoop meet de spanning in het circuit. De weerstand kan aan en uit
+worden gezet door de mote door het pin-outsignaal te flippen. Er is enkel stroom
+in het circuit als het signaal op hoog staat; die periodes zijn duidelijk af te
+lezen op de output van oscilloscoop. We kunnen gebruik maken van de wet van Ohm
+om de verbruikte stroom in die intervallen te meten. Daardoor kunnen we met
+goede precisie meten hoeveel energie een bepaald stuk code verbruikt.
+
+\subsection{De tool}
+
+\subsection{Een concreet stappenplan voor deployers}
+
 
 \section{Resultaten}
-% \lipsum[4]
+
+\subsection{Kostmetingen}
+\begin{itemize}
+\item Onze experimenten wijzen uit dat opslag in het RAM-geheugen zeer goedkoop
+is.
+\item 
+\end{itemize}
+\subsection{Een voorbeeldscenario: temperatuurmetingen}
+
 \section{Conclusie \& verder werk}
 
-% \lipsum[5]
+\subsection{Volledige netwerktopologie\ën}
 
-%% The file named.bst is a bibliography style file for BibTeX 0.99c
+Conclusies uitbreiden naar volledige netwereken (past mooi binnen pyramidestructuur) gebruik maken van aantal hops (indien bvb de node z’n geheugen vol is, of door het beschouwen van de kost van de transmissie over meerdere nodes). Bijvoorbeeld: metric zegt nee voor een enkele node, maar de kost van het reduceren van de output zorgt ervoor dat de transmissiekost over het netwerk als geheel in functie van het aantal hops groter is dan de kost van het reduceren van de output. Maak gebruik van zowel de cost van verzenden als ontvangen.
+
 \bibliographystyle{named}
 \bibliography{bibliography}
 
