@@ -1,4 +1,5 @@
  \documentclass[presentation, bigger]{beamer}
+ \usepackage{etex}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{fixltx2e}
@@ -27,6 +28,35 @@
 \newcommand{\tabitem}{~~\llap{\textbullet}~~}
 \usepackage{enumitem}
 \usepackage{booktabs}
+
+%%code
+\usepackage{listings}
+\usepackage{color}
+\usepackage{verbatim}
+ 
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+ 
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
 
 \tolerance=1000
 \usetheme{kuleuven}
@@ -240,6 +270,56 @@
 
 \begin{frame}{Methodologie}
  
+\begin{tabular}{ p{0.47\textwidth}  p{0.47\textwidth}   }
+
+\begin{itemize}
+      \item \textbf{1.} Maak component met triggers
+      \hiddencell{2}{\item \textbf{2.} Laten uitvoeren}
+      \hiddencell{3}{\item \textbf{3.} Verwerk de data}
+      \end{itemize}
+& 
+%TODO XAVIER zorgen dat dit een mooi code voor wordt zie volgende lijn: 
+%\lstinputlisting[language=C]{vbcode.c}
+\\
+\hiddencell{2}{
+\raisebox{-\totalheight}{\includegraphics[width=0.4\textwidth,keepaspectration=true]{osc}}}
+
+& 
+\hiddencell{3}{
+\begin{itemize} %TODO XAVIER omzetten naar verbatim
+      \item Tijd[s],CH1,CH2
+      \item 0.002552,-200e-3,0
+      \item 0.00256,-240e-3,0
+      \item 0.002568,-240e-3,3.48
+      \item 0.002576,-240e-3,3.48
+      \end{itemize}}
+\\  
+\end{tabular}    
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Methodologie}
+ 
+     \begin{tabular}{ p{0.3\textwidth}  p{0.6\textwidth}   }
+     \toprule
+      \multicolumn{1}{c}{RAM-opslag} &      \multicolumn{1}{c}{Verwacht resultaat?}  \\ 
+    \cmidrule(r){1-1}\cmidrule(lr){2-2}
+     \raisebox{-\totalheight}{\includegraphics[width=0.3\textwidth,keepaspectration=true]{storage}}
+      & 
+      \begin{itemize}
+      \item \tabitem Grootte: $16kB$
+      \item \tabitem Beschikbaar: $\pm 8kB$
+      \item \tabitem Verwachten een lineair verband
+      \item \tabitem Telkens groter aantal bytes schrijven
+      \end{itemize}
+      \\ 
+      
+      \end{tabular}
+     
+\end{frame}
+
+\begin{frame}{Methodologie}
+ 
      \begin{tabular}{ c }
      \toprule
       \multicolumn{1}{c}{RAM-opslag}   \\ 
@@ -252,8 +332,97 @@
      
 \end{frame}
 
-\begin{frame}{Voorgestelde oplossing}
+\begin{frame}{Methodologie}
+ 
+     \begin{tabular}{ p{0.25\textwidth}  p{0.7\textwidth}   }
+     \toprule
+      \multicolumn{1}{c}{RAM-opslag} &      \multicolumn{1}{c}{Resultaat}  \\ 
+    \cmidrule(r){1-1}\cmidrule(lr){2-2}
+     \raisebox{-\totalheight}{\includegraphics[width=0.25\textwidth,keepaspectration=true]{storage}}
+      & 
+      \begin{itemize}
+      \item \tabitem Grootte: $16kB$
+      \item \tabitem Beschikbaar: $\pm 8kB$
+      \item \tabitem Verwachten een lineair verband
+      \item \tabitem Telkens groter aantal bytes schrijven
+      \end{itemize}
+      
+      \framebox{\large{Lineair $\rightarrow 0.000052892mJ/Byte$}}\\
+      \end{tabular}
+     
+\end{frame}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Methodologie}
+ 
+     \begin{tabular}{ p{0.3\textwidth}  p{0.6\textwidth}   }
+     \toprule
+      \multicolumn{1}{c}{berekeningen} &      \multicolumn{1}{c}{Verwacht resultaat?}  \\ 
+    \cmidrule(r){1-1}\cmidrule(lr){2-2}
+     \raisebox{-\totalheight}{\includegraphics[width=0.3\textwidth,keepaspectration=true]{cpu}}
+      & 
+      \begin{itemize}
+      \item \tabitem Opnieuw flags in code
+      \item \tabitem Aantal cpu cycles tellen
+      \item \tabitem AVRORA
+      \end{itemize}
+      \\ 
+      
+      \end{tabular}
+     
+\end{frame}
+
+\begin{frame}{Methodologie}
+ %TODO juiste afbeelding maken!!!
+     \begin{tabular}{ c }
+     \toprule
+      \multicolumn{1}{c}{berekeningen}   \\ 
+    \hline
+     \raisebox{-\totalheight}{\includegraphics[width=0.95\textwidth,keepaspectration=true]{grafieken/ram_energie}}
+
+      \\ 
+      
+      \end{tabular}
+     
+\end{frame}
+
+\begin{frame}{Methodologie}
+ 
+     \begin{tabular}{ p{0.25\textwidth}  p{0.7\textwidth}   }
+     \toprule
+      \multicolumn{1}{c}{berekeningen} &      \multicolumn{1}{c}{Resultaat}  \\ 
+    \cmidrule(r){1-1}\cmidrule(lr){2-2}
+     \raisebox{-\totalheight}{\includegraphics[width=0.25\textwidth,keepaspectration=true]{cpu}}
+      & 
+      \begin{itemize}
+      \item \tabitem Grootte: $16kB$
+      \item \tabitem Beschikbaar: $\pm 8kB$
+      \item \tabitem Verwachten een lineair verband
+      \item \tabitem Telkens groter aantal bytes schrijven
+      \end{itemize}
+      
+      \framebox{\large{Lineair $\rightarrow 0.000052892mJ/Byte$}}\\
+      \end{tabular}
+     
+\end{frame}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Voorgestelde oplossing}
+
+\begin{frame}{Voorgestelde oplossing}
+%TODO XAVIER: onze metric in een mooie formule gieten
 \end{frame}
 
 \section{Resultaten \& demo}
