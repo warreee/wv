@@ -23,6 +23,10 @@
 % \setbeameroption{show notes on second screen=right}
 \setbeamercolor*{block body example}{bg= blue!5}
 \usepackage{tikz}
+%%
+\newcommand{\tabitem}{~~\llap{\textbullet}~~}
+\usepackage{enumitem}
+\usepackage{booktabs}
 
 \tolerance=1000
 \usetheme{kuleuven}
@@ -73,7 +77,7 @@
     \end{itemize}
   }
 \end{frame}
-
+%TODO foto van eigen mote!
 \begin{frame}{Wireless sensor networks}
   \begin{figure}
     \fbox{\includegraphics[height=0.78\textheight,keepaspectration=true]{intro/psumote.jpg}}
@@ -147,9 +151,91 @@
 \vfill
 \begin{tabular}{c c c}
       \hiddencell{2}{\includegraphics[width=0.25\textwidth,keepaspectration=true]{storage}} & \hiddencell{3}{\includegraphics[width=0.25\textwidth,keepaspectration=true]{cpu}} & \hiddencell{4}{\includegraphics[width=0.25\textwidth,keepaspectration=true]{radio}}  \\
-      \hiddencell{2}{flash-opslag} & \hiddencell{3}{berekeningen} & \hiddencell{4}{netwerkoverdracht}
+      \hiddencell{2}{RAM-opslag} & \hiddencell{3}{berekeningen} & \hiddencell{4}{netwerkoverdracht}
     \end{tabular}
+\end{frame}
 
+\begin{frame}{Methodologie}
+ 
+     \begin{tabular}{ p{0.3\textwidth}  p{0.6\textwidth}   }
+     \toprule
+      \multicolumn{1}{c}{RAM-opslag} &      \multicolumn{1}{c}{Gegevens}  \\ 
+    \cmidrule(r){1-1}\cmidrule(lr){2-2}
+     \raisebox{-\totalheight}{\includegraphics[width=0.3\textwidth,keepaspectration=true]{storage}}
+      & 
+      \begin{itemize}
+      \item \tabitem Data nog niet beschikbaar
+      \item \tabitem Zelf experimenten uitvoeren
+      \end{itemize}
+      \\ 
+      
+      \end{tabular}
+     
+\end{frame}
+
+\begin{frame}{Methodologie}
+ 
+     \begin{tabular}{ p{0.3\textwidth}  p{0.6\textwidth}   }
+     \toprule
+      \multicolumn{1}{c}{Berekeningen} &      \multicolumn{1}{c}{Gegevens}  \\ 
+    \cmidrule(r){1-1}\cmidrule(lr){2-2}
+     \raisebox{-\totalheight}{\includegraphics[width=0.3\textwidth,keepaspectration=true]{cpu}}
+      & 
+      \begin{itemize}
+      \item \tabitem Data nog niet beschikbaar
+      \item \tabitem Moeilijk te meten
+      \item \tabitem Theoretische aanpak
+      \end{itemize}
+      \\ 
+      
+      \end{tabular}
+     
+\end{frame}
+
+\begin{frame}{Methodologie}
+ 
+     \begin{tabular}{ p{0.3\textwidth}  p{0.6\textwidth}   }
+     \toprule
+      \multicolumn{1}{c}{Antenne} &      \multicolumn{1}{c}{Gegevens}  \\ 
+    \cmidrule(r){1-1}\cmidrule(lr){2-2}
+     \raisebox{-\totalheight}
+{\includegraphics[width=0.3\textwidth,keepaspectration=true]{radio}}
+      & 
+      \begin{itemize}
+      \item \tabitem Data deels beschikbaar
+      \item \tabitem Experimenten uitvoeren
+      \item \tabitem Theoretische aanpak
+      \end{itemize}
+      \\ 
+      
+      \end{tabular}
+     
+\end{frame}
+
+
+\begin{frame}{Methodologie}
+  \begin{figure}[center]
+    \centering
+    \includegraphics[width=0.9\textwidth,keepaspectration=true]{elek/dso}
+    \caption{Oscilloscope}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Methodologie}
+  \begin{figure}[center]
+    \centering
+    \includegraphics[width=0.9\textwidth,keepaspectration=true]{elek/diag1}
+    \caption{Meetopstelling}
+  \end{figure}
+\end{frame}
+
+%TODO eigen foto gebruiken!!!
+\begin{frame}{Methodologie}
+  \begin{figure}[center]
+    \centering
+    \includegraphics[width=0.9\textwidth,keepaspectration=true]{elek/diag1}
+    \caption{Meetopstelling}
+  \end{figure}
 \end{frame}
 
 \section{Voorgestelde oplossing}
