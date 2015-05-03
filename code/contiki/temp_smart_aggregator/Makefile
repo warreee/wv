@@ -1,4 +1,4 @@
-CONTIKI_PROJECT = temp_naive_aggregator
+CONTIKI_PROJECT = temp_smart_aggregator
 # APPS+=powertrace
 
 all: $(CONTIKI_PROJECT)

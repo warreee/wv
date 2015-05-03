@@ -1,22 +1,24 @@
 #include "contiki.h"
-#include <avr/io.h>
+#include "dev/sht11.h"
+#include <stdio.h>
 #include "sensors.h"
 #include "temperature-sensor.h"
-
 /*---------------------------------------------------------------------------*/
-PROCESS(temp_sense_n_send, "antenna on, idle");
+PROCESS(temp_sense_n_send_process, "antenna on, idle");
 AUTOSTART_PROCESSES(&temp_sense_n_send_process);
 /*---------------------------------------------------------------------------*/
 PROCESS_THREAD(temp_sense_n_send_process, ev, data)
 {
+  static struct etimer et;
+
+  static uint8_t temps[100] = { 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17 };
+
   PROCESS_BEGIN();
 
-  // Activate the sensor
-  SENSORS_ACTIVATE(temp_sensor);
-  // and wait until the value is available
-  while(!temp_sensor.status(SENSORS_READY)) {
-    PROCESS_WAIT_EVENT_UNTIL(ev == sensors_event && data == &temp_sensor);
+  while (1) {
+
   }
+
   PROCESS_END();
 }
 /*---------------------------------------------------------------------------*/

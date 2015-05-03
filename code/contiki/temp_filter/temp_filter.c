@@ -9,29 +9,37 @@ AUTOSTART_PROCESSES(&temp_filter_process);
 /*---------------------------------------------------------------------------*/
 PROCESS_THREAD(temp_filter_process, ev, data)
 {
-#define AMOUNT_OF_SAMPLES 20
-#define AMOUNT_TO_AVERAGE 
   static struct etimer et;
-  uint8_t *buffer = malloc(sizeof(uint8_t) * AMOUNT_TO_AVERAGE);
+
+#define NUMBER_TO_AVERAGE 20
   
+  static uint8_t avg = 0;
+  static uint8_t n = 0; 
+  static uint8_t fake_temp = 17;
+
   PROCESS_BEGIN();
 
+  while (1) {
 
-  // initialise pin
-  DDRE |= _BV(PE6);
-  
-  uint32_t sampling_round;
-  for (sampling_round = 0; sampling_round < AMOUNT_OF_SAMPLES; sampling_round++) {
-    // flip pin
-    PORTE ^= _BV(PE6);
-  
-    etimer_set(&et, (CLOCK_SECOND * 0.5));
+    //pretend measurement
+    if (n == 0) {
+      avg = fake_temp;
+    } else {
+      avg = (avg * n + fake_temp) / (n + 1);
+    }
+
+    n++;
+
+    if (n == NUMBER_TO_AVERAGE) {
+      // send here, then reset this crap
+      avg = 0;
+      n = 0;
+    }
+
+    etimer_set(&et, (CLOCK_SECOND * 0.1));
 
     PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));
   }
-
-  // pin low
-  PORTE &= ~(_BV(PE6));
 
   PROCESS_END();
 }
