@@ -107,10 +107,25 @@
     \end{itemize}
   }
 \end{frame}
-%TODO foto van eigen mote!
+
 \begin{frame}{Wireless sensor networks}
   \begin{figure}
-    \fbox{\includegraphics[height=0.78\textheight,keepaspectration=true]{intro/psumote.jpg}}
+    \fbox{\includegraphics[height=0.78\textheight,keepaspectration=true]{zigduino.jpg}}
+    \caption{Een PSUMote}
+  \end{figure}
+  \note{
+    \begin{itemize}
+    \item embedded device
+    \item RF antenne, geen wifi, minder energie, groter bereik
+    \item sensoren worden aangesloten
+    \item microcontroller COMPUTEr ON A CHIP
+    \end{itemize}
+  }
+\end{frame}
+
+\begin{frame}{Wireless sensor networks}
+  \begin{figure}
+    \fbox{\includegraphics[height=0.78\textheight,keepaspectration=true]{zigduino_antenne.jpg}}
     \caption{Een PSUMote}
   \end{figure}
   \note{
@@ -213,8 +228,8 @@
       & 
       \begin{itemize}
       \item \tabitem Data nog niet beschikbaar
-      \item \tabitem Moeilijk te meten
-      \item \tabitem Theoretische aanpak
+      \hiddencell{2}{\item \tabitem Moeilijk te meten}
+      \hiddencell{3}{\item \tabitem Theoretische aanpak}
       \end{itemize}
       \\ 
       
@@ -232,8 +247,7 @@
 {\includegraphics[width=0.3\textwidth,keepaspectration=true]{radio}}
       & 
       \begin{itemize}
-      \item \tabitem Data deels beschikbaar
-      \item \tabitem Experimenten uitvoeren
+      \item \tabitem Ook moeilijk te meten
       \item \tabitem Theoretische aanpak
       \end{itemize}
       \\ 
@@ -365,8 +379,10 @@
       & 
       \begin{itemize}
       \item \tabitem Opnieuw flags in code
+      \item \tabitem in AVRORA simuleren
       \item \tabitem Aantal cpu cycles tellen
-      \item \tabitem AVRORA
+      \item \tabitem Theoretische kost berekenen
+      \item \tabitem Verwacht: kost verschilt van component tot component
       \end{itemize}
       \\ 
       
@@ -375,15 +391,20 @@
 \end{frame}
 
 \begin{frame}{Methodologie}
- %TODO juiste afbeelding maken!!!
-     \begin{tabular}{ c }
-     \toprule
-      \multicolumn{1}{c}{berekeningen}   \\ 
-    \hline
-     \raisebox{-\totalheight}{\includegraphics[width=0.95\textwidth,keepaspectration=true]{grafieken/ram_energie}}
 
-      \\ 
-      
+     \begin{tabular}{ p{0.3\textwidth}  p{0.6\textwidth}   }
+     \toprule
+      \multicolumn{1}{c}{berekeningen} &      \multicolumn{1}{c}{Theretische berekening}  \\ 
+    \cmidrule(r){1-1}\cmidrule(lr){2-2}
+     \raisebox{-\totalheight}{\includegraphics[width=0.3\textwidth,keepaspectration=true]{cpu}}
+      & 
+      \begin{itemize}
+      \item \tabitem Snelheid: $16MHz$
+      \item \tabitem \# cycli: $n$
+      \item \tabitem Stroom: $3.7mA$
+      \item \tabitem Voltage: $6V$
+      \end{itemize}
+      \framebox{Energie: $J = C \cdot V = A \cdot s \cdot V$ }
       \end{tabular}
      
 \end{frame}
@@ -397,10 +418,12 @@
      \raisebox{-\totalheight}{\includegraphics[width=0.25\textwidth,keepaspectration=true]{cpu}}
       & 
       \begin{itemize}
-      \item \tabitem ??????
+      \item \tabitem Snelheid: $16MHz$
+      \item \tabitem \# cycli: $n$
+      \item \tabitem Stroom: $3.7mA$
+      \item \tabitem Voltage: $6V$
       \end{itemize}
-      %TODO afmaken!!!
-      \framebox{\large{????????}}\\
+      \framebox{Energie: $J = 0.0037A \cdot \frac{n}{16000000}s \cdot 6V$ }
       \end{tabular}
      
 \end{frame}
