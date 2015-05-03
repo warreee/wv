@@ -17,6 +17,7 @@
    (TeX-run-style-hooks
     "latex2e"
     "beamer10"
+    "etex"
     "inputenc"
     "fontenc"
     "fixltx2e"
@@ -36,10 +37,22 @@
     "multimedia"
     "babel"
     "caption"
+    "tikz"
+    "enumitem"
+    "booktabs"
+    "listings"
+    "color"
+    "verbatim"
     "biblatex")
    (TeX-add-symbols
     '("hiddencell" 2)
-    '("aheader" 2))
+    '("aheader" 2)
+    "tabitem")
    (LaTeX-add-bibliographies
-    "bibliography")))
+    "bibliography")
+   (LaTeX-add-color-definecolors
+    "codegreen"
+    "codegray"
+    "codepurple"
+    "backcolour")))
 
