@@ -47,6 +47,7 @@ PROCESS_THREAD(temp_smart_aggregator_process, ev, data)
 
     PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));
   }
+  
   PROCESS_END();
 }
 /*---------------------------------------------------------------------------*/

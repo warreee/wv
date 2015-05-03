@@ -18,9 +18,13 @@ PROCESS_THREAD(antenna_on_idle_process, ev, data)
   static uint8_t fake_temp = 17;
 
   PROCESS_BEGIN();
+  // initialise pin
+  DDRE |= _BV(PE6);
 
   while (1) {
 
+    //Pin hoog
+    PORTE |= _BV(PE6);
     //pretend measurement
     if (n == 0) {
       avg = fake_temp;
@@ -36,6 +40,8 @@ PROCESS_THREAD(antenna_on_idle_process, ev, data)
       n = 0;
     }
 
+    //Pin laag
+    PORTE &= ~(_BV(PE6));
     etimer_set(&et, (CLOCK_SECOND * 0.1));
 
     PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));
