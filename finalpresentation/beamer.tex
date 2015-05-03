@@ -107,10 +107,25 @@
     \end{itemize}
   }
 \end{frame}
-%TODO foto van eigen mote!
+
 \begin{frame}{Wireless sensor networks}
   \begin{figure}
-    \fbox{\includegraphics[height=0.78\textheight,keepaspectration=true]{intro/psumote.jpg}}
+    \fbox{\includegraphics[height=0.78\textheight,keepaspectration=true]{zigduino.jpg}}
+    \caption{Een PSUMote}
+  \end{figure}
+  \note{
+    \begin{itemize}
+    \item embedded device
+    \item RF antenne, geen wifi, minder energie, groter bereik
+    \item sensoren worden aangesloten
+    \item microcontroller COMPUTEr ON A CHIP
+    \end{itemize}
+  }
+\end{frame}
+
+\begin{frame}{Wireless sensor networks}
+  \begin{figure}
+    \fbox{\includegraphics[height=0.78\textheight,keepaspectration=true]{zigduino_antenne.jpg}}
     \caption{Een PSUMote}
   \end{figure}
   \note{
@@ -195,7 +210,7 @@
       & 
       \begin{itemize}
       \item \tabitem Data nog niet beschikbaar
-      \item \tabitem Zelf experimenten uitvoeren
+      \hiddencell{2}{\item \tabitem Zelf experimenten uitvoeren}
       \end{itemize}
       \\ 
       
@@ -213,8 +228,8 @@
       & 
       \begin{itemize}
       \item \tabitem Data nog niet beschikbaar
-      \item \tabitem Moeilijk te meten
-      \item \tabitem Theoretische aanpak
+      \hiddencell{2}{\item \tabitem Moeilijk te meten}
+      \hiddencell{3}{\item \tabitem Theoretische aanpak}
       \end{itemize}
       \\ 
       
@@ -232,8 +247,8 @@
 {\includegraphics[width=0.3\textwidth,keepaspectration=true]{radio}}
       & 
       \begin{itemize}
-      \item \tabitem Data deels beschikbaar
-      \item \tabitem Experimenten uitvoeren
+      \item \tabitem Bestaat al deels data van
+      \item \tabitem Ook moeilijk te meten
       \item \tabitem Theoretische aanpak
       \end{itemize}
       \\ 
@@ -263,7 +278,7 @@
 \begin{frame}{Methodologie}
   \begin{figure}[center]
     \centering
-    \includegraphics[width=0.9\textwidth,keepaspectration=true]{elek/diag1}
+    \includegraphics[width=0.9\textwidth,keepaspectration=true]{meetopstelling}
     \caption{Meetopstelling}
   \end{figure}
 \end{frame}
@@ -365,8 +380,9 @@
       & 
       \begin{itemize}
       \item \tabitem Opnieuw flags in code
-      \item \tabitem Aantal cpu cycles tellen
-      \item \tabitem AVRORA
+      \item \tabitem Hiermee de tijd meten
+      \item \tabitem Theoretische kost berekenen
+      \item \tabitem Verwacht: kost verschilt van component tot component
       \end{itemize}
       \\ 
       
@@ -375,16 +391,19 @@
 \end{frame}
 
 \begin{frame}{Methodologie}
-\todo{juiste afbeelding maken!!!}
-     \begin{tabular}{ c }
-     \toprule
-      \multicolumn{1}{c}{berekeningen}   \\ 
-    \hline
-     \raisebox{-\totalheight}{\includegraphics[width=0.95\textwidth,keepaspectration=true]{grafieken/ram_energie}}
-     % \raisebox{-\totalheight}{\missingfigure{}}
 
-      \\ 
-      
+     \begin{tabular}{ p{0.3\textwidth}  p{0.6\textwidth}   }
+     \toprule
+      \multicolumn{1}{c}{berekeningen} &      \multicolumn{1}{c}{Theretische berekening}  \\ 
+    \cmidrule(r){1-1}\cmidrule(lr){2-2}
+     \raisebox{-\totalheight}{\includegraphics[width=0.3\textwidth,keepaspectration=true]{cpu}}
+      & 
+      \begin{itemize}
+      \item \tabitem Tijd: $s$
+      \item \tabitem Stroom: $3.7mA$
+      \item \tabitem Voltage: $6V$
+      \end{itemize}
+      \framebox{Energie: $J = C \cdot V = A \cdot s \cdot V$ }
       \end{tabular}
      
 \end{frame}
@@ -398,10 +417,11 @@
      \raisebox{-\totalheight}{\includegraphics[width=0.25\textwidth,keepaspectration=true]{cpu}}
       & 
       \begin{itemize}
-      \item \tabitem ??????
+      \item \tabitem Tijd: $Ns$
+      \item \tabitem Stroom: $3.7mA$
+      \item \tabitem Voltage: $6V$
       \end{itemize}
-      %TODO afmaken!!!
-      \framebox{\large{????????}}\\
+      \framebox{Energie: $= 0.0037A \cdot Ns \cdot 6V$ }
       \end{tabular}
      
 \end{frame}
@@ -417,24 +437,10 @@
      \raisebox{-\totalheight}{\includegraphics[width=0.3\textwidth,keepaspectration=true]{radio}}
       & 
       \begin{itemize}
-      \item \tabitem Ontvangen van gegevens $\rightarrow$ beschikbaar
-      \item \tabitem Verzenden van gegevens $\rightarrow$ theoretisch afleiden
-      \item \tabitem ??? %TODO extra puntje zoeken
+      \item \tabitem Standaard RF-antenne
+      \item \tabitem Vaste opstartkost
+      \item \tabitem Daarna lineaire stijging (in functie van hoeveelheid bytes)
       \end{itemize}
-      \\ 
-      
-      \end{tabular}
-     
-\end{frame}
-
-\begin{frame}{Methodologie}
- %TODO juiste afbeelding maken!!!
-     \begin{tabular}{ c }
-     \toprule
-      \multicolumn{1}{c}{Antenne - ontvangen}   \\ 
-    \hline
-     \raisebox{-\totalheight}{\includegraphics[width=0.95\textwidth,keepaspectration=true]{grafieken/ontvangen_energie}}
-
       \\ 
       
       \end{tabular}
@@ -443,45 +449,60 @@
 
 \begin{frame}{Methodologie}
  
-     \begin{tabular}{ p{0.25\textwidth}  p{0.7\textwidth}   }
+     \begin{tabular}{ p{0.3\textwidth}  p{0.6\textwidth}   }
      \toprule
-      \multicolumn{1}{c}{berekeningen} &      \multicolumn{1}{c}{Resultaat}  \\ 
+      \multicolumn{1}{c}{Antenne} &      \multicolumn{1}{c}{Theoretische berekening}  \\ 
     \cmidrule(r){1-1}\cmidrule(lr){2-2}
-     \raisebox{-\totalheight}{\includegraphics[width=0.25\textwidth,keepaspectration=true]{radio}}
+     \raisebox{-\totalheight}{\includegraphics[width=0.3\textwidth,keepaspectration=true]{radio}}
       & 
       \begin{itemize}
-      \item \tabitem ??????
+      \item \tabitem Tijd: $s$
+      \item \tabitem Hoeveelheid bytes: $N$ 
+      \item \tabitem Constante tijdskost: $113.104ms$
+      \item \tabitem Tijdskost/byte: $0.382ms$
+      \item \tabitem Stroom: $4.0mA$
+      \item \tabitem Voltage: $6V$
+      \item \tabitem $J = C \cdot V = A \cdot s \cdot V$
       \end{itemize}
-      %TODO afmaken!!!
-      \framebox{\large{????????}}\\
+        
       \end{tabular}
-     
+     \begin{center}
+      \framebox{Energie $= 0.004A \cdot (N \cdot 0.382 + 113.104)ms \cdot 6V$ }      
+     \end{center}
 \end{frame}
 
+
+
+
 \begin{frame}{Methodologie}
- %TODO afmaken!!!
-     \begin{tabular}{ p{0.3\textwidth}  p{0.3\textwidth} p{0.3\textwidth}}
+\begin{tabular}{ p{0.3\textwidth}  p{0.3\textwidth} p{0.3\textwidth}}
      \toprule
      & \multicolumn{1}{c}{Overzicht}  & \\ 
       \toprule
       RAM-opslag & berekeningen & Antenne\\
     \cmidrule(r){1-1}\cmidrule(lr){2-2}\cmidrule(l){3-3}
-	\begin{itemize}
-	\item \tabitem Zo goed als kosteloos:
-    \item $0.000052892mJ/Byte$  
-    \end{itemize}
-    & 
-    	\begin{itemize}
-	\item \tabitem Zo goed als kosteloos:
-    \item $0.000052892mJ/Byte$  
-    \end{itemize}
-    & 
-    	\begin{itemize}
-	\item \tabitem Zo goed als kosteloos:
-    \item $0.000052892mJ/Byte$  
-    \end{itemize}
-     \\
-     \end{tabular}
+\end{tabular}      
+\begin{minipage}{.33\textwidth}
+      \centering
+      Variabele: \# bytes\\
+       \vspace{0.25cm}
+      \fbox{$0.000052892mJ/Byte$} 
+      
+    \end{minipage}%
+    \begin{minipage}{.33\textwidth}
+      \centering
+      Variabele N: tijdsduur\\
+      \vspace{0.25cm}
+      \fbox{$0.0037A \cdot Ns \cdot 6V$}
+      
+    \end{minipage}
+     \begin{minipage}{.3\textwidth}
+      \centering
+      Variabele N: tijdsduur\\
+      \vspace{0.35cm}
+      \fbox{\parbox{\textwidth}{$0.004A \cdot (N \cdot 0.382$ \\ $+ 113.104)ms \cdot 6V$}}
+     
+    \end{minipage}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -497,16 +518,11 @@
 %TODO XAVIER: onze metric in een mooie formule gieten
 \end{frame}
 
-\section{Resultaten \& demo}
+\section{Resultaten}
 \begin{frame}{Resultaten}
 
 \end{frame}
 
-\begin{frame}{Demo}
-\begin{center}
-\Huge{Demo}
-\end{center}
-\end{frame}
 
 \section{Conclusie \& verder werk}
 \begin{frame}{Conclusie}
