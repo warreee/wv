@@ -54,8 +54,18 @@ simpele, algemene maatstaf te gebruiken om te beslissen of dit in een specifiek
 deployment scenario kan of niet?
 
 \subsection{Waarom?}
-\section{Methodologie}
-\subsection{Een \textit{code deployment metric}}
+
+
+\subsection{Succescriteria}
+
+Een eenvoudige vuistregel, die:
+\begin{itemize}
+\item In de grote meerderheid van de gevallen een juiste beslissing zal maken;
+\item eenvoudig te integreren is in de ontwikkelingscyclus;
+\item semi-automatisch werkt.
+\end{itemize}
+
+\section{Voorgestelde oplossing}
 We vertrekken vanuit de veronderstelling dat de ontwikkelaar een stuk
 applicatielogica rechtstreeks op de motes wilt deployen. Vanuit deze optiek
 maken we abstractie van de low-level details van simulatie e.d., en gebruiken we
@@ -82,14 +92,36 @@ de kost van het verzenden van de originele input?
 
 De aard van deze reductie ligt niet vast. In eerste instantie zouden we kunnen
 denken aan een louter computationeel proces dat het aantal over te dragen bytes
-reduceert en dan meteen overdraagt (bijvoorbeeld een compressiealgoritme), maar
-we kunnen evengoed de sensordata aggregeren in het geheugen, zodat de
-transferkost daar nul wordt.\footnote{Merk ook op dat de kost van het verzenden
-van gegevens niet lineair is -- er is geen garantie dat $cost(transfer(x)) +
+reduceert en dan meteen overdraagt. Zo'n voorbeeld is een filter: we sturen een
+meting pas door als die verschilt van de vorige verstuurde meting. Maar we
+kunnen evengoed de sensordata aggregeren in het geheugen, zodat de transferkost
+wanneer een meting binnenkomt nul wordt, behalve als de buffer waarin we data
+opslaan vol is.\footnote{Merk ook op dat de kost van het verzenden van gegevens
+niet lineair is -- er is geen garantie dat $cost(transfer(x)) +
 cost(transfer(y)) = cost(transfer(x + y))$. In een keer $x + y$ bytes versturen
-kan dus voordeliger uitkomen dan $x$ en $y$ bytes apart te verzenden.}
+kan dus voordeliger uitkomen dan $x$ en $y$ bytes apart te verzenden.} 
+Ook een combinatie van beide is mogelijk: we kunnen bijvoorbeeld de buffer
+comprimeren door reeksen identieke metingen samen te nemen (filter +
+aggregator). Dit zou theoretisch gezien een grotere winst moeten opleveren.
 
-\subsection{Benodigdheden}
+De aandachtige lezer stelt zich meteen de vraag: hoe kunnen wij de kost van zo'n
+reductie in het algemeen schatten, zuiver uitgaand van het programma? 
+
+\todo{uitweiden}
+
+We laten de programmeur, die zijn programma goed kent, ingrijpen. We nemen als
+input niet enkel het gecompileerde programma, maar ook een set parameters. Deze zijn bijvoorbeeld:
+
+\paragraph{Sensoren.} Hoe groot is de sensordata? Hoe vaak komt er sensordata binnen?
+\paragraph{Geheugenverbruik.} Worden er gegevens bijgehouden in een buffer? Hoeveel? Hoe vaak wordt er naar die buffer geschreven?
+\paragraph{Nauwkeurigheid.} Wat is de gewenste granulariteit van de metingen,
+d.w.z. hoe groot mag het interval tussen twee doorgestuurde metingen zijn?
+\paragraph{Tijdsinformatie.} Hoe vaak wordt er data verzonden?
+\paragraph{Kostfunctie.} Hoeveel kost de reductie aan CPU-tijd?
+\paragraph{Reductiegrootte.} Hoe sterk verkleint de reductie het aantal te
+verzenden bytes?
+
+\section{Methodologie \& materiaal}
 
 De kwestie is nu om wat we theoretisch uiteen hebben gezet in te vullen met
 empirische data: hoe berekenen wij de kost van het verzenden en verwerken van
@@ -135,18 +167,132 @@ goede precisie meten hoeveel energie een bepaald stuk code verbruikt.
 
 \subsection{De tool}
 
+\paragraph{Input voor de tool}
+De tool is geschreven in Python en volgt een simpel stramien: in de directory
+waarin het Contiki-programma staat, moet een parameterbestand in
+Python-configuratieformaat worden opgeslagen. Dat zal er ongeveer als volgt
+uitzien:
+
+\begin{verbatim}
+[sensor]
+sensor_data_size = <int n>
+sensor_data_frequency = <float f>
+[memory]
+buffer_used = <bool b>
+buffer_size = <int n>
+[precision]
+interval_gratularity = <float f>
+data_gratularity = <float f>
+[frequency]
+reduction_frequency = <float f>
+transmission_frequency = <float f>
+[cost]
+cpu_time = <int n>
+[reduction]
+from = <int n>
+to = <int m>
+\end{verbatim}
+
+\paragraph{Parameters schatten.} Sommige van deze parameters liggen niet meteen
+voor de hand. Bij deze een aantal manieren die we gebruikt hebben om deze
+parameters te schatten:
+
+\subparagraph{Kost van de reductie: CPU-tijd.} Momenteel werken wij aan een
+methode om bijna volledig automatisch te bepalen hoeveel CPU-tijd het uitvoeren
+van de reductie ongeveer kost. Deze is echter nog niet volledig op punt. Een
+andere methode is het gebruik van een fysiek meetapparaat om op een soortgelijke
+wijze als bij de energiemetingen te kijken hoe lang het duurt voor de reductie
+uitgevoerd is. Dit geeft een harde bovengrens voor de gebruikte CPU-cycli: we
+hoeven slechts deze tijd te vermenigvuldigen met de klokfrequentie van de
+CPU. Bij de Zigduino is dit 16MHz.
+
+ \subparagraph{Kost van de reductie: frequentie schrijven naar RAM.}
+
+\subparagraph{Reductiegrootte.} De reductiegrootte is vaak
+niet op het eerste zicht in te schatten. Een voorbeeld: neem dat wij een
+temperatuur- en vochtigheidssensor hebben, en we willen op elk mogelijk moment
+weten of het aangenaam of niet aangenaam is waar de mote staat, en we steken dit
+in juist één byte. Dan hebben wij de temperatuur (bijv. twee bytes) en de
+vochtigheidsgraad (bijv. ook twee bytes) gereduceerd naar \'e\'en byte. Dit
+kunnen we zeer gemakkelijk uitwerken.
+
+Maar als we bijvoorbeeld een filter toepassen op onze gegevens, en enkel data
+verzenden wanneer we een significant ander resultaat hebben dan bij de vorige
+meting, dan wordt de situatie complexer: dan hangt de reductiegrootte af van
+bv. hoeveel we willen dat het resultaat van de vorige metingen verschilt voor we
+versturen, hoe vaak de temperatuur en vochtigheidsgraad schommelen op die plek
+(wat op zich weer afhangt van allerlei factoren in de omgeving), enzoverder.
+
+In zo'n situatie is het aangewezen om een slimmere schatting te maken. Een optie
+is om via \textit{sense and send} een steekproef te doen van de temperatuur en
+vochtigheidsgraad en hieruit af te leiden hoe sterk de temperatuur en
+vochtigheidsgraad zullen oscilleren.
+
+\subparagraph{Tijdsinformatie.} Merk op dat in het zonet vermelde geval ook de
+tijdsinformatie op een gelijkaardige manier moet worden afgeleid
+
+\subparagraph{Geheugenverbruik, sensoren, precisie.} Deze liggen geheel in de
+hand van de programmeur; er zijn echter een aantal edge cases. 
+
+\subparagraph{.}
+
 \subsection{Een concreet stappenplan voor deployers}
 
+\subsection{Een voorbeeldscenario: temperatuurmetingen}
 
 \section{Resultaten}
 
+\begin{figure}[h]
+\centering
+\missingfigure{}
+\caption{Energieverbruik schrijven naar RAM}
+\label{fig:energieverbruik_ram}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\missingfigure{}
+\caption{Tijdsduur schrijven naar RAM}
+\label{fig:tijdsduur_ram}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\missingfigure{}
+\caption{Energieverbruik in low-power listening}
+\label{fig:energieverbruik_low_power}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\missingfigure{}
+\caption{Energieverbruik met antenne volledig uit}
+\label{fig:energieverbruik_antenne_uit}
+\end{figure}
+
 \subsection{Kostmetingen}
-\begin{itemize}
-\item Onze experimenten wijzen uit dat opslag in het RAM-geheugen zeer goedkoop
-is.
-\item 
-\end{itemize}
-\subsection{Een voorbeeldscenario: temperatuurmetingen}
+
+Voor kostmetingen zijn we als volgt te werk gegaan:
+
+\begin{enumerate}
+\item Een ruwe meting: we schrijven een programma dat beroep doet op een deel
+van de mote waarvan we het energieverbruik willen berekenen. Bijvoorbeeld: een
+programma dat herhaaldelijk bytes naar een buffer in het RAM. 
+\end{enumerate}
+
+\subsubsection{Schrijven naar RAM}
+
+Schrijven naar RAM is haast gratis en is daarom een zeer goede reductiestrategie. De resultaten zijn te zien op \ref{fig:energieverbruik_ram}.
+
+\subsubsection{Low-power listening}
+
+\subsubsection{Verzenden en ontvangen}
+
+\subsubsection{Basisverbruik}
+
+\subsubsection{CPU-cycli}
+
+\subsection{Voorbeeldscenario: werkt de metric?}
 
 \section{Conclusie \& verder werk}
 
