@@ -17,6 +17,7 @@
    (LaTeX-add-labels
     "fig:meetopstelling"
     "fig:energieverbruik_ram"
+    "fig:tijdsduur_ram"
     "fig:energieverbruik_low_power"
     "fig:energieverbruik_antenne_uit")
    (LaTeX-add-bibliographies

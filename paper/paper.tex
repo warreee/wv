@@ -116,6 +116,10 @@ input niet enkel het gecompileerde programma, maar ook een set parameters. Deze 
 \paragraph{Geheugenverbruik.} Worden er gegevens bijgehouden in een buffer? Hoeveel? Hoe vaak wordt er naar die buffer geschreven?
 \paragraph{Nauwkeurigheid.} Wat is de gewenste granulariteit van de metingen,
 d.w.z. hoe groot mag het interval tussen twee doorgestuurde metingen zijn?
+\paragraph{Tijdsinformatie.} Hoe vaak wordt er data verzonden?
+\paragraph{Kostfunctie.} Hoeveel kost de reductie aan CPU-tijd?
+\paragraph{Reductiegrootte.} Hoe sterk verkleint de reductie het aantal te
+verzenden bytes?
 
 \section{Methodologie \& materiaal}
 
@@ -163,6 +167,75 @@ goede precisie meten hoeveel energie een bepaald stuk code verbruikt.
 
 \subsection{De tool}
 
+\paragraph{Input voor de tool}
+De tool is geschreven in Python en volgt een simpel stramien: in de directory
+waarin het Contiki-programma staat, moet een parameterbestand in
+Python-configuratieformaat worden opgeslagen. Dat zal er ongeveer als volgt
+uitzien:
+
+\begin{verbatim}
+[sensor]
+sensor_data_size = <int n>
+sensor_data_frequency = <float f>
+[memory]
+buffer_used = <bool b>
+buffer_size = <int n>
+[precision]
+interval_gratularity = <float f>
+data_gratularity = <float f>
+[frequency]
+reduction_frequency = <float f>
+transmission_frequency = <float f>
+[cost]
+cpu_time = <int n>
+[reduction]
+from = <int n>
+to = <int m>
+\end{verbatim}
+
+\paragraph{Parameters schatten.} Sommige van deze parameters liggen niet meteen
+voor de hand. Bij deze een aantal manieren die we gebruikt hebben om deze
+parameters te schatten:
+
+\subparagraph{Kost van de reductie: CPU-tijd.} Momenteel werken wij aan een
+methode om bijna volledig automatisch te bepalen hoeveel CPU-tijd het uitvoeren
+van de reductie ongeveer kost. Deze is echter nog niet volledig op punt. Een
+andere methode is het gebruik van een fysiek meetapparaat om op een soortgelijke
+wijze als bij de energiemetingen te kijken hoe lang het duurt voor de reductie
+uitgevoerd is. Dit geeft een harde bovengrens voor de gebruikte CPU-cycli: we
+hoeven slechts deze tijd te vermenigvuldigen met de klokfrequentie van de
+CPU. Bij de Zigduino is dit 16MHz.
+
+ \subparagraph{Kost van de reductie: frequentie schrijven naar RAM.}
+
+\subparagraph{Reductiegrootte.} De reductiegrootte is vaak
+niet op het eerste zicht in te schatten. Een voorbeeld: neem dat wij een
+temperatuur- en vochtigheidssensor hebben, en we willen op elk mogelijk moment
+weten of het aangenaam of niet aangenaam is waar de mote staat, en we steken dit
+in juist één byte. Dan hebben wij de temperatuur (bijv. twee bytes) en de
+vochtigheidsgraad (bijv. ook twee bytes) gereduceerd naar \'e\'en byte. Dit
+kunnen we zeer gemakkelijk uitwerken.
+
+Maar als we bijvoorbeeld een filter toepassen op onze gegevens, en enkel data
+verzenden wanneer we een significant ander resultaat hebben dan bij de vorige
+meting, dan wordt de situatie complexer: dan hangt de reductiegrootte af van
+bv. hoeveel we willen dat het resultaat van de vorige metingen verschilt voor we
+versturen, hoe vaak de temperatuur en vochtigheidsgraad schommelen op die plek
+(wat op zich weer afhangt van allerlei factoren in de omgeving), enzoverder.
+
+In zo'n situatie is het aangewezen om een slimmere schatting te maken. Een optie
+is om via \textit{sense and send} een steekproef te doen van de temperatuur en
+vochtigheidsgraad en hieruit af te leiden hoe sterk de temperatuur en
+vochtigheidsgraad zullen oscilleren.
+
+\subparagraph{Tijdsinformatie.} Merk op dat in het zonet vermelde geval ook de
+tijdsinformatie op een gelijkaardige manier moet worden afgeleid
+
+\subparagraph{Geheugenverbruik, sensoren, precisie.} Deze liggen geheel in de
+hand van de programmeur; er zijn echter een aantal edge cases. 
+
+\subparagraph{.}
+
 \subsection{Een concreet stappenplan voor deployers}
 
 \subsection{Een voorbeeldscenario: temperatuurmetingen}
@@ -180,7 +253,7 @@ goede precisie meten hoeveel energie een bepaald stuk code verbruikt.
 \centering
 \missingfigure{}
 \caption{Tijdsduur schrijven naar RAM}
-\label{fig:energieverbruik_ram}
+\label{fig:tijdsduur_ram}
 \end{figure}
 
 \begin{figure}[h]
@@ -199,7 +272,17 @@ goede precisie meten hoeveel energie een bepaald stuk code verbruikt.
 
 \subsection{Kostmetingen}
 
+Voor kostmetingen zijn we als volgt te werk gegaan:
+
+\begin{enumerate}
+\item Een ruwe meting: we schrijven een programma dat beroep doet op een deel
+van de mote waarvan we het energieverbruik willen berekenen. Bijvoorbeeld: een
+programma dat herhaaldelijk bytes naar een buffer in het RAM. 
+\end{enumerate}
+
 \subsubsection{Schrijven naar RAM}
+
+Schrijven naar RAM is haast gratis en is daarom een zeer goede reductiestrategie. De resultaten zijn te zien op \ref{fig:energieverbruik_ram}.
 
 \subsubsection{Low-power listening}
 
