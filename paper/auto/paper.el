@@ -19,7 +19,10 @@
     "fig:energieverbruik_ram"
     "fig:tijdsduur_ram"
     "fig:energieverbruik_low_power"
-    "fig:energieverbruik_antenne_uit")
+    "fig:energieverbruik_antenne_uit"
+    "fig:energieverbruik_cpu"
+    "fig:voorbeeld_topologie"
+    "fig:sweet_spot")
    (LaTeX-add-bibliographies
     "bibliography")))
 
