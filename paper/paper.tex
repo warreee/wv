@@ -14,6 +14,8 @@
 
 \maketitle
 
+\listoftodos
+
 \begin{abstract}
 Wij stellen een simpele vuistregel voor die kan dienen om te beslissen of een
 bepaald stuk applicatielogica op een mote kan draaien zonder lokaal energie- of
@@ -279,7 +281,14 @@ aangegeven en verwerk ze hierin.
 \label{fig:energieverbruik_antenne_uit}
 \end{figure}
 
-\subsection{Kostmetingen}
+\begin{figure}[h]
+\centering
+\missingfigure{}
+\caption{Energieverbruik CPU-cycli}
+\label{fig:energieverbruik_cpu}
+\end{figure}
+
+\paragraph{Kostmetingen}
 
 Voor kostmetingen zijn we als volgt te werk gegaan:
 
@@ -289,23 +298,31 @@ van de mote waarvan we het energieverbruik willen berekenen. Bijvoorbeeld: een
 programma dat herhaaldelijk bytes naar een buffer in het RAM. 
 \end{enumerate}
 
-\subsubsection{Schrijven naar RAM}
+\subparagraph{Schrijven naar RAM}
 
-Schrijven naar RAM is haast gratis en is daarom een zeer goede reductiestrategie. De resultaten zijn te zien op \ref{fig:energieverbruik_ram}.
+Schrijven naar RAM is haast gratis en is daarom een zeer goede
+reductiestrategie. De resultaten zijn te zien op
+\ref{fig:energieverbruik_ram}. De reden hiervoor is de aard van RAM: het is
+volatiel geheugen, dat voortdurend onder spanning moet staan, en schrijven of
+lezen voegt zeer weinig toe.
 
-\subsubsection{Low-power listening}
+\todo{moet duidelijker}
 
-\subsubsection{Verzenden en ontvangen}
+\subparagraph{Low-power listening}
 
-\subsubsection{Basisverbruik}
+\subparagraph{Verzenden en ontvangen}
 
-\subsubsection{CPU-cycli}
+\subparagraph{Basisverbruik}
+
+\subparagraph{CPU-cycli}
 
 \subsection{Voorbeeldscenario: werkt de metric?}
 
 \section{Conclusie \& verder werk}
 
-\subsection{Volledige netwerktopologie\"en}
+\paragraph{Verder werk.}
+ 
+\subparagraph{Volledige netwerktopologie\"en.}
 
 Conclusies uitbreiden naar volledige netwereken (past mooi binnen
 pyramidestructuur) gebruik maken van aantal hops (indien bvb de node z’n
@@ -316,12 +333,27 @@ het netwerk als geheel in functie van het aantal hops groter is dan de kost van
 het reduceren van de output. Maak gebruik van zowel de cost van verzenden als
 ontvangen.
 
+\begin{figure}[h]
+\centering
+\missingfigure{}
+\caption{Een topologie + toepassing van de metric}
+\label{fig:voorbeeld_topologie}
+\end{figure}
+
 \subsection{De \textit{sweet spot} vinden met behulp van kostfuncties}
 
-
+\begin{figure}[h]
+\centering
+\missingfigure{}
+\caption{Een sweet spot vinden}
+\label{fig:sweet_spot}
+\end{figure}
 
 \bibliographystyle{named}
 \nocite{*}
 \bibliography{bibliography}
 
+\newpage
+\appendix
+\section{Data sets}
 \end{document}
