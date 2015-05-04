@@ -2,14 +2,14 @@
 
 #include "contiki.h"
 #include <avr/io.h>
-
+#include <stdio.h>
 /*---------------------------------------------------------------------------*/
 PROCESS(antenna_on_idle_process, "antenna on, idle");
 AUTOSTART_PROCESSES(&antenna_on_idle_process);
 /*---------------------------------------------------------------------------*/
 PROCESS_THREAD(antenna_on_idle_process, ev, data)
 {
-  static struct etimer et;
+static struct etimer et;
 
 #define NUMBER_TO_AVERAGE 20
   
