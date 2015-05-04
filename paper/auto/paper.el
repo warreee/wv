@@ -15,7 +15,10 @@
     "amsmath"
     "babel")
    (LaTeX-add-labels
-    "fig:meetopstelling")
+    "fig:meetopstelling"
+    "fig:energieverbruik_ram"
+    "fig:energieverbruik_low_power"
+    "fig:energieverbruik_antenne_uit")
    (LaTeX-add-bibliographies
     "bibliography")))
 

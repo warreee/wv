@@ -54,8 +54,18 @@ simpele, algemene maatstaf te gebruiken om te beslissen of dit in een specifiek
 deployment scenario kan of niet?
 
 \subsection{Waarom?}
-\section{Methodologie}
-\subsection{Een \textit{code deployment metric}}
+
+
+\subsection{Succescriteria}
+
+Een eenvoudige vuistregel, die:
+\begin{itemize}
+\item In de grote meerderheid van de gevallen een juiste beslissing zal maken;
+\item eenvoudig te integreren is in de ontwikkelingscyclus;
+\item semi-automatisch werkt.
+\end{itemize}
+
+\section{Voorgestelde oplossing}
 We vertrekken vanuit de veronderstelling dat de ontwikkelaar een stuk
 applicatielogica rechtstreeks op de motes wilt deployen. Vanuit deze optiek
 maken we abstractie van de low-level details van simulatie e.d., en gebruiken we
@@ -82,14 +92,32 @@ de kost van het verzenden van de originele input?
 
 De aard van deze reductie ligt niet vast. In eerste instantie zouden we kunnen
 denken aan een louter computationeel proces dat het aantal over te dragen bytes
-reduceert en dan meteen overdraagt (bijvoorbeeld een compressiealgoritme), maar
-we kunnen evengoed de sensordata aggregeren in het geheugen, zodat de
-transferkost daar nul wordt.\footnote{Merk ook op dat de kost van het verzenden
-van gegevens niet lineair is -- er is geen garantie dat $cost(transfer(x)) +
+reduceert en dan meteen overdraagt. Zo'n voorbeeld is een filter: we sturen een
+meting pas door als die verschilt van de vorige verstuurde meting. Maar we
+kunnen evengoed de sensordata aggregeren in het geheugen, zodat de transferkost
+wanneer een meting binnenkomt nul wordt, behalve als de buffer waarin we data
+opslaan vol is.\footnote{Merk ook op dat de kost van het verzenden van gegevens
+niet lineair is -- er is geen garantie dat $cost(transfer(x)) +
 cost(transfer(y)) = cost(transfer(x + y))$. In een keer $x + y$ bytes versturen
-kan dus voordeliger uitkomen dan $x$ en $y$ bytes apart te verzenden.}
+kan dus voordeliger uitkomen dan $x$ en $y$ bytes apart te verzenden.} 
+Ook een combinatie van beide is mogelijk: we kunnen bijvoorbeeld de buffer
+comprimeren door reeksen identieke metingen samen te nemen (filter +
+aggregator). Dit zou theoretisch gezien een grotere winst moeten opleveren.
 
-\subsection{Benodigdheden}
+De aandachtige lezer stelt zich meteen de vraag: hoe kunnen wij de kost van zo'n
+reductie in het algemeen schatten, zuiver uitgaand van het programma? 
+
+\todo{uitweiden}
+
+We laten de programmeur, die zijn programma goed kent, ingrijpen. We nemen als
+input niet enkel het gecompileerde programma, maar ook een set parameters. Deze zijn bijvoorbeeld:
+
+\paragraph{Sensoren.} Hoe groot is de sensordata? Hoe vaak komt er sensordata binnen?
+\paragraph{Geheugenverbruik.} Worden er gegevens bijgehouden in een buffer? Hoeveel? Hoe vaak wordt er naar die buffer geschreven?
+\paragraph{Nauwkeurigheid.} Wat is de gewenste granulariteit van de metingen,
+d.w.z. hoe groot mag het interval tussen twee doorgestuurde metingen zijn?
+
+\section{Methodologie \& materiaal}
 
 De kwestie is nu om wat we theoretisch uiteen hebben gezet in te vullen met
 empirische data: hoe berekenen wij de kost van het verzenden en verwerken van
@@ -137,16 +165,51 @@ goede precisie meten hoeveel energie een bepaald stuk code verbruikt.
 
 \subsection{Een concreet stappenplan voor deployers}
 
+\subsection{Een voorbeeldscenario: temperatuurmetingen}
 
 \section{Resultaten}
 
+\begin{figure}[h]
+\centering
+\missingfigure{}
+\caption{Energieverbruik schrijven naar RAM}
+\label{fig:energieverbruik_ram}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\missingfigure{}
+\caption{Tijdsduur schrijven naar RAM}
+\label{fig:energieverbruik_ram}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\missingfigure{}
+\caption{Energieverbruik in low-power listening}
+\label{fig:energieverbruik_low_power}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\missingfigure{}
+\caption{Energieverbruik met antenne volledig uit}
+\label{fig:energieverbruik_antenne_uit}
+\end{figure}
+
 \subsection{Kostmetingen}
-\begin{itemize}
-\item Onze experimenten wijzen uit dat opslag in het RAM-geheugen zeer goedkoop
-is.
-\item 
-\end{itemize}
-\subsection{Een voorbeeldscenario: temperatuurmetingen}
+
+\subsubsection{Schrijven naar RAM}
+
+\subsubsection{Low-power listening}
+
+\subsubsection{Verzenden en ontvangen}
+
+\subsubsection{Basisverbruik}
+
+\subsubsection{CPU-cycli}
+
+\subsection{Voorbeeldscenario: werkt de metric?}
 
 \section{Conclusie \& verder werk}
 
