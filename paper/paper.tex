@@ -71,13 +71,12 @@ applicatielogica rechtstreeks op de motes wilt deployen. Vanuit deze optiek
 maken we abstractie van de low-level details van simulatie e.d., en gebruiken we
 in plaats daarvan een eenvoudige vuistregel (\textit{code deployment
 metric}. Deze geeft een makkelijke ja/nee-beslissing die zegt of we kunnen
-deployen of niet. We kunnen deze uitdrukken als volgt:
+deployen of niet. We defini\"eren een functie $h$ voor deze vuistregel als
+volgt:
 
 \begin{equation}
   \begin{split}
-    cost(reduce(input)) + cost(transfer(m)) \\ 
-    \leq \\ 
-    cost(transfer(n))
+    h(x) = signum(transmit(x) - cost(reduce(x)) \\ - cost(transmit(reduce(x))))
   \end{split}
 \end{equation}
 
@@ -180,14 +179,14 @@ sensor_data_frequency = <float f>
 [memory]
 buffer_used = <bool b>
 buffer_size = <int n>
+buffer_write_freq = <int n>
 [precision]
-interval_gratularity = <float f>
-data_gratularity = <float f>
+interval_granularity = <float f>
+data_granularity = <float f>
 [frequency]
 reduction_frequency = <float f>
 transmission_frequency = <float f>
-[cost]
-cpu_time = <int n>
+reduction_cpu_time = <int n>
 [reduction]
 from = <int n>
 to = <int m>
@@ -205,8 +204,6 @@ wijze als bij de energiemetingen te kijken hoe lang het duurt voor de reductie
 uitgevoerd is. Dit geeft een harde bovengrens voor de gebruikte CPU-cycli: we
 hoeven slechts deze tijd te vermenigvuldigen met de klokfrequentie van de
 CPU. Bij de Zigduino is dit 16MHz.
-
- \subparagraph{Kost van de reductie: frequentie schrijven naar RAM.}
 
 \subparagraph{Reductiegrootte.} De reductiegrootte is vaak
 niet op het eerste zicht in te schatten. Een voorbeeld: neem dat wij een
@@ -228,16 +225,28 @@ is om via \textit{sense and send} een steekproef te doen van de temperatuur en
 vochtigheidsgraad en hieruit af te leiden hoe sterk de temperatuur en
 vochtigheidsgraad zullen oscilleren.
 
+Een andere mogelijkheid is het afschatten van de reductiegrootte door de
+worst-case reductiegrootte te bekijken. 
+
 \subparagraph{Tijdsinformatie.} Merk op dat in het zonet vermelde geval ook de
-tijdsinformatie op een gelijkaardige manier moet worden afgeleid
+tijdsinformatie op een gelijkaardige manier moet worden afgeleid. De frequentie
+waarop sensordata binnenkomt kan men makkelijk vinden, de frequentie waarmee die
+data verzonden wordt soms niet. 
 
 \subparagraph{Geheugenverbruik, sensoren, precisie.} Deze liggen geheel in de
 hand van de programmeur; er zijn echter een aantal edge cases. 
 
-\subparagraph{.}
-
 \subsection{Een concreet stappenplan voor deployers}
+We mikken erop om het beslissingsproces zo goed mogelijk te integreren in
+de ontwikkelingsomgeving van Contiki. Men werkt daar voornamelijk met
+\texttt{make}-bestanden. Een typische workflow zou er als volgt moeten uitzien.
 
+\begin{enumerate}
+\item Schrijf het gewenste programma.
+\item Maak een parameterbestand aan. Schat de parameters zoals hierboven
+aangegeven en verwerk ze hierin.
+\item Voer het commando \texttt{make eval-metric} uit. Dit 
+\end{enumerate}
 \subsection{Een voorbeeldscenario: temperatuurmetingen}
 
 \section{Resultaten}
@@ -307,7 +316,12 @@ het netwerk als geheel in functie van het aantal hops groter is dan de kost van
 het reduceren van de output. Maak gebruik van zowel de cost van verzenden als
 ontvangen.
 
+\subsection{De \textit{sweet spot} vinden met behulp van kostfuncties}
+
+
+
 \bibliographystyle{named}
+\nocite{*}
 \bibliography{bibliography}
 
 \end{document}
