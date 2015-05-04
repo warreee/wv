@@ -248,8 +248,8 @@
       & 
       \begin{itemize}
       \item \tabitem Bestaat al deels data van
-      \item \tabitem Ook moeilijk te meten
-      \item \tabitem Theoretische aanpak
+      \hiddencell{2}{\item \tabitem Ook moeilijk te meten}
+      \hiddencell{3}{\item \tabitem Theoretische aanpak}
       \end{itemize}
       \\ 
       
@@ -362,7 +362,7 @@
       \item \tabitem Telkens groter aantal bytes schrijven
       \end{itemize}
       
-      \framebox{\large{Lineair $\rightarrow 0.000052892mJ/Byte$}}\\
+      \framebox{\large{Lineair $\rightarrow 8.144\cdot 10^{-5}mJ/Byte$}}\\
       \end{tabular}
      
 \end{frame}
@@ -417,7 +417,7 @@
      \raisebox{-\totalheight}{\includegraphics[width=0.25\textwidth,keepaspectration=true]{cpu}}
       & 
       \begin{itemize}
-      \item \tabitem Tijd: $Ns$
+      \item \tabitem Tijd: $Nms$
       \item \tabitem Stroom: $3.7mA$
       \item \tabitem Voltage: $6V$
       \end{itemize}
@@ -458,7 +458,7 @@
       \begin{itemize}
       \item \tabitem Tijd: $s$
       \item \tabitem Hoeveelheid bytes: $N$ 
-      \item \tabitem Constante tijdskost: $113.104ms$
+      \item \tabitem Constante opstarttijd: $113.104ms$
       \item \tabitem Tijdskost/byte: $0.382ms$
       \item \tabitem Stroom: $0.04A$
       \item \tabitem Voltage: $6V$
@@ -486,23 +486,53 @@
       \centering
       Variabele: \# bytes\\
        \vspace{0.25cm}
-      \fbox{$0.000052892mJ/Byte$} 
+      \fbox{$8.144\cdot 10^{-5}mJ/Byte$} 
       
     \end{minipage}%
     \begin{minipage}{.33\textwidth}
       \centering
       Variabele N: tijdsduur\\
       \vspace{0.25cm}
-      \fbox{$0.0037A \cdot Ns \cdot 6V$}
+      \fbox{$0.0037A \cdot Nms \cdot 6V$}
       
     \end{minipage}
      \begin{minipage}{.3\textwidth}
       \centering
-      Variabele N: tijdsduur\\
+      Variabele N: bytes\\
       \vspace{0.35cm}
       \fbox{\parbox{\textwidth}{$0.04A \cdot (N \cdot 0.382$ \\ $+ 113.104)ms \cdot 6V$}}
      
     \end{minipage}
+\hiddencell{2}{
+\begin{tabular}{ p{0.3\textwidth}  p{0.3\textwidth} p{0.3\textwidth}}
+     \hline
+     & \multicolumn{1}{c}{Grootteorde voor 1ms:}  & \\ 
+      \hline
+\end{tabular}  
+}
+\begin{minipage}{.33\textwidth}
+	\hiddencell{3}{
+	\vspace{0.25cm}
+      \centering
+      $\pm 3000$ bytes schrijven\\
+       $\Rightarrow 0.2443 mJ$}
+      
+    \end{minipage}%
+    \begin{minipage}{.33\textwidth}
+    \hiddencell{4}{
+      \centering
+      $\Rightarrow 0.0222 mJ$}
+      
+    \end{minipage}
+     \begin{minipage}{.3\textwidth}
+     \hiddencell{5}{
+     \vspace{0.25cm}
+      \centering
+      Opstartkost alleen:\\
+      $\Rightarrow 27.14 mJ$}
+     
+    \end{minipage}
+    
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
