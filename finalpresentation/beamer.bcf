@@ -1966,7 +1966,11 @@
   <bcf:section number="0">
     <bcf:citekey order="0">*</bcf:citekey>
   </bcf:section>
+<<<<<<< HEAD
   <bcf:sortlist section="0" type="entry" label="nyt">
+=======
+  <bcf:sortlist section="0" name="nyt" type="entry" sortscheme="nyt">
+>>>>>>> 62928133c73ef75baa9ebb6aeb240a6d5e8a75a5
   <bcf:sorting>
     <bcf:sort order="1">
       <bcf:sortitem order="1">presort</bcf:sortitem>
