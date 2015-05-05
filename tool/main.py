@@ -1,6 +1,5 @@
 import cmd
 
-
 class WAXA(cmd.Cmd):
     intro = "Ward & Xavier WSN commandline tool"
     prompt = 'WAXA '
@@ -18,7 +17,7 @@ class WAXA(cmd.Cmd):
     CPU_VOLT = 6.0
     ANT_AMPERE = 0.04
     ANT_TIME_BYTE = 0.382  #ms
-    ANT_TIME = 113.104  #ms
+    ANT_TIME_START = 113.104  #ms
     ANT_VOLT = 6.0
 
     energy_standard = 0.0
@@ -72,7 +71,7 @@ class WAXA(cmd.Cmd):
 
     def calculate_ANT(self):
         self.energy_ant = self.ANT_AMPERE * self.ANT_VOLT * (
-            float(self.bytes_per_transmission) * self.ANT_TIME_BYTE + self.ANT_TIME)
+            float(self.bytes_per_transmission) * self.ANT_TIME_BYTE + self.ANT_TIME_START)
 
 
     def do_set_reduction(self, rdf):

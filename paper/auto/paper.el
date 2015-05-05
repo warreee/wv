@@ -2,14 +2,16 @@
  "paper"
  (lambda ()
    (TeX-add-to-alist 'LaTeX-provided-package-options
-                     '(("babel" "dutch")))
+                     '(("helvet" "scaled=.90") ("babel" "dutch")))
    (TeX-run-style-hooks
     "latex2e"
     "article"
     "art10"
     "ijcai11"
     "lipsum"
-    "times"
+    "mathptmx"
+    "helvet"
+    "courier"
     "latexsym"
     "todonotes"
     "amsmath"

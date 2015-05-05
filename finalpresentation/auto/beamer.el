@@ -5,13 +5,16 @@
                      '(("beamer" "presentation" "bigger")))
    (TeX-add-to-alist 'LaTeX-provided-package-options
                      '(("inputenc" "utf8") ("fontenc" "T1") ("ulem" "normalem") ("babel" "dutch") ("caption" "font=scriptsize" "labelfont=bf") ("biblatex" "style=authoryear" "hyperref" "backref" "square" "natbib" "ibidtracker=false")))
+   (add-to-list 'LaTeX-verbatim-environments-local "lstlisting")
    (add-to-list 'LaTeX-verbatim-environments-local "semiverbatim")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "lstinline")
    (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperref")
    (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperimage")
    (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperbaseurl")
    (add-to-list 'LaTeX-verbatim-macros-with-braces-local "nolinkurl")
    (add-to-list 'LaTeX-verbatim-macros-with-braces-local "url")
    (add-to-list 'LaTeX-verbatim-macros-with-braces-local "path")
+   (add-to-list 'LaTeX-verbatim-macros-with-delims-local "lstinline")
    (add-to-list 'LaTeX-verbatim-macros-with-delims-local "url")
    (add-to-list 'LaTeX-verbatim-macros-with-delims-local "path")
    (TeX-run-style-hooks
@@ -38,7 +41,6 @@
     "babel"
     "caption"
     "tikz"
-    "enumitem"
     "booktabs"
     "listings"
     "color"
@@ -46,8 +48,7 @@
     "biblatex")
    (TeX-add-symbols
     '("hiddencell" 2)
-    '("aheader" 2)
-    "tabitem")
+    '("aheader" 2))
    (LaTeX-add-bibliographies
     "bibliography")
    (LaTeX-add-color-definecolors
