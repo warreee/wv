@@ -13,19 +13,25 @@ class WAXA(cmd.Cmd):
     bytes_per_transmission = 0.0
 
     # Variables used internally
-    RAM_BYTE = 0.0000814375075478687 #mJ
+    RAM_BYTE = 0.0000814375075478687  #mJ
     CPU_AMPERE = 0.0037
     CPU_VOLT = 6.0
     ANT_AMPERE = 0.04
-    ANT_TIME_BYTE = 0.382 #ms
-    ANT_TIME = 113.104 #ms
+    ANT_TIME_BYTE = 0.382  #ms
+    ANT_TIME = 113.104  #ms
     ANT_VOLT = 6.0
 
     energy_standard = 0.0
+    energy_RAM = 0.0
+    energy_CPU = 0.0
+    energy_ant = 0.0
+    energy_tot = energy_ant + energy_CPU + energy_RAM
+    energy_efficiency = energy_tot / energy_standard
 
 
     def do_exit(self, line):
         raise SystemExit
+
     def do_deploy(self, line):
         self.do_set_reduction(line)
         self.do_set_storage(line)
@@ -35,13 +41,34 @@ class WAXA(cmd.Cmd):
         self.do_calculate(line)
 
     def do_calculate(self, line):
+        self.do_calculate_standard(line)
+        self.do_calculate_opt(line)
         print("Calculates the consumption and compares with standard consumption")
-        standard = self.calculate_standard(line)
-        print("The standard energy usage is: " + standard)
+        print("The standard energy usage is: " + str(self.energy_standard))
+        print("The new energy usage is: " + str(self.energy_tot))
+        print("If you deploy here the component is " + str(self.energy_efficiency) +"% more efficient!")
+
 
     def do_calculate_standard(self, line):
-        self.energy_standard = self.ANT_AMPERE * self.ANT_VOLT * (float(self.bytes_per_transmission) * self.ANT_TIME_BYTE + self.ANT_TIME)
+        self.calculate_ANT()
+        self.energy_standard = float(self.energy_ant) * float(self.transmissions)
         print(self.energy_standard)
+
+    def do_calculate_opt(self, line):
+        self.calculate_RAM()
+        self.calculate_CPU()
+        self.calculate_ANT()
+
+    def calculate_RAM(self):
+        self.energy_RAM = self.RAM_BYTE * float(self.storage)
+
+    def calculate_CPU(self):
+        self.energy_CPU = self.CPU_AMPERE * float(self.time) * self.CPU_VOLT
+
+    def calculate_ANT(self):
+        self.energy_ant = self.ANT_AMPERE * self.ANT_VOLT * (
+            float(self.bytes_per_transmission) * self.ANT_TIME_BYTE + self.ANT_TIME)
+
 
     def do_set_reduction(self, rdf):
         if not rdf:
@@ -87,7 +114,6 @@ class WAXA(cmd.Cmd):
         else:
             self.bytes_per_transmission = bpt
         print("The number of bytes/transmissions is set to: " + bpt)
-
 
 
 if __name__ == '__main__':
