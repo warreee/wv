@@ -62,7 +62,7 @@ class WAXA(cmd.Cmd):
         self.calculate_CPU()
         self.calculate_ANT()
         self.reduced_transmissions = int(self.transmissions) / int(self.rdf)
-        self.energy_tot = self.energy_CPU + (self.energy_RAM * self.reduced_transmissions) + self.energy_ant
+        self.energy_tot = self.energy_CPU + self.energy_RAM  + (self.energy_ant * self.reduced_transmissions)
 
     def calculate_RAM(self):
         self.energy_RAM = self.RAM_BYTE * float(self.storage)
