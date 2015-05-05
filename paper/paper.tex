@@ -9,7 +9,6 @@
 \usepackage{amsmath} 
 \usepackage[dutch]{babel} 
 
-
 \title{Internet of Things code deployment metrics}
 \author{Ward Schodts \and Xavier Go\'as Aguililla \\ ward.schodts@student.kuleuven.be \\ xavier.goas@student.kuleuven.be}
 
@@ -78,13 +77,24 @@ in plaats daarvan een eenvoudige vuistregel (\textit{code deployment
 metric}. Deze geeft een makkelijke ja/nee-beslissing die zegt of we kunnen
 deployen of niet. We defini\"eren een functie $h$ voor deze vuistregel als
 volgt:
-\todo[inline]{Voorwaaderlijke functiemapping}
-\begin{equation}
-  \begin{split}
-    h : x \mapsto \{0, 1\} \\
-    h(x) = signum(transmit(x) - cost(reduce(x)) \\ - cost(transmit(reduce(x))))
-  \end{split}
-\end{equation}
+% \begin{equation}
+%   \begin{split}
+%     h : x \mapsto \{0, 1\} \\
+%     h(x) = signum(transmit(x) - cost(reduce(x)) \\ - cost(transmit(reduce(x))))
+%   \end{split}
+% \end{equation}
+
+\[
+
+  % \begin{split}
+    % h : x \mapsto \{0, 1\} \\
+    h(x)= 
+\begin{cases}
+  1, & \text{als } tr(x) - cost(red(x)) - cost(tr(red(x))) > 0  \\
+  0, & \text{in alle andere gevallen}
+\end{cases}
+   % \end{split}
+\]
 
 Waarbij $n$ de grootte van de sensordata in bytes is, en $m$ de verwachte
 grootte van de output van de functie compute toegepast op de sensorinput, ook in
