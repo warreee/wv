@@ -12,9 +12,6 @@
 \graphicspath{{graphics/}}
 \usepackage[dutch]{babel} 
 
-%visuals
-\graphicspath{{visuals/}}
-
 
 \title{Internet of Things code deployment metrics}
 \author{Ward Schodts \and Xavier Go\'as Aguililla \\ ward.schodts@student.kuleuven.be \\ xavier.goas@student.kuleuven.be}
@@ -173,11 +170,11 @@ aangesloten op een circuit met spanning 6V en stroom 0.04A.
 Voor het meten van het energieverbruik gedurende een bepaalde periode maken we
 gebruik van het volgende circuit:
 
-\begin{figure}[h]
-\centering
-\includegraphics[width=9cm]{meetopstelling}
-\caption{De meetopstelling}
-\label{fig:meetopstelling}
+\begin{figure}[H]
+  \centering
+  \includegraphics[0.9\columnwidth,keepaspectratio=true]{meetopstelling}
+  \caption{De meetopstelling \cite{hughes2013energy}}
+  \label{fig:meetopstelling}
 \end{figure}
 
 De oscilloscoop meet de spanning in het circuit. De weerstand kan aan en uit
@@ -379,8 +376,6 @@ Wat zich hier aanbiedt is een manier om uit onze eenvoudige metric een nieuwe
 metric te induceren die de topologie exploiteert om lokale energieverliezen om
 te zetten in globale energiewinst. Verdere formalisatie van deze intu\"itie en
 experimenten zijn aangewezen.
-
-\subparagraph{Onvoorziene overhead.}
 
 \begin{figure}[h]
 \centering
