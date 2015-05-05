@@ -30,7 +30,24 @@ performantieverlies.
 
 \todo[inline]{explain what WSNs are?}
 
-\subsection{Wat}
+\subsection{Wat?}
+
+Een typische mote heeft erg beperkte reken- en opslagcapaciteit, wat verhindert
+dat er meerdere processen op effici\"ente wijze concurrent kunnen worden
+uitgevoerd. In het algemeen gaat men daarom een simpele strategie toepassen voor
+dataverwerking, waarbij de mote \'e\'en enkele verantwoordelijkheid heeft, het
+zgn. 'sense and send': sensordata wordt op de motes niet bewerkt, maar meteen
+doorgestuurd naar de backend voor verdere verwerking, waardoor de rol van de
+motes bij het verwerken van de data geminimaliseerd wordt.
+
+Dit is de na\"iefste aanpak die men kan gebruiken, en steunt net op het deel van
+mote dat het gulzigst is met energie: de antenne.  De vraag dringt zich op: is
+er geen manier om van de weliswaar beperkte rekenkracht van de motes gebruik te
+maken om effici\"enter om te springen met de antenne? En is het mogelijk een
+simpele, algemene maatstaf te gebruiken om te beslissen of dit in een specifiek
+deployment scenario kan of niet?
+
+\subsection{Waarom?}
 
 Energie-effici\"entie is een cruciale factor op alle niveaus bij het
 ontwikkelen van wireless sensor networks: een typische mote heeft geen toegang
@@ -42,26 +59,11 @@ rechtstreeks wordt be\"invloed door deze kwestie: van de ontwikkeling van
 besturingssystemen voor motes over netwerkprotocollen tot studies van
 netwerktopologie\"en.
 
-Een typische mote heeft ook erg beperkte reken- en opslagcapaciteit, wat
-verhindert dat er meerdere processen op effici\"ente wijze concurrent kunnen
-worden uitgevoerd. In het algemeen gaat men daarom een simpele strategie
-toepassen voor dataverwerking, waarbij de mote \'e\'en enkele
-verantwoordelijkheid heeft, het zgn. 'sense and send': sensordata wordt op de
-motes niet bewerkt, maar meteen doorgestuurd naar de backend voor verdere
-verwerking, waardoor de rol van de motes bij het verwerken van de data
-geminimaliseerd wordt.
+Het ontwikkelen van een eenvoudige metric die een programmeur toelaat om snel en
+efficiënt te evalueren of een bepaalde applicatie op een mote kan gedeployed
+worden of niet zou 
 
-Dit is de na\"iefste aanpak die men kan gebruiken, en steunt net op het deel van
-mote dat het gulzigst is met energie: de antenne.  De vraag dringt zich op: is
-er geen manier om van de weliswaar beperkte rekenkracht van de motes gebruik te
-maken om effici\"enter om te springen met de antenne? En is het mogelijk een
-simpele, algemene maatstaf te gebruiken om te beslissen of dit in een specifiek
-deployment scenario kan of niet?
-
-\subsection{Waarom?}
-
-
-\subsection{Succescriteria}
+\subsection{Onderzoeksopgave}
 
 Een eenvoudige vuistregel, die:
 \begin{itemize}
@@ -133,7 +135,7 @@ d.w.z. hoe groot mag het interval tussen twee doorgestuurde metingen zijn?
 \paragraph{Reductiegrootte.} Hoe sterk verkleint de reductie het aantal te
 verzenden bytes?
 
-\section{Methodologie \& materiaal}
+\section{Methodologie}
 
 De kwestie is nu om wat we theoretisch uiteen hebben gezet in te vullen met
 empirische data: hoe berekenen wij de kost van het verzenden en verwerken van
@@ -241,7 +243,7 @@ vochtigheidsgraad en hieruit af te leiden hoe sterk de temperatuur en
 vochtigheidsgraad zullen oscilleren.
 
 Een andere mogelijkheid is het afschatten van de reductiegrootte door de
-worst-case reductiegrootte te bekijken. 
+worst-case reductiegrootte te bekijken.
 
 \subparagraph{Tijdsinformatie.} Merk op dat in het zonet vermelde geval ook de
 tijdsinformatie op een gelijkaardige manier moet worden afgeleid. De frequentie
@@ -314,20 +316,30 @@ programma dat herhaaldelijk bytes naar een buffer in het RAM.
 \subparagraph{Schrijven naar RAM}
 
 Schrijven naar RAM is haast gratis en is daarom een zeer goede
-reductiestrategie. De resultaten zijn te zien op
-\ref{fig:energieverbruik_ram}. De reden hiervoor is de aard van RAM: het is
-volatiel geheugen, dat voortdurend onder spanning moet staan, en schrijven of
-lezen voegt zeer weinig toe.
+reductiestrategie. De resultaten zijn te zien op \ref{fig:energieverbruik_ram}.
+
+De reden hiervoor is de aard van RAM. Het is volatiel geheugen, dat voortdurend
+moet worden gerefreshed. Schrijfoperaties worden in deze refresh-cycli
+ge\"integreerd zodat ze haast gratis zijn.
 
 \todo[inline]{moet duidelijker}
 
 \subparagraph{Low-power listening}
 
+\todo[inline]{antenne on idle verbruik}
+
 \subparagraph{Verzenden en ontvangen}
+
+\todo[inline]{transmit en receive kost}
 
 \subparagraph{Basisverbruik}
 
+\todo[inline]{antenne off idle verbruik}
+
 \subparagraph{CPU-cycli}
+
+\todo[inline]{kost per cyclus via datasheet + simulatie in Avrora}
+\todo[inline]{kost per cyclus + bovengrens via tijdsmetingen}
 
 \subsection{Voorbeeldscenario: werkt de metric?}
 
@@ -360,6 +372,8 @@ te zetten in globale energiewinst. Verdere formalisatie van deze intu\"itie en
 experimenten zijn aangewezen.
 
 \subparagraph{Onvoorziene overhead.}
+
+
 
 \begin{figure}[h]
 \centering
