@@ -31,7 +31,7 @@ red,
 domain=0:8196,
 samples=201,
 ]
-{8.559E-5 * x - 1.019E-3};
+{8.144E-5 * x };
 \end{axis}
 \end{tikzpicture}
 
@@ -51,19 +51,25 @@ samples=201,
 \end{axis}
 \end{tikzpicture}
 
-%Antenne energie
+%Energie idleness + energie ram
 \begin{tikzpicture}
 \begin{axis}[
-title=Energie in functie van aantal bytes,
-xlabel={Bytes},
+title=Energie in functie van tijd,
+xlabel={Tijd $(ms)$},
 ylabel={Energie $(mJ)$}
 ]
 \addplot[
 blue,
-domain=0:120,
+domain=0:100,
 samples=201,
 ]
-{0.04 * (x * 0.382 + 113.104)*6};
+{x/0.000333638186177248 * 8.144E-5 };
+\addplot[
+red,
+domain=0:100,
+samples=201,
+]
+{x * 0.224222886125917 };
 \end{axis}
 \end{tikzpicture}
 \end{document}
