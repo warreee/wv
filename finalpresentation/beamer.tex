@@ -603,11 +603,11 @@
   \frametitle{Parameters}
   \begin{itemize}
   \item aantal opgeslagen bytes: hoeveel bytes slaan we op voor we sturen?
-  \item reductiefactor (zendingen): hoeveel keer minder vaak sturen we?
-  \item reductiefactor (gegevens): hoeveel verkleinen we de input? (in development)
-  \item oorspronkelijk aantal zendingen: hoe vaak zouden we per tijdseenheid sturen?
-  \item CPU-kost: kost in cycli om de totale reductie te doen
-  \item bytes per zending voor reductie: spreekt voor zich
+  \hiddencell{2}{\item reductiefactor (zendingen): hoeveel keer minder vaak sturen we?}
+  \hiddencell{3}{\item reductiefactor (gegevens): hoeveel verkleinen we de input? (in development)}
+  \hiddencell{4}{\item oorspronkelijk aantal zendingen: hoe vaak zouden we per tijdseenheid sturen?}
+  \hiddencell{5}{\item CPU-kost: kost in cycli om de totale reductie te doen}
+  \hiddencell{6}{\item bytes per zending voor reductie: spreekt voor zich}
   \end{itemize}
 \end{frame}
 
@@ -687,6 +687,26 @@
 
 \end{frame}
 
+\begin{frame}{Overzicht}
+	
+  \begin{exampleblock}{}
+    \textbf{Sense and send:} 1639mJ per tijdseenheid
+  \end{exampleblock}
+   
+   \begin{exampleblock}{}
+    \textbf{Filter:} 819.8mJ per tijdseenheid
+  \end{exampleblock}
+
+  \begin{exampleblock}{}
+    \textbf{Aggregatie:} 27.33mJ per tijdseenheid
+  \end{exampleblock}
+  
+  \begin{exampleblock}{}
+    \textbf{Gemiddelde:} 38.15mJ per tijdseenheid
+  \end{exampleblock}
+
+\end{frame}
+
 
 \begin{frame}{Omgevingsaangenaamheid}
   Verschillende sensoren combineren om aangenaamheid te bepalen:
@@ -730,12 +750,6 @@
 
 \end{frame}
 
-\begin{frame}{Demo}
-  \begin{center}
-    \Huge{DEMO}
-  \end{center}
-
-\end{frame}
 
 \section{Conclusie \& verder werk}
 \begin{frame}{Conclusie}
@@ -765,6 +779,30 @@
   \vspace{2cm}
   \hspace{2.5cm}
   \fbox{$\Rightarrow$ maak een combinatie}
+\end{frame}
+
+\begin{frame}{Antwoord op onderzoeksvraag}
+ 
+  
+    \begin{exampleblock}{}
+      {\textbf{Onderzoeksvraag:} Is het mogelijk om energie-efficiënter gegevens te verwerken door het te doen op een embedded IoT-toestel i.p.v. de back-end van het systeem?}
+    \end{exampleblock}
+
+  \hiddencell{3}{
+    \begin{center}
+
+      \begin{tikzpicture}
+        \filldraw[blue_kuleuven] (0,0) -- (5,0) -- (2.5,-1) -- (0,0);
+        \node[text width=3cm] at (3,-0.25) {\textcolor{white}{Antwoord}};
+      \end{tikzpicture}
+      
+    \end{center}
+  }
+  \hiddencell{3}{
+  \begin{exampleblock}{}
+    {Het is inderdaad mogelijk om energie-efficiëntere gegevens te verwerken d.m.v. berkeningen op de embedded IoT-toestellen. Dit is zelf mogelijk zonder verlies van nauwkeurigheid!}
+  \end{exampleblock}
+  }
 \end{frame}
 
 \begin{frame}{Verder werk}
