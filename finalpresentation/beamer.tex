@@ -583,7 +583,6 @@ Wat weten we tot nu toe?
 
 \begin{frame}{Temperatuur meting}
 
-
 \end{frame}
 
 \begin{frame}{Omgevingsaangenaamheid}
@@ -599,11 +598,12 @@ Verschillende sensoren combineren om aangenaamheid te bepalen:
 \end{frame}
 
 \begin{frame}{Omgevingsaangenaamheid}
+Reduceren we op basis van hoeveelheid data die we doorsturen\\
 Bereken op de mote of aangenaam is:
 \begin{itemize}
-	\item Reductie: $6n \mapsto n$
-	\item CPU: 3x 2 vergelijking $\rightarrow \pm$ gratis
-	\item RAM: niet meer als bij S\& S.
+	\hiddencell{2}{\item Reductie: $6n \mapsto n$}
+	\hiddencell{3}{\item CPU: 3x 2 vergelijkingen $\rightarrow \pm$ gratis}
+	\hiddencell{4}{\item RAM: niet meer als bij S\& S.}
 \end{itemize}
 
 \end{frame}
@@ -615,15 +615,50 @@ Bereken op de mote of aangenaam is:
 	\item CPU: 3x 2 vergelijking $\rightarrow \pm$ gratis
 	\item RAM: niet meer als bij S\& S.
 \end{itemize}
+$\Rightarrow$ even vaak data verzenden maar 6x minder!
 
 \end{frame}
 
+\begin{frame}{Demo}
+\centering
+\Huge{DEMO}
+\end{frame}
 \section{Conclusie \& verder werk}
 \begin{frame}{Conclusie}
-Voor of na verder werk laten komen?
+2 grote categoriën:
+\vspace{1cm}
+\begin{tabular}{ p{5.5cm}  p{5.5cm} }
+     \toprule
+    Reductie doorstuurfrequentie & Reductie doorstuurhoeveelheid   \\ 
+    \toprule
+\end{tabular}    
+
+\begin{minipage}{.5\textwidth}
+     \begin{itemize}
+     \item Zeer efficiënt
+     \item Minder naukeurig
+     \item Gemakkelijker te implementeren
+     \end{itemize}
+      
+    \end{minipage}%
+    \begin{minipage}{.5\textwidth}
+	\begin{itemize}
+	\item Behoudt naukeurigheid
+	\item Moeilijker te ïmplementeren
+	\item Minder efficiënt
+	\end{itemize}
+    \end{minipage}
+\vspace{2cm}
+\hspace{2.5cm}
+\fbox{$\Rightarrow$ maak een combinatie}
 \end{frame}
 
 \begin{frame}{Verder werk}
+\begin{itemize}
+\item Reductie uitwerken over volledige topologieën van netwerken.
+\item Optimale reductie vinden.
+%TODO plot van xavier?
+\end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
