@@ -25,8 +25,7 @@
 \setbeamercolor*{block body example}{bg= blue!5}
 \usepackage{tikz}
 %%
-\newcommand{\tabitem}{~~\llap{\textbullet}~~}
-\usepackage{enumitem}
+%\usepackage{enumitem}
 \usepackage{booktabs}
 
 %%code
@@ -209,8 +208,8 @@
      \raisebox{-\totalheight}{\includegraphics[width=0.3\textwidth,keepaspectration=true]{storage}}
       & 
       \begin{itemize}
-      \item \tabitem Data nog niet beschikbaar
-      \hiddencell{2}{\item \tabitem Zelf experimenten uitvoeren}
+      \item  Data nog niet beschikbaar
+      \hiddencell{2}{\item  Zelf experimenten uitvoeren}
       \end{itemize}
       \\ 
       
@@ -227,9 +226,9 @@
      \raisebox{-\totalheight}{\includegraphics[width=0.3\textwidth,keepaspectration=true]{cpu}}
       & 
       \begin{itemize}
-      \item \tabitem Data nog niet beschikbaar
-      \hiddencell{2}{\item \tabitem Moeilijk te meten}
-      \hiddencell{3}{\item \tabitem Theoretische aanpak}
+      \item  Data nog niet beschikbaar
+      \hiddencell{2}{\item  Moeilijk te meten}
+      \hiddencell{3}{\item  Theoretische aanpak}
       \end{itemize}
       \\ 
       
@@ -247,9 +246,9 @@
 {\includegraphics[width=0.3\textwidth,keepaspectration=true]{radio}}
       & 
       \begin{itemize}
-      \item \tabitem Bestaat al deels data van
-      \hiddencell{2}{\item \tabitem Ook moeilijk te meten}
-      \hiddencell{3}{\item \tabitem Theoretische aanpak}
+      \item  Bestaat al deels data van
+      \hiddencell{2}{\item  Ook moeilijk te meten}
+      \hiddencell{3}{\item  Theoretische aanpak}
       \end{itemize}
       \\ 
       
@@ -274,7 +273,7 @@
   \end{figure}
 \end{frame}
 
-%TODO eigen foto gebruiken!!!
+%notes eigen foto gebruiken!!!
 \begin{frame}{Methodologie}
   \begin{figure}[center]
     \centering
@@ -288,9 +287,9 @@
 \begin{tabular}{ p{0.47\textwidth}  p{0.47\textwidth}   }
 
 \begin{itemize}
-      \item \textbf{1.} Maak component met triggers
-      \hiddencell{2}{\item \textbf{2.} Laten uitvoeren}
-      \hiddencell{3}{\item \textbf{3.} Verwerk de data}
+      \item[] \textbf{1.} Maak component met triggers
+      \hiddencell{2}{\item[] \textbf{2.} Laten uitvoeren}
+      \hiddencell{3}{\item[] \textbf{3.} Verwerk de data}
       \end{itemize}
 & 
 %TODO XAVIER zorgen dat dit een mooi code voor wordt zie volgende lijn: 
@@ -322,10 +321,10 @@
      \raisebox{-\totalheight}{\includegraphics[width=0.3\textwidth,keepaspectration=true]{storage}}
       & 
       \begin{itemize}
-      \item \tabitem Grootte: $16kB$
-      \item \tabitem Beschikbaar: $\pm 8kB$
-      \item \tabitem Verwachten een lineair verband
-      \item \tabitem Telkens groter aantal bytes schrijven
+      \item  Grootte: $16kB$
+      \item  Beschikbaar: $\pm 8kB$
+      \item  Verwachten een lineair verband
+      \item  Telkens groter aantal bytes schrijven
       \end{itemize}
       \\ 
       
@@ -356,10 +355,10 @@
      \raisebox{-\totalheight}{\includegraphics[width=0.25\textwidth,keepaspectration=true]{storage}}
       & 
       \begin{itemize}
-      \item \tabitem Grootte: $16kB$
-      \item \tabitem Beschikbaar: $\pm 8kB$
-      \item \tabitem Verwachten een lineair verband
-      \item \tabitem Telkens groter aantal bytes schrijven
+      \item  Grootte: $16kB$
+      \item  Beschikbaar: $\pm 8kB$
+      \item  Verwachten een lineair verband
+      \item  Telkens groter aantal bytes schrijven
       \end{itemize}
       
       \framebox{\large{Lineair $\rightarrow 8.144\cdot 10^{-5}mJ/Byte$}}\\
@@ -379,10 +378,10 @@
      \raisebox{-\totalheight}{\includegraphics[width=0.3\textwidth,keepaspectration=true]{cpu}}
       & 
       \begin{itemize}
-      \item \tabitem Opnieuw flags in code
-      \item \tabitem Hiermee de tijd meten
-      \item \tabitem Theoretische kost berekenen
-      \item \tabitem Verwacht: kost verschilt van component tot component
+      \item  Opnieuw flags in code
+      \item  Hiermee de tijd meten
+      \item  Theoretische kost berekenen
+      \item  Verwacht: kost verschilt van component tot component
       \end{itemize}
       \\ 
       
@@ -399,9 +398,9 @@
      \raisebox{-\totalheight}{\includegraphics[width=0.3\textwidth,keepaspectration=true]{cpu}}
       & 
       \begin{itemize}
-      \item \tabitem Tijd: $s$
-      \item \tabitem Stroom: $3.7mA$
-      \item \tabitem Voltage: $6V$
+      \item  Tijd: $s$
+      \item  Stroom: $3.7mA$
+      \item  Voltage: $6V$
       \end{itemize}
       \framebox{Energie: $J = C \cdot V = A \cdot s \cdot V$ }
       \end{tabular}
@@ -417,9 +416,9 @@
      \raisebox{-\totalheight}{\includegraphics[width=0.25\textwidth,keepaspectration=true]{cpu}}
       & 
       \begin{itemize}
-      \item \tabitem Tijd: $Nms$
-      \item \tabitem Stroom: $3.7mA$
-      \item \tabitem Voltage: $6V$
+      \item  Tijd: $Nms$
+      \item  Stroom: $3.7mA$
+      \item  Voltage: $6V$
       \end{itemize}
       \framebox{Energie: $= 0.0037A \cdot Ns \cdot 6V$ }
       \end{tabular}
@@ -437,9 +436,9 @@
      \raisebox{-\totalheight}{\includegraphics[width=0.3\textwidth,keepaspectration=true]{radio}}
       & 
       \begin{itemize}
-      \item \tabitem Standaard RF-antenne
-      \item \tabitem Vaste opstartkost
-      \item \tabitem Daarna lineaire stijging (in functie van hoeveelheid bytes)
+      \item  Standaard RF-antenne
+      \item  Vaste opstartkost
+      \item  Daarna lineaire stijging (in functie van hoeveelheid bytes)
       \end{itemize}
       \\ 
       
@@ -456,13 +455,13 @@
      \raisebox{-\totalheight}{\includegraphics[width=0.3\textwidth,keepaspectration=true]{radio}}
       & 
       \begin{itemize}
-      \item \tabitem Tijd: $s$
-      \item \tabitem Hoeveelheid bytes: $N$ 
-      \item \tabitem Constante opstarttijd: $113.104ms$
-      \item \tabitem Tijdskost/byte: $0.382ms$
-      \item \tabitem Stroom: $0.04A$
-      \item \tabitem Voltage: $6V$
-      \item \tabitem $J = C \cdot V = A \cdot s \cdot V$
+      \item  Tijd: $s$
+      \item  Hoeveelheid bytes: $N$ 
+      \item  Constante opstarttijd: $113.104ms$
+      \item  Tijdskost/byte: $0.382ms$
+      \item  Stroom: $0.04A$
+      \item  Voltage: $6V$
+      \item  $J = C \cdot V = A \cdot s \cdot V$
       \end{itemize}
         
       \end{tabular}
@@ -545,14 +544,79 @@
 \section{Voorgestelde oplossing}
 
 \begin{frame}{Voorgestelde oplossing}
+Wat weten we tot nu toe?
+\begin{itemize}
+\item RAM: zo goed als gratis.
+\hiddencell{2}{\item CPU: relatief goedkoop.}
+\hiddencell{3}{\item Antenne: zeer duur $\rightarrow$ hoge opstartkost.}
+
+\end{itemize}
+
+\hiddencell{4}{$\Rightarrow$ Gebruik CPU en RAM om data te reduceren}
+
+\end{frame}
+
+\begin{frame}{Voorgestelde oplossing}
 %TODO XAVIER: onze metric in een mooie formule gieten
+\begin{equation}
+  \begin{split}
+    h : x \mapsto \{0, 1\} \\
+    h(x) = signum(transmit(x) - cost(reduce(x)) \\ - cost(transmit(reduce(x))))
+  \end{split}
+\end{equation}
+
 \end{frame}
 
 \section{Resultaten}
-\begin{frame}{Resultaten}
+%TODO betere naam omgevins...
+\begin{frame}{Toetsen aan praktijkscenario's}
+
+\begin{enumerate}
+\item Temperatuurmeting
+\item Omgevingsaangenaamheid
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Temperatuur meting}
 
 \end{frame}
 
+\begin{frame}{Temperatuur meting}
+
+
+\end{frame}
+
+\begin{frame}{Omgevingsaangenaamheid}
+Verschillende sensoren combineren om aangenaamheid te bepalen:
+\begin{itemize}
+	\item Temperatuur, Vochtigheid, Geluid
+	\item Elke meting 2 bytes
+	\item Totaal 6 bytes
+	\item Aangenaam indien elke sensorwaarde in bepaald interval ligt.
+\end{itemize}
+
+
+\end{frame}
+
+\begin{frame}{Omgevingsaangenaamheid}
+Bereken op de mote of aangenaam is:
+\begin{itemize}
+	\item Reductie: $6n \mapsto n$
+	\item CPU: 3x 2 vergelijking $\rightarrow \pm$ gratis
+	\item RAM: niet meer als bij S\& S.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Omgevingsaangenaamheid: resultaat}
+Bereken op de mote of aangenaam is:
+\begin{itemize}
+	\item Reductie: $6n \mapsto n$
+	\item CPU: 3x 2 vergelijking $\rightarrow \pm$ gratis
+	\item RAM: niet meer als bij S\& S.
+\end{itemize}
+
+\end{frame}
 
 \section{Conclusie \& verder werk}
 \begin{frame}{Conclusie}

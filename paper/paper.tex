@@ -7,6 +7,7 @@
 \usepackage{amsmath} 
 \usepackage[dutch]{babel} 
 
+
 \title{Internet of Things code deployment metrics}
 \author{Ward Schodts \and Xavier Go\'as Aguililla \\ ward.schodts@student.kuleuven.be \\ xavier.goas@student.kuleuven.be}
 
@@ -75,9 +76,10 @@ in plaats daarvan een eenvoudige vuistregel (\textit{code deployment
 metric}. Deze geeft een makkelijke ja/nee-beslissing die zegt of we kunnen
 deployen of niet. We defini\"eren een functie $h$ voor deze vuistregel als
 volgt:
-
+\todo[inline]{Voorwaaderlijke functiemapping}
 \begin{equation}
   \begin{split}
+    h : x \mapsto \{0, 1\} \\
     h(x) = signum(transmit(x) - cost(reduce(x)) \\ - cost(transmit(reduce(x))))
   \end{split}
 \end{equation}
@@ -108,7 +110,7 @@ aggregator). Dit zou theoretisch gezien een grotere winst moeten opleveren.
 De aandachtige lezer stelt zich meteen de vraag: hoe kunnen wij de kost van zo'n
 reductie in het algemeen schatten, zuiver uitgaand van het programma? 
 
-\todo{uitweiden}
+\todo[inline]{uitweiden}
 
 We laten de programmeur, die zijn programma goed kent, ingrijpen. We nemen als
 input niet enkel het gecompileerde programma, maar ook een set parameters. Deze zijn bijvoorbeeld:
