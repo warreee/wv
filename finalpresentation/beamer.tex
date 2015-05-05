@@ -564,6 +564,15 @@
       h : x \mapsto \{0, 1\} \\
       h(x) = signum(transmit(x) - cost(reduce(x)) \\ - cost(transmit(reduce(x))))
     \end{split}
+
+\[
+    h(x)= 
+\begin{cases}
+  1, & \text{als } transmit(x) - cost(reduce(x)) - cost(transmit(reduce(x)))  \\
+  0, & \text{otherwise}
+\end{cases}
+\]
+
   \end{equation}
 
 \end{frame}
@@ -620,12 +629,38 @@
 
 \end{frame}
 
+\section{Een kort scenario: temperatuurmetingen}
+
+\begin{frame}{Setup}
+  \begin{itemize}
+  \item taak: observeer de temperatuur
+  \item 
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Strategie\"en}
+  \begin{itemize}
+  \item sense and send
+  \item filter
+  \item aggregate
+  \item average
+  \end{itemize}
+\end{frame}
+
 \begin{frame}{Demo}
   \begin{center}
     \Huge{DEMO}
   \end{center}
 
 \end{frame}
+
+\begin{frame}{Demo}
+  \begin{center}
+    \Huge{DEMO}
+  \end{center}
+
+\end{frame}
+
 \section{Conclusie \& verder werk}
 \begin{frame}{Conclusie}
   2 grote categoriën:
