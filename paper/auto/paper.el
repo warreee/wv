@@ -15,6 +15,8 @@
     "latexsym"
     "todonotes"
     "amsmath"
+    "float"
+    "graphicx"
     "babel")
    (LaTeX-add-labels
     "fig:meetopstelling"
