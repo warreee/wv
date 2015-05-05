@@ -48,7 +48,7 @@ class WAXA(cmd.Cmd):
         print("The standard energy usage is: " + str(self.energy_standard))
         print("The new energy usage is: " + str(self.energy_tot))
         self.energy_efficiency =  1.0 - self.energy_tot / self.energy_standard
-        print("If you deploy here the component is " + str(self.energy_efficiency) +"% more efficient!")
+        print("If you deploy here the component is " + str(self.energy_efficiency * 100.0) +"% more efficient!")
 
 
     def do_calculate_standard(self, line):

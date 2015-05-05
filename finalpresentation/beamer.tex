@@ -568,25 +568,24 @@
 
 \begin{frame}{Voorgestelde oplossing}
   % TODO XAVIER: onze metric in een mooie formule gieten
-  \begin{equation}
-    \begin{split}
-      h : x \mapsto \{0, 1\} \\
-      h(x) = signum(transmit(x) - cost(reduce(x)) \\ - cost(transmit(reduce(x))))
-    \end{split}
+  % \begin{equation}
+  %   \begin{split}
+  %     h : x \mapsto \{0, 1\} \\
+  %     h(x) = signum(transmit(x) - cost(reduce(x)) \\ - cost(transmit(reduce(x))))
+  %   \end{split}
 
+  % \end{equation}
 \[
     h(x)= 
 \begin{cases}
-  1, & \text{als } transmit(x) - cost(reduce(x)) - cost(transmit(reduce(x)))  \\
+  1, & \text{als } tr(x) - cost(red(x)) - cost(tr(red(x)))  \\
   0, & \text{otherwise}
 \end{cases}
 \]
 
-  \end{equation}
-
 \end{frame}
 
-\section{Resultaten}
+\section{Resultaten \& demo}
 % TODO betere naam omgevins...
 \begin{frame}{Toetsen aan praktijkscenario's}
 
@@ -596,13 +595,94 @@
   \end{enumerate}
 \end{frame}
 
-\begin{frame}{Temperatuur meting}
+\begin{frame}
+  \frametitle{Parameters}
+  \begin{itemize}
+  \item aantal opgeslagen bytes: hoeveel bytes slaan we op voor we sturen?
+  \item reductiefactor (zendingen): hoeveel keer minder vaak sturen we?
+  \item reductiefactor (gegevens): hoeveel verkleinen we de input? (in development)
+  \item oorspronkelijk aantal zendingen: hoe vaak zouden we per tijdseenheid sturen?
+  \item CPU-kost: kost in cycli om de totale reductie te doen
+  \item bytes per zending voor reductie: spreekt voor zich
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Een simpel scenario: temperatuurmetingen}
+  \begin{itemize}
+  \item taak: observeer de temperatuur
+  \item stel 60 metingen per minuut
+  \item het volstaat ons om \'e\'en keer per minuut data te krijgen
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Strategie\"en}
+  \begin{itemize}
+  \item sense and send
+  \item filter
+  \item aggregate
+  \item average
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Sense and send}
+  \begin{itemize}
+  \item aantal opgeslagen bytes: 0
+  \item reductiefactor (zendingen): 1
+  \item oorspronkelijk aantal zendingen: 60
+  \item CPU-kost: 0
+  \item bytes per zending: 2
+  \end{itemize}
+
+  \begin{exampleblock}{}
+    \textbf{Totaalkost:} 1639.6992mJ per tijdseenheid
+  \end{exampleblock}
 
 \end{frame}
 
-\begin{frame}{Temperatuur meting}
+\begin{frame}{Filter}
+  \begin{itemize}
+  \item aantal opgeslagen bytes: 2
+  \item reductiefactor (zendingen): omgevingsafhankelijk (stel bv. 2, als gemiddeld bij elke tweede meting er een verschillend resultaat is)
+  \item oorspronkelijk aantal zendingen: 60
+  \item CPU-kost: praktisch 0
+  \item bytes per zending: 2
+  \end{itemize}
+  
+  \begin{exampleblock}{}
+    \textbf{Totaalkost:} 819.849762875015mJ per tijdseenheid
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Aggregatie}
+  \begin{itemize}
+  \item aantal opgeslagen bytes: 120
+  \item reductiefactor (zendingen): 60
+  \item oorspronkelijk aantal zendingen: 60
+  \item CPU-kost: 0
+  \item bytes per zending: 120
+  \end{itemize}
+  
+  \begin{exampleblock}{}
+    \textbf{Totaalkost:} 27.33809250090574mJ per tijdseenheid
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Gemiddelde}
+  \begin{itemize}
+  \item aantal opgeslagen bytes: 120
+  \item reductiefactor (zendingen): 60
+  \item reductiefactor (data): 60
+  \item oorspronkelijk aantal zendingen: 60
+  \item CPU-kost: praktisch 0
+  \item bytes per zending: 2
+  \end{itemize}
+
+  \begin{exampleblock}{}
+    \textbf{Totaalkost:} 38.15633250090575mJ per tijdseenheid
+  \end{exampleblock}
 
 \end{frame}
+
 
 \begin{frame}{Omgevingsaangenaamheid}
   Verschillende sensoren combineren om aangenaamheid te bepalen:
@@ -638,23 +718,6 @@
 
 \end{frame}
 
-\section{Een kort scenario: temperatuurmetingen}
-
-\begin{frame}{Setup}
-  \begin{itemize}
-  \item taak: observeer de temperatuur
-  \item 
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{Strategie\"en}
-  \begin{itemize}
-  \item sense and send
-  \item filter
-  \item aggregate
-  \item average
-  \end{itemize}
-\end{frame}
 
 \begin{frame}{Demo}
   \begin{center}
