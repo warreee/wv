@@ -25,8 +25,10 @@ class WAXA(cmd.Cmd):
     energy_RAM = 0.0
     energy_CPU = 0.0
     energy_ant = 0.0
-    energy_tot = energy_ant + energy_CPU + energy_RAM
-    energy_efficiency = energy_tot / energy_standard
+    energy_tot = 0.0
+    energy_efficiency = 0.0
+
+    reduced_transmissions = 0
 
 
     def do_exit(self, line):
@@ -46,6 +48,7 @@ class WAXA(cmd.Cmd):
         print("Calculates the consumption and compares with standard consumption")
         print("The standard energy usage is: " + str(self.energy_standard))
         print("The new energy usage is: " + str(self.energy_tot))
+        self.energy_efficiency =  1.0 - self.energy_tot / self.energy_standard
         print("If you deploy here the component is " + str(self.energy_efficiency) +"% more efficient!")
 
 
@@ -58,6 +61,8 @@ class WAXA(cmd.Cmd):
         self.calculate_RAM()
         self.calculate_CPU()
         self.calculate_ANT()
+        self.reduced_transmissions = int(self.transmissions) / int(self.rdf)
+        self.energy_tot = self.energy_CPU + (self.energy_RAM * self.reduced_transmissions) + self.energy_ant
 
     def calculate_RAM(self):
         self.energy_RAM = self.RAM_BYTE * float(self.storage)
