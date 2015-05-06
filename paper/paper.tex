@@ -6,6 +6,7 @@
 \usepackage{courier}
 \usepackage{latexsym} 
 \usepackage{todonotes} 
+\usepackage{hyperref} 
 \usepackage{amsmath} 
 \usepackage{float} 
 \usepackage{graphicx}
@@ -29,23 +30,26 @@
 \begin{abstract}
 Wij stellen een simpele vuistregel voor die kan dienen om te beslissen of een
 bepaald stuk applicatielogica op een mote kan draaien zonder lokaal energie- of
-performantieverlies. 
+performantieverlies, evenals een tool die deze kan nagaan. Deze gebruikt de
+kennis van de programmeur en een aantal basiseigenschappen van het te draaien
+programma om deze beslissing te maken. We geven ook een aanzet tot het breder en
+preciezer toepassen van de technieken waarmee de vuistregel tot stand is gekomen.
   
 \end{abstract}
 
 \section{Situering \& probleemstelling}
 
-\todo[inline]{explain what WSNs are?}
-
 \subsection{Onderzoeksvraag}
 
-Een typische mote heeft erg beperkte reken- en opslagcapaciteit, wat verhindert
-dat er meerdere processen op effici\"ente wijze concurrent kunnen worden
-uitgevoerd. In het algemeen gaat men daarom een simpele strategie toepassen voor
-dataverwerking, waarbij de mote \'e\'en enkele verantwoordelijkheid heeft, het
-zgn. 'sense and send': sensordata wordt op de motes niet bewerkt, maar meteen
-doorgestuurd naar de backend voor verdere verwerking, waardoor de rol van de
-motes bij het verwerken van de data geminimaliseerd wordt.
+Een typische mote\footnote{Voor een breder overzicht van WSNs, zie
+\cite{akyildiz2002wireless}} heeft erg beperkte reken- en opslagcapaciteit, wat
+verhindert dat er meerdere processen op effici\"ente wijze concurrent kunnen
+worden uitgevoerd. In het algemeen gaat men daarom een simpele strategie
+toepassen voor dataverwerking, waarbij de mote \'e\'en enkele
+verantwoordelijkheid heeft, het zgn. 'sense and send': sensordata wordt op de
+motes niet bewerkt, maar meteen doorgestuurd naar de backend voor verdere
+verwerking, waardoor de rol van de motes bij het verwerken van de data
+geminimaliseerd wordt.
 
 Dit is de na\"iefste aanpak die men kan gebruiken, en steunt net op het deel van
 mote dat het gulzigst is met energie: de antenne.  De vraag dringt zich op: is
@@ -54,15 +58,16 @@ maken om effici\"enter om te springen met de antenne? En is het mogelijk een
 simpele, algemene maatstaf te gebruiken om te beslissen of dit in een specifiek
 deployment scenario kan of niet?
 
-Energie-effici\"entie is een cruciale factor op alle niveaus bij het
-ontwikkelen van wireless sensor networks: een typische mote heeft geen toegang
-tot een onbeperkte stroombron en moet het doen met een batterij. Deze batterij
-kan in veel scenario's waarin WSNs worden gebruikt ook niet hernieuwd worden, en
-dus is de levensduur van de mote ook afhankelijk van hoe zuinig hij omspringt
-met energie. Het is dan ook geen wonder dat veel research in het gebied
-rechtstreeks wordt be\"invloed door deze kwestie: van de ontwikkeling van
-besturingssystemen voor motes over netwerkprotocollen tot studies van
-netwerktopologie\"en.
+Energie-effici\"entie is een cruciale factor op alle niveaus bij het ontwikkelen
+van wireless sensor networks: een typische mote heeft geen toegang tot een
+onbeperkte stroombron en moet het doen met een batterij. Deze batterij kan in
+veel scenario's waarin WSNs worden gebruikt ook niet hernieuwd
+worden,\footnote{Een leuk scenario waarin deze constraint geldt, vindt men bij
+\cite{mainwaring2002wireless}} en dus is de levensduur van de mote ook
+afhankelijk van hoe zuinig hij omspringt met energie. Het is dan ook geen wonder
+dat veel research in het gebied rechtstreeks wordt be\"invloed door deze
+kwestie: van de ontwikkeling van besturingssystemen voor motes over
+netwerkprotocollen tot studies van netwerktopologie\"en.
 
 Het ontwikkelen van een eenvoudige metric die een programmeur toelaat om snel en
 efficiënt te evalueren of een bepaalde applicatie op een mote kan gedeployed
@@ -168,13 +173,14 @@ van deze types.
 Voor onze metingen maakten wij gebruik van de AVR Zigduino. Deze werd
 aangesloten op een circuit met spanning 6V en stroom 0.04A.
 
-Voor het meten van het energieverbruik gedurende een bepaalde periode maken we
-gebruik van het volgende circuit:
+De meetmethode is ontleend aan \cite{hughes2013energy}. Voor het meten van het
+energieverbruik gedurende een bepaalde periode maken we gebruik van het volgende
+circuit:
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=9cm]{meetopstelling}
-\caption{De meetopstelling}
+\caption{De meetopstelling \cite{hughes2013energy}}
 \label{fig:meetopstelling}
 \end{figure}
 
@@ -268,7 +274,8 @@ de ontwikkelingsomgeving van Contiki. Men werkt daar voornamelijk met
 \item Schrijf het gewenste programma.
 \item Maak een parameterbestand aan. Schat de parameters zoals hierboven
 aangegeven en verwerk ze hierin.
-\item Voer het commando \texttt{make eval-metric} uit. Dit 
+\item Voer het commando \texttt{make eval-metric} uit. Dit brengt een evaluatie
+van de metric op gang door middel van de gegeven parameters.
 \end{enumerate}
 
 \subsection{Een voorbeeldscenario: temperatuurmetingen}
@@ -448,8 +455,6 @@ De reden hiervoor is de aard van RAM. Het is volatiel geheugen, dat voortdurend
 moet worden gerefreshed. Schrijfoperaties worden in deze refresh-cycli
 ge\"integreerd zodat ze haast gratis zijn.
 
-\todo[inline]{moet duidelijker}
-
 \subparagraph{Low-power listening}
 
 \todo[inline]{antenne on idle verbruik}
@@ -464,7 +469,11 @@ ge\"integreerd zodat ze haast gratis zijn.
 
 \subparagraph{CPU-cycli}
 
-\todo[inline]{kost per cyclus via datasheet + simulatie in Avrora}
+Onze eerste aanpak was het gebruiken van de AVR-simulator Avrora
+\cite{titzer2005avrora} om het aantal CPU-cycli exact te meten en te
+vermenigvuldigen met de kost voor CPU-cycli zoals vermeld in de technische
+fiche. Dit is technisch echter lastiger dan het op het eerste zicht lijkt.
+
 \todo[inline]{kost per cyclus + bovengrens via tijdsmetingen}
 
 % \subsection{Voorbeeldscenario: werkt de metric?}
@@ -503,12 +512,12 @@ Zoals het er nu voor staat hebben we een metric die erg eenvoudig is. Daarin
 berust zijn nut, maar stelt hij de zaak niet te simpel voor? Kunnen we de metric
 verfijnen en onverwachte overhead in rekening brengen? 
 
-% \begin{figure}[h]
-% \centering
-% \missingfigure{}
-% \caption{Een topologie + toepassing van de metric}
-% \label{fig:voorbeeld_topologie}
-% \end{figure}
+\begin{figure}[h]
+\centering
+\missingfigure{}
+\caption{Een topologie + toepassing van de metric}
+\label{fig:voorbeeld_topologie}
+\end{figure}
 
 % \subparagraph{Onvoorziene overhead.}
 
@@ -520,12 +529,12 @@ in de vorm van CPU-cycli. Een interessante vraag is dan: kunnen we een
 \textit{sweet spot} vinden, waar de gecombineerde kost van verzending en
 datareductie minimaal is?
 
-% \begin{figure}[h]
-% \centering
-% \missingfigure{}
-% \caption{Een sweet spot vinden}
-% \label{fig:sweet_spot}
-% \end{figure}
+\begin{figure}[h]
+\centering
+\missingfigure{}
+\caption{Een sweet spot vinden}
+\label{fig:sweet_spot}
+\end{figure}
 
 \section{Conclusie}
 
