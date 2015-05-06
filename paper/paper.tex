@@ -546,7 +546,12 @@ De vergelijking kan gezien worden in \ref{fig:energieverbruik_idle_vs_RAM}.\\
 \\
 De x-as geeft aan hoelang dat de mote idle is of hoe lang er bytes geschreven worden naar het RAM geheugen. Aan de hand van \ref{fig:tijdsduur_ram} hebben we kunnen berekenen hoeveel bytes er in een bepaalde tijdsduur worden weggeschreven. Voor $1ms$ is dit ongeveer al 3000 bytes. Vandaar dat, hoewel het misschien lijkt dat naar RAM schrijven een kost heeft, deze kost nooit wordt gehaald aangezien er nooit zoveel bytes ineens gaan worden geschreven. Het grote aantal bytes dat zou geschreven worden staat op de tweede x-as bovenaan \ref{fig:energieverbruik_idle_vs_RAM}. 
 \subparagraph{Low-power listening}
-Dit is de staat waarin de mote zich het meeste bevind. Hier gaat hij aan $8Hz$ kijken of er niet gecommuniceerd moet worden met andere motes. Om deze toestand te meten hebben we dus enkel een lege component nodig die de pin aan en uit zet op een vast interval. Voor het verbruik in deze toestand vonden we $224.2mJ$, dit kan ook geverifieerd worden in \ref{fig:energieverbruik_lpl}.
+Dit is de staat waarin de mote zich het meeste bevindt. Hier gaat hij aan $8Hz$
+kijken of er niet gecommuniceerd moet worden met andere motes - en elke keer
+wordt de antenne aangezet. Om deze toestand te meten hebben we dus enkel een
+lege component nodig die de pin aan en uit zet op een vast interval. Voor het
+verbruik in deze toestand vonden we $224.2mJ$, dit kan ook geverifieerd worden
+in \ref{fig:energieverbruik_lpl}.
 
 \begin{figure}[h]
 \centering
