@@ -54,7 +54,7 @@ samples=201,
 %Energie idleness + energie ram
 \begin{tikzpicture}
 \begin{axis}[
-title=Energie in functie van tijd,
+scale only axis,
 xlabel={Tijd $(ms)$},
 ylabel={Energie $(mJ)$}
 ]
@@ -70,6 +70,15 @@ domain=0:100,
 samples=201,
 ]
 {x * 0.224222886125917 };
+\end{axis}
+\begin{axis}[
+scale only axis,
+ymin=0,ymax=300000,
+xmin=0,xmax=300000,
+xlabel={Bytes geschreven},
+axis x line*=top,
+hide y axis,
+]
 \end{axis}
 \end{tikzpicture}
 \end{document}
