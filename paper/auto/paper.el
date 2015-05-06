@@ -27,9 +27,10 @@
     "fig:meetopstelling"
     "fig:energieverbruik_ram"
     "fig:tijdsduur_ram"
-    "fig:energieverbruik_low_power"
+    "fig:energieverbruik_idle_vs_RAM"
     "fig:energieverbruik_antenne_uit"
-    "fig:energieverbruik_cpu")
+    "fig:energieverbruik_cpu"
+    "fig:energieverbruik_lpl")
    (LaTeX-add-bibliographies
     "bibliography")
    (LaTeX-add-saveboxes
