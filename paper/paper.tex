@@ -472,29 +472,53 @@ metric te induceren die de topologie exploiteert om lokale energieverliezen om
 te zetten in globale energiewinst. Verdere formalisatie van deze intu\"itie en
 experimenten zijn aangewezen.
 
-\subparagraph{Onvoorziene overhead.}
+\subparagraph{Een pessimistische metric.}
 
-\begin{figure}[h]
-\centering
-\missingfigure{}
-\caption{Een topologie + toepassing van de metric}
-\label{fig:voorbeeld_topologie}
-\end{figure}
+Zoals het er nu voor staat hebben we een metric die erg eenvoudig is. Daarin
+berust zijn nut, maar stelt hij de zaak niet te simpel voor? Kunnen we de metric
+verfijnen en onverwachte overhead in rekening brengen? 
+
+% \begin{figure}[h]
+% \centering
+% \missingfigure{}
+% \caption{Een topologie + toepassing van de metric}
+% \label{fig:voorbeeld_topologie}
+% \end{figure}
 
 % \subparagraph{Onvoorziene overhead.}
 
 \subparagraph{De \textit{sweet spot} vinden met behulp van kostfuncties.}
 
-\begin{figure}[h]
-\centering
-\missingfigure{}
-\caption{Een sweet spot vinden}
-\label{fig:sweet_spot}
-\end{figure}
+Het is eenvoudig in te zien dat in het algemeen er een trade-off optreedt
+bij het reduceren van data: verzenden wordt goedkoper, maar we betalen een kost
+in de vorm van CPU-cycli. Een interessante vraag is dan: kunnen we een
+\textit{sweet spot} vinden, waar de gecombineerde kost van verzending en
+datareductie minimaal is?
+
+% \begin{figure}[h]
+% \centering
+% \missingfigure{}
+% \caption{Een sweet spot vinden}
+% \label{fig:sweet_spot}
+% \end{figure}
 
 \section{Conclusie}
 
+We hebben een metric voorgesteld die voldoet aan onze eisen; we hebben ook een
+overzicht gegeven van manieren om de kosten die we in de metric gebruiken te
+berekenen. Dit wordt allemaal ge\"integreerd in een tool (nog onder
+ontwikkeling).
 
+We hebben ook aangetoond dat het vaak mogelijk is om energiewinst te boeken ten
+opzichte van \textit{sense and send}, en dat deze winst enigszins
+kwantificeerbaar is met behulp van de metric. We ontwikkelden een eenvoudig
+formalisme om de winstpunten ten opzichte van \textit{sense and send} te duiden,
+dit in de vorm van de parametrisatie die we hebben aangewend voor het
+configureren van onze tool.
+
+Tenslotte hebben we een aanzet gegeven tot verdere ontwikkeling van de idee\"en
+die in deze paper zijn voorgesteld. We beschouwen onze oorspronkelijke opzet als
+geslaagd, maar werken nog naarstig door aan verfijningen.
 
 \bibliographystyle{named}
 \nocite{*}
