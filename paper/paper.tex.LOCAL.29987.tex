@@ -12,9 +12,6 @@
 \graphicspath{{graphics/}}
 \usepackage[dutch]{babel} 
 
-%visuals
-\graphicspath{{visuals/}}
-
 
 \title{Internet of Things code deployment metrics}
 \author{Ward Schodts \and Xavier Go\'as Aguililla \\ ward.schodts@student.kuleuven.be \\ xavier.goas@student.kuleuven.be}
@@ -126,9 +123,12 @@ comprimeren door reeksen identieke metingen samen te nemen (filter +
 aggregator). Dit zou theoretisch gezien een grotere winst moeten opleveren.
 
 De aandachtige lezer stelt zich meteen de vraag: hoe kunnen wij de kost van zo'n
-reductie in het algemeen schatten? We laten de programmeur, die zijn programma
-goed kent, ingrijpen. We nemen als input niet enkel het gecompileerde programma,
-maar ook een aantal parameters. Deze zijn bijvoorbeeld:
+reductie in het algemeen schatten, zuiver uitgaand van het programma? 
+
+\todo[inline]{uitweiden}
+
+We laten de programmeur, die zijn programma goed kent, ingrijpen. We nemen als
+input niet enkel het gecompileerde programma, maar ook een set parameters. Deze zijn bijvoorbeeld:
 
 \paragraph{Sensoren.} Hoe groot is de sensordata? Hoe vaak komt er sensordata binnen?
 \paragraph{Geheugenverbruik.} Worden er gegevens bijgehouden in een buffer? Hoeveel? Hoe vaak wordt er naar die buffer geschreven?
@@ -170,11 +170,11 @@ aangesloten op een circuit met spanning 6V en stroom 0.04A.
 Voor het meten van het energieverbruik gedurende een bepaalde periode maken we
 gebruik van het volgende circuit:
 
-\begin{figure}[h]
-\centering
-\includegraphics[width=9cm]{meetopstelling}
-\caption{De meetopstelling}
-\label{fig:meetopstelling}
+\begin{figure}[H]
+  \centering
+  \includegraphics[0.9\columnwidth,keepaspectratio=true]{meetopstelling}
+  \caption{De meetopstelling \cite{hughes2013energy}}
+  \label{fig:meetopstelling}
 \end{figure}
 
 De oscilloscoop meet de spanning in het circuit. De weerstand kan aan en uit
@@ -271,101 +271,6 @@ aangegeven en verwerk ze hierin.
 \end{enumerate}
 
 \subsection{Een voorbeeldscenario: temperatuurmetingen}
-
-Stel dat we een opstelling hebben waarbij de mote temperatuurmetingen moet
-uitvoeren. Dit gebeurt elke seconde; elke meting is twee bytes groot. De
-back-end hoeft echter niet in real time op de hoogte te worden gebracht van deze
-metingen, maar heeft genoeg aan \'e\'en stuk temperatuurdata per
-minuut. Verschillende strategie\"en bieden zich aan:
-
-\paragraph{Sense and send.} Van zodra een meting binnenkomt sturen we hem door.
-
-\subparagraph{Parameters.} 
-
-\begin{verbatim}
-[sensor]
-sensor_data_size = 2
-sensor_data_frequency = 60
-[memory]
-buffer_used = False
-[frequency]
-reduction_frequency = 0
-transmission_frequency = 60
-reduction_cpu_time = 0
-[reduction]
-transmit_reduction = 1
-data_reduction = 1
-\end{verbatim}
-
-\subparagraph{Evaluatie metric.} 1639mJ per tijdseenheid. Hiermee vergelijken we verdere strategie\"en.
-
-\paragraph{Filter.} We sturen een meting pas door als die significant verschilt
-van de vorige. (Wat `significant verschillend' inhoudt bepalen we op voorhand.)
-In dit scenario gaan we ervan uit dat dit gemiddeld bij \'e\'en op twee metingen
-gebeurt.
-
-\subparagraph{Parameters.}
-\begin{verbatim}
-[sensor]
-sensor_data_size = 2
-sensor_data_frequency = 60
-[memory]
-buffer_used = True
-buffer_size = 1
-buffer_write_frequency = 30
-[frequency]
-reduction_frequency = 60
-transmission_frequency = 1
-reduction_cpu_time = praktisch 0
-[reduction]
-transmit_reduction = 2
-data_reduction = 2
-\end{verbatim}
-\subparagraph{Evaluatie metric.} 819.8mJ per tijdseenheid i.p.v. 1639mJ per tijdseenheid. Deployen op mote.
-
-\paragraph{Aggregator.} We houden de metingen bij in een buffer en sturen elke
-minuut alles in \'e\'en keer door.
-
-\subparagraph{Parameters.}
-\begin{verbatim}
-[sensor]
-sensor_data_size = 2
-sensor_data_frequency = 60
-[memory]
-buffer_used = True
-buffer_size = 120
-buffer_write_frequency = 60
-[frequency]
-reduction_frequency = 60
-transmission_frequency = 1
-reduction_cpu_time = praktisch 0
-[reduction]
-transmit_reduction = 60
-data_reduction = 1
-\end{verbatim}
-\subparagraph{Evaluatie metric.} 27.33mJ  per tijdseenheid i.p.v. 1639mJ per tijdseenheid. Deployen op mote.
-
-\paragraph{Gemiddelde.} We houden de metingen bij in een buffer en berekenen het
-gemiddelde hiervan elke minuut.
-
-\subparagraph{Parameters.}
-\begin{verbatim}
-[sensor]
-sensor_data_size = 2
-sensor_data_frequency = 60
-[memory]
-buffer_used = True
-buffer_size = 120
-buffer_write_frequency = 60
-[frequency]
-reduction_frequency = 60
-transmission_frequency = 1
-reduction_cpu_time = max. 1200 cycli (0.000075 * 16MHz)
-[reduction]
-transmit_reduction = 60
-data_reduction = 60
-\end{verbatim}
-\subparagraph{Evaluatie metric.} 38.15mJ per tijdseenheid i.p.v. 1639mJ per tijdseenheid. Deployen op mote.
 
 \section{Resultaten}
 
@@ -472,8 +377,6 @@ metric te induceren die de topologie exploiteert om lokale energieverliezen om
 te zetten in globale energiewinst. Verdere formalisatie van deze intu\"itie en
 experimenten zijn aangewezen.
 
-\subparagraph{Onvoorziene overhead.}
-
 \begin{figure}[h]
 \centering
 \missingfigure{}
@@ -500,7 +403,7 @@ experimenten zijn aangewezen.
 \nocite{*}
 \bibliography{bibliography}
 
-% \newpage
-% \appendix
-% \section{Data sets}
+\newpage
+\appendix
+\section{Data sets}
 \end{document}
