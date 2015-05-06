@@ -16,7 +16,7 @@
 %visuals
 \graphicspath{{visuals/}}
 \usepackage{pgfplots}
-\pgfplotsset{width=0.50\textwidth,compat=1.5}
+\pgfplotsset{width=0.45\textwidth,compat=1.5}
 
 \title{Internet of Things code deployment metrics}
 \author{Ward Schodts \and Xavier Go\'as Aguililla \\ ward.schodts@student.kuleuven.be \\ xavier.goas@student.kuleuven.be}
@@ -180,7 +180,7 @@ circuit:
 \begin{figure}[h]
 \centering
 \includegraphics[width=9cm]{meetopstelling}
-\caption{De meetopstelling \cite{hughes2013energy}}
+%\caption{De meetopstelling \cite{hughes2013energy}}
 \label{fig:meetopstelling}
 \end{figure}
 
@@ -417,8 +417,37 @@ data_reduction = 60
 
 \begin{figure}[h]
 \centering
-\missingfigure{}
-\caption{Energieverbruik in low-power listening}
+%Energie idleness + energie ram
+\begin{tikzpicture}
+\begin{axis}[
+scale only axis,
+xlabel={Tijd $(ms)$},
+ylabel={Energie $(mJ)$}
+]
+\addplot[
+blue,
+domain=0:100,
+samples=201,
+]
+{x/0.000333638186177248 * 8.144E-5 };
+\addplot[
+red,
+domain=0:100,
+samples=201,
+]
+{x * 0.224222886125917 };
+\end{axis}
+\begin{axis}[
+scale only axis,
+ymin=0,ymax=300000,
+xmin=0,xmax=300000,
+xlabel={Bytes geschreven},
+axis x line*=top,
+hide y axis,
+]
+\end{axis}
+\end{tikzpicture}
+\caption{Energieverbruik idle vs. verbruik RAM}
 \label{fig:energieverbruik_low_power}
 \end{figure}
 
@@ -453,11 +482,11 @@ reductiestrategie. De resultaten zijn te zien op \ref{fig:energieverbruik_ram}.
 
 De reden hiervoor is de aard van RAM. Het is volatiel geheugen, dat voortdurend
 moet worden gerefreshed. Schrijfoperaties worden in deze refresh-cycli
-ge\"integreerd zodat ze haast gratis zijn.
+ge\"integreerd zodat ze haast gratis zijn. Als bewijs hiervan hebben we het energieverbruik vergeleken met dat van het in low-power listening. 
 
 \subparagraph{Low-power listening}
 
-\todo[inline]{antenne on idle verbruik}
+
 
 \subparagraph{Verzenden en ontvangen}
 
@@ -512,12 +541,7 @@ Zoals het er nu voor staat hebben we een metric die erg eenvoudig is. Daarin
 berust zijn nut, maar stelt hij de zaak niet te simpel voor? Kunnen we de metric
 verfijnen en onverwachte overhead in rekening brengen? 
 
-\begin{figure}[h]
-\centering
-\missingfigure{}
-\caption{Een topologie + toepassing van de metric}
-\label{fig:voorbeeld_topologie}
-\end{figure}
+
 
 % \subparagraph{Onvoorziene overhead.}
 
