@@ -21,6 +21,8 @@
     "graphicx"
     "babel"
     "pgfplots")
+   (TeX-add-symbols
+    "tikzscale")
    (LaTeX-add-labels
     "fig:meetopstelling"
     "fig:energieverbruik_ram"
@@ -30,5 +32,7 @@
     "fig:energieverbruik_cpu"
     "fig:sweet_spot")
    (LaTeX-add-bibliographies
-    "bibliography")))
+    "bibliography")
+   (LaTeX-add-saveboxes
+    "measure")))
 
