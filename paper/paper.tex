@@ -475,7 +475,21 @@ hide y axis,
 
 \begin{figure}[h]
 \centering
-\missingfigure{}
+% Idle
+\begin{tikzpicture}
+\begin{axis}[
+title=Energie in functie van tijd,
+xmin=0.5,xmax=2,
+xlabel={Tijd $(ms)$},
+ylabel={Energie $(mJ)$},
+]
+\addplot[blue] table {cpu1.dat};
+\addplot[red] table {cpu2.dat};
+\addplot[green] table {cpu3.dat};
+\addplot[yellow] table {cpu4.dat};
+\addplot[gray] table {cpu5.dat};
+\end{axis}
+\end{tikzpicture}	
 \caption{Energieverbruik met antenne volledig uit}
 \label{fig:energieverbruik_antenne_uit}
 \end{figure}
@@ -522,7 +536,8 @@ moet worden gerefreshed. Schrijfoperaties worden in deze refresh-cycli
 ge\"integreerd zodat ze haast gratis zijn. Als bewijs hiervan hebben we het energieverbruik vergeleken met dat van het in low-power listening. 
 De vergelijking kan gezien worden in \ref{fig:energieverbruik_idle_vs_RAM}.\\
 \subparagraph{Low-power listening}
-
+Dit is de staat waarin de mote zich nog
+\todo{fig en tekst}
 
 
 \subparagraph{Verzenden en ontvangen}

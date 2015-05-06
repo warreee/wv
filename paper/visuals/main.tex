@@ -111,4 +111,21 @@ ylabel={$y$},
 \addplot[blue] table {CPU-naive.tsv};
 \end{axis}
 \end{tikzpicture}	
+
+
+% Idle
+\begin{tikzpicture}
+\begin{axis}[
+title=Energie in functie van tijd,
+xmin=0.5,xmax=2,
+xlabel={Tijd $(ms)$},
+ylabel={Energie $(mJ)$},
+]
+\addplot[blue] table {cpu1.dat};
+\addplot[red] table {cpu2.dat};
+\addplot[green] table {cpu3.dat};
+\addplot[yellow] table {cpu4.dat};
+\addplot[gray] table {cpu5.dat};
+\end{axis}
+\end{tikzpicture}	
 \end{document}
