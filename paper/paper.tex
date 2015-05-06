@@ -5,6 +5,7 @@
 \usepackage[scaled=.90]{helvet}
 \usepackage{courier}
 \usepackage{latexsym} 
+\usepackage{environ}
 \usepackage{todonotes} 
 \usepackage{hyperref} 
 \usepackage{amsmath} 
@@ -368,11 +369,12 @@ buffer_write_frequency = 60
 [frequency]
 reduction_frequency = 60
 transmission_frequency = 1
-reduction_cpu_time = max. 1200 cycli (0.000075 * 16MHz)
+reduction_cpu_time = max. 1200 cycli
 [reduction]
 transmit_reduction = 60
 data_reduction = 60
 \end{verbatim}
+
 \subparagraph{Evaluatie metric.} 38.15mJ per tijdseenheid i.p.v. 1639mJ per tijdseenheid. Deployen op mote.
 
 \section{Resultaten}
@@ -380,7 +382,8 @@ data_reduction = 60
 \begin{figure}[h]
 \centering
 %Ram energy
-\begin{tikzpicture}
+\begin{scaletikzpicturetowidth}{\columnwidth}
+\begin{tikzpicture}[scale=\tikzscale]
 \begin{axis}[
 	title=Energie in functie van bytes,
 	xlabel={Bytes},
@@ -392,6 +395,7 @@ data_reduction = 60
 		{8.144E-5 * x };
 \end{axis}
 \end{tikzpicture}
+\end{scaletikzpicturetowidth}
 \caption{Energieverbruik schrijven naar RAM}
 \label{fig:energieverbruik_ram}
 \end{figure}
@@ -399,7 +403,8 @@ data_reduction = 60
 \begin{figure}[h]
 \centering
 %Ram time
-\begin{tikzpicture}
+\begin{scaletikzpicturetowidth}{\columnwidth}
+\begin{tikzpicture}[scale=\tikzscale]
 \begin{axis}[
     title=Tijd in functie van bytes,
     xlabel={Bytes},
@@ -411,6 +416,7 @@ data_reduction = 60
         {3.752E-7 *x -3.773E-6};
 \end{axis}
 \end{tikzpicture}
+\end{scaletikzpicturetowidth}
 \caption{Tijdsduur schrijven naar RAM}
 \label{fig:tijdsduur_ram}
 \end{figure}
