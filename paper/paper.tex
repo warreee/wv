@@ -14,7 +14,8 @@
 
 %visuals
 \graphicspath{{visuals/}}
-
+\usepackage{pgfplots}
+\pgfplotsset{width=0.50\textwidth,compat=1.5}
 
 \title{Internet of Things code deployment metrics}
 \author{Ward Schodts \and Xavier Go\'as Aguililla \\ ward.schodts@student.kuleuven.be \\ xavier.goas@student.kuleuven.be}
@@ -371,14 +372,38 @@ data_reduction = 60
 
 \begin{figure}[h]
 \centering
-\missingfigure{}
+%Ram energy
+\begin{tikzpicture}
+\begin{axis}[
+	title=Energie in functie van bytes,
+	xlabel={Bytes},
+	ylabel={Energie $(mJ)$}]
+\addplot[
+	red,
+	domain=0:8196,
+	samples=201]
+		{8.144E-5 * x };
+\end{axis}
+\end{tikzpicture}
 \caption{Energieverbruik schrijven naar RAM}
 \label{fig:energieverbruik_ram}
 \end{figure}
 
 \begin{figure}[h]
 \centering
-\missingfigure{}
+%Ram time
+\begin{tikzpicture}
+\begin{axis}[
+    title=Tijd in functie van bytes,
+    xlabel={Bytes},
+    ylabel={Tijd $(s)$}]
+\addplot[
+    red,
+    domain=0:8196,
+    samples=201]
+        {3.752E-7 *x -3.773E-6};
+\end{axis}
+\end{tikzpicture}
 \caption{Tijdsduur schrijven naar RAM}
 \label{fig:tijdsduur_ram}
 \end{figure}
