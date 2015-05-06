@@ -482,7 +482,22 @@ hide y axis,
 
 \begin{figure}[h]
 \centering
-\missingfigure{}
+%CPU engergie
+\begin{tikzpicture}
+\begin{axis}[
+title=Energie in functie van tijd,
+xlabel={Tijd $(ms)$},
+ylabel={Energie $(mJ)$}
+]
+\addplot[
+blue,
+domain=0:100,
+samples=201,
+]
+{0.0037 * x *1E-3 *6};
+\end{axis}
+\end{tikzpicture}
+
 \caption{Energieverbruik CPU-cycli}
 \label{fig:energieverbruik_cpu}
 \end{figure}
@@ -505,7 +520,7 @@ reductiestrategie. De resultaten zijn te zien op \ref{fig:energieverbruik_ram}.
 De reden hiervoor is de aard van RAM. Het is volatiel geheugen, dat voortdurend
 moet worden gerefreshed. Schrijfoperaties worden in deze refresh-cycli
 ge\"integreerd zodat ze haast gratis zijn. Als bewijs hiervan hebben we het energieverbruik vergeleken met dat van het in low-power listening. 
-
+De vergelijking kan gezien worden in figuur 3.
 \subparagraph{Low-power listening}
 
 
@@ -524,9 +539,12 @@ Onze eerste aanpak was het gebruiken van de AVR-simulator Avrora
 \cite{titzer2005avrora} om het aantal CPU-cycli exact te meten en te
 vermenigvuldigen met de kost voor CPU-cycli zoals vermeld in de technische
 fiche. Dit is technisch echter lastiger dan het op het eerste zicht lijkt.
-
-\todo[inline]{kost per cyclus + bovengrens via tijdsmetingen}
-
+\\
+\\
+Om dit op te lossen gebruiken we een bovengrens op de CPU kost. We gaan de uitvoertijd van de component meten en daarna voor de gegeven duur de maximale CPU kracht aanrekenen. Met deze bovengrens wordt er nooit te weinig energie aangerekend, maar ook niet excessief veel. Dit komt doordat het verbruik van de microcontroller op zich relatief zeer laag is. Vanaf dat we de duur van de component hebben kunnen we theoretisch aan de hand van de datasheet dan afleiden van het verbruik van de CPU is, dit zoals te verwachten ook linear \ref{fig:energieverbruik_cpu}.\\
+\\
+Merk op dat het praktisch niet mogelijk is om dit verbruik met de oscilloscoop te meten.
+Dit komt doordat een component bijna nooit zuiver alleen CPU gaat gebruiken maar ook nog geheugentoegang, pins, etc. 
 % \subsection{Voorbeeldscenario: werkt de metric?}
 
 \section{Verder werk.} 
