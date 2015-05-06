@@ -3,106 +3,112 @@
 \pgfplotsset{width=9cm,compat=1.5}
 \begin{document}
 
-%Ram time
-\begin{tikzpicture}
-\begin{axis}[
-title=Tijd in functie van bytes,
-xlabel={Bytes},
-ylabel={Tijd $(s)$}
-]
-\addplot[
-red,
-domain=0:8196,
-samples=201,
-]
-{3.752E-7 *x -3.773E-6};
-\end{axis}
-\end{tikzpicture}
+% %Ram time
+% \begin{tikzpicture}
+% \begin{axis}[
+% title=Tijd in functie van bytes,
+% xlabel={Bytes},
+% ylabel={Tijd $(s)$}
+% ]
+% \addplot[
+% red,
+% domain=0:8196,
+% samples=201,
+% ]
+% {3.752E-7 *x -3.773E-6};
+% \end{axis}
+% \end{tikzpicture}
 
-%Ram energy
-\begin{tikzpicture}
-\begin{axis}[
-title=Energie in functie van bytes,
-xlabel={Bytes},
-ylabel={Energie $(mJ)$}
-]
-\addplot[
-red,
-domain=0:8196,
-samples=201,
-]
-{8.144E-5 * x };
-\end{axis}
-\end{tikzpicture}
+% %Ram energy
+% \begin{tikzpicture}
+% \begin{axis}[
+% title=Energie in functie van bytes,
+% xlabel={Bytes},
+% ylabel={Energie $(mJ)$}
+% ]
+% \addplot[
+% red,
+% domain=0:8196,
+% samples=201,
+% ]
+% {8.144E-5 * x };
+% \end{axis}
+% \end{tikzpicture}
 
-%CPU engergie
+% %CPU engergie
+% \begin{tikzpicture}
+% \begin{axis}[
+% title=Energie in functie van tijd,
+% xlabel={Tijd $(ms)$},
+% ylabel={Energie $(mJ)$}
+% ]
+% \addplot[
+% blue,
+% domain=0:100,
+% samples=201,
+% ]
+% {0.0037 * x *1E-3 *6};
+% \end{axis}
+% \end{tikzpicture}
+
+% %Energie idleness + energie ram
+% \begin{tikzpicture}
+% \begin{axis}[
+% scale only axis,
+% xlabel={Tijd $(ms)$},
+% ylabel={Energie $(mJ)$}
+% ]
+% \addplot[
+% blue,
+% domain=0:100,
+% samples=201,
+% ]
+% {x/0.000333638186177248 * 8.144E-5 };
+% \addplot[
+% red,
+% domain=0:100,
+% samples=201,
+% ]
+% {x * 0.224222886125917 };
+% \end{axis}
+% \begin{axis}[
+% scale only axis,
+% ymin=0,ymax=300000,
+% xmin=0,xmax=300000,
+% xlabel={Bytes geschreven},
+% axis x line*=top,
+% hide y axis,
+% ]
+% \end{axis}
+% \end{tikzpicture}
+
+
+
+
 \begin{tikzpicture}
 \begin{axis}[
 title=Energie in functie van tijd,
-xlabel={Tijd $(ms)$},
+xlabel={Reductiefactor (data)},
 ylabel={Energie $(mJ)$}
 ]
 \addplot[
 blue,
-domain=0:100,
+domain=1:10,
 samples=201,
 ]
-{0.0037 * x *1E-3 *6};
-\end{axis}
-\end{tikzpicture}
-
-%Energie idleness + energie ram
-\begin{tikzpicture}
-\begin{axis}[
-scale only axis,
-xlabel={Tijd $(ms)$},
-ylabel={Energie $(mJ)$}
-]
-\addplot[
-blue,
-domain=0:100,
-samples=201,
-]
-{x/0.000333638186177248 * 8.144E-5 };
-\addplot[
-red,
-domain=0:100,
-samples=201,
-]
-{x * 0.224222886125917 };
-\end{axis}
-\begin{axis}[
-scale only axis,
-ymin=0,ymax=300000,
-xmin=0,xmax=300000,
-xlabel={Bytes geschreven},
-axis x line*=top,
-hide y axis,
-]
-\end{axis}
-\end{tikzpicture}
-
-
-
-
-\begin{tikzpicture}
-\begin{axis}[
-title=Energie in functie van tijd,
-xlabel={Tijd $(ms)$},
-ylabel={Energie $(mJ)$}
-]
-\addplot[
-blue,
-domain=0:10,
-samples=201,
-]
-{1};
+{5};
 \addplot[
 green,
-domain=0:10,
+domain=1:10,
 samples=201,
 ]
-{-0.0415*x*x*x + 0.7*x*x -4.76*x + 10.25};
+{0.7*(x-4)*(x-4) -4.76*(x-4) + 10.25};
+\addplot[
+red,
+domain=1:10,
+samples=201,
+]
+{0.0415*x*x*x - 0.7*x*x + 4.76*x + 10.25};
 \end{axis}
 \end{tikzpicture}
 

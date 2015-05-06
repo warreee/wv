@@ -6,6 +6,20 @@
 \usepackage{courier}
 \usepackage{latexsym} 
 \usepackage{environ}
+
+\makeatletter
+\newsavebox{\measure@tikzpicture}
+\NewEnviron{scaletikzpicturetowidth}[1]{%
+  \def\tikz@width{#1}%
+  \def\tikzscale{1}\begin{lrbox}{\measure@tikzpicture}%
+  \BODY
+  \end{lrbox}%
+  \pgfmathparse{#1/\wd\measure@tikzpicture}%
+  \edef\tikzscale{\pgfmathresult}%
+  \BODY
+}
+\makeatother
+
 \usepackage{todonotes} 
 \usepackage{hyperref} 
 \usepackage{amsmath} 
@@ -424,7 +438,8 @@ data_reduction = 60
 \begin{figure}[h]
 \centering
 %Energie idleness + energie ram
-\begin{tikzpicture}
+\begin{scaletikzpicturetowidth}{\columnwidth}
+\begin{tikzpicture}[scale=\tikzscale]
 \begin{axis}[
 scale only axis,
 xlabel={Tijd $(ms)$},
@@ -453,6 +468,7 @@ hide y axis,
 ]
 \end{axis}
 \end{tikzpicture}
+\end{scaletikzpicturetowidth}
 \caption{Energieverbruik idle vs. verbruik RAM}
 \label{fig:energieverbruik_low_power}
 \end{figure}
