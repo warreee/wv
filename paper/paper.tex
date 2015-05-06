@@ -541,6 +541,8 @@ De reden hiervoor is de aard van RAM. Het is volatiel geheugen, dat voortdurend
 moet worden gerefreshed. Schrijfoperaties worden in deze refresh-cycli
 ge\"integreerd zodat ze haast gratis zijn. Als bewijs hiervan hebben we het energieverbruik vergeleken met dat van het in low-power listening. 
 De vergelijking kan gezien worden in \ref{fig:energieverbruik_idle_vs_RAM}.\\
+\\
+De x-as geeft aan hoelang dat de mote idle is of hoe lang er bytes geschreven worden naar het RAM geheugen. Aan de hand van \ref{fig:tijdsduur_ram} hebben we kunnen berekenen hoeveel bytes er in een bepaalde tijdsduur worden weggeschreven. Voor $1ms$ is dit ongeveer al 3000 bytes. Vandaar dat, hoewel het misschien lijkt dat naar RAM schrijven een kost heeft, deze kost nooit wordt gehaald aangezien er nooit zoveel bytes ineens gaan worden geschreven. Het grote aantal bytes dat zou geschreven worden staat op de tweede x-as bovenaan \ref{fig:energieverbruik_idle_vs_RAM}. 
 \subparagraph{Low-power listening}
 Dit is de staat waarin de mote zich nog
 
