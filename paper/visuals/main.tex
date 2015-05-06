@@ -105,4 +105,13 @@ samples=201,
 {-0.0415*x*x*x + 0.7*x*x -4.76*x + 10.25};
 \end{axis}
 \end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{axis}[
+xlabel={$x$},
+ylabel={$y$},
+]
+\addplot[blue] table {CPU-naive.tsv};
+\end{axis}
+\end{tikzpicture}
 \end{document}
