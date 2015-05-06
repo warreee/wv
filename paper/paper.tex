@@ -62,14 +62,16 @@ preciezer toepassen van de technieken waarmee de vuistregel tot stand is gekomen
 
 \subsection{Onderzoeksvraag}
 
-Een typische mote\footnote{Voor een breder overzicht van WSNs, zie
-\cite{akyildiz2002wireless}} heeft erg beperkte reken- en opslagcapaciteit, wat
-verhindert dat er meerdere processen op effici\"ente wijze concurrent kunnen
-worden uitgevoerd. In het algemeen gaat men daarom een simpele strategie
-toepassen voor dataverwerking, waarbij de mote \'e\'en enkele
-verantwoordelijkheid heeft, het zgn. 'sense and send': sensordata wordt op de
-motes niet bewerkt, maar meteen doorgestuurd naar de backend voor verdere
-verwerking, waardoor de rol van de motes bij het verwerken van de data
+Wireless sensor networks (kortweg WSNs) zijn netwerken bestaande uit kleine
+embedded apparaten (motes), die worden geplaatst op moeilijk bereikbare plekken
+om observaties te doen via sensoren.\footnote{Voor een breder overzicht van
+WSNs, zie \cite{akyildiz2002wireless}} Een typische mote heeft erg beperkte
+reken- en opslagcapaciteit, wat verhindert dat er meerdere processen op
+effici\"ente wijze concurrent kunnen worden uitgevoerd. In het algemeen gaat men
+daarom een simpele strategie toepassen voor dataverwerking, waarbij de mote
+\'e\'en enkele verantwoordelijkheid heeft, het zgn. 'sense and send': sensordata
+wordt op de motes niet bewerkt, maar meteen doorgestuurd naar de backend voor
+verdere verwerking, waardoor de rol van de motes bij het verwerken van de data
 geminimaliseerd wordt.
 
 Dit is de na\"iefste aanpak die men kan gebruiken, en steunt net op het deel van
@@ -530,6 +532,8 @@ Voor kostmetingen zijn we als volgt te werk gegaan:
 \item Een ruwe meting: we schrijven een programma dat beroep doet op een deel
 van de mote waarvan we het energieverbruik willen berekenen. Bijvoorbeeld: een
 programma dat herhaaldelijk bytes naar een buffer in het RAM. 
+\item We halen de meting door een speciaal script dat ons het stroomverbruik geeft voor de stukken afgebakende code.
+\item We maken een inferentie, zodat we de atomische kost kunnen berekenen. Die extrapoleren we dan.
 \end{enumerate}
 
 \subparagraph{Schrijven naar RAM}
@@ -544,7 +548,12 @@ De vergelijking kan gezien worden in \ref{fig:energieverbruik_idle_vs_RAM}.\\
 \\
 De x-as geeft aan hoelang dat de mote idle is of hoe lang er bytes geschreven worden naar het RAM geheugen. Aan de hand van \ref{fig:tijdsduur_ram} hebben we kunnen berekenen hoeveel bytes er in een bepaalde tijdsduur worden weggeschreven. Voor $1ms$ is dit ongeveer al 3000 bytes. Vandaar dat, hoewel het misschien lijkt dat naar RAM schrijven een kost heeft, deze kost nooit wordt gehaald aangezien er nooit zoveel bytes ineens gaan worden geschreven. Het grote aantal bytes dat zou geschreven worden staat op de tweede x-as bovenaan \ref{fig:energieverbruik_idle_vs_RAM}. 
 \subparagraph{Low-power listening}
-Dit is de staat waarin de mote zich het meeste bevind. Hier gaat hij aan $8Hz$ kijken of er niet gecommuniceerd moet worden met andere motes. Om deze toestand te meten hebben we dus enkel een lege component nodig die de pin aan en uit zet op een vast interval. Voor het verbruik in deze toestand vonden we $224.2mJ$, dit kan ook geverifieerd worden in \ref{fig:energieverbruik_lpl}.
+Dit is de staat waarin de mote zich het meeste bevindt. Hier gaat hij aan $8Hz$
+kijken of er niet gecommuniceerd moet worden met andere motes - en elke keer
+wordt de antenne aangezet. Om deze toestand te meten hebben we dus enkel een
+lege component nodig die de pin aan en uit zet op een vast interval. Voor het
+verbruik in deze toestand vonden we $224.2mJ$, dit kan ook geverifieerd worden
+in \ref{fig:energieverbruik_lpl}.
 
 \begin{figure}[h]
 \centering
