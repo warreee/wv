@@ -93,22 +93,22 @@ ylabel={Energie $(mJ)$}
 ]
 \addplot[
 blue,
-domain=1:10,
+domain=1:8,
 samples=201,
 ]
 {5};
 \addplot[
 green,
-domain=1:10,
+domain=1:8,
 samples=201,
 ]
 {0.7*(x-4)*(x-4) -4.76*(x-4) + 10.25};
 \addplot[
 red,
-domain=1:10,
+domain=1:8,
 samples=201,
 ]
-{0.0415*x*x*x - 0.7*x*x + 4.76*x + 10.25};
+{0.7*((8-x)-4)*((8-x)-4) -4.76*((8-x)-4) + 10.25};
 \end{axis}
 \end{tikzpicture}
 

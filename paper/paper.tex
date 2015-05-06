@@ -527,7 +527,13 @@ De vergelijking kan gezien worden in figuur 3.
 
 \subparagraph{Verzenden en ontvangen}
 
-\todo[inline]{transmit en receive kost}
+De kost van het verzenden en ontvangen via het netwerk is vrij groot. Dit is
+vooral te wijten aan het aanzetten van de antenne, dat enorm veel energie
+opslorpt ten opzichte van al het andere. Het eigenlijke verzenden kost ook meer
+dan bijv. CPU of RAM, maar als we de overhead van het opstarten buiten
+beschouwing laten, is het nog redelijk. Daardoor is het interessant om de
+antenne zo min mogelijk aan te zetten, en te proberen zoveel mogelijk data te
+bundelen voor verzending om de overhead tot een minimum te beperken.
 
 \subparagraph{Basisverbruik}
 
@@ -594,12 +600,12 @@ in de vorm van CPU-cycli. Een interessante vraag is dan: kunnen we een
 \textit{sweet spot} vinden, waar de gecombineerde kost van verzending en
 datareductie minimaal is?
 
-\begin{figure}[h]
-\centering
-\missingfigure{}
-\caption{Een sweet spot vinden}
-\label{fig:sweet_spot}
-\end{figure}
+% \begin{figure}[h]
+% \centering
+% \missingfigure{}
+% \caption{Een sweet spot vinden}
+% \label{fig:sweet_spot}
+% \end{figure}
 
 \section{Conclusie}
 
