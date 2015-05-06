@@ -545,6 +545,29 @@ De vergelijking kan gezien worden in \ref{fig:energieverbruik_idle_vs_RAM}.\\
 Dit is de staat waarin de mote zich nog
 \todo{fig en tekst}
 
+\begin{figure}[h]
+\centering
+%CPU engergie
+\begin{tikzpicture}
+\begin{axis}[
+title=Energie in functie van tijd,
+xlabel={Tijd $(ms)$},
+ylabel={Energie $(mJ)$}
+]
+\addplot[
+blue,
+domain=0:100,
+samples=201,
+]
+{x * 0.224222886125917 };
+\end{axis}
+\end{tikzpicture}
+
+\caption{Energieverbruik low-power listening}
+\label{fig:energieverbruik_lpl}
+\end{figure}
+
+
 \subparagraph{Verzenden en ontvangen}
 
 De kost van het verzenden en ontvangen via het netwerk is vrij groot. Dit is
