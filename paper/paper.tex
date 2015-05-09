@@ -42,11 +42,14 @@
   \texttt{xavier.goas@student.kuleuven.be}
 }
 
+%links
+\usepackage{hyperref}
+
 \begin{document}
 
 \maketitle
 
-% \listoftodos
+\listoftodos
 \linespread{1.3}
 \begin{abstract}
 Wij stellen een simpele vuistregel voor die kan dienen om te beslissen of een
@@ -93,7 +96,7 @@ kwestie: van de ontwikkeling van besturingssystemen voor motes over
 netwerkprotocollen tot studies van netwerktopologie\"en.
 
 Het ontwikkelen van een eenvoudige metric die een programmeur toelaat om snel en
-efficiënt te evalueren of een bepaalde applicatie op een mote kan gedeployed
+effic\"ent te evalueren of een bepaalde applicatie op een mote kan gedeployed
 worden of niet zou interessant zijn voor het ontwikkelen van
 energie-effici\"ente IoT-systemen. Bovendien zou daarmee een waardevolle
 bijdrage kunnen geleverd worden over het ontwikkelen van IoT-architecturen in
@@ -101,10 +104,10 @@ het algemeen.
 
 \subsection{Onderzoeksopgave}
 
-Een eenvoudige vuistregel, die:
+Een eenvoudige vuistregel, die bepaalt of een stuk applicatielogica al dan niet op een mote thuishoort of niet en bovendien voldoet aan volgende eigenschappen:
 \begin{itemize}
-\item In de grote meerderheid van de gevallen een juiste beslissing zal maken;
-\item eenvoudig te integreren is in de ontwikkelingscyclus;
+\item In de grote meerderheid van de gevallen een juiste beslissing maken;
+\item eenvoudig te integreren in de ontwikkelingscyclus;
 \item semi-automatisch werkt.
 \end{itemize}
 
@@ -113,7 +116,7 @@ We vertrekken vanuit de veronderstelling dat de ontwikkelaar een stuk
 applicatielogica rechtstreeks op de motes wilt deployen. Vanuit deze optiek
 maken we abstractie van de low-level details van simulatie e.d., en gebruiken we
 in plaats daarvan een eenvoudige vuistregel (\textit{code deployment
-metric}. Deze geeft een makkelijke ja/nee-beslissing die zegt of we kunnen
+metric}). Deze geeft een makkelijke ja/nee-beslissing die zegt of we kunnen
 deployen of niet. We defini\"eren een functie $h$\footnote{h van heuristiek} voor deze vuistregel als
 volgt:
 % \begin{equation}
@@ -158,7 +161,7 @@ De aandachtige lezer stelt zich meteen de vraag: hoe kunnen wij de kost van zo'n
 reductie in het algemeen schatten? We laten de programmeur, die zijn programma
 goed kent, ingrijpen. We nemen als input niet enkel het gecompileerde programma,
 maar ook een aantal parameters. Deze zijn bijvoorbeeld:
-
+\todo[inline]{Allemaal opgeven, zodra het programma geschreven is.}
 \paragraph{Sensoren.} Hoe groot is de sensordata? Hoe vaak komt er sensordata binnen?
 \paragraph{Geheugenverbruik.} Worden er gegevens bijgehouden in een buffer? Hoeveel? Hoe vaak wordt er naar die buffer geschreven?
 \paragraph{Nauwkeurigheid.} Wat is de gewenste granulariteit van de metingen,
@@ -178,7 +181,8 @@ be\"invloeden:
 
 \begin{itemize}
 \item \textbf{storage}: hoeveel kost het om $n$ bytes op te slaan in het RAM of
-het EEPROM?
+het EEPROM? 
+\todo[inline]{EEPROM, niet hier vermelden, wel zeggen dat we dit onderzocht hebben maar dat dit nadelen heeft en dat we het daarom niet verder onder de loop hebben genomen}
 \item \textbf{computation}: hoeveel kosten $n$ seconden CPU-tijd?
 \item \textbf{transmission}: hoeveel kost het om $n$ bytes te verzenden; hoeveel
 kost het om de antenne aan en uit te zetten?
@@ -195,6 +199,7 @@ van deze types.
 
 Voor onze metingen maakten wij gebruik van de AVR Zigduino. Deze werd
 aangesloten op een circuit met spanning 6V en stroom 0.04A.
+Op deze Zigduino draaide een kale versie van Contiki (2.7).\footnote{\url{http://www.contiki-os.org/}}
 
 De meetmethode is ontleend aan \cite{hughes2013energy}. Voor het meten van het
 energieverbruik gedurende een bepaalde periode maken we gebruik van het volgende
@@ -203,7 +208,7 @@ circuit:
 \begin{figure}[h]
 \centering
 \includegraphics[width=9cm]{meetopstelling}
-%\caption{De meetopstelling \cite{hughes2013energy}}
+\caption{De meetopstelling }
 \label{fig:meetopstelling}
 \end{figure}
 
@@ -215,7 +220,21 @@ overeen met de periodes waarin de code waarvan we het energiegebruik willen
 kennen wordt uitgevoerd. We kunnen gebruik maken van de wet van Ohm om de
 verbruikte stroom in die intervallen te schatten. Daardoor kunnen we met goede
 precisie meten hoeveel energie een bepaald stuk code verbruikt.
+\todo[inline]{Het stuk code van de pin flips laten zien, samen met een afbeelding van de oscilloscoop}
+\begin{figure}[h]
+\centering
+\missingfigure{}
+\caption{Oscilloscoop in werking.}
+\label{fig:osc_werking}
+\end{figure}
 
+\todo[inline]{Hierna verder uitleggen hoe we de output verwerken, (enkel voor tijd of ook voor de energie)}
+\begin{figure}[h]
+\centering
+\missingfigure{}
+\caption{Een dataset}
+\label{fig:data}
+\end{figure}
 \subsection{De tool}
 
 \paragraph{Input voor de tool}
@@ -655,13 +674,15 @@ bij het reduceren van data: verzenden wordt goedkoper, maar we betalen een kost
 in de vorm van CPU-cycli. Een interessante vraag is dan: kunnen we een
 \textit{sweet spot} vinden, waar de gecombineerde kost van verzending en
 datareductie minimaal is?
+\\
+In volgende grafiek\ref{fig:sweet_spot} tonen we een hypothetische verloop van deze trade-off.
 
-% \begin{figure}[h]
-% \centering
-% \missingfigure{}
-% \caption{Een sweet spot vinden}
-% \label{fig:sweet_spot}
-% \end{figure}
+\begin{figure}[h]
+\centering
+\missingfigure{}
+\caption{Een sweet spot vinden}
+\label{fig:sweet_spot}
+\end{figure}
 
 \section{Conclusie}
 
@@ -685,7 +706,9 @@ geslaagd, maar werken nog naarstig door aan verfijningen.
 \nocite{*}
 \bibliography{bibliography}
 
-% \newpage
-% \appendix
-% \section{Data sets}
+\newpage
+\appendix
+\section{Data sets}
+\section{De tool}
+\section{Het matlab script}
 \end{document}
