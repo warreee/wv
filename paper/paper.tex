@@ -5,50 +5,76 @@
 \usepackage[scaled=.90]{helvet}
 \usepackage{courier}
 \usepackage{latexsym} 
+\usepackage{environ}
+
+\makeatletter
+\newsavebox{\measure@tikzpicture}
+\NewEnviron{scaletikzpicturetowidth}[1]{%
+  \def\tikz@width{#1}%
+  \def\tikzscale{1}\begin{lrbox}{\measure@tikzpicture}%
+  \BODY
+  \end{lrbox}%
+  \pgfmathparse{#1/\wd\measure@tikzpicture}%
+  \edef\tikzscale{\pgfmathresult}%
+  \BODY
+}
+\makeatother
+
 \usepackage{todonotes} 
+\usepackage{hyperref} 
 \usepackage{amsmath} 
+\usepackage{float} 
+\usepackage{graphicx}
+\graphicspath{{graphics/}}
 \usepackage[dutch]{babel} 
 
+%visuals
+\graphicspath{{visuals/}}
+\usepackage{pgfplots}
+\pgfplotsset{width=0.45\textwidth,compat=1.5}
 
 \title{Internet of Things code deployment metrics}
-\author{Ward Schodts \and Xavier Go\'as Aguililla \\ ward.schodts@student.kuleuven.be \\ xavier.goas@student.kuleuven.be}
+\author{
+  Ward Schodts\\
+  \texttt{ward.schodts@student.kuleuven.be}
+  \\[3ex]
+  \textbf{Xavier Go\'as Aguililla}\\
+  \texttt{xavier.goas@student.kuleuven.be}
+}
+
+%links
+\usepackage{hyperref}
 
 \begin{document}
 
 \maketitle
 
 \listoftodos
-
+\linespread{1.3}
 \begin{abstract}
 Wij stellen een simpele vuistregel voor die kan dienen om te beslissen of een
 bepaald stuk applicatielogica op een mote kan draaien zonder lokaal energie- of
-performantieverlies.
+performantieverlies, evenals een tool die deze kan nagaan. Deze gebruikt de
+kennis van de programmeur en een aantal basiseigenschappen van het te draaien
+programma om deze beslissing te maken. We geven ook een aanzet tot het breder en
+preciezer toepassen van de technieken waarmee de vuistregel tot stand is gekomen.
   
 \end{abstract}
 
 \section{Situering \& probleemstelling}
 
-\todo[inline]{explain what WSNs are?}
+\subsection{Onderzoeksvraag}
 
-\subsection{Wat}
-
-Energie-effici\"entie is een cruciale factor op alle niveau's bij het
-ontwikkelen van wireless sensor networks: een typische mote heeft geen toegang
-tot een onbeperkte stroombron en moet het doen met een batterij. Deze batterij
-kan in veel scenario's waarin WSNs worden gebruikt ook niet hernieuwd worden, en
-dus is de levensduur van de mote ook afhankelijk van hoe zuinig hij omspringt
-met energie. Het is dan ook geen wonder dat veel research in het gebied
-rechtstreeks wordt be\"invloed door deze kwestie: van de ontwikkeling van
-besturingssystemen voor motes over netwerkprotocollen tot studies van
-netwerktopologie\"en.
-
-Een typische mote heeft ook erg beperkte reken- en opslagcapaciteit, wat
-verhindert dat er meerdere processen op effici\"ente wijze concurrent kunnen
-worden uitgevoerd. In het algemeen gaat men daarom een simpele strategie
-toepassen voor dataverwerking, waarbij de mote \'e\'en enkele
-verantwoordelijkheid heeft, het zgn. 'sense and send': sensordata wordt op de
-motes niet bewerkt, maar meteen doorgestuurd naar de backend voor verdere
-verwerking, waardoor de rol van de motes bij het verwerken van de data
+Wireless sensor networks (kortweg WSNs) zijn netwerken bestaande uit kleine
+embedded apparaten (motes), die worden geplaatst op moeilijk bereikbare plekken
+om observaties te doen via sensoren.\footnote{Voor een breder overzicht van
+WSNs, zie \cite{akyildiz2002wireless}} Een typische mote heeft erg beperkte
+reken- en opslagcapaciteit, wat verhindert dat er meerdere processen op
+effici\"ente wijze concurrent kunnen worden uitgevoerd. In het algemeen gaat men
+daarom een simpele strategie toepassen voor dataverwerking, waarbij de mote
+\'e\'en enkele verantwoordelijkheid heeft, het zgn. 'sense and send': sensordata
+wordt op de motes niet bewerkt, maar meteen doorgestuurd naar de backend voor
+verdere verwerking, waardoor de rol van de motes bij het verwerken van de data
 geminimaliseerd wordt.
 
 Dit is de na\"iefste aanpak die men kan gebruiken, en steunt net op het deel van
@@ -58,15 +84,30 @@ maken om effici\"enter om te springen met de antenne? En is het mogelijk een
 simpele, algemene maatstaf te gebruiken om te beslissen of dit in een specifiek
 deployment scenario kan of niet?
 
-\subsection{Waarom?}
+Energie-effici\"entie is een cruciale factor op alle niveaus bij het ontwikkelen
+van wireless sensor networks: een typische mote heeft geen toegang tot een
+onbeperkte stroombron en moet het doen met een batterij. Deze batterij kan in
+veel scenario's waarin WSNs worden gebruikt ook niet hernieuwd
+worden,\footnote{Een leuk scenario waarin deze constraint geldt, vindt men bij
+\cite{mainwaring2002wireless}} en dus is de levensduur van de mote ook
+afhankelijk van hoe zuinig hij omspringt met energie. Het is dan ook geen wonder
+dat veel research in het gebied rechtstreeks wordt be\"invloed door deze
+kwestie: van de ontwikkeling van besturingssystemen voor motes over
+netwerkprotocollen tot studies van netwerktopologie\"en.
 
+Het ontwikkelen van een eenvoudige metric die een programmeur toelaat om snel en
+effic\"ent te evalueren of een bepaalde applicatie op een mote kan gedeployed
+worden of niet zou interessant zijn voor het ontwikkelen van
+energie-effici\"ente IoT-systemen. Bovendien zou daarmee een waardevolle
+bijdrage kunnen geleverd worden over het ontwikkelen van IoT-architecturen in
+het algemeen.
 
-\subsection{Succescriteria}
+\subsection{Onderzoeksopgave}
 
-Een eenvoudige vuistregel, die:
+Een eenvoudige vuistregel, die bepaalt of een stuk applicatielogica al dan niet op een mote thuishoort of niet en bovendien voldoet aan volgende eigenschappen:
 \begin{itemize}
-\item In de grote meerderheid van de gevallen een juiste beslissing zal maken;
-\item eenvoudig te integreren is in de ontwikkelingscyclus;
+\item In de grote meerderheid van de gevallen een juiste beslissing maken;
+\item eenvoudig te integreren in de ontwikkelingscyclus;
 \item semi-automatisch werkt.
 \end{itemize}
 
@@ -75,16 +116,23 @@ We vertrekken vanuit de veronderstelling dat de ontwikkelaar een stuk
 applicatielogica rechtstreeks op de motes wilt deployen. Vanuit deze optiek
 maken we abstractie van de low-level details van simulatie e.d., en gebruiken we
 in plaats daarvan een eenvoudige vuistregel (\textit{code deployment
-metric}. Deze geeft een makkelijke ja/nee-beslissing die zegt of we kunnen
-deployen of niet. We defini\"eren een functie $h$ voor deze vuistregel als
+metric}). Deze geeft een makkelijke ja/nee-beslissing die zegt of we kunnen
+deployen of niet. We defini\"eren een functie $h$\footnote{h van heuristiek} voor deze vuistregel als
 volgt:
-\todo[inline]{Voorwaaderlijke functiemapping}
-\begin{equation}
-  \begin{split}
-    h : x \mapsto \{0, 1\} \\
-    h(x) = signum(transmit(x) - cost(reduce(x)) \\ - cost(transmit(reduce(x))))
-  \end{split}
-\end{equation}
+% \begin{equation}
+%   \begin{split}
+%     h : x \mapsto \{0, 1\} \\
+%     h(x) = signum(transmit(x) - cost(reduce(x)) \\ - cost(transmit(reduce(x))))
+%   \end{split}
+% \end{equation}
+
+\[
+h(x)= 
+\begin{cases}
+  1, & \text{als } tr(x) - cost(red(x)) - cost(tr(red(x))) > 0  \\
+  0, & \text{in alle andere gevallen}
+\end{cases}
+\]
 
 Waarbij $n$ de grootte van de sensordata in bytes is, en $m$ de verwachte
 grootte van de output van de functie compute toegepast op de sensorinput, ook in
@@ -110,13 +158,10 @@ comprimeren door reeksen identieke metingen samen te nemen (filter +
 aggregator). Dit zou theoretisch gezien een grotere winst moeten opleveren.
 
 De aandachtige lezer stelt zich meteen de vraag: hoe kunnen wij de kost van zo'n
-reductie in het algemeen schatten, zuiver uitgaand van het programma? 
-
-\todo[inline]{uitweiden}
-
-We laten de programmeur, die zijn programma goed kent, ingrijpen. We nemen als
-input niet enkel het gecompileerde programma, maar ook een set parameters. Deze zijn bijvoorbeeld:
-
+reductie in het algemeen schatten? We laten de programmeur, die zijn programma
+goed kent, ingrijpen. We nemen als input niet enkel het gecompileerde programma,
+maar ook een aantal parameters. Deze zijn bijvoorbeeld:
+\todo[inline]{Allemaal opgeven, zodra het programma geschreven is.}
 \paragraph{Sensoren.} Hoe groot is de sensordata? Hoe vaak komt er sensordata binnen?
 \paragraph{Geheugenverbruik.} Worden er gegevens bijgehouden in een buffer? Hoeveel? Hoe vaak wordt er naar die buffer geschreven?
 \paragraph{Nauwkeurigheid.} Wat is de gewenste granulariteit van de metingen,
@@ -126,7 +171,7 @@ d.w.z. hoe groot mag het interval tussen twee doorgestuurde metingen zijn?
 \paragraph{Reductiegrootte.} Hoe sterk verkleint de reductie het aantal te
 verzenden bytes?
 
-\section{Methodologie \& materiaal}
+\section{Methodologie}
 
 De kwestie is nu om wat we theoretisch uiteen hebben gezet in te vullen met
 empirische data: hoe berekenen wij de kost van het verzenden en verwerken van
@@ -136,7 +181,8 @@ be\"invloeden:
 
 \begin{itemize}
 \item \textbf{storage}: hoeveel kost het om $n$ bytes op te slaan in het RAM of
-het EEPROM?
+het EEPROM? 
+\todo[inline]{EEPROM, niet hier vermelden, wel zeggen dat we dit onderzocht hebben maar dat dit nadelen heeft en dat we het daarom niet verder onder de loop hebben genomen}
 \item \textbf{computation}: hoeveel kosten $n$ seconden CPU-tijd?
 \item \textbf{transmission}: hoeveel kost het om $n$ bytes te verzenden; hoeveel
 kost het om de antenne aan en uit te zetten?
@@ -153,23 +199,42 @@ van deze types.
 
 Voor onze metingen maakten wij gebruik van de AVR Zigduino. Deze werd
 aangesloten op een circuit met spanning 6V en stroom 0.04A.
+Op deze Zigduino draaide een kale versie van Contiki (2.7).\footnote{\url{http://www.contiki-os.org/}}
 
-Voor het meten van het energieverbruik gedurende een bepaalde periode maken we gebruik van het volgende circuit:
+De meetmethode is ontleend aan \cite{hughes2013energy}. Voor het meten van het
+energieverbruik gedurende een bepaalde periode maken we gebruik van het volgende
+circuit:
 
 \begin{figure}[h]
 \centering
-\missingfigure{}
-\caption{De meetopstelling}
+\includegraphics[width=9cm]{meetopstelling}
+\caption{De meetopstelling }
 \label{fig:meetopstelling}
 \end{figure}
 
 De oscilloscoop meet de spanning in het circuit. De weerstand kan aan en uit
 worden gezet door de mote door het pin-outsignaal te flippen. Er is enkel stroom
-in het circuit als het signaal op hoog staat; die periodes zijn duidelijk af te
-lezen op de output van oscilloscoop. We kunnen gebruik maken van de wet van Ohm
-om de verbruikte stroom in die intervallen te meten. Daardoor kunnen we met
-goede precisie meten hoeveel energie een bepaald stuk code verbruikt.
+in het circuit verbonden aan de pin-out als het signaal op hoog staat; die
+periodes zijn duidelijk af te lezen op de output van oscilloscoop en komen
+overeen met de periodes waarin de code waarvan we het energiegebruik willen
+kennen wordt uitgevoerd. We kunnen gebruik maken van de wet van Ohm om de
+verbruikte stroom in die intervallen te schatten. Daardoor kunnen we met goede
+precisie meten hoeveel energie een bepaald stuk code verbruikt.
+\todo[inline]{Het stuk code van de pin flips laten zien, samen met een afbeelding van de oscilloscoop}
+\begin{figure}[h]
+\centering
+\missingfigure{}
+\caption{Oscilloscoop in werking.}
+\label{fig:osc_werking}
+\end{figure}
 
+\todo[inline]{Hierna verder uitleggen hoe we de output verwerken, (enkel voor tijd of ook voor de energie)}
+\begin{figure}[h]
+\centering
+\missingfigure{}
+\caption{Een dataset}
+\label{fig:data}
+\end{figure}
 \subsection{De tool}
 
 \paragraph{Input voor de tool}
@@ -232,7 +297,7 @@ vochtigheidsgraad en hieruit af te leiden hoe sterk de temperatuur en
 vochtigheidsgraad zullen oscilleren.
 
 Een andere mogelijkheid is het afschatten van de reductiegrootte door de
-worst-case reductiegrootte te bekijken. 
+worst-case reductiegrootte te bekijken.
 
 \subparagraph{Tijdsinformatie.} Merk op dat in het zonet vermelde geval ook de
 tijdsinformatie op een gelijkaardige manier moet worden afgeleid. De frequentie
@@ -251,43 +316,229 @@ de ontwikkelingsomgeving van Contiki. Men werkt daar voornamelijk met
 \item Schrijf het gewenste programma.
 \item Maak een parameterbestand aan. Schat de parameters zoals hierboven
 aangegeven en verwerk ze hierin.
-\item Voer het commando \texttt{make eval-metric} uit. Dit 
+\item Voer het commando \texttt{make eval-metric} uit. Dit brengt een evaluatie
+van de metric op gang door middel van de gegeven parameters.
 \end{enumerate}
+
 \subsection{Een voorbeeldscenario: temperatuurmetingen}
+
+Stel dat we een opstelling hebben waarbij de mote temperatuurmetingen moet
+uitvoeren. Dit gebeurt elke seconde; elke meting is twee bytes groot. De
+back-end hoeft echter niet in real time op de hoogte te worden gebracht van deze
+metingen, maar heeft genoeg aan \'e\'en stuk temperatuurdata per
+minuut. Verschillende strategie\"en bieden zich aan:
+
+\paragraph{Sense and send.} Van zodra een meting binnenkomt sturen we hem door.
+
+\subparagraph{Parameters.} 
+
+\begin{verbatim}
+[sensor]
+sensor_data_size = 2
+sensor_data_frequency = 60
+[memory]
+buffer_used = False
+[frequency]
+reduction_frequency = 0
+transmission_frequency = 60
+reduction_cpu_time = 0
+[reduction]
+transmit_reduction = 1
+data_reduction = 1
+\end{verbatim}
+
+\subparagraph{Evaluatie metric.} 1639mJ per tijdseenheid. Hiermee vergelijken we verdere strategie\"en.
+
+\paragraph{Filter.} We sturen een meting pas door als die significant verschilt
+van de vorige. (Wat `significant verschillend' inhoudt bepalen we op voorhand.)
+In dit scenario gaan we ervan uit dat dit gemiddeld bij \'e\'en op twee metingen
+gebeurt.
+
+\subparagraph{Parameters.}
+\begin{verbatim}
+[sensor]
+sensor_data_size = 2
+sensor_data_frequency = 60
+[memory]
+buffer_used = True
+buffer_size = 1
+buffer_write_frequency = 30
+[frequency]
+reduction_frequency = 60
+transmission_frequency = 1
+reduction_cpu_time = praktisch 0
+[reduction]
+transmit_reduction = 2
+data_reduction = 2
+\end{verbatim}
+\subparagraph{Evaluatie metric.} 819.8mJ per tijdseenheid i.p.v. 1639mJ per tijdseenheid. Deployen op mote.
+
+\paragraph{Aggregator.} We houden de metingen bij in een buffer en sturen elke
+minuut alles in \'e\'en keer door.
+
+\subparagraph{Parameters.}
+\begin{verbatim}
+[sensor]
+sensor_data_size = 2
+sensor_data_frequency = 60
+[memory]
+buffer_used = True
+buffer_size = 120
+buffer_write_frequency = 60
+[frequency]
+reduction_frequency = 60
+transmission_frequency = 1
+reduction_cpu_time = praktisch 0
+[reduction]
+transmit_reduction = 60
+data_reduction = 1
+\end{verbatim}
+\subparagraph{Evaluatie metric.} 27.33mJ  per tijdseenheid i.p.v. 1639mJ per tijdseenheid. Deployen op mote.
+
+\paragraph{Gemiddelde.} We houden de metingen bij in een buffer en berekenen het
+gemiddelde hiervan elke minuut.
+
+\subparagraph{Parameters.}
+\begin{verbatim}
+[sensor]
+sensor_data_size = 2
+sensor_data_frequency = 60
+[memory]
+buffer_used = True
+buffer_size = 120
+buffer_write_frequency = 60
+[frequency]
+reduction_frequency = 60
+transmission_frequency = 1
+reduction_cpu_time = max. 1200 cycli
+[reduction]
+transmit_reduction = 60
+data_reduction = 60
+\end{verbatim}
+
+\subparagraph{Evaluatie metric.} 38.15mJ per tijdseenheid i.p.v. 1639mJ per tijdseenheid. Deployen op mote.
 
 \section{Resultaten}
 
 \begin{figure}[h]
 \centering
-\missingfigure{}
+%Ram energy
+\begin{scaletikzpicturetowidth}{\columnwidth}
+\begin{tikzpicture}[scale=\tikzscale]
+\begin{axis}[
+	title=Energie in functie van bytes,
+	xlabel={Bytes},
+	ylabel={Energie $(mJ)$}]
+\addplot[
+	red,
+	domain=0:8196,
+	samples=201]
+		{8.144E-5 * x };
+\end{axis}
+\end{tikzpicture}
+\end{scaletikzpicturetowidth}
 \caption{Energieverbruik schrijven naar RAM}
 \label{fig:energieverbruik_ram}
 \end{figure}
 
 \begin{figure}[h]
 \centering
-\missingfigure{}
+%Ram time
+\begin{scaletikzpicturetowidth}{\columnwidth}
+\begin{tikzpicture}[scale=\tikzscale]
+\begin{axis}[
+    title=Tijd in functie van bytes,
+    xlabel={Bytes},
+    ylabel={Tijd $(s)$}]
+\addplot[
+    red,
+    domain=0:8196,
+    samples=201]
+        {3.752E-7 *x -3.773E-6};
+\end{axis}
+\end{tikzpicture}
+\end{scaletikzpicturetowidth}
 \caption{Tijdsduur schrijven naar RAM}
 \label{fig:tijdsduur_ram}
 \end{figure}
 
 \begin{figure}[h]
 \centering
-\missingfigure{}
-\caption{Energieverbruik in low-power listening}
-\label{fig:energieverbruik_low_power}
+%Energie idleness + energie ram
+\begin{scaletikzpicturetowidth}{\columnwidth}
+\begin{tikzpicture}[scale=\tikzscale]
+\begin{axis}[
+scale only axis,
+xlabel={Tijd $(ms)$},
+ylabel={Energie $(mJ)$}
+]
+\addplot[
+blue,
+domain=0:100,
+samples=201,
+]
+{x/0.000333638186177248 * 8.144E-5 };
+\addplot[
+red,
+domain=0:100,
+samples=201,
+]
+{x * 0.224222886125917 };
+\end{axis}
+\begin{axis}[
+scale only axis,
+ymin=0,ymax=300000,
+xmin=0,xmax=300000,
+xlabel={Bytes geschreven},
+axis x line*=top,
+hide y axis,
+]
+\end{axis}
+\end{tikzpicture}
+\end{scaletikzpicturetowidth}
+\caption{Energieverbruik idle vs. verbruik RAM}
+\label{fig:energieverbruik_idle_vs_RAM}
 \end{figure}
 
 \begin{figure}[h]
 \centering
-\missingfigure{}
+% Idle
+\begin{tikzpicture}
+\begin{axis}[
+title=Energie in functie van tijd,
+xmin=0.5,xmax=2,
+xlabel={Tijd $(ms)$},
+ylabel={Energie $(mJ)$},
+]
+\addplot[blue] table {cpu1.dat};
+\addplot[red] table {cpu2.dat};
+\addplot[green] table {cpu3.dat};
+\addplot[yellow] table {cpu4.dat};
+\addplot[gray] table {cpu5.dat};
+\end{axis}
+\end{tikzpicture}	
 \caption{Energieverbruik met antenne volledig uit}
 \label{fig:energieverbruik_antenne_uit}
 \end{figure}
 
 \begin{figure}[h]
 \centering
-\missingfigure{}
+%CPU engergie
+\begin{tikzpicture}
+\begin{axis}[
+title=Energie in functie van tijd,
+xlabel={Tijd $(ms)$},
+ylabel={Energie $(mJ)$}
+]
+\addplot[
+blue,
+domain=0:100,
+samples=201,
+]
+{0.0037 * x *1E-3 *6};
+\end{axis}
+\end{tikzpicture}
+
 \caption{Energieverbruik CPU-cycli}
 \label{fig:energieverbruik_cpu}
 \end{figure}
@@ -300,51 +551,131 @@ Voor kostmetingen zijn we als volgt te werk gegaan:
 \item Een ruwe meting: we schrijven een programma dat beroep doet op een deel
 van de mote waarvan we het energieverbruik willen berekenen. Bijvoorbeeld: een
 programma dat herhaaldelijk bytes naar een buffer in het RAM. 
+\item We halen de meting door een speciaal script dat ons het stroomverbruik geeft voor de stukken afgebakende code.
+\item We maken een inferentie, zodat we de atomische kost kunnen berekenen. Die extrapoleren we dan.
 \end{enumerate}
 
 \subparagraph{Schrijven naar RAM}
 
 Schrijven naar RAM is haast gratis en is daarom een zeer goede
-reductiestrategie. De resultaten zijn te zien op
-\ref{fig:energieverbruik_ram}. De reden hiervoor is de aard van RAM: het is
-volatiel geheugen, dat voortdurend onder spanning moet staan, en schrijven of
-lezen voegt zeer weinig toe.
+reductiestrategie. De resultaten zijn te zien op \ref{fig:energieverbruik_ram}.
 
-\todo{moet duidelijker}
-
+De reden hiervoor is de aard van RAM. Het is volatiel geheugen, dat voortdurend
+moet worden gerefreshed. Schrijfoperaties worden in deze refresh-cycli
+ge\"integreerd zodat ze haast gratis zijn. Als bewijs hiervan hebben we het energieverbruik vergeleken met dat van het in low-power listening. 
+De vergelijking kan gezien worden in \ref{fig:energieverbruik_idle_vs_RAM}.\\
+\\
+De x-as geeft aan hoelang dat de mote idle is of hoe lang er bytes geschreven worden naar het RAM geheugen. Aan de hand van \ref{fig:tijdsduur_ram} hebben we kunnen berekenen hoeveel bytes er in een bepaalde tijdsduur worden weggeschreven. Voor $1ms$ is dit ongeveer al 3000 bytes. Vandaar dat, hoewel het misschien lijkt dat naar RAM schrijven een kost heeft, deze kost nooit wordt gehaald aangezien er nooit zoveel bytes ineens gaan worden geschreven. Het grote aantal bytes dat zou geschreven worden staat op de tweede x-as bovenaan \ref{fig:energieverbruik_idle_vs_RAM}. 
 \subparagraph{Low-power listening}
-
-\subparagraph{Verzenden en ontvangen}
-
-\subparagraph{Basisverbruik}
-
-\subparagraph{CPU-cycli}
-
-\subsection{Voorbeeldscenario: werkt de metric?}
-
-\section{Conclusie \& verder werk}
-
-\paragraph{Verder werk.}
- 
-\subparagraph{Volledige netwerktopologie\"en.}
-
-Conclusies uitbreiden naar volledige netwereken (past mooi binnen
-pyramidestructuur) gebruik maken van aantal hops (indien bvb de node z’n
-geheugen vol is, of door het beschouwen van de kost van de transmissie over
-meerdere nodes). Bijvoorbeeld: metric zegt nee voor een enkele node, maar de
-kost van het reduceren van de output zorgt ervoor dat de transmissiekost over
-het netwerk als geheel in functie van het aantal hops groter is dan de kost van
-het reduceren van de output. Maak gebruik van zowel de cost van verzenden als
-ontvangen.
+Dit is de staat waarin de mote zich het meeste bevindt. Hier gaat hij aan $8Hz$
+kijken of er niet gecommuniceerd moet worden met andere motes - en elke keer
+wordt de antenne aangezet. Om deze toestand te meten hebben we dus enkel een
+lege component nodig die de pin aan en uit zet op een vast interval. Voor het
+verbruik in deze toestand vonden we $224.2mJ$, dit kan ook geverifieerd worden
+in \ref{fig:energieverbruik_lpl}.
 
 \begin{figure}[h]
 \centering
-\missingfigure{}
-\caption{Een topologie + toepassing van de metric}
-\label{fig:voorbeeld_topologie}
+%CPU engergie
+\begin{tikzpicture}
+\begin{axis}[
+title=Energie in functie van tijd,
+xlabel={Tijd $(ms)$},
+ylabel={Energie $(mJ)$}
+]
+\addplot[
+blue,
+domain=0:100,
+samples=201,
+]
+{x * 0.224222886125917 };
+\end{axis}
+\end{tikzpicture}
+
+\caption{Energieverbruik low-power listening}
+\label{fig:energieverbruik_lpl}
 \end{figure}
 
-\subsection{De \textit{sweet spot} vinden met behulp van kostfuncties}
+
+\subparagraph{Verzenden en ontvangen}
+
+De kost van het verzenden en ontvangen via het netwerk is vrij groot. Dit is
+vooral te wijten aan het aanzetten van de antenne, dat enorm veel energie
+opslorpt ten opzichte van al het andere. Het eigenlijke verzenden kost ook meer
+dan bijv. CPU of RAM, maar als we de overhead van het opstarten buiten
+beschouwing laten, is het nog redelijk. Daardoor is het interessant om de
+antenne zo min mogelijk aan te zetten, en te proberen zoveel mogelijk data te
+bundelen voor verzending om de overhead tot een minimum te beperken.
+
+Een ander aandachtspunt is dat het niet evenveel kost om te zenden als om te
+ontvangen. Hierover moeten we nog een aantal experimenten op punt stellen.
+
+\subparagraph{Basisverbruik}
+
+Het complete basisverbruik is makkelijk te meten. De component op de mote hoeft niets doen, net zoals bij Low-power listening. Het enige verschil nu is dat er expliciet moet gezegd worden dat de antenne uit staat.
+De metingen voor dit verbruik zijn te vinden in \ref{fig:energieverbruik_antenne_uit}.
+
+\subparagraph{CPU-cycli}
+
+Onze eerste aanpak was het gebruiken van de AVR-simulator Avrora
+\cite{titzer2005avrora} om het aantal CPU-cycli exact te meten en te
+vermenigvuldigen met de kost voor CPU-cycli zoals vermeld in de technische
+fiche. Dit is technisch echter lastiger dan het op het eerste zicht lijkt.
+\\
+\\
+Om dit op te lossen gebruiken we een bovengrens op de CPU kost. We gaan de uitvoertijd van de component meten en daarna voor de gegeven duur de maximale CPU kracht aanrekenen. Met deze bovengrens wordt er nooit te weinig energie aangerekend, maar ook niet excessief veel. Dit komt doordat het verbruik van de microcontroller op zich relatief zeer laag is. Vanaf dat we de duur van de component hebben kunnen we theoretisch aan de hand van de datasheet dan afleiden van het verbruik van de CPU is, dit zoals te verwachten ook linear \ref{fig:energieverbruik_cpu}.\\
+\\
+Merk op dat het praktisch niet mogelijk is om dit verbruik met de oscilloscoop te meten.
+Dit komt doordat een component bijna nooit zuiver alleen CPU gaat gebruiken maar ook nog geheugentoegang, pins, etc. 
+% \subsection{Voorbeeldscenario: werkt de metric?}
+
+\section{Verder werk.} 
+
+We hebben al een aantal fundamentele zaken behandeld in deze paper. We kunnen
+echter verder gaan.
+ 
+\subparagraph{Volledige netwerktopologie\"en.}
+
+Stel dat de vuistregel voor een bepaalde stuk applicatielogica beslist dat het
+best niet op een mote wordt gedeployed. Dan kan het zijn dat deze beslissing met
+een krappe marge is genomen. Bijvoorbeeld: we zitten met sensordata van telkens
+20B, sturen met dezelfde frequentie als \textit{sense and send} data door, maar
+passen telkens een reductie toe waardoor we 10B winnen. De reductie is
+betrekkelijk duur, duurder dan het verzenden van 10B, waardoor de heuristiek
+aangeeft dat deployen op de mote geen goed idee is. 
+
+Als we echter kennis hebben van de topologie van het netwerk, kunnen we verder
+redeneren. Die 20B die we verzenden als we het advies van de metric volgen
+moeten immers via een aantal hops de back-end bereiken, en bij elke hop moeten
+die 20B opnieuw doorgestuurd worden. Dat betekent dat we als we globaal over
+heel het netwerk kijken, het kleine energieverlies dat we boeken bij het
+reduceren van 20B naar 10B mogelijk gecompenseerd wordt door wat we winnen aan
+verzendkosten over alle hops.
+
+Wat zich hier aanbiedt is een manier om uit onze eenvoudige metric een nieuwe
+metric te induceren die de topologie exploiteert om lokale energieverliezen om
+te zetten in globale energiewinst. Verdere formalisatie van deze intu\"itie en
+experimenten zijn aangewezen.
+
+\subparagraph{Een pessimistische metric.}
+
+Zoals het er nu voor staat hebben we een metric die erg eenvoudig is. Daarin
+berust zijn nut, maar stelt hij de zaak niet te simpel voor? Kunnen we de metric
+verfijnen en onverwachte overhead in rekening brengen? 
+
+
+
+% \subparagraph{Onvoorziene overhead.}
+
+\subparagraph{De \textit{sweet spot} vinden met behulp van kostfuncties.}
+
+Het is eenvoudig in te zien dat in het algemeen er een trade-off optreedt
+bij het reduceren van data: verzenden wordt goedkoper, maar we betalen een kost
+in de vorm van CPU-cycli. Een interessante vraag is dan: kunnen we een
+\textit{sweet spot} vinden, waar de gecombineerde kost van verzending en
+datareductie minimaal is?
+\\
+In volgende grafiek\ref{fig:sweet_spot} tonen we een hypothetische verloop van deze trade-off.
 
 \begin{figure}[h]
 \centering
@@ -353,6 +684,24 @@ ontvangen.
 \label{fig:sweet_spot}
 \end{figure}
 
+\section{Conclusie}
+
+We hebben een metric voorgesteld die voldoet aan onze eisen; we hebben ook een
+overzicht gegeven van manieren om de kosten die we in de metric gebruiken te
+berekenen. Dit wordt allemaal ge\"integreerd in een tool (nog onder
+ontwikkeling).
+
+We hebben ook aangetoond dat het vaak mogelijk is om energiewinst te boeken ten
+opzichte van \textit{sense and send}, en dat deze winst enigszins
+kwantificeerbaar is met behulp van de metric. We ontwikkelden een eenvoudig
+formalisme om de winstpunten ten opzichte van \textit{sense and send} te duiden,
+dit in de vorm van de parametrisatie die we hebben aangewend voor het
+configureren van onze tool.
+
+Tenslotte hebben we een aanzet gegeven tot verdere ontwikkeling van de idee\"en
+die in deze paper zijn voorgesteld. We beschouwen onze oorspronkelijke opzet als
+geslaagd, maar werken nog naarstig door aan verfijningen.
+
 \bibliographystyle{named}
 \nocite{*}
 \bibliography{bibliography}
@@ -360,4 +709,6 @@ ontvangen.
 \newpage
 \appendix
 \section{Data sets}
+\section{De tool}
+\section{Het matlab script}
 \end{document}

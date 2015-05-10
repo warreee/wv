@@ -13,18 +13,26 @@
     "helvet"
     "courier"
     "latexsym"
+    "environ"
     "todonotes"
+    "hyperref"
     "amsmath"
-    "babel")
+    "float"
+    "graphicx"
+    "babel"
+    "pgfplots")
+   (TeX-add-symbols
+    "tikzscale")
    (LaTeX-add-labels
     "fig:meetopstelling"
     "fig:energieverbruik_ram"
     "fig:tijdsduur_ram"
-    "fig:energieverbruik_low_power"
+    "fig:energieverbruik_idle_vs_RAM"
     "fig:energieverbruik_antenne_uit"
     "fig:energieverbruik_cpu"
-    "fig:voorbeeld_topologie"
-    "fig:sweet_spot")
+    "fig:energieverbruik_lpl")
    (LaTeX-add-bibliographies
-    "bibliography")))
+    "bibliography")
+   (LaTeX-add-saveboxes
+    "measure")))
 
