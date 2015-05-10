@@ -4,6 +4,28 @@ h1, h2, h3, h4, h5, h6 {
   margin: 10;
 }
 
-.test {
-	background-color: gray;
+
+.centered{
+    text-align:center;
+}
+
+img{
+    position: relative;
+    vertical-align: middle;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+/* columns of same height styles */
+
+.row-full-height {
+  height: 200px;
+}
+
+.image-bg-fixed-height {
+	background: url('http://cdm.wardschodts.ws/images/poster2.png') no-repeat center center;
+    height: 1000px;
 }
