@@ -1,0 +1,122 @@
+Dag Ward en Xavier
+
+hierbij de reviews. Er ontbreekt er nog eentje.
+
+Mvg
+
+Luc De Raedt
+
+(STUDENT)
+Samenvatting van de paper (een 5 a 10 lijntjes):
+
+In de paper wordt een aanpak besproken om een stuk code die bepaalde metingen nodig heeft te kunnen uitvoeren op een mote. Dit moet zo energie-efficiënt mogelijk gebeuren. Men begint in de paper met het bespreken van het doel. Vervolgens gaat men over in het uitleggen hoe het probleem is aangepakt. Hierna toont men aan welke aanpak het beste is. Dit wordt gedaan met behulp van experimenten. Het blijkt dat de opstartkost van de antenne de zwaarste energiefactor is. Daarom zal de voorgestelde oplossing zo efficiënt mogelijk data proberen te verzenden. Tot slot komt er nog kort het verder werk en de conclusie aan bod.
+
+Samenvatting beoordeling (een 5 a 10 lijntjes):
+
+De paper leest over het algemeen redelijk vlot. De zinnen zijn soms wat lang. Sommige zinnen moet je ook twee maal lezen voor je weet wat er staat. De verhaallijn is heel duidelijk. De aanpak, de parameters en de experimenten worden heel goed toegelicht. De resultaten aflezen uit de grafieken is echter heel moeilijk. Ik heb namelijk met moeite ontdekt dat er meerdere lijnen op de grafieken staan. Bovendien ontbreekt ook een legende. De doelstelling van het werk is gehaald en er wordt duidelijk toegelicht waarom. Bovendien gaan ze een stap verder door te vermelden hoe ze het nog zouden kunnen verbeteren.
+
+Een drietal sterke punten:
+
+• Duidelijke verhaallijn
+• Goede titels
+• Zeer goed abstract
+Een drietal zwakke punten:
+• Figuren redelijk onduidelijk en er ontbreekt een legende • Vaak lange, soms onduidelijke zinnen
+
+• Te kort, 6.5 bladzijden inclusief referenties
+
+Inhoudelijke vragen & suggesties voor verbetering:
+
+• Verander de verwijzingen naar de figuren. Het is aangenamer als je ziet staan: "dit resultaat vind je terug op figuur 1" ipv "dit resultaat vind je terug op 1"
+• Op pagina 1 in de rechtse kolom vanboven ontbreekt een ë in efficiënt (waarschijnlijk typfoutje), er zijn ook nog enkele andere typfoutjes.
+
+• Onder puntje 3.2 worden de parameter schattingen opgesomt. In het begin was mij dit onduidelijk waarvoor de indent diende. Misschien een andere aanpak mogelijk?
+• Probeer de witruimte een beetje te verminderen
+
+
+
+———————
+
+(STUDENT)
+
+
+
+Samenvatting van de paper (een 5 a 10 lijntjes):
+
+Het bepalen van een metric om de het energieverbruik op een mote te minimaliseren. Verschillende strategieën zijn aanbod gekomen en hier volgen bepaalde vergelijkingen. Deze vergelijkingen kunnen gemaakt worden omdat de kost van elke operatie van de mote bepaald is. Het belangrijkste feit is dat het opstarten van de antenne zeer veel energie kost en
+
+
+
+daarom ook best vermeden kan worden door de sensordata reeds te verweken op de mote. Een interessante insteek is die van dat het reduceren van bytes soms geen winst oplevert in de mote zelf, maar misschien wel het volledige netwerk. Met behulp van een eenvoudige metric is er dus een manier gevonden om de batterij duur van een mote te verlengen.
+
+Samenvatting beoordeling (een 5 a 10 lijntjes):
+
+De paper leest vlot en is aangenaam op het vlak van taalgebruik. De lijn van het werk is duidelijk en wordt goed gevolgd in de paper. De doelstellingen van het werk zijn behaald en kunnen hopelijk verder gebruikt worden. De conclusie en redeneringen die gemaakt worden zijn altijd geargumenteerd en verantwoord door de data. Een aantal kleine schrijffouten en bepaalde zinsconstructie die beter kan. De eerste figuur in de paper heeft geen onderschrift en wordt niet genummerd. De paper bevat op zich redelijk weinig tekst.
+
+Een drietal sterke punten:
++ Vlot leesbaar
++ Duidelijke verhaallijn
++ Experimenten zijn duidelijk en worden goed verklaard
+
+Een drietal zwakke punten:
+- Redelijk weinig tekst
+- Op bepaalde plaatsen zinsconstructie en spelling
+- Te veel witregels tussen de opsomming van bepaalde factoren.
+
+Inhoudelijke vragen & suggesties voor verbetering:
+
+Toevoegen van een legende bij figuur 3.
+
+De schijnbaar willekeurige 10^-3 boven figuur 5.
+
+
+—————————————
+
+eview Formulier (max 1 blz.) (Docent/
+Titel paper : Internet of Things code deployment metrics
+Auteur paper : Ward Schodts, Xavier Goas Aguililla
+
+Samenvatting van de paper (een 5 a 10 lijntjes):
+Gebaseerd op een aantal programma-parameters wordt ingeschat wat de energie kost is van een programma. Meer specifiek is dit voor programma’s die op een Internet-of-Things node draaien en als taak hebben om sensor data door te sturen naar een centrale node die de data verder verwerkt.
+
+
+Samenvatting beoordeling (een 5 a 10 lijntjes):
+	o.a.
+
+	leest de paper goed ?
+	is de lijn van het verhaal duidelijk en volledig ?
+	werden de doelstellingen van het project behaald ?
+	Belangrijker: is de argumentatie volledig en verantwoord ?
+	Gebruik vriendelijke en constructieve taal !
+
+De paper is goed geschreven en leest vlot. Ook de motivatie en doelstelling is duidelijk geformuleerd. Hoe de hoofdbijdrage juist werkt is daarentegen vaag beschreven. Uit de formule is het niet duidelijk hoe alle parameters hierin worden gebruikt. Iets meer inzicht in hoe de metriek berekend wordt zou nuttig zijn (o.a. om af te leiden welke parameters het meeste impact hebben).
+
+
+Een drietal sterke punten:
+- Goed geschreven
+- Goed gemotiveerd
+- Interessante observaties (o.a. impact van opstarten antenne)
+
+Een drietal zwakke punten:
+- Voorgestelde metriek is niet geheel duidelijk
+- Grote grafieken met beperkte informatie
+
+
+Inhoudelijke vragen &
+suggesties voor verbetering:
+
+- Een paar typefouten: ‘efficint’
+- Onnodig gebruik van voetnoten: de tweede kan vervangen worden door de citatie in de tekst te plaatsen en de derde kan ook in de tekst en voorkomt dat de voetnaat als ‘tot de derde macht’ wordt gelezen.
+- abstract: Het woord ‘mote’ is nog niet geïntroduceerd en terminologie.
+- 1.1: ‘concurrent’ is geen Nederlands in deze context
+- 2, formule: ‘waarbij n …’ Er komt geen n of m voor in de formule. ‘tr()’ en ‘red()’ daarentegen worden niet formeel geïntroduceerd. Hoe wordt ‘cost()’ berekend? Hoe zorg je er voor dat tr() en cost() dezelfde grootte-orde uitdrukken?
+- 3.2, laatste zin: Wat zijn die edge cases?
+- 3.4: ‘Paremeters.’ is verwarrende formattering want ziet er hetzelfde uit als de paragraaf hoofdingen.
+- Fig 3: legende uitbreekt
+- Fig 5: Waarom geen grafiek met antenne-verbruik per byte? Lijkt interessant aangezien je meldt dat dit niet-linear is. Je zegt daarentegen in ‘verzenden en ontvangen’ wel dat het verzenden ‘meer’ kost maar nog ‘redelijk’. Dit soort vage termen zijn te mijden aangezien ze niets vertellen, gebruik concrete getallen.
+- 5: Je gebruikt voor de eerste keer hier de terminologie ‘20B’.
+
+
+
+
+ 
