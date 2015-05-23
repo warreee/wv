@@ -1,0 +1,155 @@
+#+TITLE:     Reviews paper WV
+
+* Review 1 (student)
+
+** Samenvatting beoordeling:
+
+De paper leest over het algemeen redelijk vlot. De zinnen zijn soms wat lang.
+Sommige zinnen moet je ook twee maal lezen voor je weet wat er staat. De
+verhaallijn is heel duidelijk. De aanpak, de parameters en de experimenten
+worden heel goed toegelicht. De resultaten aflezen uit de grafieken is echter
+heel moeilijk. Ik heb namelijk met moeite ontdekt dat er meerdere lijnen op de
+grafieken staan. Bovendien ontbreekt ook een legende. De doelstelling van het
+werk is gehaald en er wordt duidelijk toegelicht waarom. Bovendien gaan ze een
+stap verder door te vermelden hoe ze het nog zouden kunnen verbeteren.
+
+** Een drietal sterke punten:
+
+- Duidelijke verhaallijn
+- Goede titels
+- Zeer goed abstract
+
+** Een drietal zwakke punten:
+- Figuren redelijk onduidelijk en er ontbreekt een legende - Vaak lange, soms onduidelijke zinnen
+
+- Te kort, 6.5 bladzijden inclusief referenties
+
+** Inhoudelijke vragen & suggesties voor verbetering:
+
+- Verander de verwijzingen naar de figuren. Het is aangenamer als je ziet staan: "dit resultaat vind je terug op figuur 1" ipv "dit resultaat vind je terug op 1"
+- Op pagina 1 in de rechtse kolom vanboven ontbreekt een \"e in effici\"ent (waarschijnlijk typfoutje), er zijn ook nog enkele andere typfoutjes.
+
+- Onder puntje 3.2 worden de parameter schattingen opgesomt. In het begin was mij dit onduidelijk waarvoor de indent diende. Misschien een andere aanpak mogelijk?
+- Probeer de witruimte een beetje te verminderen
+
+* Review 2 (student)
+** Samenvatting beoordeling:
+De paper leest vlot en is aangenaam op het vlak van taalgebruik. De lijn van het werk is duidelijk en wordt goed gevolgd in de paper. De doelstellingen van het werk zijn behaald en kunnen hopelijk verder gebruikt worden. De conclusie en redeneringen die gemaakt worden zijn altijd geargumenteerd en verantwoord door de data. Een aantal kleine schrijffouten en bepaalde zinsconstructie die beter kan. De eerste figuur in de paper heeft geen onderschrift en wordt niet genummerd. De paper bevat op zich redelijk weinig tekst.
+
+** Een drietal sterke punten:
++ Vlot leesbaar
++ Duidelijke verhaallijn
++ Experimenten zijn duidelijk en worden goed verklaard
+
+** Een drietal zwakke punten:
+- Redelijk weinig tekst
+- Op bepaalde plaatsen zinsconstructie en spelling
+- Te veel witregels tussen de opsomming van bepaalde factoren.
+
+** Inhoudelijke vragen & suggesties voor verbetering:
+
+Toevoegen van een legende bij figuur 3.
+
+De schijnbaar willekeurige 10^-3 boven figuur 5.
+
+* Review 3 (docent)
+
+** Samenvatting beoordeling:
+
+De paper is goed geschreven en leest vlot. Ook de motivatie en doelstelling is
+duidelijk geformuleerd. Hoe de hoofdbijdrage juist werkt is daarentegen vaag
+beschreven. Uit de formule is het niet duidelijk hoe alle parameters hierin
+worden gebruikt. Iets meer inzicht in hoe de metriek berekend wordt zou nuttig
+zijn (o.a. om af te leiden welke parameters het meeste impact hebben).
+
+** Een drietal sterke punten:
+- Goed geschreven
+- Goed gemotiveerd
+- Interessante observaties (o.a. impact van opstarten antenne)
+
+** Een drietal zwakke punten:
+- Voorgestelde metriek is niet geheel duidelijk
+- Grote grafieken met beperkte informatie
+
+** Inhoudelijke vragen & suggesties voor verbetering:
+
+- Een paar typefouten: ‘efficint’
+- Onnodig gebruik van voetnoten: de tweede kan vervangen worden door de citatie in de tekst te plaatsen en de derde kan ook in de tekst en voorkomt dat de voetnaat als ‘tot de derde macht’ wordt gelezen.
+- abstract: Het woord ‘mote’ is nog niet geïntroduceerd en terminologie.
+- 1.1: ‘concurrent’ is geen Nederlands in deze context
+- 2, formule: ‘waarbij n …’ Er komt geen n of m voor in de formule. ‘tr()’ en ‘red()’ daarentegen worden niet formeel geïntroduceerd. Hoe wordt ‘cost()’ berekend? Hoe zorg je er voor dat tr() en cost() dezelfde grootte-orde uitdrukken?
+- 3.2, laatste zin: Wat zijn die edge cases?
+- 3.4: ‘Paremeters.’ is verwarrende formattering want ziet er hetzelfde uit als de paragraaf hoofdingen.
+- Fig 3: legende uitbreekt
+- Fig 5: Waarom geen grafiek met antenne-verbruik per byte? Lijkt interessant aangezien je meldt dat dit niet-linear is. Je zegt daarentegen in ‘verzenden en ontvangen’ wel dat het verzenden ‘meer’ kost maar nog ‘redelijk’. Dit soort vage termen zijn te mijden aangezien ze niets vertellen, gebruik concrete getallen.
+- 5: Je gebruikt voor de eerste keer hier de terminologie ‘20B’.
+
+* Review 4 (Klaas Thoelen)
+
+** Samenvatting beoordeling (een 5 a 10 lijntjes):
+De structuur van de paper is grotendeels duidelijk en laat vlot lezen toe. Op
+bepaalde punten blijft de paper echter vaag over specifieke stappen in het
+onderzoek en de resultaten ervan (zie hieronder). Hier zou wat meer uitleg de
+paper nog verder verduidelijken. Het besproken werk levert een substantiële, en
+voldoende, contributie aan de beoogde problematiek en tevens degelijke ideeën
+voor verder werk. Wat ontbreekt is een evaluatie van de voorgestelde tool en
+bijhorende metrieken. Hoe accuraat is de aanbeveling die door de tool wordt
+gegenereerd? Hoeveel overhead is er voor de ontwikkelaar om de parameters voor
+de tool te bepalen? In het algemeen geeft de paper blijk van weldoordacht
+onderzoek en bijhorende oplossingen en aanbevelingen.
+
+
+
+** Een drietal sterke punten:
+- goede afhandeling (argumentatie) in de tekst van mogelijke variabiliteit in te bepalen parameters.
+- grondige methodologie in het onderzoek
+
+** Een drietal zwakke punten:
+- de tool zelf geeft niet dadelijk een oplossing voor variabiliteit van invoerparameters
+- soms wat vaag, nieuwe elementen in de tekst worden niet of te weinig uitgelegd
+- het lijkt erop dat het steeds beter is om berekeningen te doen op de mote; er worden weinig andere situaties aangehaald, wat de contributie van het onderzoek minimaliseert
+- geen evaluatie van de uiteindelijke contributie. Hoe accuraat is de voorgestelde tool?
+
+** Inhoudelijke vragen & suggesties voor verbetering:
+
+Weinig inhoudelijke vragen. Maar de tekst zelf zou nog wat duidelijker kunnen voor de lezer die niet vertrouwd is met het werk. Sequentieel doorheen de paper:
+- minder wij-vorm gebruiken; eerder ‘Deze paper beschrijft …’
+- ‘zonder lokaal energie- of performantieverlies’
+- Tussen sectie 1 en 1.1: geen 2 titels dadelijk na elkaar; plaats er iets tekst tussen; bv. wat er in de volgende 2 subsecties zal worden besproken
+- idem sectie 3.2
+- Is het mogelijk om een simpele, algemene maatstaf te gebruiken? Beantwoord deze vraag uit de inleiding expliciet in de conclusie
+- voetnoot 2: vermijd ‘leuk’, haal dit scenario kort aan in tekst (kan in 1 zin) of geef eerder al een dergelijk voorbeeld van zo een WSN. Liever concreet en kort, dan een vage verwijzing.
+- spelling ‘efficiënt’
+- het is niet echt duidelijk over welke applicaties jullie spreken: probeer in de inleiding concrete voorbeeld(en) te geven: gemiddelde, aggregatie, …
+- check op spelling, formatting, …!!
+- intro Sectie 2 is onduidelijk; geef eerst aan dat een vuistregel wordt uitgewerkt en dat deze wordt geautomatiseerd in een tool; bouw dan pas de vuistregel op
+- er staat geen n en m in vuistregel; wat doet de functie ‘compute’?; wat is tr, cost, red, x?
+- plaats de tekstuele uitleg van de vuistregel vóór de wiskundige uitwerking
+- eerste parameter is ‘sensordata’, niet ‘sensoren’
+- specifieer dat geheugen over RAM of Flash gaat
+- ‘Tijdsinformatie’ = ‘frequentie’?
+- ‘kostfunctie’ = ‘rekenkost’?
+- ‘reductiegrootte’ = ‘reductiefactor’?
+- begin sectie 3: vermijd historisch sequentieel verhaal
+- storage, computation, transmission: nederlands
+- een weerstand wordt niet aan/uit gezet
+- wat is het pinout signaal?
+- vermeld hoe je de pin-flips hebt gerealiseerd (eventueel met code)
+- figuur met output van oscilloscoop (meetresultaat en pinflips)?
+- waarom geeft het fysiek meten een harde bovengrens voor de CPU-cycli?
+- Geheugenverbruik, sensoren, precisie: welke edge cases?
+- wat is een deployer?
+- waarom eerst programma schrijven en dan pas parameterbestand aanmaken? Kan men niet voor het programmeren al testen of de geplande aanpak efficient is of niet?
+- ‘één temperatuurmeting per minuut’
+- zie dat alle parameters en hun waarden duidelijk zijn voor de lezer
+- vanwaar 1639mJ??
+- ‘Deployen op mote.’ is geen zin. Geef ook wat meer context. Waarom betekent dit deployen op mote?
+- Sectie resultaten evalueert jullie oplossing niet, maar is de input voor jullie oplossing. Plaats deze tussen 3.1 en 3.2.
+- verwijs naar figuren mbv ‘figuur 1’, niet enkel ‘1’
+- zorg dat de figuren duidelijk zijn en correct geïnterpreteerd worden; geef wat meer uitleg over assen, meetresultaten, etc.
+- 1ms of 1s voor 3000 bytes? (zie Y-as figuur 2)
+- figuren zijn allemaal rechte lineaire grafieken: zit er nergens variatie op? Lijkt wat artificieel.
+- figuur 3 en 4: meerdere datasets; voeg een legende toe die aangeeft wat iedere grafiek weergeeft.
+- conclusie: vermijd ‘we’, herhaal kort de eisen
+
+- gedurende de hele tekst worden stap-per-stap nieuwe problemen, vragen, etc. geïntroduceerd; probeer dit te vermijden en de lezer van in het begin duidelijk te maken waarover hij later zal lezen. Bv. over effectieve metingen om de vuistregel op te staven wordt pas in sectie 3.1 gesproken.

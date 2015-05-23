@@ -712,17 +712,17 @@ Waarbij \texttt{tr} de transmissiefunctie is en \texttt{red} de reductiefunctie.
   Verschillende sensoren combineren om aangenaamheid te bepalen:
   \begin{itemize}
 	\item Temperatuur, Vochtigheid, Geluid
-	\item Elke meting 2 bytes
-	\item Totaal 6 bytes
-	\item Aangenaam indien elke sensorwaarde in bepaald interval ligt.
+	\hiddencell{2}{\item Elke meting 2 bytes}
+	\hiddencell{2}{\item Totaal 6 bytes}
+	\hiddencell{3}{\item Aangenaam indien elke sensorwaarde in bepaald interval ligt.}
   \end{itemize}
 
 
 \end{frame}
 
 \begin{frame}{Omgevingsaangenaamheid}
-  Reduceren we op basis van hoeveelheid data die we doorsturen\\
-  Bereken op de mote of aangenaam is:
+  Reduceren op basis van hoeveelheid data die we doorsturen\\
+  Bereken op de mote of het aangenaam is:
   \begin{itemize}
     \hiddencell{2}{\item Reductie: $6n \mapsto n$}
     \hiddencell{3}{\item CPU: 3x 2 vergelijkingen $\rightarrow \pm$ gratis}
@@ -788,7 +788,7 @@ Waarbij \texttt{tr} de transmissiefunctie is en \texttt{red} de reductiefunctie.
       {\textbf{Onderzoeksvraag:} Is het mogelijk om energie-efficiënter gegevens te verwerken door het te doen op een embedded IoT-toestel i.p.v. de back-end van het systeem?}
     \end{exampleblock}
 
-  \hiddencell{3}{
+  \hiddencell{2}{
     \begin{center}
 
       \begin{tikzpicture}
@@ -798,7 +798,7 @@ Waarbij \texttt{tr} de transmissiefunctie is en \texttt{red} de reductiefunctie.
       
     \end{center}
   }
-  \hiddencell{3}{
+  \hiddencell{2}{
   \begin{exampleblock}{}
     {Het is inderdaad mogelijk om energie-efficiëntere gegevens te verwerken d.m.v. berkeningen op de embedded IoT-toestellen. Dit is zelf mogelijk zonder verlies van nauwkeurigheid!}
   \end{exampleblock}

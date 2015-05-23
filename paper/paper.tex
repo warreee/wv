@@ -162,14 +162,15 @@ reductie in het algemeen schatten? We laten de programmeur, die zijn programma
 goed kent, ingrijpen. We nemen als input niet enkel het gecompileerde programma,
 maar ook een aantal parameters. Deze zijn bijvoorbeeld:
 \todo[inline]{Allemaal opgeven, zodra het programma geschreven is.}
-\paragraph{Sensoren.} Hoe groot is de sensordata? Hoe vaak komt er sensordata binnen?
-\paragraph{Geheugenverbruik.} Worden er gegevens bijgehouden in een buffer? Hoeveel? Hoe vaak wordt er naar die buffer geschreven?
-\paragraph{Nauwkeurigheid.} Wat is de gewenste granulariteit van de metingen,
-d.w.z. hoe groot mag het interval tussen twee doorgestuurde metingen zijn?
-\paragraph{Tijdsinformatie.} Hoe vaak wordt er data verzonden?
-\paragraph{Kostfunctie.} Hoeveel kost de reductie aan CPU-tijd?
-\paragraph{Reductiegrootte.} Hoe sterk verkleint de reductie het aantal te
-verzenden bytes?
+
+\begin{itemize}
+\item \textbf{Sensoren.} Hoe groot is de sensordata? Hoe vaak komt er sensordata binnen?
+\item \textbf{Geheugenverbruik.} Worden er gegevens bijgehouden in een buffer? Hoeveel? Hoe vaak wordt er naar die buffer geschreven?
+\item \textbf{Nauwkeurigheid.} Wat is de gewenste granulariteit van de metingen, d.w.z. hoe groot mag het interval tussen twee doorgestuurde metingen zijn?
+\item \textbf{Tijdsinformatie.} Hoe vaak wordt er data verzonden?
+\item \textbf{Kostfunctie.} Hoeveel kost de reductie aan CPU-tijd?
+\item \textbf{Reductiegrootte.} Hoe sterk verkleint de reductie het aantal te verzenden bytes?
+\end{itemize}
 
 \section{Methodologie}
 
@@ -263,11 +264,11 @@ from = <int n>
 to = <int m>
 \end{verbatim}
 
-\paragraph{Parameters schatten.} Sommige van deze parameters liggen niet meteen
+\subsection{Parameters schatten.} Sommige van deze parameters liggen niet meteen
 voor de hand. Bij deze een aantal manieren die we gebruikt hebben om deze
 parameters te schatten:
 
-\subparagraph{Kost van de reductie: CPU-tijd.} Momenteel werken wij aan een
+\paragraph{Kost van de reductie: CPU-tijd.} Momenteel werken wij aan een
 methode om bijna volledig automatisch te bepalen hoeveel CPU-tijd het uitvoeren
 van de reductie ongeveer kost. Deze is echter nog niet volledig op punt. Een
 andere methode is het gebruik van een fysiek meetapparaat om op een soortgelijke
@@ -276,7 +277,7 @@ uitgevoerd is. Dit geeft een harde bovengrens voor de gebruikte CPU-cycli: we
 hoeven slechts deze tijd te vermenigvuldigen met de klokfrequentie van de
 CPU. Bij de Zigduino is dit 16MHz.
 
-\subparagraph{Reductiegrootte.} De reductiegrootte is vaak
+\paragraph{Reductiegrootte.} De reductiegrootte is vaak
 niet op het eerste zicht in te schatten. Een voorbeeld: neem dat wij een
 temperatuur- en vochtigheidssensor hebben, en we willen op elk mogelijk moment
 weten of het aangenaam of niet aangenaam is waar de mote staat, en we steken dit
@@ -705,7 +706,7 @@ geslaagd, maar werken nog naarstig door aan verfijningen.
 \bibliographystyle{named}
 \nocite{*}
 \bibliography{bibliography}
-
+Voor alle datasets als ook alle presentatie kan u terecht op: \url{http://cdm.wardschodts.ws}
 \newpage
 \appendix
 \section{Data sets}

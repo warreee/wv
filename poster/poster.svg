@@ -26,9 +26,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.70710678"
-     inkscape:cx="1110.8522"
-     inkscape:cy="449.7824"
+     inkscape:zoom="0.5"
+     inkscape:cx="840.40605"
+     inkscape:cy="2141.191"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -36,10 +36,10 @@
      showguides="true"
      inkscape:guide-bbox="true"
      units="mm"
-     inkscape:window-width="1920"
-     inkscape:window-height="1031"
-     inkscape:window-x="0"
-     inkscape:window-y="25"
+     inkscape:window-width="1551"
+     inkscape:window-height="876"
+     inkscape:window-x="49"
+     inkscape:window-y="0"
      inkscape:window-maximized="1"
      borderlayer="true"
      inkscape:snap-page="false"
@@ -2125,7 +2125,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -5003,16 +5003,16 @@
            y="410.0867"
            style="font-size:28px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;word-spacing:0px;writing-mode:lr;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans" /></flowRegion><flowPara
          id="flowPara6704">Current MO in WSN design: deploy all CPU &amp; flash-intensive code to the backend tiers (gateways &amp; servers) – use motes purely for sensing and sending via radio.</flowPara><flowPara
-         id="flowPara6706"></flowPara><flowPara
+         id="flowPara6706" /><flowPara
          id="flowPara6708">Radio usage is very expensive, so this method of data processing eats up a lot of energy.</flowPara><flowPara
-         id="flowPara6710"></flowPara><flowPara
+         id="flowPara6710" /><flowPara
          id="flowPara6712">Since it is important to ensure the longevity of the sensors, maybe not the best approach.</flowPara><flowPara
-         id="flowPara6714"></flowPara><flowPara
+         id="flowPara6714" /><flowPara
          id="flowPara6716">Is it possible to offload some of the computation and storage to the sensor nodes themselves?</flowPara><flowPara
-         id="flowPara6718"></flowPara><flowPara
+         id="flowPara6718" /><flowPara
          id="flowPara6720">Concretely: can we find a simple metric which allows us to quickly assess in which tier we run code? this is the transmit/store/compute ratio</flowPara><flowPara
-         id="flowPara6722"></flowPara><flowPara
-         id="flowPara6724"></flowPara></flowRoot>    <rect
+         id="flowPara6722" /><flowPara
+         id="flowPara6724" /></flowRoot>    <rect
        style="fill:#eceded;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:3;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        id="rect6586"
        width="294.1564"
@@ -5129,7 +5129,7 @@
          sodipodi:role="line"
          id="tspan6662"
          x="1136.1757"
-         y="-484.11017"></tspan><tspan
+         y="-484.11017" /><tspan
          sodipodi:role="line"
          id="tspan6664"
          x="1136.1757"
@@ -5291,7 +5291,7 @@
            height="88"
            x="439"
            y="2750.9211" /></flowRegion><flowPara
-         id="flowPara6542"></flowPara></flowRoot>    <flowRoot
+         id="flowPara6542" /></flowRoot>    <flowRoot
        xml:space="preserve"
        id="flowRoot6544"
        style="font-size:23.23112297px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:TeX Gyre Termes;-inkscape-font-specification:TeX Gyre Termes"
@@ -5305,7 +5305,7 @@
            style="font-size:23.23112297px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:TeX Gyre Termes;-inkscape-font-specification:TeX Gyre Termes" /></flowRegion><flowPara
          id="flowPara6572">Danny Hughes e.a. “Energy aware software evolution for wireless sensor networks”. In: World of Wireless, Mobile </flowPara><flowPara
          id="flowPara6574">and Multimedia Networks (WoWMoM), 2013 IEEE 14th International Symposium and Workshops on a. IEEE. 2013, p. 1–9.</flowPara><flowPara
-         id="flowPara6576"></flowPara></flowRoot>    <rect
+         id="flowPara6576" /></flowRoot>    <rect
        style="fill:#eceded;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:3;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        id="rect6578"
        width="373.35236"
@@ -5350,8 +5350,8 @@
          id="flowPara6726">References</flowPara></flowRoot>    <rect
        ry="17.716536"
        rx="17.716536"
-       y="-728.83917"
-       x="106.06609"
+       y="-724.83917"
+       x="98.066093"
        height="83.438606"
        width="155.56348"
        id="rect6584"

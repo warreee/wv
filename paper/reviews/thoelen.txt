@@ -1,0 +1,80 @@
+Review Formulier (max 1 blz.) (Docent/Assistent of Student)
+
+Titel paper : Internet of Things code deployment metrics
+Auteur paper : Ward Schodts, Xavier Goás Aguililla
+
+Samenvatting van de paper (een 5 a 10 lijntjes):
+
+De paper bespreekt de ontwikkeling van een tool die ontwikkelaars van WSN applicaties moet toelaten om sensorknopen energie-efficiënt te gebruiken. Met behulp van de tool kan er nagegaan worden of lokale dataprocessing op een sensorknoop het energieverbruik kan reduceren ten opzichte van het steeds doorsturen van ruwe data. Het algoritme dat de tool gebruikt steunt op een vuistregel die wordt voorgesteld. Specifieke evaluatie steunt op experimentele waarnemingen van het energieverbruik van communicatie, geheugenverbruik en rekenkracht. De paper beschrijft hoe deze metingen werden uitgevoerd, welke resultaten hieruit konden worden afgeleid, en hoe deze verwerkt zijn in de voorgestelde tool.  
+
+
+Samenvatting beoordeling (een 5 a 10 lijntjes):
+	o.a.
+
+	leest de paper goed ?
+	is de lijn van het verhaal duidelijk en volledig ?
+	werden de doelstellingen van het project behaald ?
+	Belangrijker: is de argumentatie volledig en verantwoord ?
+	Gebruik vriendelijke en constructieve taal !
+
+De structuur van de paper is grotendeels duidelijk en laat vlot lezen toe. Op bepaalde punten blijft de paper echter vaag over specifieke stappen in het onderzoek en de resultaten ervan (zie hieronder). Hier zou wat meer uitleg de paper nog verder verduidelijken.
+Het besproken werk levert een substantiële, en voldoende, contributie aan de beoogde problematiek en tevens degelijke ideeën voor verder werk. Wat ontbreekt is een evaluatie van de voorgestelde tool en bijhorende metrieken. Hoe accuraat is de aanbeveling die door de tool wordt gegenereerd? Hoeveel overhead is er voor de ontwikkelaar om de parameters voor de tool te bepalen?
+In het algemeen geeft de paper blijk van weldoordacht onderzoek en bijhorende oplossingen en aanbevelingen.
+
+
+
+Een drietal sterke punten:
+- goede afhandeling (argumentatie) in de tekst van mogelijke variabiliteit in te bepalen parameters.
+- grondige methodologie in het onderzoek
+
+Een drietal zwakke punten:
+- de tool zelf geeft niet dadelijk een oplossing voor variabiliteit van invoerparameters
+- soms wat vaag, nieuwe elementen in de tekst worden niet of te weinig uitgelegd
+- het lijkt erop dat het steeds beter is om berekeningen te doen op de mote; er worden weinig andere situaties aangehaald, wat de contributie van het onderzoek minimaliseert
+- geen evaluatie van de uiteindelijke contributie. Hoe accuraat is de voorgestelde tool?
+
+
+Inhoudelijke vragen &
+suggesties voor verbetering:
+
+Weinig inhoudelijke vragen. Maar de tekst zelf zou nog wat duidelijker kunnen voor de lezer die niet vertrouwd is met het werk. Sequentieel doorheen de paper:
+- minder wij-vorm gebruiken; eerder ‘Deze paper beschrijft …’
+- ‘zonder lokaal energie- of performantieverlies’
+- Tussen sectie 1 en 1.1: geen 2 titels dadelijk na elkaar; plaats er iets tekst tussen; bv. wat er in de volgende 2 subsecties zal worden besproken
+- idem sectie 3.2
+- Is het mogelijk om een simpele, algemene maatstaf te gebruiken? Beantwoord deze vraag uit de inleiding expliciet in de conclusie
+- voetnoot 2: vermijd ‘leuk’, haal dit scenario kort aan in tekst (kan in 1 zin) of geef eerder al een dergelijk voorbeeld van zo een WSN. Liever concreet en kort, dan een vage verwijzing.
+- spelling ‘efficiënt’
+- het is niet echt duidelijk over welke applicaties jullie spreken: probeer in de inleiding concrete voorbeeld(en) te geven: gemiddelde, aggregatie, …
+- check op spelling, formatting, …!!
+- intro Sectie 2 is onduidelijk; geef eerst aan dat een vuistregel wordt uitgewerkt en dat deze wordt geautomatiseerd in een tool; bouw dan pas de vuistregel op
+- er staat geen n en m in vuistregel; wat doet de functie ‘compute’?; wat is tr, cost, red, x?
+- plaats de tekstuele uitleg van de vuistregel vóór de wiskundige uitwerking
+- eerste parameter is ‘sensordata’, niet ‘sensoren’
+- specifieer dat geheugen over RAM of Flash gaat
+- ‘Tijdsinformatie’ = ‘frequentie’?
+- ‘kostfunctie’ = ‘rekenkost’?
+- ‘reductiegrootte’ = ‘reductiefactor’?
+- begin sectie 3: vermijd historisch sequentieel verhaal
+- storage, computation, transmission: nederlands
+- een weerstand wordt niet aan/uit gezet
+- wat is het pinout signaal?
+- vermeld hoe je de pin-flips hebt gerealiseerd (eventueel met code)
+- figuur met output van oscilloscoop (meetresultaat en pinflips)?
+- waarom geeft het fysiek meten een harde bovengrens voor de CPU-cycli?
+- Geheugenverbruik, sensoren, precisie: welke edge cases?
+- wat is een deployer?
+- waarom eerst programma schrijven en dan pas parameterbestand aanmaken? Kan men niet voor het programmeren al testen of de geplande aanpak efficient is of niet?
+- ‘één temperatuurmeting per minuut’
+- zie dat alle parameters en hun waarden duidelijk zijn voor de lezer
+- vanwaar 1639mJ??
+- ‘Deployen op mote.’ is geen zin. Geef ook wat meer context. Waarom betekent dit deployen op mote?
+- Sectie resultaten evalueert jullie oplossing niet, maar is de input voor jullie oplossing. Plaats deze tussen 3.1 en 3.2.
+- verwijs naar figuren mbv ‘figuur 1’, niet enkel ‘1’
+- zorg dat de figuren duidelijk zijn en correct geïnterpreteerd worden; geef wat meer uitleg over assen, meetresultaten, etc.
+- 1ms of 1s voor 3000 bytes? (zie Y-as figuur 2)
+- figuren zijn allemaal rechte lineaire grafieken: zit er nergens variatie op? Lijkt wat artificieel.
+- figuur 3 en 4: meerdere datasets; voeg een legende toe die aangeeft wat iedere grafiek weergeeft.
+- conclusie: vermijd ‘we’, herhaal kort de eisen
+
+- gedurende de hele tekst worden stap-per-stap nieuwe problemen, vragen, etc. geïntroduceerd; probeer dit te vermijden en de lezer van in het begin duidelijk te maken waarover hij later zal lezen. Bv. over effectieve metingen om de vuistregel op te staven wordt pas in sectie 3.1 gesproken.
