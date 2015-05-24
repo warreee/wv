@@ -1,4 +1,10 @@
 \documentclass[11pt]{article}
+
+% Voor kleuren van tabellen
+\usepackage[table]{xcolor}
+
+
+
 \usepackage{ijcai11}
 \usepackage{lipsum}
 \usepackage{mathptmx}
@@ -33,6 +39,11 @@
 \usepackage{pgfplots}
 \pgfplotsset{width=0.45\textwidth,compat=1.5}
 
+% voor de legende
+\pgfplotsset{every axis legend/.append style={
+at={(0.9,0.2)},
+anchor=north east}} 
+
 \title{Internet of Things code deployment metrics}
 \author{
   Ward Schodts\\
@@ -44,6 +55,8 @@
 
 %links
 \usepackage{hyperref}
+
+
 
 
 \begin{document}
@@ -468,7 +481,7 @@ data_reduction = 60
 \centering
 %Energie idleness + energie ram
 \begin{scaletikzpicturetowidth}{\columnwidth}
-\begin{tikzpicture}[scale=\tikzscale]
+\begin{tikzpicture}
 \begin{axis}[
 scale only axis,
 xlabel={Tijd $(ms)$},
@@ -486,6 +499,7 @@ domain=0:100,
 samples=201,
 ]
 {x * 0.224222886125917 };
+\legend{Schrijven naar RAM,Idle,$l_3$}
 \end{axis}
 \begin{axis}[
 scale only axis,
@@ -571,7 +585,7 @@ kijken of er niet gecommuniceerd moet worden met andere motes - en elke keer
 wordt de antenne aangezet. Om deze toestand te meten hebben we dus enkel een
 lege component nodig die de pin aan en uit zet op een vast interval. Voor het
 verbruik in deze toestand vonden we $224.2mJ$, dit kan ook geverifieerd worden
-in \ref{fig:energieverbruik_lpl}.
+in figuur \ref{fig:energieverbruik_lpl}.
 
 \begin{figure}[h]
 \centering
@@ -629,7 +643,33 @@ Dit komt doordat een component bijna nooit zuiver alleen CPU gaat gebruiken maar
 
 \subsection{Toetsing van de metric}
 
-Om de juistheid van onze metric te controleren hebben we een scenario uitgewerkt. Dit scenario hebben we dan door onze tool laten berekenen om te kijken of het resultaat hiervan overeen kwam met het energieverbruik volgens de oscilosscoop.
+Om de juistheid van onze metric te controleren hebben we het scenario van de temperatuurmetingen bestudeerd. Dit scenario hebben we door onze tool laten berekenen om te kijken of het resultaat hiervan overeen kwam met het energieverbruik volgens de oscilosscoop. Wat we hier wel buiten beschouwing laten is het verbruik door de antenne, dit omdat we dit niet werkende kregen. 
+\todo[inline]{Kunt ge dat beter verwoorden, "niet werkende krijgen"?}
+
+In volgende tabel tonen we het temperatuurscenario waarbij het gemiddelde wordt berekend voor een bepaalde hoeveelheid metingen. De twee daarop volgende kolommen tonen respectievelijk het verbruik gemeten door de oscolisscoop en de hoeveelheid enrgie die geschat zou worden door onze tool.
+
+Zoals eerder gezegd toont dit niet de hoeveelheid energie verbruikt door de antenne. Hiervan is er abstractie gemaakt. 
+
+\begin{figure}[H]
+\begin{tabular}{|c|c|c|c|}
+\hline 
+\cellcolor[gray]{0.8}Aantal bytes & \cellcolor[gray]{0.8} Oscolisscoop  & \cellcolor[gray]{0.8} Metric & \cellcolor[gray]{0.8} Overschatting \\ 
+\hline 
+1000 & 0.2585$mJ$ & 0.2601$mJ$ & 0.6283\% \\ 
+\hline 
+2000 & 0.4972$mJ$ & 0.5113$mJ$ & 2.832\% \\ 
+\hline 
+3000 & 0.7606$mJ$ & 0.7642$mJ$ & 0.4739\% \\ 
+\hline 
+4000 & 1.0046$mJ$ & 1.017$mJ$ & 1.252\% \\ 
+\hline 
+\end{tabular} 
+
+\caption{Toetsing van de metric}
+\label{tab:toetsing}
+\end{figure}
+
+De laatste kolom geeft de afwijking van onze metric weer. Ze toont dus een lichte overschatting van de hoeveelheid energie die verbruikt wordt. Dit is geenszins een probleem aangezien onze metric dan nooit te snel gaat zeggen dat een bepaalde berekening beter kan worden uitgevoerd op de mote.
 
 \section{Verder werk.} 
 
