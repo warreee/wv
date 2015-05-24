@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass[11pt]{article}
 \usepackage{ijcai11}
 \usepackage{lipsum}
 \usepackage{mathptmx}
@@ -541,7 +541,7 @@ samples=201,
 \label{fig:energieverbruik_cpu}
 \end{figure}
 
-\paragraph{Kostmetingen}
+\subsection{Kostmetingen}
 
 Voor kostmetingen zijn we als volgt te werk gegaan:
 
@@ -625,7 +625,10 @@ Om dit op te lossen gebruiken we een bovengrens op de CPU kost. We gaan de uitvo
 \\
 Merk op dat het praktisch niet mogelijk is om dit verbruik met de oscilloscoop te meten.
 Dit komt doordat een component bijna nooit zuiver alleen CPU gaat gebruiken maar ook nog geheugentoegang, pins, etc. 
-% \subsection{Voorbeeldscenario: werkt de metric?}
+
+\subsection{Toetsing van de metric}
+
+Om de juistheid van onze metric te controleren hebben we een scenario uitgewerkt. Dit scenario hebben we dan door onze tool laten berekenen om te kijken of het resultaat hiervan overeen kwam met het energieverbruik volgens de oscilosscoop.
 
 \section{Verder werk.} 
 
