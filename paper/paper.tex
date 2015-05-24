@@ -163,7 +163,7 @@ reduceert en dan meteen overdraagt. Zo'n voorbeeld is een filter: we sturen een
 meting pas door als die verschilt van de vorige verstuurde meting. Maar we
 kunnen evengoed de sensordata aggregeren in het geheugen, zodat de transferkost
 wanneer een meting binnenkomt nul wordt, behalve als de buffer waarin we data
-opslaan vol is.\footnote{Merk ook op dat de kost van het verzenden van gegevens
+opslaan vol is.\footnote{\todo[inline]{Het is wel lineair, maar door de grote opstartkost kan het dus verschillen zodanig dat 2 keer apart verzenden meer kost dan 1 enkele keer}Merk ook op dat de kost van het verzenden van gegevens
 niet lineair is -- er is geen garantie dat $cost(transfer(x)) +
 cost(transfer(y)) = cost(transfer(x + y))$. In een keer $x + y$ bytes versturen
 kan dus voordeliger uitkomen dan $x$ en $y$ bytes apart te verzenden.} 
@@ -622,6 +622,30 @@ bundelen voor verzending om de overhead tot een minimum te beperken.
 
 Een ander aandachtspunt is dat het niet evenveel kost om te zenden als om te
 ontvangen. Hierover moeten we nog een aantal experimenten op punt stellen.
+\todo[inline]{De figuur van kost per byte verwerken hier}
+
+\begin{figure}[h]
+\centering
+%antenneverbruik per byte
+\begin{tikzpicture}
+\begin{axis}[
+title=Energie in functie van hoeveelheid bytes,
+xmin=0,xmax=128,
+xlabel={Bytes},
+ylabel={Energie $(mJ)$},
+]
+\addplot[
+red,
+domain=0:100,
+samples=201,
+]
+{0.04*(x * 0.382 + 113.104) * 6 };
+\end{axis}
+\end{tikzpicture}	
+
+\caption{Energieverbruik verzenden data (bytes)}
+\label{fig:energieverbruik_ant}
+\end{figure}
 
 \subparagraph{Basisverbruik}
 

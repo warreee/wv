@@ -134,4 +134,22 @@ ylabel={Energie $(mJ)$},
 \addplot[gray] table {cpu5.dat};
 \end{axis}
 \end{tikzpicture}	
+
+%antenneverbruik per byte
+\begin{tikzpicture}
+\begin{axis}[
+title=Energie in functie van hoeveelheid bytes,
+xmin=0,xmax=128,
+xlabel={Bytes},
+ylabel={Energie $(mJ)$},
+]
+\addplot[
+red,
+domain=0:100,
+samples=201,
+]
+{0.04*(x * 0.382 + 113.104) * 6 };
+\end{axis}
+\end{tikzpicture}	
+
 \end{document}
