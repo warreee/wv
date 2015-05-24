@@ -45,6 +45,7 @@
 %links
 \usepackage{hyperref}
 
+
 \begin{document}
 
 \maketitle
@@ -680,10 +681,17 @@ In volgende grafiek\ref{fig:sweet_spot} tonen we een hypothetische verloop van d
 
 \begin{figure}[h]
 \centering
-\missingfigure{}
+\includegraphics[width=8cm]{sweetspot}
 \caption{Een sweet spot vinden}
 \label{fig:sweet_spot}
 \end{figure}
+
+Op de x-as staat de hoeveelheid data die nog verzonden moet worden na de bewerking ervan (bijvoorbeeld door compressie). Dit wordt weergeven door $\frac{n}{x}$ waarbij $n$ de orginele hoeveelheid data is en $x$ de factor waarmee deze verminderd wordt. 
+
+Op de y-as staat de hoeveelheid energie die nodig is om een bepaalde actie uit te voeren.
+De oranje lijn staat voor de energie die nodig is om het aantal bytes na reductie te verzenden. Deze is dalend aangezien een kleinere hoeveelheid bytes om te verzenden natuurlijk minder energie vergt. Ze convergeert niet naar nul maar naar de vaste kost die nodig is om de antenne aan te zetten.
+De blauwe lijn staat voor de energiekost van de reductie. In deze hypothese wordt er van uitgegaan dat de moeiljkheid om een grotere reductie te krijgen, telkens stijgt (wat ook meestal het geval is bij compressie). Dit brengt ook een steeds stijgende energie kost met zich mee, vandaar het stijgend verloop.
+De groene lijn stelt dan de som voor van de blauwe en oranje lijn. Het minimum van deze kromme is aangeduid in het rood en is de zogenaamde \textit{sweet spot}. 
 
 \section{Conclusie}
 
