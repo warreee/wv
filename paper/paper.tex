@@ -447,7 +447,7 @@ data_reduction = 60
 \addplot[
 	red,
 	domain=0:8196,
-	samples=201]
+	samples=201,very thick]
 		{8.144E-5 * x };
 \end{axis}
 \end{tikzpicture}
@@ -468,7 +468,7 @@ data_reduction = 60
 \addplot[
     red,
     domain=0:8196,
-    samples=201]
+    samples=201,very thick]
         {3.752E-7 *x -3.773E-6};
 \end{axis}
 \end{tikzpicture}
@@ -490,13 +490,13 @@ ylabel={Energie $(mJ)$}
 \addplot[
 blue,
 domain=0:100,
-samples=201,
+samples=201 ,very thick
 ]
 {x/0.000333638186177248 * 8.144E-5 };
 \addplot[
 red,
 domain=0:100,
-samples=201,
+samples=201 ,very thick 
 ]
 {x * 0.224222886125917 };
 \legend{Schrijven naar RAM,Idle,$l_3$}
@@ -526,7 +526,7 @@ xmin=0.5,xmax=2,
 xlabel={Tijd $(ms)$},
 ylabel={Energie $(mJ)$},
 ]
-\addplot[blue] table {cpu1.dat};
+\addplot[blue,very thick] table {cpu1.dat};
 
 \end{axis}
 \end{tikzpicture}	
@@ -546,7 +546,7 @@ ylabel={Energie $(mJ)$}
 \addplot[
 blue,
 domain=0:100,
-samples=201,
+samples=201,very thick
 ]
 {0.0037 * x *1E-3 *6};
 \end{axis}
@@ -599,7 +599,7 @@ ylabel={Energie $(mJ)$}
 \addplot[
 blue,
 domain=0:100,
-samples=201,
+samples=201,very thick
 ]
 {x * 0.224222886125917 };
 \end{axis}
@@ -637,7 +637,7 @@ ylabel={Energie $(mJ)$},
 \addplot[
 red,
 domain=0:100,
-samples=201,
+samples=201,very thick
 ]
 {0.04*(x * 0.382 + 113.104) * 6 };
 \end{axis}
