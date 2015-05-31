@@ -12,7 +12,7 @@
 \usepackage{courier}
 \usepackage{latexsym} 
 \usepackage{environ}
-
+\usepackage{listings}
 \makeatletter
 \newsavebox{\measure@tikzpicture}
 \NewEnviron{scaletikzpicturetowidth}[1]{%
@@ -31,7 +31,7 @@
 \usepackage{amsmath} 
 \usepackage{float} 
 \usepackage{graphicx}
-\graphicspath{{graphics/}}
+% \graphicspath{{graphics/}}
 \usepackage[dutch]{babel} 
 
 %visuals
@@ -64,7 +64,7 @@ anchor=north east}}
 \maketitle
 
 \listoftodos
-\linespread{1.3}
+% \linespread{1.3}
 \begin{abstract}
 Wireless sensor networks zijn netwerken die bestaan uit motes: kleine, vaak van
 een batterij voorziene embedded apparaten uitgerust sensoren die in grote
@@ -75,9 +75,8 @@ motes niet te taxeren.
 
 In deze paper wordt onderzocht of dit wel een goede strategie is. We stellen
 hiertoe een simpele vuistregel voor. Deze kan dienen om te beslissen of een
-bepaald stuk applicatielogica lokaal op een mote kan draaien, zonder meer
-energie te verbruiken of een minder goede performantie te bekomen dan als het op een
-back end zou uitgevoerd worden. Er wordt ook een tool getoond die deze vuistregel
+bepaald stuk applicatielogica lokaal op een mote kan draaien. Dit zonder meer
+energie te verbruiken of een minder goede performantie te bekomen dan als het op een back end zou uitgevoerd worden. Er wordt ook een tool getoond die deze vuistregel
 kan toepassen. Deze gebruikt de kennis van de programmeur en een aantal
 basiseigenschappen van het te draaien programma om deze beslissing te maken. We
 geven ook een aanzet tot het breder en preciezer toepassen van de technieken
@@ -101,7 +100,7 @@ WSNs, zie \cite{akyildiz2002wireless}.)
 Een typische mote heeft erg beperkte reken- en opslagcapaciteit, wat
 effici\"ente multiprogrammatie verhindert. In het algemeen gaat men daarom een
 simpele strategie toepassen voor dataverwerking, waarbij de mote \'e\'en enkele
-verantwoordelijkheid heeft, het zgn. 'sense and send': sensordata wordt op de
+verantwoordelijkheid heeft, het zgn. 'sense and send'. Sensordata wordt op de
 motes niet bewerkt, maar meteen doorgestuurd naar de back end voor verdere
 verwerking, waardoor de rol van de motes bij het verwerken van de data
 geminimaliseerd wordt.
@@ -111,7 +110,7 @@ mote dat het gulzigst is met energie: de antenne.  De vraag dringt zich op: is
 er geen manier om van de weliswaar beperkte rekenkracht van de motes gebruik te
 maken om effici\"enter om te springen met de antenne? En is het mogelijk een
 simpele, algemene maatstaf te gebruiken om te beslissen of dit in een specifiek
-deployment scenario kan of niet?
+deployment scenario al dan niet kan?
 
 Energie-effici\"entie is een cruciale factor op alle niveaus bij het ontwikkelen
 van wireless sensor networks: een typische mote heeft geen toegang tot een
@@ -127,6 +126,13 @@ omspringt met energie. Het is dan ook geen wonder dat veel research in het
 gebied rechtstreeks wordt be\"invloed door deze kwestie: van de ontwikkeling van
 besturingssystemen voor motes over netwerkprotocollen tot studies van
 netwerktopologie\"en.
+
+Daarom is het interessant om te proberen wat meer applicatielogica op de motes
+zelf te draaien, die dan slimmer omgaat met de data en zo probeert energie uit
+te sparen. Bij een eenvoudig temperatuurmetingsscenario zou men kunnen proberen
+om in plaats van voortdurend temperaturen door te sturen verschillende metingen
+te bundelen of er het gemiddelde van te nemen. Daarbij moeten we natuurlijk op
+onze hoede zijn dat we geen te zware berekeningen uitvoeren
 
 Het ontwikkelen van een eenvoudige metric die een programmeur toelaat om snel en
 effici\"ent te evalueren of een bepaalde applicatie op een mote kan gedeployed
@@ -170,7 +176,8 @@ h(x)=
 Waarbij:
 
 \begin{itemize}
-\item $C$ de energiekostfunctie is, die de energiekost van een operatie bepaalt;
+\item $C$ de energiekostfunctie is, die de energiekost in millijoule van een
+operatie bepaalt;
 \item $red$ de reductiefunctie is, die een reductie toepast op zijn input
 (m.a.w. zijn input transformeert van een string van $n$ bytes naar een string
 van $m$ bytes);
@@ -194,7 +201,7 @@ cost(transfer(y)) = cost(transfer(x + y))$. In een keer $x + y$ bytes versturen
 kan dus voordeliger uitkomen dan $x$ en $y$ bytes apart te verzenden. Let wel: $transfer$ is wel lineair in de zin dat als we de kost ervan plotten, we een rechte lijn te zien krijgen. } 
 Ook een combinatie van beide is mogelijk: men kan bijvoorbeeld de buffer
 comprimeren door reeksen identieke metingen samen te nemen (filter +
-aggregator). Dit zou theoretisch gezien een grotere winst moeten opleveren.
+aggregator). Dit zou theoretisch gezien een grotere winst in energie moeten opleveren.
 
 De aandachtige lezer stelt zich meteen de vraag: hoe kan men de kost van zo'n
 reductie in het algemeen schatten? Laat de programmeur, die zijn programma goed
@@ -220,7 +227,12 @@ kosteenheden voor de drie componenten van het energieverbruik die een
 programmeur kan be\"invloeden:
 
 \begin{itemize}
-\item \textbf{opslag}: hoeveel kost het om $n$ bytes op te slaan in het RAM?\footnote{\todo[inline]{nazien}Men zou ook geneigd zijn om data op te slaan op het EEPROM. In dit onderzoek is dat echter achterwege gelaten aangezien dit een hoge kost qua energieverbruik blijkt te hebben ten opzichte van opslag in het RAM. Hetzelfde kan ook gezegd worden over oplsag naar het FLASH-geheugen.}
+\item \textbf{opslag}: hoeveel kost het om $n$ bytes op te slaan in het RAM? (In
+heel de paper mag men `geheugen' interpreteren als RAM.\footnote{Men zou ook
+geneigd zijn om data op te slaan op het EEPROM. In dit onderzoek is dat echter
+achterwege gelaten aangezien dit een hoge kost qua energieverbruik blijkt te
+hebben ten opzichte van opslag in het RAM. Hetzelfde kan ook gezegd worden over
+oplsag naar het FLASH-geheugen.})
 \item \textbf{berekeningen}: hoeveel kosten $n$ seconden CPU-tijd?
 \item \textbf{overdracht}: hoeveel kost het om $n$ bytes te verzenden; hoeveel
 kost het om de antenne aan en uit te zetten?
@@ -250,29 +262,61 @@ volgende circuit:
 \label{fig:meetopstelling}
 \end{figure}
 
-De oscilloscoop meet de spanning in het circuit. De weerstand kan aan en uit
-worden gezet door op de mote het pin-outsignaal te flippen. Er is enkel stroom
-in het circuit verbonden aan de pin-out als het signaal op hoog staat; die
-periodes zijn duidelijk af te lezen op de output van oscilloscoop en komen
-overeen met de periodes waarin de code waarvan we het energiegebruik willen
-kennen wordt uitgevoerd. Men kan gebruik maken van de wet van Ohm om de
-verbruikte stroom in die intervallen te schatten. Daardoor kan men met goede
-precisie meten hoeveel energie een bepaald stuk code verbruikt.
-\todo[inline]{Het stuk code van de pin flips laten zien, samen met een afbeelding van de oscilloscoop}
+De oscilloscoop meet de spanning in de circuits gaande door oscilloscoopkanalen
+P1 en P2. Er wordt een shuntweerstand in serie geschakeld met de stroombron van
+de mote (circuit aangesloten aan P1 op de oscilloscoop). Door naar de
+spanningsval over de weerstand te kijken, kan men de wet van Ohm gebruiken om
+het stroomverbruik te meten.
+
+Omdat de te meten intervallen zo klein zijn, moeten metingen met de oscilloscoop
+softwarematig worden gestart en gestopt. Dat wordt gedaan door middel van de
+digitale outputpin (D1 op de mote). Die kan men een hoog of een laag signaal (5V
+of 0V) laten uitzenden. Als een meting moet beginnen, zet men de pin op hoog,
+waardoor de oscilloscoop getriggerd wordt en begint met meten. Wanneer de meting
+moet stoppen, komt de pin terug op laag voltage, en stopt de oscilloscoop met meten. Op
+deze manier kan men met goede precisie meten hoeveel energie een bepaald stuk
+code verbruikt.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=8cm]{osc}
+\caption{Output van de oscilloscoop. In het blauw: het signaal van de pin-out.
+In het geel: de spanningsval over de weerstand $R$. De punten waar de blauwe
+grafiek plots stijgt of daalt corresponderen aan de momenten waarop het
+pin-outsignaal geflipt wordt.}
+\label{fig:osc_werking}
+\end{figure}
+
+\begin{figure}[h]
+\begin{lstlisting}[frame=single,language=C]
+// initialiseer pin
+DDRE |= _BV(PE6);
+
+// pin hoog
+PORTE |= _BV(PE6);
+
+// te meten code hier
+
+// pin laag
+PORTE &= ~(_BV(PE6));
+\end{lstlisting}
+\caption{Werken met de pin.}
+\label{fig:pin_flip_code}
+\end{figure}
+
 % \begin{figure}[h]
 % \centering
 % \missingfigure{}
-% \caption{Oscilloscoop in werking.}
+% \caption{Een voorbeeld van pin-flippen.}
 % \label{fig:osc_werking}
 % \end{figure}
 
-\todo[inline]{Hierna verder uitleggen hoe we de output verwerken, (enkel voor tijd of ook voor de energie)}
-% \begin{figure}[h]
-% \centering
-% \missingfigure{}
-% \caption{Een dataset}
-% \label{fig:data}
-% \end{figure}
+Dit levert een CSV-bestand op dat een beschrijving geeft van de spanningsval in
+beide circuits gedurende een vastgelegde tijdsperiode vanaf een trigger, dat dan
+ingelezen en geparsed wordt. Integreren over de intervallen waar het
+pin-outsignaal op hoog staat, levert een nauwkeurige schatting van het
+stroomverbruik tijdens die intervallen.
+
 \subsection{De tool}
 
 Om de toepassing van de vuistregel te vergemakkelijken, hebben we een kleine
@@ -309,7 +353,7 @@ to = <int m>
 voor de hand. Bij deze een aantal manieren die gebruikt kunnen worden om deze
 parameters te schatten:
 
-\subsubsection{Kost van de reductie: CPU-tijd.} Momenteel werken wij aan een
+\subsubsection{Kost van de reductie: CPU-tijd.} Momenteel wordt er gewerkt aan een
 methode om bijna volledig automatisch te bepalen hoeveel CPU-tijd het uitvoeren
 van de reductie ongeveer kost. Deze is echter nog niet volledig op punt. Een
 andere methode is het gebruik van een fysiek meetapparaat om op een soortgelijke
@@ -322,7 +366,7 @@ CPU. Bij de Zigduino is dit 16MHz.
 niet op het eerste zicht in te schatten. Een voorbeeld: neem dat er een
 temperatuur- en vochtigheidssensor aanwezig is en dat de programmeur op elk mogelijk moment
  wil weten of het aangenaam of niet aangenaam is waar de mote staat en die data
-in juist één byte past. Dan is de data met betrekking tot de temperatuur (bijv.
+in juist \'e\'en byte past. Dan is de data met betrekking tot de temperatuur (bijv.
 twee bytes) en de vochtigheidsgraad (bijv. ook twee bytes) gereduceerd naar
 \'e\'en byte. Dit kunnen we zeer gemakkelijk uitwerken.
 
@@ -371,7 +415,13 @@ Stel dat we een opstelling hebben waarbij de mote temperatuurmetingen moet
 uitvoeren. Dit gebeurt elke seconde; elke meting is twee bytes groot. De
 back end hoeft echter niet in real time op de hoogte te worden gebracht van deze
 metingen, maar heeft genoeg aan \'e\'en stuk temperatuurdata per
-minuut. Verschillende strategie\"en bieden zich aan:
+minuut. Verschillende strategie\"en bieden zich aan, ze worden telkens getoond met de bijhorende parameters en voor evaluatie werd de tool gebruikt. Voor de exacte berekening verwijzen wij ?????????????????
+
+% De tool gebruikt volgende formule voor de energie berekening: 
+
+%$ 8.144 \cdot 10^{-5} mJ/Byte \cdot sensor\_ data\_ size \cdot sensor\_ data\_ frequency +  0.0037A \cdot reduction\_  cpu\_ time \cdot 6V + 0.04A \cdot ( $
+
+\todo[inline]{Ben er mee gestopt, de formule is te lang om hier te zetten, we zouden die dan ook nog moeten uitleggen en vanwaar alles komt, ik zou dat niet doen, zeker omdat we niet zeker zijn dat dit helemaal juist is. Ik zou een soort verwijzing naar de tool zetten?}
 \begin{enumerate}
 \item \textbf{Sense and send.} Van zodra een meting binnenkomt wordt hij doorgestuurd.
 
@@ -594,7 +644,7 @@ samples=201,very thick
 
 \subsection{Kostmetingen}
 
-Voor kostmetingen zijn we als volgt te werk gegaan:
+Voor kostmetingen werd er als volgt te werk gegaan:
 
 \begin{enumerate}
 \item Een ruwe meting: schrijf een programma dat beroep doet op een deel
@@ -604,7 +654,7 @@ programma dat herhaaldelijk bytes naar een buffer in het RAM wil schrijven.
 \item Maak een inferentie, zodat we de atomische kost kunnen berekenen. Die extrapoleren we vervolgens.
 \end{enumerate}
 
-\subparagraph{Schrijven naar RAM}
+\subsubsection{Schrijven naar RAM}
 
 Schrijven naar RAM is haast gratis en is daarom een zeer goede
 reductiestrategie. De resultaten zijn te zien op figuur \ref{fig:energieverbruik_ram}.
@@ -614,8 +664,8 @@ moet worden gerefreshed. Schrijfoperaties worden in deze refresh-cycli
 ge\"integreerd zodat ze haast gratis zijn. Als bewijs hiervan hebben we het energieverbruik vergeleken met dat van het in low-power listening. 
 De vergelijking kan gezien worden op figuur \ref{fig:energieverbruik_idle_vs_RAM}.\\
 \\
-De x-as geeft aan hoelang dat de mote idle is of hoelang er bytes geschreven worden naar het RAM geheugen. Aan de hand van figuur \ref{fig:tijdsduur_ram} hebben we kunnen berekenen hoeveel bytes er in een bepaalde tijdsduur worden weggeschreven. Voor $1ms$ is dit ongeveer al 3000 bytes. Vandaar dat, hoewel het misschien lijkt dat naar RAM schrijven een kost heeft, deze kost nooit wordt gehaald aangezien er nooit zoveel bytes ineens gaan worden geschreven. Het grote aantal bytes dat zou geschreven worden staat op de tweede x-as bovenaan op figuur \ref{fig:energieverbruik_idle_vs_RAM}. 
-\subparagraph{Low-power listening}
+De x-as geeft aan hoelang dat de mote idle is of hoelang er bytes geschreven worden naar het RAM geheugen. Aan de hand van figuur \ref{fig:tijdsduur_ram} hebben we kunnen berekenen hoeveel bytes er in een bepaalde tijdsduur worden weggeschreven. Voor $1ms$ is dit ongeveer al 3000 bytes. Vandaar dat, hoewel het misschien lijkt dat naar RAM schrijven een kost heeft, deze kost nooit wordt gehaald aangezien er nooit zoveel bytes ineens worden geschreven. Het grote aantal bytes dat zou geschreven worden staat op de tweede x-as bovenaan op figuur \ref{fig:energieverbruik_idle_vs_RAM}. 
+\subsubsection{Low-power listening}
 Dit is de staat waarin de mote zich het meeste bevindt. Hier gaat hij aan $8Hz$
 kijken of er niet gecommuniceerd moet worden met andere motes - en elke keer
 wordt de antenne aangezet. Om deze toestand te meten heeft men dus enkel een
@@ -646,15 +696,17 @@ samples=201,very thick
 \end{figure}
 
 
-\subparagraph{Verzenden en ontvangen}
+\subsubsection{Verzenden en ontvangen}
 
 De kost van het verzenden en ontvangen via het netwerk is relatief groot. Dit is
 vooral te wijten aan het aanzetten van de antenne, dat enorm veel energie
 opslorpt ten opzichte van al het andere. Het eigenlijke verzenden kost ook meer
-dan bijv. CPU of RAM, maar als we de overhead van het opstarten buiten
-beschouwing laten, is het nog redelijk. Daardoor is het interessant om de
-antenne zo min mogelijk aan te zetten en te proberen zoveel mogelijk data te
-bundelen voor verzending om de overhead tot een minimum te beperken.
+dan bijv. CPU of RAM (stroomverbruik 18 \'a 22 mA voor verzenden vs. 13 \'a 20
+mA voor ontvangen, zie \cite{atmega128rfa1}), maar als we de overhead van het opstarten buiten beschouwing
+laten, is het nog redelijk. Daardoor is het interessant om de antenne zo min
+mogelijk aan te zetten, en te proberen zoveel mogelijk data te bundelen voor
+verzending om de overhead tot een minimum te beperken.
+
 
 Een ander aandachtspunt is dat het niet evenveel kost om te zenden als om te
 ontvangen. Hierover moeten nog een aantal experimenten op punt worden gesteld.
@@ -683,14 +735,14 @@ samples=201,very thick
 \label{fig:energieverbruik_ant}
 \end{figure}
 
-\subparagraph{Basisverbruik}
+\subsubsection{Basisverbruik}
 
 Het complete basisverbruik is makkelijk te meten. De component op de mote hoeft
 niets doen, net zoals bij low-power listening. Het enige verschil nu is dat er
 expliciet moet gezegd worden dat de antenne uit staat.
 De metingen voor dit verbruik zijn te vinden op figuur \ref{fig:energieverbruik_antenne_uit}.
 
-\subparagraph{CPU-cycli}
+\subsubsection{CPU-cycli}
 
 Onze eerste aanpak was het gebruiken van de AVR-simulator Avrora
 \cite{titzer2005avrora} om het aantal CPU-cycli exact te meten en te
@@ -717,7 +769,6 @@ temperatuurmetingen bestudeerd. Dit scenario hebben we door de tool laten
 berekenen om te kijken of het resultaat hiervan overeen kwam met het
 energieverbruik volgens de oscilloscoop. Wat hier wel buiten beschouwing
 wordt gelaten is het verbruik door de antenne, dit omdat het door tijdsgebrek niet op punt kon worden gesteld.
-\todo[inline]{Kunt ge dat beter verwoorden, "niet werkende krijgen"?}
 
 In volgende tabel tonen we het temperatuurscenario waarbij het gemiddelde wordt
 berekend voor een bepaalde hoeveelheid metingen. De twee daarop volgende
@@ -797,12 +848,7 @@ datareductie minimaal is?
 In volgende grafiek (figuur \ref{fig:sweet_spot}) tonen we een hypothetische
 verloop van deze trade-off.
 
-\begin{figure}[h]
-\centering
-\includegraphics[width=8cm]{sweetspot}
-\caption{Een sweet spot vinden}
-\label{fig:sweet_spot}
-\end{figure}
+
 
 Op de x-as staat de hoeveelheid data die nog verzonden moet worden na de bewerking ervan (bijvoorbeeld door compressie). Dit wordt weergeven door $\frac{n}{x}$ waarbij $n$ de orginele hoeveelheid data is en $x$ de factor waarmee deze verminderd wordt. 
 
@@ -810,7 +856,12 @@ Op de y-as staat de hoeveelheid energie die nodig is om een bepaalde actie uit t
 De oranje lijn staat voor de energie die nodig is om het aantal bytes na reductie te verzenden. Deze is dalend aangezien een kleinere hoeveelheid bytes om te verzenden natuurlijk minder energie vergt. Ze convergeert niet naar nul maar naar de vaste kost die nodig is om de antenne aan te zetten.
 De blauwe lijn staat voor de energiekost van de reductie. In deze hypothese wordt er van uitgegaan dat de moeilijkheid om een grotere reductie te krijgen telkens stijgt (wat ook meestal het geval is bij compressie). Dit brengt ook een steeds stijgende energiekost met zich mee, vandaar het stijgend verloop.
 De groene lijn stelt dan de som voor van de blauwe en oranje lijn. Het minimum van deze kromme is aangeduid in het rood en is de zogenaamde \textit{sweet spot}. 
-
+\begin{figure}[H]
+\centering
+\includegraphics[width=8cm]{sweetspot}
+\caption{Een sweet spot vinden}
+\label{fig:sweet_spot}
+\end{figure}
 \section{Conclusie}
 
 We hebben een metric voorgesteld die voldoet aan onze eisen; we hebben ook een
