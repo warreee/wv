@@ -30,27 +30,15 @@ PROCESS_THREAD(ram_power_usage_process, ev, data)
     etimer_set(&et, (CLOCK_SECOND * 2));
 
     PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));
-    
-    /* uint32_t sampling_round; */
-    /* for (sampling_round = 0; sampling_round < AMOUNT_OF_SAMPLES; sampling_round++) { */
+
     while (1) {
       // a buffer ready to be written to
       uint8_t *buffer = (uint8_t * ) malloc(MAX_BYTES_TO_WRITE * sizeof(uint8_t));
-        /*
-		if (buffer == 0)
-		{
-			printf("ERROR: Out of memory\n");
-			return 1;
-		} else {
- 		printf("Succes \n");
-		}*/
+
       //Pin hoog
       PORTE |= _BV(PE6);
 
-      //int i;
-      //for (i = 0; i < 100; i++) {
         memset( (void *)buffer, '\0', MAX_BYTES_TO_WRITE);
-      //}
 
       //Pin laag
       PORTE &= ~(_BV(PE6));
@@ -63,7 +51,7 @@ PROCESS_THREAD(ram_power_usage_process, ev, data)
 
     }
   }
-  
+
   PROCESS_END();
 }
 /*---------------------------------------------------------------------------*/

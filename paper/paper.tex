@@ -12,7 +12,7 @@
 \usepackage{courier}
 \usepackage{latexsym} 
 \usepackage{environ}
-
+\usepackage{listings}
 \makeatletter
 \newsavebox{\measure@tikzpicture}
 \NewEnviron{scaletikzpicturetowidth}[1]{%
@@ -31,7 +31,7 @@
 \usepackage{amsmath} 
 \usepackage{float} 
 \usepackage{graphicx}
-\graphicspath{{graphics/}}
+% \graphicspath{{graphics/}}
 \usepackage[dutch]{babel} 
 
 %visuals
@@ -64,7 +64,7 @@ anchor=north east}}
 \maketitle
 
 \listoftodos
-\linespread{1.3}
+% \linespread{1.3}
 \begin{abstract}
 Wireless sensor networks zijn netwerken die bestaan uit motes: kleine, vaak van
 een batterij voorziene embedded apparaten voorzien van sensoren die in grote
@@ -228,7 +228,12 @@ kosteenheden voor de drie componenten van het energieverbruik die een
 programmeur kan be\"invloeden:
 
 \begin{itemize}
-\item \textbf{opslag}: hoeveel kost het om $n$ bytes op te slaan in het RAM?\footnote{\todo[inline]{nazien}Men zou ook geneigd zijn om data op te slaan op het EEPROM. In dit onderzoek is dat echter achterwege gelaten aangezien dit een hoge kost qua energieverbruik blijkt te hebben ten opzichte van opslag in het RAM. Hetzelfde kan ook gezegd worden over oplsag naar het FLASH-geheugen.}
+\item \textbf{opslag}: hoeveel kost het om $n$ bytes op te slaan in het RAM? (In
+heel de paper mag men `geheugen' interpreteren als RAM.\footnote{Men zou ook
+geneigd zijn om data op te slaan op het EEPROM. In dit onderzoek is dat echter
+achterwege gelaten aangezien dit een hoge kost qua energieverbruik blijkt te
+hebben ten opzichte van opslag in het RAM. Hetzelfde kan ook gezegd worden over
+oplsag naar het FLASH-geheugen.})
 \item \textbf{berekeningen}: hoeveel kosten $n$ seconden CPU-tijd?
 \item \textbf{overdracht}: hoeveel kost het om $n$ bytes te verzenden; hoeveel
 kost het om de antenne aan en uit te zetten?
@@ -258,29 +263,61 @@ volgende circuit:
 \label{fig:meetopstelling}
 \end{figure}
 
-De oscilloscoop meet de spanning in het circuit. De weerstand kan aan en uit
-worden gezet door op de mote het pin-outsignaal te flippen. Er is enkel stroom
-in het circuit verbonden aan de pin-out als het signaal op hoog staat; die
-periodes zijn duidelijk af te lezen op de output van oscilloscoop en komen
-overeen met de periodes waarin de code waarvan we het energiegebruik willen
-kennen wordt uitgevoerd. Men kan gebruik maken van de wet van Ohm om de
-verbruikte stroom in die intervallen te schatten. Daardoor kan men met goede
-precisie meten hoeveel energie een bepaald stuk code verbruikt.
-\todo[inline]{Het stuk code van de pin flips laten zien, samen met een afbeelding van de oscilloscoop}
+De oscilloscoop meet de spanning in de circuits gaande door oscilloscoopkanalen
+P1 en P2. Er wordt een shuntweerstand in serie geschakeld met de stroombron van
+de mote (circuit aangesloten aan P1 op de oscilloscoop). Door naar de
+spanningsval over de weerstand te kijken, kan men de wet van Ohm gebruiken om
+het stroomverbruik te meten.
+
+Omdat de te meten intervallen zo klein zijn, moeten metingen met de oscilloscoop
+softwarematig worden gestart en gestopt. Dat wordt gedaan door middel van de
+digitale outputpin (D1 op de mote). Die kan men een hoog of een laag signaal (5V
+of 0V) laten uitzenden. Als een meting moet beginnen, zet men de pin op hoog,
+waardoor de oscilloscoop getriggerd wordt en begint met meten. Wanneer de meting
+moet stoppen, komt de pin terug op laag voltage, en stopt de oscilloscoop met meten. Op
+deze manier kan men met goede precisie meten hoeveel energie een bepaald stuk
+code verbruikt.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=8cm]{osc}
+\caption{Output van de oscilloscoop. In het blauw: het signaal van de pin-out.
+In het geel: de spanningsval over de weerstand $R$. De punten waar de blauwe
+grafiek plots stijgt of daalt corresponderen aan de momenten waarop het
+pin-outsignaal geflipt wordt.}
+\label{fig:osc_werking}
+\end{figure}
+
+\begin{figure}[h]
+\begin{lstlisting}[frame=single,language=C]
+// initialiseer pin
+DDRE |= _BV(PE6);
+
+// pin hoog
+PORTE |= _BV(PE6);
+
+// te meten code hier
+
+// pin laag
+PORTE &= ~(_BV(PE6));
+\end{lstlisting}
+\caption{Werken met de pin.}
+\label{fig:pin_flip_code}
+\end{figure}
+
 % \begin{figure}[h]
 % \centering
 % \missingfigure{}
-% \caption{Oscilloscoop in werking.}
+% \caption{Een voorbeeld van pin-flippen.}
 % \label{fig:osc_werking}
 % \end{figure}
 
-\todo[inline]{Hierna verder uitleggen hoe we de output verwerken, (enkel voor tijd of ook voor de energie)}
-% \begin{figure}[h]
-% \centering
-% \missingfigure{}
-% \caption{Een dataset}
-% \label{fig:data}
-% \end{figure}
+Dit levert een CSV-bestand op dat een beschrijving geeft van de spanningsval in
+beide circuits gedurende een vastgelegde tijdsperiode vanaf een trigger, dat dan
+ingelezen en geparsed wordt. Integreren over de intervallen waar het
+pin-outsignaal op hoog staat, levert een nauwkeurige schatting van het
+stroomverbruik tijdens die intervallen.
+
 \subsection{De tool}
 
 Om de toepassing van de vuistregel te vergemakkelijken, hebben we een kleine
@@ -612,7 +649,7 @@ programma dat herhaaldelijk bytes naar een buffer in het RAM wil schrijven.
 \item Maak een inferentie, zodat we de atomische kost kunnen berekenen. Die extrapoleren we dan.
 \end{enumerate}
 
-\subparagraph{Schrijven naar RAM}
+\subsubsection{Schrijven naar RAM}
 
 Schrijven naar RAM is haast gratis en is daarom een zeer goede
 reductiestrategie. De resultaten zijn te zien op figuur \ref{fig:energieverbruik_ram}.
@@ -623,7 +660,7 @@ ge\"integreerd zodat ze haast gratis zijn. Als bewijs hiervan hebben we het ener
 De vergelijking kan gezien worden op figuur \ref{fig:energieverbruik_idle_vs_RAM}.\\
 \\
 De x-as geeft aan hoelang dat de mote idle is of hoelang er bytes geschreven worden naar het RAM geheugen. Aan de hand van figuur \ref{fig:tijdsduur_ram} hebben we kunnen berekenen hoeveel bytes er in een bepaalde tijdsduur worden weggeschreven. Voor $1ms$ is dit ongeveer al 3000 bytes. Vandaar dat, hoewel het misschien lijkt dat naar RAM schrijven een kost heeft, deze kost nooit wordt gehaald aangezien er nooit zoveel bytes ineens gaan worden geschreven. Het grote aantal bytes dat zou geschreven worden staat op de tweede x-as bovenaan op figuur \ref{fig:energieverbruik_idle_vs_RAM}. 
-\subparagraph{Low-power listening}
+\subsubsection{Low-power listening}
 Dit is de staat waarin de mote zich het meeste bevindt. Hier gaat hij aan $8Hz$
 kijken of er niet gecommuniceerd moet worden met andere motes - en elke keer
 wordt de antenne aangezet. Om deze toestand te meten heeft men dus enkel een
@@ -654,7 +691,7 @@ samples=201,very thick
 \end{figure}
 
 
-\subparagraph{Verzenden en ontvangen}
+\subsubsection{Verzenden en ontvangen}
 
 De kost van het verzenden en ontvangen via het netwerk is vrij groot. Dit is
 vooral te wijten aan het aanzetten van de antenne, dat enorm veel energie
@@ -692,14 +729,14 @@ samples=201,very thick
 \label{fig:energieverbruik_ant}
 \end{figure}
 
-\subparagraph{Basisverbruik}
+\subsubsection{Basisverbruik}
 
 Het complete basisverbruik is makkelijk te meten. De component op de mote hoeft
 niets doen, net zoals bij low-power listening. Het enige verschil nu is dat er
 expliciet moet gezegd worden dat de antenne uit staat.
 De metingen voor dit verbruik zijn te vinden op figuur \ref{fig:energieverbruik_antenne_uit}.
 
-\subparagraph{CPU-cycli}
+\subsubsection{CPU-cycli}
 
 Onze eerste aanpak was het gebruiken van de AVR-simulator Avrora
 \cite{titzer2005avrora} om het aantal CPU-cycli exact te meten en te
@@ -726,7 +763,7 @@ temperatuurmetingen bestudeerd. Dit scenario hebben we door onze tool laten
 berekenen om te kijken of het resultaat hiervan overeen kwam met het
 energieverbruik volgens de oscilloscoop. Wat we hier wel buiten beschouwing
 laten is het verbruik door de antenne, dit omdat we dit door tijdsgebrek niet werkende kregen.
-\todo[inline]{Kunt ge dat beter verwoorden, "niet werkende krijgen"?}
+% \todo[inline]{Kunt ge dat beter verwoorden, "niet werkende krijgen"?}
 
 In volgende tabel tonen we het temperatuurscenario waarbij het gemiddelde wordt
 berekend voor een bepaalde hoeveelheid metingen. De twee daarop volgende

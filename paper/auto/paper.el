@@ -25,6 +25,7 @@
     "courier"
     "latexsym"
     "environ"
+    "listings"
     "todonotes"
     "hyperref"
     "amsmath"
@@ -36,6 +37,8 @@
     "tikzscale")
    (LaTeX-add-labels
     "fig:meetopstelling"
+    "fig:osc_werking"
+    "fig:pin_flip_code"
     "fig:energieverbruik_ram"
     "fig:tijdsduur_ram"
     "fig:energieverbruik_idle_vs_RAM"

@@ -14,6 +14,8 @@
 \usepackage{wasysym}
 \usepackage{amssymb}
 \usepackage{hyperref}
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+
 \tolerance=1000
 \usepackage{todonotes}
 \author{Xavier Goás Aguililla}
@@ -26,7 +28,6 @@
 \section{Review 1 (student)}
 
 \subsection{Samenvatting beoordeling:}
-\todo[inline]{grafieken zijn leesbaarder gemaakt ma deze overdrijft wel een beetje}
 De paper leest over het algemeen redelijk vlot. De zinnen zijn soms wat lang.
 Sommige zinnen moet je ook twee maal lezen voor je weet wat er staat. De
 verhaallijn is heel duidelijk. De aanpak, de parameters en de experimenten
@@ -46,19 +47,19 @@ stap verder door te vermelden hoe ze het nog zouden kunnen verbeteren.
 
 \subsection{Een drietal zwakke punten:}
 \begin{itemize}
-\item Figuren redelijk onduidelijk en er ontbreekt een legende - Vaak lange, soms onduidelijke zinnen
+\item Figuren redelijk onduidelijk en er ontbreekt een legende - Vaak lange, soms onduidelijke zinnen {\color{red} Legendes toegevoegd waar nodig. Geprobeerd zinnen op te breken.}
 
-\item Te kort, 6.5 bladzijden inclusief referenties
+\item Te kort, 6.5 bladzijden inclusief referenties {\color{red} Opgelost.}
 \end{itemize}
 
 \subsection{Inhoudelijke vragen \& suggesties voor verbetering:}
 
 \begin{itemize}
-\item Verander de verwijzingen naar de figuren. Het is aangenamer als je ziet staan: "dit resultaat vind je terug op figuur 1" ipv "dit resultaat vind je terug op 1"
-\item Op pagina 1 in de rechtse kolom vanboven ontbreekt een $\backslash$"e in effici$\backslash$"ent (waarschijnlijk typfoutje), er zijn ook nog enkele andere typfoutjes.
+\item Verander de verwijzingen naar de figuren. Het is aangenamer als je ziet staan: "dit resultaat vind je terug op figuur 1" ipv "dit resultaat vind je terug op 1" {\color{red} Opgelost.}
+\item Op pagina 1 in de rechtse kolom vanboven ontbreekt een $\backslash$"e in effici$\backslash$"ent (waarschijnlijk typfoutje), er zijn ook nog enkele andere typfoutjes. {\color{red} Opgelost.}
 
-\item Onder puntje 3.2 worden de parameter schattingen opgesomt. In het begin was mij dit onduidelijk waarvoor de indent diende. Misschien een andere aanpak mogelijk?
-\item Probeer de witruimte een beetje te verminderen
+\item Onder puntje 3.2 worden de parameter schattingen opgesomt. In het begin was mij dit onduidelijk waarvoor de indent diende. Misschien een andere aanpak mogelijk? {\color{red} De structuur zou nu duidelijker moeten zijn.}
+\item Probeer de witruimte een beetje te verminderen {\color{red} Zou nu wat beter moeten zijn; vaak ook witruimte omdat \LaTeX dat graag zo heeft ...}
 \end{itemize}
 
 \section{Review 2 (student)}
@@ -74,16 +75,16 @@ De paper leest vlot en is aangenaam op het vlak van taalgebruik. De lijn van het
 
 \subsection{Een drietal zwakke punten:}
 \begin{itemize}
-\item Redelijk weinig tekst
-\item Op bepaalde plaatsen zinsconstructie en spelling
-\item Te veel witregels tussen de opsomming van bepaalde factoren.
+\item Redelijk weinig tekst {\color{red} Er is nu een goed stuk meer.}
+\item Op bepaalde plaatsen zinsconstructie en spelling {\color{red} Dat zou nu in orde moeten zijn.}
+\item Te veel witregels tussen de opsomming van bepaalde factoren. {\color{red} Witregels geprobeerd te reduceren waar mogelijk.}
 \end{itemize}
 
 \subsection{Inhoudelijke vragen \& suggesties voor verbetering:}
 
-Toevoegen van een legende bij figuur 3.
+Toevoegen van een legende bij figuur 3. {\color{red} Toegevoegd.}
 
-De schijnbaar willekeurige 10$^{\text{-3}}$ boven figuur 5.
+De schijnbaar willekeurige 10$^{\text{-3}}$ boven figuur 5. {\color{red} Slaat op de getallen op de y-as, TikZ doet dit zonder dat wij er om vragen.}
 
 \section{Review 3 (docent)}
 
@@ -105,22 +106,29 @@ zijn (o.a. om af te leiden welke parameters het meeste impact hebben).
 \subsection{Een drietal zwakke punten:}
 \begin{itemize}
 \item Voorgestelde metriek is niet geheel duidelijk
-\item Grote grafieken met beperkte informatie
+\item Grote grafieken met beperkte informatie {\color{red} Moeilijk op te lossen; we kwamen immers zeer vaak lineaire stijgingen van het energieverbruik tegen ...}
 \end{itemize}
 
 \subsection{Inhoudelijke vragen \& suggesties voor verbetering:}
 
 \begin{itemize}
-\item Een paar typefouten: ‘efficint’
-\item Onnodig gebruik van voetnoten: de tweede kan vervangen worden door de citatie in de tekst te plaatsen en de derde kan ook in de tekst en voorkomt dat de voetnaat als ‘tot de derde macht’ wordt gelezen.
-\item abstract: Het woord ‘mote’ is nog niet geïntroduceerd en terminologie.
-\item 1.1: ‘concurrent’ is geen Nederlands in deze context
-\item 2, formule: ‘waarbij n …’ Er komt geen n of m voor in de formule. ‘tr()’ en ‘red()’ daarentegen worden niet formeel geïntroduceerd. Hoe wordt ‘cost()’ berekend? Hoe zorg je er voor dat tr() en cost() dezelfde grootte-orde uitdrukken?
-\item 3.2, laatste zin: Wat zijn die edge cases?
-\item 3.4: ‘Paremeters.’ is verwarrende formattering want ziet er hetzelfde uit als de paragraaf hoofdingen.
-\item Fig 3: legende uitbreekt
-\item Fig 5: Waarom geen grafiek\todo[inline]{done} met antenne-verbruik per byte? Lijkt interessant aangezien je meldt dat dit niet-linear is. Je zegt daarentegen in ‘verzenden en ontvangen’ wel dat het verzenden ‘meer’ kost maar nog ‘redelijk’. Dit soort vage termen zijn te mijden aangezien ze niets vertellen, gebruik concrete getallen.
-\item 5: Je gebruikt voor de eerste keer hier de terminologie ‘20B’.
+\item Een paar typefouten: ‘efficint’ {\color{red} Gefixt.}
+\item Onnodig gebruik van voetnoten: de tweede kan vervangen worden door de citatie in de tekst te plaatsen en de derde kan ook in de tekst en voorkomt dat de voetnaat als ‘tot de derde macht’ wordt gelezen. {\color{red} Er zijn nu minder voetnoten en er is meer integratie met de tekst.}
+\item abstract: Het woord ‘mote’ is nog niet geïntroduceerd en terminologie.{\color{red} We hebben het abstract iets groter gemaakt.}
+\item 1.1: ‘concurrent’ is geen Nederlands in deze context {\color{red} Dat is juist. Zinswending veranderd, we spreken nu over `multiprogrammatie'.}
+\item 2, formule: ‘waarbij n …’ Er komt geen n of m voor in de formule. ‘tr()’ en ‘red()’ daarentegen worden niet formeel geïntroduceerd. {\color{red} Nu wel formeel uitgelegd.} Hoe wordt ‘cost()’ berekend? {\color{red} Dat is wat we in de rest van de paper aangeven.} Hoe zorg je er voor dat tr() en cost() dezelfde grootte-orde uitdrukken? {\color{red} Hier ging het om een typfout. Er moest rond $tr$ nog een $C$ staan.}
+\item 3.2, laatste zin: Wat zijn die edge cases? {\color{red} We hebben nu een voorbeeld staan. }
+\item 3.4: ‘Paremeters.’ is verwarrende formattering want ziet er hetzelfde uit als de paragraaf hoofdingen. {\color{red} Formattering veranderd. }
+\item Fig 3: legende uitbreekt {\color{red} Legende is toegevoegd.}
+\item Fig 5: Waarom geen grafiek met antenne-verbruik per
+byte? Lijkt interessant aangezien je meldt dat dit niet-linear is. {\color{red}
+Er is nu een grafiek met antenne-verbruik per byte op figuur 10. De kost is
+inderdaad niet lineair in de wiskundige zin, maar als men hem plot, krijgen we
+wel een rechte lijn!} Je zegt daarentegen in ‘verzenden en ontvangen’ wel dat
+het verzenden ‘meer’ kost maar nog ‘redelijk’. Dit soort vage termen zijn te
+mijden aangezien ze niets vertellen, gebruik concrete getallen.{\color{red} Dat
+is nu iets beter gekwantificeerd.}
+\item 5: Je gebruikt voor de eerste keer hier de terminologie ‘20B’. {\color{red} Het ging om bytes, staat nu voluit geschreven.}
 \end{itemize}
 
 \section{Review 4 (Klaas Thoelen)}
@@ -147,54 +155,58 @@ onderzoek en bijhorende oplossingen en aanbevelingen.
 
 \subsection{Een drietal zwakke punten:}
 \begin{itemize}
-\item de tool zelf geeft niet dadelijk een oplossing voor variabiliteit van invoerparameters
-\item soms wat vaag, nieuwe elementen in de tekst worden niet of te weinig uitgelegd
-\item het lijkt erop dat het steeds beter is om berekeningen te doen op de mote; er worden weinig andere situaties aangehaald, wat de contributie van het onderzoek minimaliseert
-\item geen evaluatie van de uiteindelijke contributie. Hoe accuraat is de voorgestelde tool?
+\item de tool zelf geeft niet dadelijk een oplossing voor variabiliteit van invoerparameters {\color{red} Die is dan ook niet zo simpel te karakteriseren. Ik denk dat het hier interessant kan zijn om statistisch uit te zoeken wat de verwachte variabiliteit is van de parameters.}
+\item soms wat vaag, nieuwe elementen in de tekst worden niet of te weinig uitgelegd {\color{red} We hebben geprobeerd dit wat te reduceren door sommige dingen beter/duidelijke te definiëren.}
+\item het lijkt erop dat het steeds beter is om berekeningen te doen op de mote;
+er worden weinig andere situaties aangehaald, wat de contributie van het
+onderzoek minimaliseert {\color{red} Zo'n situaties komen naar onze mening niet
+enkel voor in scenario's waar er meteen verzonden moet worden elke keer er een
+meting binnenkomt.}
+\item geen evaluatie van de uiteindelijke contributie. Hoe accuraat is de voorgestelde tool? {\color{red} Die hebben we toegevoegd.}
 \end{itemize}
 
 \subsection{Inhoudelijke vragen \& suggesties voor verbetering:}
 
 Weinig inhoudelijke vragen. Maar de tekst zelf zou nog wat duidelijker kunnen voor de lezer die niet vertrouwd is met het werk. Sequentieel doorheen de paper:
 \begin{itemize}
-\item minder wij-vorm gebruiken; eerder ‘Deze paper beschrijft …’
-\item ‘zonder lokaal energie- of performantieverlies’
-\item Tussen sectie 1 en 1.1: geen 2 titels dadelijk na elkaar; plaats er iets tekst tussen; bv. wat er in de volgende 2 subsecties zal worden besproken
-\item idem sectie 3.2
-\item Is het mogelijk om een simpele, algemene maatstaf te gebruiken? Beantwoord deze vraag uit de inleiding expliciet in de conclusie
-\item voetnoot 2: vermijd ‘leuk’, haal dit scenario kort aan in tekst (kan in 1 zin) of geef eerder al een dergelijk voorbeeld van zo een WSN. Liever concreet en kort, dan een vage verwijzing.
-\item spelling ‘efficiënt’
-\item het is niet echt duidelijk over welke applicaties jullie spreken: probeer in de inleiding concrete voorbeeld(en) te geven: gemiddelde, aggregatie, …
-\item check op spelling, formatting, …!!
-\item intro Sectie 2 is onduidelijk; geef eerst aan dat een vuistregel wordt uitgewerkt en dat deze wordt geautomatiseerd in een tool; bouw dan pas de vuistregel op
-\item er staat geen n en m in vuistregel; wat doet de functie ‘compute’?; wat is tr, cost, red, x?
-\item plaats de tekstuele uitleg van de vuistregel vóór de wiskundige uitwerking
-\item eerste parameter is ‘sensordata’, niet ‘sensoren’
-\item specifieer dat geheugen over RAM of Flash gaat
-\item ‘Tijdsinformatie’ = ‘frequentie’?
-\item ‘kostfunctie’ = ‘rekenkost’?
-\item ‘reductiegrootte’ = ‘reductiefactor’?
-\item begin sectie 3: vermijd historisch sequentieel verhaal
-\item storage, computation, transmission: nederlands
-\item een weerstand wordt niet aan/uit gezet
+\item minder wij-vorm gebruiken; eerder ‘Deze paper beschrijft …’ {\color{red} Waar mogelijk aangepast.}
+\item ‘zonder lokaal energie- of performantieverlies’ {\color{red} Herwoord.}
+\item Tussen sectie 1 en 1.1: geen 2 titels dadelijk na elkaar; plaats er iets tekst tussen; bv. wat er in de volgende 2 subsecties zal worden besproken {\color{red} Er staat nu tekst.}
+\item idem sectie 3.2 {\color{red} Ibidem. }
+\item Is het mogelijk om een simpele, algemene maatstaf te gebruiken? Beantwoord deze vraag uit de inleiding expliciet in de conclusie {\color{red} Daarop antwoorden we.}
+\item voetnoot 2: vermijd ‘leuk’, haal dit scenario kort aan in tekst (kan in 1 zin) of geef eerder al een dergelijk voorbeeld van zo een WSN. Liever concreet en kort, dan een vage verwijzing. {\color{red} Verwijderd, scenario aangehaald en beschreven.}
+\item spelling ‘efficiënt’ {\color{red} In orde nu.}
+\item het is niet echt duidelijk over welke applicaties jullie spreken: probeer in de inleiding concrete voorbeeld(en) te geven: gemiddelde, aggregatie, … {\color{red} Een kleine alinea hierover toegevoegd.}
+\item check op spelling, formatting, …!! {\color{red} Zou normaal in orde moeten zijn nu.}
+\item intro Sectie 2 is onduidelijk; geef eerst aan dat een vuistregel wordt uitgewerkt en dat deze wordt geautomatiseerd in een tool; bouw dan pas de vuistregel op {\color{red} In orde nu.}
+\item er staat geen n en m in vuistregel; wat doet de functie ‘compute’?; wat is tr, cost, red, x? {\color{red} Verbeterd, nu wordt alles expliciet vastgelegd.}
+\item plaats de tekstuele uitleg van de vuistregel vóór de wiskundige uitwerking {\color{red} We vinden het zo eigenlijk beter.}
+\item eerste parameter is ‘sensordata’, niet ‘sensoren’ {\color{red} Inderdaad! Verbeterd.}
+\item specifieer dat geheugen over RAM of Flash gaat {\color{red} Expliciet aangeduid in 3. onder `opslag'.}
+\item ‘Tijdsinformatie’ = ‘frequentie’? {\color{red} Inderdaad. Verbeterd.}
+\item ‘kostfunctie’ = ‘rekenkost’? {\color{red} Beter! Verbeterd.}
+\item ‘reductiegrootte’ = ‘reductiefactor’? {\color{red} Beter! Verbeterd.}
+\item begin sectie 3: vermijd historisch sequentieel verhaal {\color{red} Geprobeerd dit goed weg te werken. }
+\item storage, computation, transmission: nederlands {\color{red} Nederlandse termen gebruikt.}
+\item een weerstand wordt niet aan/uit gezet 
 \item wat is het pinout signaal?
 \item vermeld hoe je de pin-flips hebt gerealiseerd (eventueel met code)
-\item figuur met output van oscilloscoop (meetresultaat en pinflips)?
-\item waarom geeft het fysiek meten een harde bovengrens voor de CPU-cycli?
-\item Geheugenverbruik, sensoren, precisie: welke edge cases?
-\item wat is een deployer?
-\item waarom eerst programma schrijven en dan pas parameterbestand aanmaken? Kan men niet voor het programmeren al testen of de geplande aanpak efficient is of niet?
-\item ‘één temperatuurmeting per minuut’
-\item zie dat alle parameters en hun waarden duidelijk zijn voor de lezer
-\item vanwaar 1639mJ??
-\item ‘Deployen op mote.’ is geen zin. Geef ook wat meer context. Waarom betekent dit deployen op mote?
-\item Sectie resultaten evalueert jullie oplossing niet, maar is de input voor jullie oplossing. Plaats deze tussen 3.1 en 3.2.
-\item verwijs naar figuren mbv ‘figuur 1’, niet enkel ‘1’
-\item zorg dat de figuren duidelijk zijn en correct geïnterpreteerd worden; geef wat meer uitleg over assen, meetresultaten, etc.
-\item 1ms of 1s voor 3000 bytes? (zie Y-as figuur 2)
-\item figuren zijn allemaal rechte lineaire grafieken: zit er nergens variatie op? Lijkt wat artificieel. \todo[inline]{is gewoon de realiteit}
-\item figuur 3 en 4: meerdere datasets; voeg een legende toe die aangeeft wat iedere grafiek weergeeft.
-\item conclusie: vermijd ‘we’, herhaal kort de eisen
+\item figuur met output van oscilloscoop (meetresultaat en pinflips)? {\color{red} Dit en de vorige drie punten zijn helemaal herwerkt. Nu pak duidelijke en accurater.}
+\item waarom geeft het fysiek meten een harde bovengrens voor de CPU-cycli? {\color{red} Ook aangeduid. In het kort: omdat er meerdere processen lopen, geeft een fysieke meting niet enkel weer hoeveel rekenkost er besteed wordt. Ook bijvoorbeeld NOP-instructies tijdens het wachten op inlezen van geheugenlocaties zouden eigenlijk niet mogen meetellen in de kost.}
+\item Geheugenverbruik, sensoren, precisie: welke edge cases? {\color{red} Concreter gemaakt.}
+\item wat is een deployer? {\color{red} Veranderd naar `programmeur'}
+\item waarom eerst programma schrijven en dan pas parameterbestand aanmaken? Kan men niet voor het programmeren al testen of de geplande aanpak efficient is of niet? {\color{red} Het is moeilijk op voorhand te bepalen wat de kost van de reductie is zonder het programma te hebben, vandaar.}
+\item ‘één temperatuurmeting per minuut’ {\color{red} Dit snappen we niet zo goed.}
+\item zie dat alle parameters en hun waarden duidelijk zijn voor de lezer {\color{red} Dat zou nu in orde moeten zijn.}
+\item vanwaar 1639mJ?? \todo[inline]{Ward, kunt ge dit nog effe bekijken?}
+\item ‘Deployen op mote.’ is geen zin. Geef ook wat meer context. Waarom betekent dit deployen op mote? {\color{red} Anders verwoord, meer context.}
+\item Sectie resultaten evalueert jullie oplossing niet, maar is de input voor jullie oplossing. Plaats deze tussen 3.1 en 3.2. {\color{red} We vinden het zo beter -- we beschouwen onze metingen ook als resultaten omdat deze iets interessant zeggen over welke strategie\"en men best gebruikt bij het uitkiezen van de WSN-tier waar de applicatie zal draaien.}
+\item verwijs naar figuren mbv ‘figuur 1’, niet enkel ‘1’ {\color{red} Verbeterd.}
+\item zorg dat de figuren duidelijk zijn en correct geïnterpreteerd worden; geef wat meer uitleg over assen, meetresultaten, etc. {\color{red} Assen zijn nu allemaal gelabeld en van legendes voorzien.}
+\item 1ms of 1s voor 3000 bytes? (zie Y-as figuur 2) {\color{red} 1ms! Zie $10^-3$ bovenaan links op figuur 5.}
+\item figuren zijn allemaal rechte lineaire grafieken: zit er nergens variatie op? Lijkt wat artificieel. {\color{red} Dit is wat onze data zeggen - vrij weinig variatie.}
+\item figuur 3 en 4: meerdere datasets; voeg een legende toe die aangeeft wat iedere grafiek weergeeft. {\color{red} Legende aanwezig.}
+\item conclusie: vermijd ‘we’, herhaal kort de eisen {\color{red} Zoveel mogelijk gedaan. Eisen werden al herhaald?}
 
 \item gedurende de hele tekst worden stap-per-stap nieuwe problemen, vragen, etc. geïntroduceerd; probeer dit te vermijden en de lezer van in het begin duidelijk te maken waarover hij later zal lezen. Bv. over effectieve metingen om de vuistregel op te staven wordt pas in sectie 3.1 gesproken.
 \end{itemize}
