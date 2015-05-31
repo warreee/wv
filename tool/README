@@ -1,0 +1,4 @@
+How to use:
+
+1. Create a 'parameters.cfg' file in your Contiki project directory. Fill it in as described in the paper.
+2. Run the metric_eval.py script in the directory. The metric will then be calculated and a decision given to you.
