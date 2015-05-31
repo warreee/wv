@@ -128,6 +128,13 @@ gebied rechtstreeks wordt be\"invloed door deze kwestie: van de ontwikkeling van
 besturingssystemen voor motes over netwerkprotocollen tot studies van
 netwerktopologie\"en.
 
+Daarom is het interessant om te proberen wat meer applicatielogica op de motes
+zelf te draaien, die dan slimmer omgaat met de data en zo probeert energie uit
+te sparen. Bij een eenvoudig temperatuurmetingsscenario zou men kunnen proberen
+om in plaats van voortdurend temperaturen door te sturen verschillende metingen
+te bundelen of er het gemiddelde van te nemen. Daarbij moeten we natuurlijk op
+onze hoede zijn dat we geen te zware berekeningen uitvoeren
+
 Het ontwikkelen van een eenvoudige metric die een programmeur toelaat om snel en
 effici\"ent te evalueren of een bepaalde applicatie op een mote kan gedeployed
 worden of niet zou interessant zijn voor het ontwikkelen van
@@ -171,7 +178,8 @@ h(x)=
 Waarbij:
 
 \begin{itemize}
-\item $C$ de energiekostfunctie is, die de energiekost van een operatie bepaalt;
+\item $C$ de energiekostfunctie is, die de energiekost in millijoule van een
+operatie bepaalt;
 \item $red$ de reductiefunctie is, die een reductie toepast op zijn input
 (m.a.w. zijn input transformeert van een string van $n$ bytes naar een string
 van $m$ bytes);
@@ -652,10 +660,11 @@ samples=201,very thick
 De kost van het verzenden en ontvangen via het netwerk is vrij groot. Dit is
 vooral te wijten aan het aanzetten van de antenne, dat enorm veel energie
 opslorpt ten opzichte van al het andere. Het eigenlijke verzenden kost ook meer
-dan bijv. CPU of RAM, maar als we de overhead van het opstarten buiten
-beschouwing laten, is het nog redelijk. Daardoor is het interessant om de
-antenne zo min mogelijk aan te zetten, en te proberen zoveel mogelijk data te
-bundelen voor verzending om de overhead tot een minimum te beperken.
+dan bijv. CPU of RAM (stroomverbruik 18 \'a 22 mA voor verzenden vs. 13 \'a 20
+mA voor ontvangen, zie \cite{atmega128rfa1}), maar als we de overhead van het opstarten buiten beschouwing
+laten, is het nog redelijk. Daardoor is het interessant om de antenne zo min
+mogelijk aan te zetten, en te proberen zoveel mogelijk data te bundelen voor
+verzending om de overhead tot een minimum te beperken.
 
 Een ander aandachtspunt is dat het niet evenveel kost om te zenden als om te
 ontvangen. Hierover moeten nog een aantal experimenten op punt worden gesteld.
