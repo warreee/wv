@@ -67,7 +67,7 @@ anchor=north east}}
 \linespread{1.3}
 \begin{abstract}
 Wireless sensor networks zijn netwerken die bestaan uit motes: kleine, vaak van
-een batterij voorziene embedded apparaten voorzien van sensoren die in grote
+een batterij voorziene embedded apparaten uitgerust sensoren die in grote
 getale worden uitgezet om data over hun omgeving te vergaren waar mensen dat
 niet willen of kunnen. In dergelijke netwerken wordt vaak veel rekenwerk
 gedelegeerd aan back end computers om de rekenkracht en energievoorraad van de
@@ -87,8 +87,8 @@ waarmee de vuistregel tot stand is gekomen.
 
 \section{Situering \& probleemstelling}
 
-In deze sectie wordt een wat breder beeld gegeven van aspecten van wireless
-sensor networks die voor ons belangrijk zijn, en wordt wat dieper ingegaan op de
+In deze sectie wordt een breder beeld gegeven van aspecten van wireless
+sensor networks die voor ons belangrijk zijn en wordt dieper ingegaan op de
 onderzoeksvraag.
 
 \subsection{Onderzoeksvraag}
@@ -106,7 +106,7 @@ motes niet bewerkt, maar meteen doorgestuurd naar de back end voor verdere
 verwerking, waardoor de rol van de motes bij het verwerken van de data
 geminimaliseerd wordt.
 
-Dit is de na\"iefste aanpak die men kan gebruiken, en steunt net op het deel van
+Dit is de na\"iefste aanpak die men kan gebruiken en steunt net op het deel van
 mote dat het gulzigst is met energie: de antenne.  De vraag dringt zich op: is
 er geen manier om van de weliswaar beperkte rekenkracht van de motes gebruik te
 maken om effici\"enter om te springen met de antenne? En is het mogelijk een
@@ -147,7 +147,7 @@ Een eenvoudige vuistregel, die bepaalt of een stuk applicatielogica al dan niet 
 \section{Voorgestelde oplossing}
 De opzet is simpel: vertrek vanuit de veronderstelling dat de ontwikkelaar een
 stuk applicatielogica rechtstreeks op de motes wilt deployen. Vanuit deze optiek
-kan men abstractie maken van de low-level details van simulatie e.d., en in de plaats daarvan een eenvoudige vuistregel gebruiken (een \textit{code
+kan men abstractie maken van de low-level details van simulatie e.d. en in de plaats daarvan een eenvoudige vuistregel gebruiken (een \textit{code
 deployment metric}). Deze geeft een makkelijke ja/nee-beslissing die zegt of we
 kunnen deployen of niet. Beschouw een functie $h$ (waarbij $h$ staat voor
 `heuristiek') voor deze vuistregel als volgt:
@@ -320,13 +320,13 @@ CPU. Bij de Zigduino is dit 16MHz.
 
 \subsubsection{Reductiefactor.} De reductiefactor is vaak
 niet op het eerste zicht in te schatten. Een voorbeeld: neem dat er een
-temperatuur- en vochtigheidssensor aanwezig is, en dat de programmeur op elk mogelijk moment
- wil weten of het aangenaam of niet aangenaam is waar de mote staat, en die data
+temperatuur- en vochtigheidssensor aanwezig is en dat de programmeur op elk mogelijk moment
+ wil weten of het aangenaam of niet aangenaam is waar de mote staat en die data
 in juist één byte past. Dan is de data met betrekking tot de temperatuur (bijv.
 twee bytes) en de vochtigheidsgraad (bijv. ook twee bytes) gereduceerd naar
 \'e\'en byte. Dit kunnen we zeer gemakkelijk uitwerken.
 
-Maar als men bijvoorbeeld een filter toepast op de gegevens, en enkel data
+Maar als men bijvoorbeeld een filter toepast op de gegevens en enkel data
 verzendt wanneer een significant ander resultaat bekomen wordt dan bij de vorige
 meting, dan wordt de situatie complexer: dan hangt de reductiefactor af van bv.
 hoeveel het resultaat van de vorige metingen moet verschillen om doorgestuurd te
@@ -335,7 +335,7 @@ op zich weer afhangt van allerlei factoren in de omgeving), enzoverder.
 
 In zo'n situatie is het aangewezen om een slimmere schatting te maken. Een optie
 is om via \textit{sense and send} een steekproef te doen van de temperatuur en
-vochtigheidsgraad en hieruit af te leiden hoe sterk de temperatuur en
+vochtigheidsgraad om dan hieruit af te leiden hoe sterk de temperatuur en
 vochtigheidsgraad zullen oscilleren.
 
 Een andere mogelijkheid is het afschatten van de reductiefactor door de
@@ -601,7 +601,7 @@ Voor kostmetingen zijn we als volgt te werk gegaan:
 van de mote waarvan we het energieverbruik willen berekenen. Bijvoorbeeld: een
 programma dat herhaaldelijk bytes naar een buffer in het RAM wil schrijven. 
 \item De meting wordt door een speciaal script verwerkt, dat ons het stroomverbruik geeft voor de stukken afgebakende code.
-\item Maak een inferentie, zodat we de atomische kost kunnen berekenen. Die extrapoleren we dan.
+\item Maak een inferentie, zodat we de atomische kost kunnen berekenen. Die extrapoleren we vervolgens.
 \end{enumerate}
 
 \subparagraph{Schrijven naar RAM}
@@ -620,7 +620,7 @@ Dit is de staat waarin de mote zich het meeste bevindt. Hier gaat hij aan $8Hz$
 kijken of er niet gecommuniceerd moet worden met andere motes - en elke keer
 wordt de antenne aangezet. Om deze toestand te meten heeft men dus enkel een
 lege component nodig die de pin aan en uit zet op een vast interval. Voor het
-verbruik in deze toestand vonden we $224.2mJ$, dit kan ook geverifieerd worden
+verbruik in deze toestand werd $224.2mJ$ gevonden. Dit kan ook geverifieerd worden
 in figuur \ref{fig:energieverbruik_lpl}.
 
 \begin{figure}[h]
@@ -648,12 +648,12 @@ samples=201,very thick
 
 \subparagraph{Verzenden en ontvangen}
 
-De kost van het verzenden en ontvangen via het netwerk is vrij groot. Dit is
+De kost van het verzenden en ontvangen via het netwerk is relatief groot. Dit is
 vooral te wijten aan het aanzetten van de antenne, dat enorm veel energie
 opslorpt ten opzichte van al het andere. Het eigenlijke verzenden kost ook meer
 dan bijv. CPU of RAM, maar als we de overhead van het opstarten buiten
 beschouwing laten, is het nog redelijk. Daardoor is het interessant om de
-antenne zo min mogelijk aan te zetten, en te proberen zoveel mogelijk data te
+antenne zo min mogelijk aan te zetten en te proberen zoveel mogelijk data te
 bundelen voor verzending om de overhead tot een minimum te beperken.
 
 Een ander aandachtspunt is dat het niet evenveel kost om te zenden als om te
@@ -702,9 +702,9 @@ Om dit op te lossen gebruiken we een bovengrens op de CPU kost. We gaan de
 uitvoertijd van de component meten en daarna voor de gegeven duur de maximale
 CPU kracht aanrekenen. Met deze bovengrens wordt er nooit te weinig energie
 aangerekend, maar ook niet excessief veel. Dit komt doordat het verbruik van de
-microcontroller op zich relatief zeer laag is. Vanaf dat we de duur van de
-component hebben, kunnen we theoretisch aan de hand van de datasheet dan afleiden
-van het verbruik van de CPU is, dit zoals te verwachten ook linear (zie figuur
+microcontroller op zich relatief laag is. Vanaf dat we de duur van de
+component hebben, kunnen we theoretisch aan de hand van de datasheet afleiden
+wat het verbruik van de CPU is, dit is zoals te verwachten ook linear (zie figuur
 \ref{fig:energieverbruik_cpu}).\\
 \\
 Merk op dat het praktisch niet mogelijk is om dit verbruik met de oscilloscoop te meten.
@@ -713,16 +713,16 @@ Dit komt doordat een component bijna nooit zuiver alleen CPU gaat gebruiken maar
 \subsection{Toetsing van de metric}
 
 Om de juistheid van onze metric te controleren hebben we het scenario van de
-temperatuurmetingen bestudeerd. Dit scenario hebben we door onze tool laten
+temperatuurmetingen bestudeerd. Dit scenario hebben we door de tool laten
 berekenen om te kijken of het resultaat hiervan overeen kwam met het
-energieverbruik volgens de oscilloscoop. Wat we hier wel buiten beschouwing
-laten is het verbruik door de antenne, dit omdat we dit door tijdsgebrek niet werkende kregen.
+energieverbruik volgens de oscilloscoop. Wat hier wel buiten beschouwing
+wordt gelaten is het verbruik door de antenne, dit omdat het door tijdsgebrek niet op punt kon worden gesteld.
 \todo[inline]{Kunt ge dat beter verwoorden, "niet werkende krijgen"?}
 
 In volgende tabel tonen we het temperatuurscenario waarbij het gemiddelde wordt
 berekend voor een bepaalde hoeveelheid metingen. De twee daarop volgende
 kolommen tonen respectievelijk het verbruik gemeten door de oscilloscoop en de
-hoeveelheid energie die geschat zou worden door onze tool.
+hoeveelheid energie die geschat zou worden door de tool.
 
 Zoals eerder gezegd toont dit niet de hoeveelheid energie verbruikt door de antenne. Hiervan is er abstractie gemaakt. 
 
@@ -752,8 +752,8 @@ een bepaalde berekening beter kan worden uitgevoerd op de mote.
 
 \section{Verder werk.} 
 
-We hebben al een aantal fundamentele zaken behandeld in deze paper. We kunnen
-echter verder gaan.
+Er zijn al een aantal fundamentele zaken behandeld in deze paper. Er kan
+echter nog verder gegaan worden.
  
 \subparagraph{Volledige netwerktopologie\"en.}
 
@@ -767,11 +767,11 @@ aangeeft dat dit stuk applicatielogica op de mote draaien geen goed idee is.
 
 Als we echter kennis hebben van de topologie van het netwerk, kunnen we verder
 redeneren. Die twintig bytes die we verzenden als we het advies van de metric
-volgen moeten immers via een aantal hops de back end bereiken, en bij elke hop
+volgen moeten immers via een aantal hops de back end bereiken en bij elke hop
 moeten die twintig bytes opnieuw doorgestuurd worden. Dat betekent dat we als we
 globaal over heel het netwerk kijken, het kleine energieverlies dat we boeken
 bij het reduceren van twintig bytes naar tien bytes mogelijk gecompenseerd wordt
-door wat we winnen aan verzendkosten over alle hops.
+door wat men wint aan verzendkosten over alle hops.
 
 Wat zich hier aanbiedt is een manier om uit onze eenvoudige metric een nieuwe
 metric te induceren die de topologie exploiteert om lokale energieverliezen om
@@ -808,7 +808,7 @@ Op de x-as staat de hoeveelheid data die nog verzonden moet worden na de bewerki
 
 Op de y-as staat de hoeveelheid energie die nodig is om een bepaalde actie uit te voeren.
 De oranje lijn staat voor de energie die nodig is om het aantal bytes na reductie te verzenden. Deze is dalend aangezien een kleinere hoeveelheid bytes om te verzenden natuurlijk minder energie vergt. Ze convergeert niet naar nul maar naar de vaste kost die nodig is om de antenne aan te zetten.
-De blauwe lijn staat voor de energiekost van de reductie. In deze hypothese wordt er van uitgegaan dat de moeiljkheid om een grotere reductie te krijgen, telkens stijgt (wat ook meestal het geval is bij compressie). Dit brengt ook een steeds stijgende energiekost met zich mee, vandaar het stijgend verloop.
+De blauwe lijn staat voor de energiekost van de reductie. In deze hypothese wordt er van uitgegaan dat de moeilijkheid om een grotere reductie te krijgen telkens stijgt (wat ook meestal het geval is bij compressie). Dit brengt ook een steeds stijgende energiekost met zich mee, vandaar het stijgend verloop.
 De groene lijn stelt dan de som voor van de blauwe en oranje lijn. Het minimum van deze kromme is aangeduid in het rood en is de zogenaamde \textit{sweet spot}. 
 
 \section{Conclusie}
@@ -818,11 +818,11 @@ overzicht gegeven van manieren om de kosten die we in de metric gebruiken te
 berekenen. Dit wordt allemaal ge\"integreerd in een tool.
 
 We hebben ook aangetoond dat het vaak mogelijk is om energiewinst te boeken ten
-opzichte van \textit{sense and send}, en dat deze winst enigszins
+opzichte van \textit{sense and send} en dat deze winst enigszins
 kwantificeerbaar is met behulp van de metric. We ontwikkelden een eenvoudig
 formalisme om de winstpunten ten opzichte van \textit{sense and send} te duiden,
 dit in de vorm van de parametrisatie die we hebben aangewend voor het
-configureren van onze tool.
+configureren van de tool.
 
 Tenslotte hebben we een aanzet gegeven tot verdere ontwikkeling van de idee\"en
 die in deze paper zijn voorgesteld. We beschouwen onze oorspronkelijke opzet als
