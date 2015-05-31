@@ -63,7 +63,7 @@ anchor=north east}}
 
 \maketitle
 
-\listoftodos
+% \listoftodos
 % \linespread{1.3}
 \begin{abstract}
 Wireless sensor networks zijn netwerken die bestaan uit motes: kleine, vaak van
@@ -207,7 +207,7 @@ De aandachtige lezer stelt zich meteen de vraag: hoe kan men de kost van zo'n
 reductie in het algemeen schatten? Laat de programmeur, die zijn programma goed
 kent, ingrijpen. Als input voor de vuistregel is er dan niet enkel het
 gecompileerde programma, maar ook een aantal parameters. Deze zijn bijvoorbeeld:
-\todo[inline]{Allemaal opgeven, zodra het programma geschreven is.}
+% \todo[inline]{Allemaal opgeven, zodra het programma geschreven is.}
 
 \begin{itemize}
 \item \textbf{Sensordata.} Hoe groot is de sensordata? Hoe vaak komt er sensordata binnen?
@@ -413,15 +413,12 @@ van de metric op gang door middel van de gegeven parameters.
 
 Stel dat we een opstelling hebben waarbij de mote temperatuurmetingen moet
 uitvoeren. Dit gebeurt elke seconde; elke meting is twee bytes groot. De
-back end hoeft echter niet in real time op de hoogte te worden gebracht van deze
+back-end hoeft echter niet in real time op de hoogte te worden gebracht van deze
 metingen, maar heeft genoeg aan \'e\'en stuk temperatuurdata per
-minuut. Verschillende strategie\"en bieden zich aan, ze worden telkens getoond met de bijhorende parameters en voor evaluatie werd de tool gebruikt. Voor de exacte berekening verwijzen wij ?????????????????
+minuut. Verschillende strategie\"en bieden zich aan, ze worden telkens getoond
+met de bijhorende parameters en voor evaluatie werd de tool gebruikt. Voor de
+exacte berekening hebben we onze tool gebruikt.
 
-% De tool gebruikt volgende formule voor de energie berekening: 
-
-%$ 8.144 \cdot 10^{-5} mJ/Byte \cdot sensor\_ data\_ size \cdot sensor\_ data\_ frequency +  0.0037A \cdot reduction\_  cpu\_ time \cdot 6V + 0.04A \cdot ( $
-
-\todo[inline]{Ben er mee gestopt, de formule is te lang om hier te zetten, we zouden die dan ook nog moeten uitleggen en vanwaar alles komt, ik zou dat niet doen, zeker omdat we niet zeker zijn dat dit helemaal juist is. Ik zou een soort verwijzing naar de tool zetten?}
 \begin{enumerate}
 \item \textbf{Sense and send.} Van zodra een meting binnenkomt wordt hij doorgestuurd.
 
@@ -879,7 +876,15 @@ Tenslotte hebben we een aanzet gegeven tot verdere ontwikkeling van de idee\"en
 die in deze paper zijn voorgesteld. We beschouwen onze oorspronkelijke opzet als
 geslaagd, maar werken nog naarstig door aan verfijningen.
 
-Voor alle datasets, code en presentaties kan men terecht op: \url{http://cdm.wardschodts.ws}
+Voor alle datasets, code en presentaties kan men terecht op:
+\url{http://cdm.wardschodts.ws}
+
+\section{Dankwoord}
+
+We zouden graag onze begeleiders prof. Danny Hughes en Klaas Thoelen bedanken
+voor hun uitstekende begeleiding, en ook Gowri Sankar Ramachandran en Wilfried
+Dani\"els voor hun technische hulp.
+
 
 \bibliographystyle{named}
 \nocite{*}
