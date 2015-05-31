@@ -67,17 +67,17 @@ anchor=north east}}
 \linespread{1.3}
 \begin{abstract}
 Wireless sensor networks zijn netwerken die bestaan uit motes: kleine, vaak van
-een batterij voorziene embedded apparaten voorzien van sensoren die in groten
+een batterij voorziene embedded apparaten voorzien van sensoren die in grote
 getale worden uitgezet om data over hun omgeving te vergaren waar mensen dat
 niet willen of kunnen. In dergelijke netwerken wordt vaak veel rekenwerk
-gedelegeerd aan back-end computers om de rekenkracht en energievoorraad van de
+gedelegeerd aan back end computers om de rekenkracht en energievoorraad van de
 motes niet te taxeren. 
 
 In deze paper wordt onderzocht of dit wel een goede strategie is. We stellen
 hiertoe een simpele vuistregel voor. Deze kan dienen om te beslissen of een
 bepaald stuk applicatielogica lokaal op een mote kan draaien, zonder meer
-energie te verbruiken of minder goede performantie te bekomen dan als het op een
-backend zou uitgevoerd worden. Er wordt ook een tool getoond die deze vuistregel
+energie te verbruiken of een minder goede performantie te bekomen dan als het op een
+back end zou uitgevoerd worden. Er wordt ook een tool getoond die deze vuistregel
 kan toepassen. Deze gebruikt de kennis van de programmeur en een aantal
 basiseigenschappen van het te draaien programma om deze beslissing te maken. We
 geven ook een aanzet tot het breder en preciezer toepassen van de technieken
@@ -102,7 +102,7 @@ Een typische mote heeft erg beperkte reken- en opslagcapaciteit, wat
 effici\"ente multiprogrammatie verhindert. In het algemeen gaat men daarom een
 simpele strategie toepassen voor dataverwerking, waarbij de mote \'e\'en enkele
 verantwoordelijkheid heeft, het zgn. 'sense and send': sensordata wordt op de
-motes niet bewerkt, maar meteen doorgestuurd naar de backend voor verdere
+motes niet bewerkt, maar meteen doorgestuurd naar de back end voor verdere
 verwerking, waardoor de rol van de motes bij het verwerken van de data
 geminimaliseerd wordt.
 
@@ -130,14 +130,14 @@ netwerktopologie\"en.
 
 Het ontwikkelen van een eenvoudige metric die een programmeur toelaat om snel en
 effici\"ent te evalueren of een bepaalde applicatie op een mote kan gedeployed
-worden of niet zou interessant zijn voor het ontwikkelen van
+worden of niet, zou interessant zijn voor het ontwikkelen van
 energie-effici\"ente IoT-systemen. Bovendien zou daarmee een waardevolle
-bijdrage kunnen geleverd worden over het ontwikkelen van IoT-architecturen in
+bijdrage kunnen geleverd worden aan het ontwikkelen van IoT-architecturen in
 het algemeen.
 
 \subsection{Onderzoeksopgave}
 
-Een eenvoudige vuistregel, die bepaalt of een stuk applicatielogica al dan niet op een mote thuishoort of niet en bovendien voldoet aan volgende eigenschappen:
+Een eenvoudige vuistregel, die bepaalt of een stuk applicatielogica al dan niet op een mote thuishoort en bovendien voldoet aan volgende eigenschappen:
 \begin{itemize}
 \item In de grote meerderheid van de gevallen een juiste beslissing maken;
 \item eenvoudig te integreren in de ontwikkelingscyclus;
@@ -313,7 +313,7 @@ parameters te schatten:
 methode om bijna volledig automatisch te bepalen hoeveel CPU-tijd het uitvoeren
 van de reductie ongeveer kost. Deze is echter nog niet volledig op punt. Een
 andere methode is het gebruik van een fysiek meetapparaat om op een soortgelijke
-wijze als bij de energiemetingen te kijken hoe lang het duurt voor de reductie
+wijze als bij de energiemetingen te kijken hoelang het duurt voor de reductie
 uitgevoerd is. Dit geeft een harde bovengrens voor de gebruikte CPU-cycli: we
 hoeven slechts deze tijd te vermenigvuldigen met de klokfrequentie van de
 CPU. Bij de Zigduino is dit 16MHz.
@@ -369,7 +369,7 @@ van de metric op gang door middel van de gegeven parameters.
 
 Stel dat we een opstelling hebben waarbij de mote temperatuurmetingen moet
 uitvoeren. Dit gebeurt elke seconde; elke meting is twee bytes groot. De
-back-end hoeft echter niet in real time op de hoogte te worden gebracht van deze
+back end hoeft echter niet in real time op de hoogte te worden gebracht van deze
 metingen, maar heeft genoeg aan \'e\'en stuk temperatuurdata per
 minuut. Verschillende strategie\"en bieden zich aan:
 \begin{enumerate}
@@ -419,7 +419,7 @@ data_reduction = 2
 \subparagraph{Evaluatie metric.} 819.8mJ per tijdseenheid i.p.v.
 1639mJ per tijdseenheid. Beslissing: deze aanpak bespaart energie ten opzichte
 van de na\"ieve strategie. We kunnen de applicatielogica lokaal op de mote laten
-draaien..
+draaien.
 
 \item \textbf{Aggregator.} We houden de metingen bij in een buffer en sturen elke
 minuut alles in \'e\'en keer door.
@@ -442,7 +442,7 @@ transmit_reduction = 60
 data_reduction = 1
 \end{verbatim}
 \subparagraph{Evaluatie metric.} 27.33mJ per tijdseenheid i.p.v. 1639mJ per
-tijdseenheid. Beslissing: deze aanpak bespaart energie ten opzichte van de na\"ieve strategie. We kunnen de applicatielogica lokaal op de mote laten draaien..
+tijdseenheid. Beslissing: deze aanpak bespaart energie ten opzichte van de na\"ieve strategie. We kunnen de applicatielogica lokaal op de mote laten draaien.
 
 \item \textbf{Gemiddelde.} Houd de metingen bij in een buffer en bereken
 het gemiddelde hiervan elke minuut.
@@ -599,8 +599,8 @@ Voor kostmetingen zijn we als volgt te werk gegaan:
 \begin{enumerate}
 \item Een ruwe meting: schrijf een programma dat beroep doet op een deel
 van de mote waarvan we het energieverbruik willen berekenen. Bijvoorbeeld: een
-programma dat herhaaldelijk bytes naar een buffer in het RAM. 
-\item De meting wordt door een speciaal script dat ons het stroomverbruik geeft voor de stukken afgebakende code.
+programma dat herhaaldelijk bytes naar een buffer in het RAM wil schrijven. 
+\item De meting wordt door een speciaal script verwerkt, dat ons het stroomverbruik geeft voor de stukken afgebakende code.
 \item Maak een inferentie, zodat we de atomische kost kunnen berekenen. Die extrapoleren we dan.
 \end{enumerate}
 
@@ -614,7 +614,7 @@ moet worden gerefreshed. Schrijfoperaties worden in deze refresh-cycli
 ge\"integreerd zodat ze haast gratis zijn. Als bewijs hiervan hebben we het energieverbruik vergeleken met dat van het in low-power listening. 
 De vergelijking kan gezien worden op figuur \ref{fig:energieverbruik_idle_vs_RAM}.\\
 \\
-De x-as geeft aan hoelang dat de mote idle is of hoe lang er bytes geschreven worden naar het RAM geheugen. Aan de hand van figuur \ref{fig:tijdsduur_ram} hebben we kunnen berekenen hoeveel bytes er in een bepaalde tijdsduur worden weggeschreven. Voor $1ms$ is dit ongeveer al 3000 bytes. Vandaar dat, hoewel het misschien lijkt dat naar RAM schrijven een kost heeft, deze kost nooit wordt gehaald aangezien er nooit zoveel bytes ineens gaan worden geschreven. Het grote aantal bytes dat zou geschreven worden staat op de tweede x-as bovenaan op figuur \ref{fig:energieverbruik_idle_vs_RAM}. 
+De x-as geeft aan hoelang dat de mote idle is of hoelang er bytes geschreven worden naar het RAM geheugen. Aan de hand van figuur \ref{fig:tijdsduur_ram} hebben we kunnen berekenen hoeveel bytes er in een bepaalde tijdsduur worden weggeschreven. Voor $1ms$ is dit ongeveer al 3000 bytes. Vandaar dat, hoewel het misschien lijkt dat naar RAM schrijven een kost heeft, deze kost nooit wordt gehaald aangezien er nooit zoveel bytes ineens gaan worden geschreven. Het grote aantal bytes dat zou geschreven worden staat op de tweede x-as bovenaan op figuur \ref{fig:energieverbruik_idle_vs_RAM}. 
 \subparagraph{Low-power listening}
 Dit is de staat waarin de mote zich het meeste bevindt. Hier gaat hij aan $8Hz$
 kijken of er niet gecommuniceerd moet worden met andere motes - en elke keer
@@ -686,7 +686,7 @@ samples=201,very thick
 \subparagraph{Basisverbruik}
 
 Het complete basisverbruik is makkelijk te meten. De component op de mote hoeft
-niets doen, net zoals bij Low-power listening. Het enige verschil nu is dat er
+niets doen, net zoals bij low-power listening. Het enige verschil nu is dat er
 expliciet moet gezegd worden dat de antenne uit staat.
 De metingen voor dit verbruik zijn te vinden op figuur \ref{fig:energieverbruik_antenne_uit}.
 
@@ -703,7 +703,7 @@ uitvoertijd van de component meten en daarna voor de gegeven duur de maximale
 CPU kracht aanrekenen. Met deze bovengrens wordt er nooit te weinig energie
 aangerekend, maar ook niet excessief veel. Dit komt doordat het verbruik van de
 microcontroller op zich relatief zeer laag is. Vanaf dat we de duur van de
-component hebben kunnen we theoretisch aan de hand van de datasheet dan afleiden
+component hebben, kunnen we theoretisch aan de hand van de datasheet dan afleiden
 van het verbruik van de CPU is, dit zoals te verwachten ook linear (zie figuur
 \ref{fig:energieverbruik_cpu}).\\
 \\
@@ -722,7 +722,7 @@ laten is het verbruik door de antenne, dit omdat we dit door tijdsgebrek niet we
 In volgende tabel tonen we het temperatuurscenario waarbij het gemiddelde wordt
 berekend voor een bepaalde hoeveelheid metingen. De twee daarop volgende
 kolommen tonen respectievelijk het verbruik gemeten door de oscilloscoop en de
-hoeveelheid enrgie die geschat zou worden door onze tool.
+hoeveelheid energie die geschat zou worden door onze tool.
 
 Zoals eerder gezegd toont dit niet de hoeveelheid energie verbruikt door de antenne. Hiervan is er abstractie gemaakt. 
 
@@ -757,7 +757,7 @@ echter verder gaan.
  
 \subparagraph{Volledige netwerktopologie\"en.}
 
-Stel dat de vuistregel voor een bepaalde stuk applicatielogica beslist dat het
+Stel dat de vuistregel voor een bepaald stuk applicatielogica beslist dat het
 best niet op een mote wordt gedeployed. Dan kan het zijn dat deze beslissing met
 een krappe marge is genomen. Bijvoorbeeld: we zitten met sensordata van telkens
 twintig bytes, sturen met dezelfde frequentie als \textit{sense and send} data door, maar
@@ -767,7 +767,7 @@ aangeeft dat dit stuk applicatielogica op de mote draaien geen goed idee is.
 
 Als we echter kennis hebben van de topologie van het netwerk, kunnen we verder
 redeneren. Die twintig bytes die we verzenden als we het advies van de metric
-volgen moeten immers via een aantal hops de back-end bereiken, en bij elke hop
+volgen moeten immers via een aantal hops de back end bereiken, en bij elke hop
 moeten die twintig bytes opnieuw doorgestuurd worden. Dat betekent dat we als we
 globaal over heel het netwerk kijken, het kleine energieverlies dat we boeken
 bij het reduceren van twintig bytes naar tien bytes mogelijk gecompenseerd wordt
@@ -808,7 +808,7 @@ Op de x-as staat de hoeveelheid data die nog verzonden moet worden na de bewerki
 
 Op de y-as staat de hoeveelheid energie die nodig is om een bepaalde actie uit te voeren.
 De oranje lijn staat voor de energie die nodig is om het aantal bytes na reductie te verzenden. Deze is dalend aangezien een kleinere hoeveelheid bytes om te verzenden natuurlijk minder energie vergt. Ze convergeert niet naar nul maar naar de vaste kost die nodig is om de antenne aan te zetten.
-De blauwe lijn staat voor de energiekost van de reductie. In deze hypothese wordt er van uitgegaan dat de moeiljkheid om een grotere reductie te krijgen, telkens stijgt (wat ook meestal het geval is bij compressie). Dit brengt ook een steeds stijgende energie kost met zich mee, vandaar het stijgend verloop.
+De blauwe lijn staat voor de energiekost van de reductie. In deze hypothese wordt er van uitgegaan dat de moeiljkheid om een grotere reductie te krijgen, telkens stijgt (wat ook meestal het geval is bij compressie). Dit brengt ook een steeds stijgende energiekost met zich mee, vandaar het stijgend verloop.
 De groene lijn stelt dan de som voor van de blauwe en oranje lijn. Het minimum van deze kromme is aangeduid in het rood en is de zogenaamde \textit{sweet spot}. 
 
 \section{Conclusie}
@@ -828,7 +828,7 @@ Tenslotte hebben we een aanzet gegeven tot verdere ontwikkeling van de idee\"en
 die in deze paper zijn voorgesteld. We beschouwen onze oorspronkelijke opzet als
 geslaagd, maar werken nog naarstig door aan verfijningen.
 
-Voor alle datasets, code, presentaties kan men terecht op: \url{http://cdm.wardschodts.ws}
+Voor alle datasets, code en presentaties kan men terecht op: \url{http://cdm.wardschodts.ws}
 
 \bibliographystyle{named}
 \nocite{*}
