@@ -147,8 +147,7 @@ Een eenvoudige vuistregel, die bepaalt of een stuk applicatielogica al dan niet 
 \section{Voorgestelde oplossing}
 De opzet is simpel: vertrek vanuit de veronderstelling dat de ontwikkelaar een
 stuk applicatielogica rechtstreeks op de motes wilt deployen. Vanuit deze optiek
-kan men abstractie maken van de low-level details van simulatie e.d., en in de plaats
-in plaats daarvan een eenvoudige vuistregel gebruiken (een \textit{code
+kan men abstractie maken van de low-level details van simulatie e.d., en in de plaats daarvan een eenvoudige vuistregel gebruiken (een \textit{code
 deployment metric}). Deze geeft een makkelijke ja/nee-beslissing die zegt of we
 kunnen deployen of niet. Beschouw een functie $h$ (waarbij $h$ staat voor
 `heuristiek') voor deze vuistregel als volgt:
@@ -192,7 +191,7 @@ wanneer een meting binnenkomt nul wordt, behalve als de buffer waarin data wordt
 opgeslagen vol is. \footnote{Merk ook op dat de kost van het verzenden van gegevens
 niet lineair is -- er is geen garantie dat $cost(transfer(x)) +
 cost(transfer(y)) = cost(transfer(x + y))$. In een keer $x + y$ bytes versturen
-kan dus voordeliger uitkomen dan $x$ en $y$ bytes apart te verzenden. Let wel: $transfer$ is wel lineair in de zin dat als we de kost ervan plotten, we een lijn te zien krijgen. } 
+kan dus voordeliger uitkomen dan $x$ en $y$ bytes apart te verzenden. Let wel: $transfer$ is wel lineair in de zin dat als we de kost ervan plotten, we een rechte lijn te zien krijgen. } 
 Ook een combinatie van beide is mogelijk: men kan bijvoorbeeld de buffer
 comprimeren door reeksen identieke metingen samen te nemen (filter +
 aggregator). Dit zou theoretisch gezien een grotere winst moeten opleveren.
@@ -221,7 +220,7 @@ kosteenheden voor de drie componenten van het energieverbruik die een
 programmeur kan be\"invloeden:
 
 \begin{itemize}
-\item \textbf{opslag}: hoeveel kost het om $n$ bytes op te slaan in het RAM?\footnote{Men zou ook geneigd zijn om data op te slaan op het EEPROM. In dit onderzoek is dat echter achterwege gelaten omdat dat blijkbaar niet vaak gebruikt wordt en bovendien een hoge kost blijkt te hebben ten opzichte van opslag in het RAM.}
+\item \textbf{opslag}: hoeveel kost het om $n$ bytes op te slaan in het RAM?\footnote{\todo[inline]{nazien}Men zou ook geneigd zijn om data op te slaan op het EEPROM. In dit onderzoek is dat echter achterwege gelaten aangezien dit een hoge kost qua energieverbruik blijkt te hebben ten opzichte van opslag in het RAM. Hetzelfde kan ook gezegd worden over oplsag naar het FLASH-geheugen.}
 \item \textbf{berekeningen}: hoeveel kosten $n$ seconden CPU-tijd?
 \item \textbf{overdracht}: hoeveel kost het om $n$ bytes te verzenden; hoeveel
 kost het om de antenne aan en uit te zetten?
@@ -252,7 +251,7 @@ volgende circuit:
 \end{figure}
 
 De oscilloscoop meet de spanning in het circuit. De weerstand kan aan en uit
-worden gezet door de mote door het pin-outsignaal te flippen. Er is enkel stroom
+worden gezet door op de mote het pin-outsignaal te flippen. Er is enkel stroom
 in het circuit verbonden aan de pin-out als het signaal op hoog staat; die
 periodes zijn duidelijk af te lezen op de output van oscilloscoop en komen
 overeen met de periodes waarin de code waarvan we het energiegebruik willen
@@ -422,7 +421,7 @@ data_reduction = 2
 van de na\"ieve strategie. We kunnen de applicatielogica lokaal op de mote laten
 draaien..
 
-\item{ \textbf{Aggregator.} We houden de metingen bij in een buffer en sturen elke
+\item \textbf{Aggregator.} We houden de metingen bij in een buffer en sturen elke
 minuut alles in \'e\'en keer door.
 
 We hanteren volgende parameters:
@@ -467,8 +466,8 @@ transmit_reduction = 60
 data_reduction = 60
 \end{verbatim}
 
-\subparagraph{Evaluatie metric.} 38.15mJ per tijdseenheid i.p.v. 1639mJ per tijdseenheid. Beslissing: deze aanpak bespaart energie ten opzichte van de na\"ieve strategie. We kunnen de applicatielogica lokaal op de mote laten draaien..
-
+\subparagraph{Evaluatie metric.} 38.15mJ per tijdseenheid i.p.v. 1639mJ per tijdseenheid. Beslissing: deze aanpak bespaart energie ten opzichte van de na\"ieve strategie. We kunnen de applicatielogica lokaal op de mote laten draaien.
+Merk op dat in veel praktische scenario's er niet de mogelijkheid bestaat om 60 keer minder vaak uit te zenden zoals hier het geval is.
 \end{enumerate}
 \section{Resultaten}
 
@@ -717,8 +716,8 @@ Om de juistheid van onze metric te controleren hebben we het scenario van de
 temperatuurmetingen bestudeerd. Dit scenario hebben we door onze tool laten
 berekenen om te kijken of het resultaat hiervan overeen kwam met het
 energieverbruik volgens de oscilloscoop. Wat we hier wel buiten beschouwing
-laten is het verbruik door de antenne, dit omdat we dit niet werkende kregen.
-% \todo[inline]{Kunt ge dat beter verwoorden, "niet werkende krijgen"?}
+laten is het verbruik door de antenne, dit omdat we dit door tijdsgebrek niet werkende kregen.
+\todo[inline]{Kunt ge dat beter verwoorden, "niet werkende krijgen"?}
 
 In volgende tabel tonen we het temperatuurscenario waarbij het gemiddelde wordt
 berekend voor een bepaalde hoeveelheid metingen. De twee daarop volgende
@@ -748,7 +747,7 @@ Zoals eerder gezegd toont dit niet de hoeveelheid energie verbruikt door de ante
 
 De laatste kolom geeft de afwijking van onze metric weer. Ze toont dus een
 lichte overschatting van de hoeveelheid energie die verbruikt wordt. Dit is
-geenszins een probleem, aangezien onze metric dan nooit te snel gaat zeggen dat
+geenszins een probleem, aangezien onze metric dan nooit te snel gaat voorspellen dat
 een bepaalde berekening beter kan worden uitgevoerd op de mote.
 
 \section{Verder werk.} 
